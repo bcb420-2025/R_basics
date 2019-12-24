@@ -1,0 +1,185 @@
+# Subsetting and filtering R objects {#r-subsetting}
+(Subsetting with the [], [[]], and $ operators, filtering)
+
+
+ 
+## Overview
+### Abstract:
+Subsetting and filtering are among the most important operations with data. R provides powerful syntax for these operations. Learn about and practice them in this unit.
+
+### Objectives:
+
+This unit will:
+
+  * introduce subsetting principles;
+  * practice them on data;
+
+### Outcomes:
+
+After working through this unit you:
+
+  * can subset and filter data according to six different principles.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites 
+[RPR-Objects-Lists (R "Lists")](#r-lists)
+
+
+## Subsetting
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open.
+Type init() as instructed after the project has loaded.
+Continue below.
+```
+
+We have encountered "subsetting" before, but we really need to discuss this in more detail. It is one of the most important topics of **R** since it is indispensable to select, transform, and otherwise modify data to prepare it for analysis. You have seen that we use square brackets to indicate individual elements in vectors and matrices. These square brackets are actually "operators", and you can find more information about them in the help pages:
+
+```{r}
+?"["     # Note that you need quotation marks around the operator for this.
+```
+
+
+**Note especially:**
+
+  * [ ] "extracts" one or more elements defined within the brackets;
+  * [[ ]] "extracts" a single element defined within the brackets;
+  * $ "extracts" a single named element.
+  * "Elements" are not necessarily scalars, but can apply to a row, column, or more complex data structure. But a "single element" can't be a range, or collection.
+
+
+```{r include=FALSE}
+( plasmidData <- read.table(file.path("data_files","plasmidData.tsv"),
+                            sep="\t",
+                            header=TRUE,
+                            stringsAsFactors = FALSE) )
+objectInfo(plasmidData)
+
+```
+
+Here are some examples of subsetting data from the plasmidData data frame we constructed previously. For the most part, this is review:
+
+```{r}
+plasmidData[1, ]
+```
+
+```{r}
+plasmidData[2, ]
+```
+
+ 
+```{r}
+# we can extract more than one row by specifying
+# the rows we want in a vector ...
+plasmidData[c(1, 2), ]
+```
+
+```{r}
+# ... this works in any order ...
+plasmidData[c(3, 1), ]
+```
+```{r}
+# ... and for any number of rows ...
+plasmidData[c(1, 2, 1, 2, 1, 2), ]
+```
+```{r}
+# Same for columns
+plasmidData[ , 2 ]
+```
+ 
+ 
+```{r}
+# We can select rows and columns by name if a name has been defined...
+plasmidData[, "Name"]
+plasmidData$Name      # different syntax, same thing. This is the syntax I use most frequently.
+```
+
+ 
+```{r}
+# Watch this!
+plasmidData$Name[plasmidData$Ori != "ColE1"]
+# What happened here?
+# plasmidData$Ori != "ColE1" is a logical expression, it gives a vector of TRUE/FALSE values
+plasmidData$Ori != "ColE1"
+```
+
+```{r}
+# We insert this vector into the square brackets. R then returns all rows for
+# which the vector is TRUE.
+ 
+# In this way we can "filter" for values
+plasmidData$Size > 3000
+plasmidData$Name[plasmidData$Size > 3000]
+```
+ 
+```{r}
+# This principle is what we use when we want to "sort" an object
+# by some value. The function order() is used to return values
+# that are sorted. Remember this: not sort() but order().
+order(plasmidData$Size)
+plasmidData[order(plasmidData$Size), ]
+```
+ 
+```{r}
+# grep() matches substrings in strings and returns a vector of indices
+grep("Tet", plasmidData$Marker)
+plasmidData[grep("Tet", plasmidData$Marker), ]
+plasmidData[grep("Tet", plasmidData$Marker), "Ori"]
+
+```
+
+Elements that can be extracted from an object also can be replaced. Simply assign the new value to the element.
+ 
+```{r}
+( x <- sample(1:10) )
+x[4] <- 99
+x
+( x <- x[order(x)] )
+```
+
+Try your own subsetting ideas. Play with this. I find that even seasoned investigators have problems with subsetting their data and if you become comfortable with the many ways of subsetting, you will be ahead of the game right away.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+ 
+```{block, type="rmd-task"}
+  * The R-Exercise_BasicSetup project contains a file subsettingPractice.R
+  * Open the file and work through it.
+```
+
+## Self-evaluation
+
+## Further reading, links and resources
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2018-05-05<br>
+Version: 1.0.1<br>
+**Version history**:<br>
+1.0.1 Maintenace<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

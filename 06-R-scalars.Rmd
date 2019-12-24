@@ -1,0 +1,559 @@
+# R scalars and vectors {#r-scalars}
+(Types of R objects: scalars, vectors and matrices)
+
+## Overview
+### Abstract:
+Introduction to vector objects in R: what are they, how are they created, how can they be subset?
+
+### Objectives:
+
+This unit will:
+
+  * introduce scalars, vectors and matrices;
+  * demonstrate vectorized operations;
+  * teach various ways of subsetting;
+
+### Outcomes:
+
+After working through this unit you:
+
+  * can create vectors by assignment from sequences or using the c();
+  * are familar with subsetting by index, name, and boolean vectors;
+  * can subset elements, ranges, and slices from vectors and matrices;
+  * can combine objects with c(), rbind(), or cbind().
+  
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites 
+[RPR-Syntax_basics (Basics of R syntax)](#r-syntax)
+
+ 
+**R** objects can be composed of different kinds of data according to the type and number of "atomic" values they contain:
+
+  * Scalar items are single values;
+  * Vectors are ordered sequences of scalars, they must all have the same "data type" (e.g. numeric, logical, character ...);
+  * Matrices are vectors for which one or more "dimension(s)" have been defined;
+  * "Data frames"" are spreadsheet-like objects, their columns are like vectors and all columns must have the same length, but within one data frame, columns can have different data types. They are the most commonly used type of object to hold data;
+  * Lists are the most general collection of data items, the can contain items of any type and kind, including matrices, functions, data frames, and other lists.
+
+ 
+## Scalar data
+
+Scalars are single numbers, the "atomic" parts of more complex datatypes. Of course we can work with single numbers in R, but under the hood they are actually vectors of length 1. (More on vectors in the next section). To create a scalar object, simply assign some value to its name.
+
+```{r}
+x <- pi       # define a scalar by assignment
+x             # its value is ...
+length(x)     # its length is ...
+x[1]          # it is actually a vector, and its first element is ...
+x[2]          # a second element does not exist NA: Not Available
+```
+
+Here are some remarks on the types of scalars **R** uses, and on coercion between types, i.e. casting one datatype into another. The following scalar types are supported:
+
+  * Boolean constants: TRUE and FALSE. This type has the "mode" logical;
+  * Integers, floats (floating point numbers) and complex numbers. These types have the mode numeric;
+  * Strings. These have the mode character.
+  * Other modes exist, such as list, function and expression, all of which can be combined into complex objects.
+
+The function mode() returns the mode of an object and typeof() returns its type. Also class() tells you what class it belongs to.
+
+```{r}
+typeof(TRUE)
+class(3L)
+mode(print)
+```
+
+I have combined these information functions into a single function, objectInfo() which gets loaded and defined when you execute the init() function of the BasicSetup project, so you can explore objects in more detail. We can use objectInfo() to explore how R objects are made up, by handing various expressions as arguments to the function. Many of these you may not yet recognize ... bear with it though:
+
+```{r include=FALSE}
+objectInfo <- function(x) {
+    # Function to combine various information items about R objects
+    #
+    # Input: an R object
+    # Value: none - prints information as side-effect
+
+    cat("object contents:")
+    print(x, digits = 22)  # print value at maximal precision
+
+    cat("\nstructure of object:\n")
+    str(x)
+
+    if (! is.list(x)) { # Don't use cat() if x is a list. cat() can't handle lists.
+        cat("\nmode:   ", mode(x), "\n")
+        cat("typeof: ", typeof(x), "\n")
+        cat("class:  ", class(x), "\n")
+    }
+
+    # if the object has attributes, print them too
+    if (! is.null(attributes(x))) {
+        cat("\nattributes:\n")
+        attributes(x)
+    }
+    # Done
+}
+```
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open.
+Type init() as instructed after the project has loaded.
+Continue below.
+```
+
+```{r, eval=FALSE}
+#Let's have a brief look at the function itself: typing a function name without its parentheses returns the source code for the function:
+objectInfo
+
+# Various objects:
+ 
+#Scalars:
+objectInfo( 3.0 )    # Double precision floating point number
+objectInfo( 3.0e0 )  # Same value, exponential notation
+ 
+objectInfo( 3 )   # Note: integers are double precision floats by default.
+objectInfo( 3L )  # If we really want an integer, we must use R's
+                  # special integer notation ...
+objectInfo( as.integer(3) )  # or explicitly "coerce" to type integer...
+ 
+# Coercions: For each of these, first think what result you would expect:
+objectInfo( as.character(3) )  # Forcing the number to be interpreted as a character.
+objectInfo( as.numeric("3") )   # character as numeric
+objectInfo( as.numeric("3.141592653") )  # string as numeric. Where do the
+                                         # non-zero digits at the end come from?
+objectInfo( as.numeric(pi) )    # not a string, but a predefined constant
+objectInfo( as.numeric("pi") )  # another string as numeric ... Ooops -
+                                # why the warning?
+objectInfo( as.complex(1) )
+ 
+objectInfo( as.logical(0) )
+objectInfo( as.logical(1) )
+objectInfo( as.logical(-1) )
+objectInfo( as.logical(pi) )      # any non-zero number is TRUE ...
+objectInfo( as.logical("pie") )   # ... but not non-numeric types.
+                                  # NA means "Not Available".
+objectInfo( as.character(pi) )    # Interesting: the conversion eats digits.
+ 
+objectInfo( Inf )                # Larger than the largest representable number
+objectInfo( -Inf )               # ... or smaller
+objectInfo( NaN )                # "Not a Number" is numeric
+objectInfo( NA )                 # "Not Available" - i.e. missing value is
+                                 # logical by default
+ 
+# NULL
+objectInfo( NULL )  # NULL is nothing. Not 0, not NaN,
+                    # not FALSE - nothing. NULL is the value that is returned
+                    # by expressions or functions when the result is
+                    # undefined and nothing more can be said about it.
+ 
+objectInfo( as.factor("M") )     # factor
+objectInfo( Sys.time() )         # time
+objectInfo( letters )            # inbuilt character vector
+objectInfo( LETTERS )            # same
+objectInfo( 1:4 )                # numeric vector
+objectInfo( matrix(1:4, nrow=2)) # numeric matrix
+objectInfo( data.frame(arabic = 1:3,                           # data frame
+                       roman = c("I", "II", "III"),
+                       stringsAsFactors = FALSE))
+objectInfo( list(arabic = 1:7,
+                 roman = c("I", "II", "III"),
+                 chinese = c("一", "二", "三", "四")))   # list
+ 
+# Expressions:
+objectInfo( 3 > 5 ) # Note: any combination of two variables via the logical
+                    # operators ! == != > < >= <= | || & and && is a
+                    # logical expression, and evaluates to TRUE or FALSE.
+objectInfo( 3 < 5 )
+objectInfo( 1:6 > 4 ) # these are "vectorized" operators
+ 
+objectInfo( a ~ b )              # a formula
+objectInfo( objectInfo )         # the function itself
+
+```
+
+
+Sometimes (but rarely) you may run into a distinction that R makes regarding integers and floating point numbers. By default, if you specify e.g. the number 2 in your code, it is stored as a floating point number. But if the numbers are generated e.g. from a range operator as in 1:2 they are integers! This can give rise to confusion as in the following example:
+
+```{r}
+a <- 7
+b <- 6:7
+str(a)             # num 7
+str(b)             # int [1:2] 6 7
+a == b[2]          # TRUE
+identical(b[2], a) # FALSE ! Not identical! Why?
+                   # (see the str() results above.)
+```
+
+```{r}
+# If you need to be sure that a number is an
+# integer, write it with an "L" after the number:
+c <- 7L
+str(c)             # int 7
+identical(b[2], c) # TRUE
+```
+
+## Vectors
+
+Since we (almost) never do statistics on scalars, **R** obviously needs ways to handle collections of data items. In its simplest form such a collection is a vector: an ordered list of items of the same type. Vectors are created from scratch with the c() function which concatenates individual items into a vector, or with various sequencing functions. Vectors have properties, such as length; individual items in vectors can be combined in useful ways. It's worth repeating: all elements of a vector must be of the same type. If they are not, they are silently(!) coerced to the most general type (which is often character). (The actual hierarchy for coercion is raw < logical < integer < double < complex < character < list ).
+
+```{r}
+# The c() function concatenates elements into a vector
+c(2, 4, 6)
+```
+
+```{r}
+#Create a vector and list its contents and length:
+f <- c(1, 1, 3, 5, 8, 13, 21)
+f
+length(f)
+```
+ 
+```{r}
+# Often, for teaching code, I want to demonstrate the contents of an object after
+# assigning it. I can simply wrap the assignment into parentheses to achieve that.
+# Parentheses return the value of whatever they enclose. So ...
+a <- 17
+# ... assigns 17 to the variable "a". But this happens silently. However ...
+( a <- 17 )
+# ... returns the result of the assignment. I will use this idiom often.
+ 
+( myVec <- c(1, 1, 3, 5, 8, 13, 21, 34, 55, 89) )
+```
+
+```{r}
+# Coercion:
+# all elements of vectors must be of the same type
+(mixed_type <- c(1, 2.0, "3", TRUE))  # trying to get a vector with mixed types ...
+class(mixed_type)
+```
+
+... shows that all elements are silently being coerced to character. The emphasis is on **silently**. This might be unexpected, for example if you are reading numeric data from a text-file into a vector but someone has entered a " " for a missing value ... then everything is characterified. Nasty.
+
+There are various ways to subset (retrieve) specific values from a vector; this is important.
+
+## Subsetting by index
+```{r}
+# Extracting by index ...
+myVec[1]         # "1" is first element, not 0.
+head(myVec, 1)   # same thing
+ 
+myVec[length(myVec)] # length() is the index of the last element.
+tail(myVec, 1)       # same thing
+ 
+```
+
+
+```{r}
+# With a vector of indices ...
+1:4 # This is the range operator
+myVec[1:4] # using the range operator (it generates a sequence and returns it in a vector)
+myVec[4:1] # same thing, backwards
+seq(from=2, to=6, by=2) # The seq() function is a flexible, generic way to generate sequences
+seq(2, 6, 2) # Same thing: arguments in default order
+myVec[seq(2, 6, 2)]
+```
+
+```{r}
+# since a scalar is a vector of length 1, does this work?
+5[1]
+```
+
+```{r}
+# ...using an index vector with positive indices
+a <- c(1, 3, 4, 1) # the elements of index vectors must be
+                   # valid indices of the target vector.
+                   # The index vector can be of any length.
+myVec[a] # In this case, four elements are retrieved from f[]
+```
+ 
+## Excluding items through negative indexes
+
+Negative indices omit elements:
+
+  * using an index vector with negative indices
+
+```{r}
+# If elements of index vectors are negative integers,
+# the corresponding elements are excluded.
+( a <- -(1:4) ) # Note that this is NOT the same as -1:4
+```
+
+```{r}
+myVec[a] # Here, the first four elements are omitted from myVec[]
+ 
+myVec[-((length(myVec)-3):length(myVec))] # Here, the last four elements are omitted
+```
+
+## Subsetting by boolean vectors
+
+```{r}
+myVec > 4         # A logical expression operating on the target vector
+                  # returns a vector of logical elements. It has the
+                  # same length as the target vector.
+myVec[myVec > 4]; # We can use this logical vector to extract only
+                  # elements for which the logical expression evaluates as TRUE.
+                  # This is also called "filtering".
+```
+
+**Note**: the logical vector is aligned with the elements of the original vector. You can't retrieve elements more than once, as you could with index vectors. If the logical vector is shorter than its target it is "recycled" to the full length.
+
+```{r}
+(1:20)[c(TRUE, FALSE)]  # odd numbers, but how and why?
+```
+ 
+## Subsetting by name
+
+If the vector has named elements, vectors of names can be used exactly like index vectors:
+```{r}
+summary(myVec)["Median"]
+summary(myVec)[c("Max", "Min")]  # Oooops - I mistyped. But you can fix the expression, right?
+```
+
+
+## "[" is an operator
+
+Some more thoughts about "["
+
+  * "[" is not just a special character, it is an operator. 
+  * It operates on whatever it is attached to on the left.
+
+```{r}
+?"["   # help is available ...
+```
+ 
+
+We have attached "[" to vectors above, but we can also attach it directly to functions or other expressions.
+
+For example, the summary() function returns some basic statistics of a vector:
+```{r}
+summary(myVec)
+```
+
+```{r}
+# This is a vector of six numbers:
+length(summary(myVec))
+```
+
+```{r}
+# We can extract e.g. the median like so:
+summary(myVec)[3]
+```
+
+```{r}
+# ... or the boundaries of the interquartile range:
+summary(myVec)[c(2, 5)]
+```
+ 
+```{r}
+# Note that the elements that summary() returns are "named".
+# "Names" are attributes.
+objectInfo(summary(f))
+```
+
+```{r}
+# The names() function can retrieve (or set) names:
+names(summary(myVec))
+```
+ 
+ ... which brings us to yet another way to extract elements from Vectors:
+
+## Subsetting by name:
+
+Extending vectors:
+
+  * Vectors are not immutable. They can grow and shrink as required.
+  
+```{r}
+( x <- 1:3 )
+length(x)
+x[4] <- 4; x
+length(x)
+x[7] <- 7; x
+length(x)
+( x <- x[-(5:6)] )
+length(x)
+```
+
+ 
+**Example** : extending the Fibonacci series for three steps.
+```{r}
+( myVec <- c(myVec, myVec[length(myVec)-1] + myVec[length(myVec)]) )
+( myVec <- c(myVec, myVec[length(myVec)-1] + myVec[length(myVec)]) )
+( myVec <- c(myVec, myVec[length(myVec)-1] + myVec[length(myVec)]) )
+```
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Think: How does this work? What numbers are we adding here and why does the result end up in the vector?
+```
+
+ 
+## Vectorized operations
+Many operations on vectors are by default performed for every element of the vector, and **R** computes them **very** efficiently. These are called "vectorized" operations and definitely should be used whenever possible, rather than loops or other explicit iterations.
+ 
+```{r}
+myVec
+myVec + 1
+myVec * 2
+log(myVec)
+```
+
+
+ 
+# computing with two vectors of same length
+
+```{r}
+myVec  # the Fibonacci numbers you have defined above
+( a <- myVec[-1] )  # like myVec, but omitting the first element
+( b <- myVec[1:(length(myVec)-1)] ) # like f, but shortened by the last element
+c <- a / b # the "golden ratio", phi (~1.61803 or (1+sqrt(5))/2 ),
+           # an irrational number, is approximated by the ratio of
+           # two consecutive Fibonacci numbers.
+
+c
+abs(c - ((1+sqrt(5))/2)) # Calculating the error of the approximation, element by element
+```
+
+```{block, type="rmd-troubleshooting"}
+When a number is not a single number:
+
+One of the "warts" of **R** is that some functions substitute a range when they receive a vector of length one. Most everyone agrees this is pretty bad. This behaviour was introduced when someone sometime long ago thought it would be nifty to save two keystrokes. This has caused countless errors, hours of frustration and probably hundreds of undiscovered bugs instead. Today we wouldn't write code like that anymore (I hope), but the community believes that since it's been around for so long, it would probably break more things if it's changed. Two functions to watch out for are sample() and seq(); other functions include diag() and runif().
+Consider:
+x <- 8; sample(6:x)
+x <- 7; sample(6:x)
+x <- 6; sample(6:x)  # Oi!
+ 
+# also consider
+x <- 6:8; seq(x)
+x <- 6:7; seq(x)
+x <- 6:6; seq(x)    # Oi vay!
+Wherever this misbehaviour is a possibility - i.e. when the number of elements to sample from is variable and could be just one, for example in some simulation code - you can write a replacement function like so...
+safeSample <- function(x, size, ...) {
+	# Replace the sample() function to ensure sampling from a single
+	# value returns that value.
+  # Respect additional arguments if present.
+    if (length(x) == 1 && is.numeric(x) && x > 0) {
+    	if (missing(size)) size <- 1
+        return(rep(x, size))
+    } else {
+        return(sample(x, size, ...))
+    }
+}
+
+Don't be discouraged though: such warts are rare in R.
+```
+ 
+## Matrices and higher-dimensional objects
+
+If we need to operate with several vectors, or multi-dimensional data, we make use of matrices or more generally k-dimensional arrays R. Matrix operations are very similar to vector operations, in fact a matrix actually is a vector for which the number of rows and columns have been defined. Thus matrices inherit the basic limitation of vectors: all elements have to be of the same type.
+
+The most basic way to define matrix rows and columns is to use the dim() function and specify the size of each dimension. Consider:
+
+```{r}
+( a <- 1:12 )
+```
+```{r}
+dim(a) <- c(2,6)
+a
+```
+
+```{r}
+dim(a) <- c(4,3)
+a
+```
+
+```{r}
+dim(a) <- c(2,2,3)
+a
+```
+
+dim() also tells you the number of rows resp. columns a matrix has. For example:
+
+  * dim(a)    # returns the dimensions of a in a vector
+  * dim(a)[3]  # only the size of the third dimension of a
+  
+If you have a two-dimensional matrix, the function nrow() and ncol() will also give you the number of rows and columns, respectively. Obviously, dim(a)[1] is the same as nrow(a).
+
+As an alternative to dim(), matrices can be defined using the matrix() or array() functions (see there), or "glued" together from vectors by rows or columns, using the rbind() or cbind() functions respectively:
+
+```{r}
+( a  <- 1:4 )
+```
+```{r}
+( b  <- 5:8 )
+```
+```{r}
+( m1 <- rbind(a, b) )
+```
+```{r}
+( m2 <- cbind(a, b) )
+```
+
+```{r}
+( m  <- cbind(m2, c = 9:12) )  # naming a column "c" while cbind()'ing it
+```
+
+
+"Subsetting" (retrieving) individual elements or slices from matrices is simply done by specifying the appropriate indices, where a missing index indicates that the entire row or column is to be retrieved.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Explore how you extract rows or columns from a matrix by specifying them. Within the square brackets the order is [<rows>, <columns<]
+
+  * m[1,] # first row
+  * m[, 2] # second column
+  * m[3, 2] # element at row == 3, column == 2
+  * m[3:4, 1:2] # submatrix: rows 3 to 4 and columns 1 to 2
+
+```
+
+**Note** that **R** has numerous functions to compute with matrices, such as transposition, multiplication, inversion, calculating eigenvalues and eigenvectors and much more.
+ 
+## Self-evaluation
+  * Question 1 : Within the square brackets of a matrix the order is [<rows>, <columns>], but what about slices of a 3D matrix? Is it [<slices>, <rows>, <columns>] or [<rows>, <columns>, <slices>]?
+
+  * Answer: Just try - ^[and this means [<rows>, <columns<, <slices>] is correct.]
+```{r, eval=FALSE}
+x <- 1:27
+dim(x) <- c(3, 3, 3)
+x
+x[2, 1, 1]   # 2
+x[1, 1, 2]   # 10
+```
+
+## Further reading, links and resources
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2018-05-04<br>
+Version: 1.0.1<br>
+**Version history**:<br>
+1.0.1 Maintenance<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

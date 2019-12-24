@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: |
+        <li><a href="./">Unit 2 - R Basics</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    toolbar:
+      position: fixed
+    view : https://github.com/bcb420-2020/R_basics/blob/master/%s
+    history : https://github.com/bcb420-2020/R_basics/commit/master/%s
+    download: ["epub"]
+    new_session: no
+bookdown::epub_book: default
+

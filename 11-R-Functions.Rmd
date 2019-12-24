@@ -1,0 +1,357 @@
+# R Functions {#r-functions}
+(Anatomy of a function: arguments, parameters and values; the concept of functional programming.)
+
+
+ 
+## Overview
+### Abstract:
+In this unit we discuss the "anatomy"" of R functions: arguments, parameters and values, and how R's treatment of functions supports "functional programming".
+
+### Objectives:
+
+This unit will:
+
+  * introduce the basic pattern of R functions;
+  * discuss arguments and parameters;
+  * show how to retrieve the source code from within a function;
+  * practice writing your own functions.
+
+### Outcomes:
+
+After working through this unit you:
+
+  * know how to pass parameters into functions and assign the returned values;
+  * can read, analyze, and write your own functions.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites 
+[RPR-Control_structures (Control structures of R)](#r-control-structures)
+ 
+## Functions
+
+**R** is considered an (impure) functional programming language and thus the focus of R programs is on functions. The key advantage is that this encourages programming without side-effects and this makes it easier to write error free code and maintain it. Function parameters^[The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.] are instantiated for use inside a function as the function's arguments, and a single result is returned[However a function may have side-effects, such as writing something to console, plotting graphics, saving data to a file, or changing the value of variables outside the function scope. But changing values outside the scope is poor practice, always to be avoided.]. The return values can either be assigned to a variable, or used directly as the argument of another function. This means functions can be nested, and intermediate assignment is not required.
+
+Functions are either built-in (i.e. available in the basic **R** installation), loaded via specific packages, or they can be easily defined by you (see below). In general a function is invoked through its name, followed by one or more arguments in parentheses, separated by commas. Whenever I refer to a function, I write the parentheses to identify it as such and not a constant or other keyword eg. log(). Here are some examples for you to try and play with:
+
+```{r}
+cos(pi) #"pi" is a predefined constant.
+```
+```{r}
+sin(pi) # Note the rounding error. This number is not really different from zero.
+```
+```{r}
+sin(30 * pi/180) # Trigonometric functions use radians as their argument - this conversion calculates sin(30 degrees)
+```
+```{r}
+exp(1) # "e" is not predefined, but easy to calculate.
+```
+```{r}
+log(exp(1)) # functions can be arguments to functions - nested functions are evaluated from the inside out.
+```
+```{r}
+log(10000) / log(10) # log() calculates natural logarithms; convert to any base by dividing by the log of the base. Here: log to base 10.
+```
+```{r}
+exp(complex(r=0, i=pi)) #Euler's identity
+```
+
+There are several ways to populate the argument list for a function and **R** makes a reasonable guess what you want to do. Arguments can either be used in their predefined order, or assigned via an argument name. Let's look at the complex() function to illustrate this. Consider the specification of a complex number in Euler's identity above. The function complex() can work with a number of arguments that are explained in the documentation (see: ?complex). Its signature includes length.out, real, imaginary, and some more.
+
+```{r}
+complex(length.out = 0, real = numeric(), imaginary = numeric(), modulus = 1, argument = 0)
+```
+
+The length.out argument creates a vector with one or more complex numbers. If nothing else is specified, this will be a vector of complex zero(s). If there are two, or three arguments, they will be placed in the respective slots. However, since the arguments are named, we can also define which slot of the argument list they should populate.
+
+
+Consider the following to illustrate this:
+```{r}
+complex(1)    # parameter is in the first slot -> length.out
+```
+
+```{r}
+complex(4)
+```
+```{r}
+complex(1, 2) # imaginary part missing
+```
+```{r}
+complex(1, 2, 3) # one complex number with real and imaginary parts defined
+```
+```{r}
+complex(4, 2, 3) # four complex numbers
+```
+
+```{r}
+complex(real = 0, imaginary = pi) # defining values via named parameters
+```
+```{r}
+complex(imaginary = pi, real = 0) # same thing - if names are used, order is not important
+```
+```{r}
+complex(re = 0, im = pi) # names can be abbreviated ...
+```
+```{r}
+complex(r = 0, i = pi)   # ... to the shortest string that is unique among the named parameters,
+                         # but this is _poor_ practice, strongly advises against.
+```
+```{r}
+complex(i = pi, 1, 0) # Think: what have I done here? Why does this work?
+```
+```{r}
+exp(complex(i = pi, 1, 0)) # (The complex number above is the same as in Euler's identity.)
+```
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+A frequently used function is seq().
+
+  1. Read the help page about seq()
+  1. Use seq() to generate a sequence of integers from -5 to 3. Pass arguments in default order, don't use argument names.
+  1. Use seq() to generate a sequence of numbers from -2 to 2 in intervals of 1/3. This time, use argument names.
+  1. Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the arguments in the following order: length.out, to, from.
+```
+ 
+## On missing parameters
+
+If a parameter is missing several things can happen. Let's illustrate wih a little function that returns the golden-ratio pair to a number, either the smaller, or the larger one.
+
+```{r}
+goldenRatio <- function(x, smaller) {
+  phi <- (1 + sqrt(5)) / 2
+  if (smaller == TRUE) {
+    return(x / phi)
+  } else {
+    return(x * phi)
+  }
+}
+```
+
+If there's no way to recover, executing the function will throw an error:
+
+```{r,eval=FALSE}
+goldenRatio(1)
+```
+
+Error in goldenRatio(1) : argument "smaller" is missing, with no default
+
+If the function has a default parameter defined, it is used :
+
+```{r}
+goldenRatio <- function(x, smaller = TRUE) {
+  phi <- (1 + sqrt(5)) / 2
+  if (smaller == TRUE) {
+    return(x / phi)
+  } else {
+    return(x * phi)
+  }
+}
+```
+
+
+```{r}
+goldenRatio(1)
+```
+ 
+Alternatively, the function body can check whether a parameter is missing with the missing() function, and then react accordingly:
+
+```{r}
+goldenRatio <- function(x, smaller) {
+  if (missing(smaller)) {
+    smaller <- TRUE
+  }
+  phi <- (1 + sqrt(5)) / 2
+  if (smaller == TRUE) {
+    return(x / phi)
+  } else {
+    return(x * phi)
+  }
+}
+```
+
+```{r}
+goldenRatio(1)
+```
+
+```{r}
+goldenRatio(1, smaller = FALSE)
+```
+
+
+Why is this useful, if you could just define a default? Because the parameter can then be the result of a (complex) computation, based on other parameters.
+
+
+ 
+## Reading functions
+ 
+### Basic R
+If the function is a normal R function, like the ones we have defined above, you can read the function code when type its name without parantheses:
+
+```{r}
+goldenRatio
+```
+
+But that strictly only works for functions which have been written in basic R code.
+
+
+### S3 methods
+
+You might also get a line saying UseMethod(<function name>). Then you are looking at a "method" from R's S3 object oriented system - such a function is also called a "generic", because it dispatches to more specific code, depending on the type of the parameter it is being given. Use methods() to see which specific methods are defined, and then use getAnywhere(<function.class>) to get the code.
+
+```{r}
+seq
+```
+
+```{r}
+methods(seq)
+```
+
+```{r}
+getAnywhere(seq.default)
+```
+
+## Primitives
+
+You might also get a line saying .Call(C_<function name> <arguments>). Then you are looking at a primitive - a function that has been compiled in the C programming language, for efficiency.
+
+```{r}
+runif
+```
+ 
+
+To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:
+
+This search finds runif.c (have a look).[site:https://svn.r-project.org/R/trunk/src runif](https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&rlz=1C5CHFA_enCA740CA742&oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&aqs=chrome..69i57j69i58.3647j0j4&sourceid=chrome&ie=UTF-8)
+
+
+ 
+## Writing your own functions
+
+**R** is a "functional programming language" and working with **R** will involve writing your own functions. This is easy and gives you access to flexible, powerful and reusable solutions. You have to understand the "anatomy" of an R function however.
+
+Functions are assigned to function names. They are treated like any other R object and you can have vectors of functions, and functions that return functions etc.
+Data gets into the function via the function's parameters.
+
+Data is returned from a function via the return() statement[Actually the return() statement is optional, if missing, the result of the last expression is returned. You will find this frequently in other people's code, somthing to be aware of. However, you'll surely understand that it is really poor practice to omit return(), it makes the code harder to read and can give rise to misunderstandings. Never use implicit behaviour where you can be explicit instead]. One and only one object is returned. However the object can be a list, and thus contain values of arbitrary complexity. This is called the "value" of the function. 
+Well-written functions have no side-effects like changing global variables.
+
+```{r,eval=FALSE}
+# the function definition pattern:
+ 
+<myName> <- function(<myArguments>) {
+  # <documentation!>
+	result <- <do something with the parameters>
+	return(result)
+}
+```
+
+In this pattern, the function is assigned to the name - any valid name in **R**. Once it is assigned, it the function can be invoked with myName(). The parameter list (the values we write into the parentheses following the function name) can be empty, or hold a list of variable names. If variable names are present, you need to enter the corresponding parameters when you execute the function. These assigned variables are available inside the function, and can be used for computations. This is called "passing variables into the function".
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+This exercise is similar to the while loop exercise. The only difference is to put the code into a function. Write a function countDown() so that you can start the countdown call from any number. For example calling countDown(5) should give:
+
+[1]  "5"          "4"          "3"          "2"          "1"          "0"          "Lift Off!"
+
+```
+
+Answer^[countDown <- function(n) {<br>start <- n<br>  countdown <- start<br>  txt <- as.character(start)<br>  <br>  while (countdown > 0) {<br>    countdown <- countdown - 1<br>    txt <- c(txt, countdown)<br>  }<br>  txt <- c(txt,"Lift Off!")<br>  return(txt)<br>}<br> <br>countDown(7)<br>]
+ 
+The scope of functions is local: this means all variables within a function are lost upon return, and global variables are not overwritten by a definition within a function. However variables that are defined outside the function are also available inside.
+
+We can use loops and control structures inside functions. For example the following creates a vector containing n Fibonacci numbers.
+
+```{r}
+fibSeq <- function(n) {
+   if (n < 1) { return( 0 ) }
+   else if (n == 1) { return( 1 ) }
+   else if (n == 2) { return( c(1, 1) ) }
+   else {
+      v <- numeric(n)
+      v[1] <- 1
+      v[2] <- 1
+      for ( i in 3:n ) {
+         v[n] <- v[n-2] + v[n-1]
+      }
+      return( v )
+   }
+}
+
+```
+
+ 
+Here is another example to play with: a function that calculates how old you are. In days. This is neat - you can celebrate your 10,000 birthday - or so.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Copy, explore and run the below code
+```
+
+Define the function ...
+```{r}
+# A lifedays calculator function
+ 
+myLifeDays <- function(birthday) {
+  if (missing(birthday)) {
+    print ("Enter your birthday as a string in \"YYYY-MM-DD\" format.")
+    return()
+  }
+  bd <- strptime(birthday, "%Y-%m-%d") # convert string to time
+  now <- format(Sys.time(), "%Y-%m-%d") # convert "now" to time
+  diff <- round(as.numeric(difftime(now, bd, unit="days")))
+  print(sprintf("This date was %d days ago.", diff))
+}
+```
+
+Use the function (example)
+```{r}
+   myLifeDays("1932-09-25")  # Glenn Gould's birthday
+```
+
+
+Here is a good opportunity to practice programming: modify this function to accept a second argument. When a second argument is present (e.g. 10000) the function should print the calendar date on which the input date will be the required number of days ago. Then you could use it to know when to celebrate your 10,000th life-day, or your 777th anniversary or whatever.
+
+
+ 
+
+## Self-evaluation
+
+## Further reading, links and resources
+["How can I view the source code for a function?" (On Stack Overflow)](https://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function)
+
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2019-01-07<br>
+Version: 1.0.1<br>
+**Version history**:<br>
+1.0.1 Maintenance<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

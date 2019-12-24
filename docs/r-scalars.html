@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 R scalars and vectors | BCB420 - Computational System Biology</title>
+  <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 R scalars and vectors | BCB420 - Computational System Biology" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 R scalars and vectors | BCB420 - Computational System Biology" />
+  
+  <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+<meta name="author" content="Boris Steipe" />
+
+
+<meta name="date" content="2019-01-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-snytax.html"/>
+<link rel="next" href="computing-with-two-vectors-of-same-length.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Unit 1 - Bioinfo Prep</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="r-install.html"><a href="r-install.html"><i class="fa fa-check"></i><b>1</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>1.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="1.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>1.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="1.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>1.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="1.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>1.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="1.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>1.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="r-install.html"><a href="r-install.html#r"><i class="fa fa-check"></i><b>1.2</b> R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-install.html"><a href="r-install.html#introduction"><i class="fa fa-check"></i><b>1.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-install.html"><a href="r-install.html#before-you-begin-notation-and-formatting"><i class="fa fa-check"></i><b>1.2.2</b> Before you begin: Notation and Formatting</a></li>
+<li class="chapter" data-level="1.2.3" data-path="r-install.html"><a href="r-install.html#task"><i class="fa fa-check"></i><b>1.2.3</b> Task</a></li>
+<li class="chapter" data-level="1.2.4" data-path="r-install.html"><a href="r-install.html#metasyntactic-variables"><i class="fa fa-check"></i><b>1.2.4</b> “Metasyntactic variables”</a></li>
+<li class="chapter" data-level="1.2.5" data-path="r-install.html"><a href="r-install.html#characters"><i class="fa fa-check"></i><b>1.2.5</b> Characters</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-install.html"><a href="r-install.html#the-environment"><i class="fa fa-check"></i><b>1.3</b> The environment</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-install.html"><a href="r-install.html#install-r"><i class="fa fa-check"></i><b>1.3.1</b> Install R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-install.html"><a href="r-install.html#install-rstudio"><i class="fa fa-check"></i><b>1.3.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-install.html"><a href="r-install.html#packages"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-install.html"><a href="r-install.html#finding-packages"><i class="fa fa-check"></i><b>1.3.4</b> Finding packages</a></li>
+<li class="chapter" data-level="1.3.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>1.3.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="1.3.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>1.3.6</b> Further reading, links and resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-setup.html"><a href="r-setup.html"><i class="fa fa-check"></i><b>2</b> Setup R to work with it</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-setup.html"><a href="r-setup.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-setup.html"><a href="r-setup.html#abstract-1"><i class="fa fa-check"></i><b>2.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-setup.html"><a href="r-setup.html#objectives-1"><i class="fa fa-check"></i><b>2.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-setup.html"><a href="r-setup.html#outcomes-1"><i class="fa fa-check"></i><b>2.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="2.1.4" data-path="r-setup.html"><a href="r-setup.html#deliverables-1"><i class="fa fa-check"></i><b>2.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="2.1.5" data-path="r-setup.html"><a href="r-setup.html#prerequisites-1"><i class="fa fa-check"></i><b>2.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-setup.html"><a href="r-setup.html#your-course-folder"><i class="fa fa-check"></i><b>2.2</b> Your Course Folder</a></li>
+<li class="chapter" data-level="2.3" data-path="r-setup.html"><a href="r-setup.html#projects"><i class="fa fa-check"></i><b>2.3</b> “Projects”</a></li>
+<li class="chapter" data-level="2.4" data-path="r-setup.html"><a href="r-setup.html#git-version-control"><i class="fa fa-check"></i><b>2.4</b> Git Version control</a></li>
+<li class="chapter" data-level="2.5" data-path="r-setup.html"><a href="r-setup.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="r-setup.html"><a href="r-setup.html#rprofile---startup-commands"><i class="fa fa-check"></i><b>2.6</b> .Rprofile - startup commands</a></li>
+<li class="chapter" data-level="2.7" data-path="r-setup.html"><a href="r-setup.html#the-workspace"><i class="fa fa-check"></i><b>2.7</b> The “Workspace”</a></li>
+<li class="chapter" data-level="2.8" data-path="r-setup.html"><a href="r-setup.html#self-evaluation-1"><i class="fa fa-check"></i><b>2.8</b> Self-evaluation</a></li>
+<li class="chapter" data-level="2.9" data-path="r-setup.html"><a href="r-setup.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>2.9</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>3</b> Console and scripts</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-console.html"><a href="r-console.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="r-console.html"><a href="r-console.html#abstract-2"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-console.html"><a href="r-console.html#objectives-2"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-console.html"><a href="r-console.html#outcomes-2"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="r-console.html"><a href="r-console.html#deliverables-2"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="r-console.html"><a href="r-console.html#prerequisites-2"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>3.2</b> Typing code or executing it?</a></li>
+<li class="chapter" data-level="3.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>3.3</b> User interface</a></li>
+<li class="chapter" data-level="3.4" data-path="r-console.html"><a href="r-console.html#self-evaluation-2"><i class="fa fa-check"></i><b>3.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="3.5" data-path="r-console.html"><a href="r-console.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>3.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-help.html"><a href="r-help.html"><i class="fa fa-check"></i><b>4</b> Getting help for R</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-help.html"><a href="r-help.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-help.html"><a href="r-help.html#abstract-3"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-help.html"><a href="r-help.html#objectives-3"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-help.html"><a href="r-help.html#outcomes-3"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-help.html"><a href="r-help.html#deliverables-3"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="r-help.html"><a href="r-help.html#prerequisites-3"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>4.2</b> The Help system</a></li>
+<li class="chapter" data-level="4.3" data-path="r-help.html"><a href="r-help.html#self-evaluation-3"><i class="fa fa-check"></i><b>4.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="4.4" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>4.4</b> Notes</a></li>
+<li class="chapter" data-level="4.5" data-path="r-help.html"><a href="r-help.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-snytax.html"><a href="r-snytax.html"><i class="fa fa-check"></i><b>5</b> Basics of R syntax</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-snytax.html"><a href="r-snytax.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-snytax.html"><a href="r-snytax.html#abstract-4"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-snytax.html"><a href="r-snytax.html#objectives-4"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-snytax.html"><a href="r-snytax.html#outcomes-4"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-snytax.html"><a href="r-snytax.html#deliverables-4"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-snytax.html"><a href="r-snytax.html#prerequisites-4"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-snytax.html"><a href="r-snytax.html#simple-commands"><i class="fa fa-check"></i><b>5.2</b> Simple commands</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-snytax.html"><a href="r-snytax.html#operators"><i class="fa fa-check"></i><b>5.2.1</b> Operators</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-snytax.html"><a href="r-snytax.html#variables"><i class="fa fa-check"></i><b>5.3</b> Variables</a></li>
+<li class="chapter" data-level="5.4" data-path="r-snytax.html"><a href="r-snytax.html#self-evaluation-4"><i class="fa fa-check"></i><b>5.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.5" data-path="r-snytax.html"><a href="r-snytax.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>5.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-scalars.html"><a href="r-scalars.html"><i class="fa fa-check"></i><b>6</b> R scalars and vectors</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-scalars.html"><a href="r-scalars.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="r-scalars.html"><a href="r-scalars.html#abstract-5"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="r-scalars.html"><a href="r-scalars.html#objectives-5"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="r-scalars.html"><a href="r-scalars.html#outcomes-5"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="r-scalars.html"><a href="r-scalars.html#deliverables-5"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="r-scalars.html"><a href="r-scalars.html#prerequisites-5"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="r-scalars.html"><a href="r-scalars.html#scalar-data"><i class="fa fa-check"></i><b>6.2</b> Scalar data</a></li>
+<li class="chapter" data-level="6.3" data-path="r-scalars.html"><a href="r-scalars.html#vectors"><i class="fa fa-check"></i><b>6.3</b> Vectors</a></li>
+<li class="chapter" data-level="6.4" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-index"><i class="fa fa-check"></i><b>6.4</b> Subsetting by index</a></li>
+<li class="chapter" data-level="6.5" data-path="r-scalars.html"><a href="r-scalars.html#excluding-items-through-negative-indexes"><i class="fa fa-check"></i><b>6.5</b> Excluding items through negative indexes</a></li>
+<li class="chapter" data-level="6.6" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-boolean-vectors"><i class="fa fa-check"></i><b>6.6</b> Subsetting by boolean vectors</a></li>
+<li class="chapter" data-level="6.7" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name"><i class="fa fa-check"></i><b>6.7</b> Subsetting by name</a></li>
+<li class="chapter" data-level="6.8" data-path="r-scalars.html"><a href="r-scalars.html#is-an-operator"><i class="fa fa-check"></i><b>6.8</b> “[” is an operator</a></li>
+<li class="chapter" data-level="6.9" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name-1"><i class="fa fa-check"></i><b>6.9</b> Subsetting by name:</a></li>
+<li class="chapter" data-level="6.10" data-path="r-scalars.html"><a href="r-scalars.html#vectorized-operations"><i class="fa fa-check"></i><b>6.10</b> Vectorized operations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html"><i class="fa fa-check"></i><b>7</b> computing with two vectors of same length</a><ul>
+<li class="chapter" data-level="7.1" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html#matrices-and-higher-dimensional-objects"><i class="fa fa-check"></i><b>7.1</b> Matrices and higher-dimensional objects</a></li>
+<li class="chapter" data-level="7.2" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html#self-evaluation-5"><i class="fa fa-check"></i><b>7.2</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.3" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>7.3</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> R “data frames”&quot;</a><ul>
+<li class="chapter" data-level="8.1" data-path="r-data-frames.html"><a href="r-data-frames.html#overview-6"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="r-data-frames.html"><a href="r-data-frames.html#abstract-6"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="r-data-frames.html"><a href="r-data-frames.html#objectives-6"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="r-data-frames.html"><a href="r-data-frames.html#outcomes-6"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="r-data-frames.html"><a href="r-data-frames.html#deliverables-6"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="r-data-frames.html"><a href="r-data-frames.html#prerequisites-6"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="r-data-frames.html"><a href="r-data-frames.html#data-frames"><i class="fa fa-check"></i><b>8.2</b> Data frames</a></li>
+<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#basic-operations"><i class="fa fa-check"></i><b>8.3</b> Basic operations</a></li>
+<li class="chapter" data-level="8.4" data-path="r-data-frames.html"><a href="r-data-frames.html#self-evaluation-6"><i class="fa fa-check"></i><b>8.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>8.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> R “Lists”</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-lists.html"><a href="r-lists.html#overview-7"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="r-lists.html"><a href="r-lists.html#abstract-7"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="r-lists.html"><a href="r-lists.html#objectives-7"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="r-lists.html"><a href="r-lists.html#outcomes-7"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="r-lists.html"><a href="r-lists.html#deliverables-7"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="r-lists.html"><a href="r-lists.html#prerequisites-7"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="r-lists.html"><a href="r-lists.html#lists"><i class="fa fa-check"></i><b>9.2</b> Lists</a></li>
+<li class="chapter" data-level="9.3" data-path="r-lists.html"><a href="r-lists.html#self-evaluation-7"><i class="fa fa-check"></i><b>9.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="9.4" data-path="r-lists.html"><a href="r-lists.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>9.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="r-subsetting.html"><a href="r-subsetting.html"><i class="fa fa-check"></i><b>10</b> Subsetting and filtering R objects</a><ul>
+<li class="chapter" data-level="10.1" data-path="r-subsetting.html"><a href="r-subsetting.html#overview-8"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="r-subsetting.html"><a href="r-subsetting.html#abstract-8"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="r-subsetting.html"><a href="r-subsetting.html#objectives-8"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="r-subsetting.html"><a href="r-subsetting.html#outcomes-8"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="r-subsetting.html"><a href="r-subsetting.html#deliverables-8"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="r-subsetting.html"><a href="r-subsetting.html#prerequisites-8"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="r-subsetting.html"><a href="r-subsetting.html#subsetting"><i class="fa fa-check"></i><b>10.2</b> Subsetting</a></li>
+<li class="chapter" data-level="10.3" data-path="r-subsetting.html"><a href="r-subsetting.html#self-evaluation-8"><i class="fa fa-check"></i><b>10.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="10.4" data-path="r-subsetting.html"><a href="r-subsetting.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>10.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="r-control-structures.html"><a href="r-control-structures.html"><i class="fa fa-check"></i><b>11</b> Control structures of R</a><ul>
+<li class="chapter" data-level="11.1" data-path="r-control-structures.html"><a href="r-control-structures.html#overview-9"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="r-control-structures.html"><a href="r-control-structures.html#abstract-9"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="11.1.2" data-path="r-control-structures.html"><a href="r-control-structures.html#objectives-9"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="11.1.3" data-path="r-control-structures.html"><a href="r-control-structures.html#outcomes-9"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="11.1.4" data-path="r-control-structures.html"><a href="r-control-structures.html#deliverables-9"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="11.1.5" data-path="r-control-structures.html"><a href="r-control-structures.html#prerequisites-9"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="r-control-structures.html"><a href="r-control-structures.html#control-structures"><i class="fa fa-check"></i><b>11.2</b> Control structures</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="r-control-structures.html"><a href="r-control-structures.html#if-and-else"><i class="fa fa-check"></i><b>11.2.1</b> if and else</a></li>
+<li class="chapter" data-level="11.2.2" data-path="r-control-structures.html"><a href="r-control-structures.html#conditional-expressions"><i class="fa fa-check"></i><b>11.2.2</b> conditional expressions</a></li>
+<li class="chapter" data-level="11.2.3" data-path="r-control-structures.html"><a href="r-control-structures.html#if-else-if-and-else"><i class="fa fa-check"></i><b>11.2.3</b> “if”, “else if”, and “else”</a></li>
+<li class="chapter" data-level="11.2.4" data-path="r-control-structures.html"><a href="r-control-structures.html#ifelse"><i class="fa fa-check"></i><b>11.2.4</b> ifelse</a></li>
+<li class="chapter" data-level="11.2.5" data-path="r-control-structures.html"><a href="r-control-structures.html#for"><i class="fa fa-check"></i><b>11.2.5</b> for</a></li>
+<li class="chapter" data-level="11.2.6" data-path="r-control-structures.html"><a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers"><i class="fa fa-check"></i><b>11.2.6</b> Compare excution times: one million square roots from a vector of random numbers …</a></li>
+<li class="chapter" data-level="11.2.7" data-path="r-control-structures.html"><a href="r-control-structures.html#seq_along-vs.range"><i class="fa fa-check"></i><b>11.2.7</b> seq_along() vs. range</a></li>
+<li class="chapter" data-level="11.2.8" data-path="r-control-structures.html"><a href="r-control-structures.html#loops-vs.vectorized-expressions"><i class="fa fa-check"></i><b>11.2.8</b> loops vs. vectorized expressions</a></li>
+<li class="chapter" data-level="11.2.9" data-path="r-control-structures.html"><a href="r-control-structures.html#while"><i class="fa fa-check"></i><b>11.2.9</b> while</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="r-control-structures.html"><a href="r-control-structures.html#self-evaluation-9"><i class="fa fa-check"></i><b>11.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.4" data-path="r-control-structures.html"><a href="r-control-structures.html#further-reading-links-and-resources-9"><i class="fa fa-check"></i><b>11.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>12</b> R Functions</a><ul>
+<li class="chapter" data-level="12.1" data-path="r-functions.html"><a href="r-functions.html#overview-10"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="r-functions.html"><a href="r-functions.html#abstract-10"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="r-functions.html"><a href="r-functions.html#objectives-10"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="r-functions.html"><a href="r-functions.html#outcomes-10"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="12.1.4" data-path="r-functions.html"><a href="r-functions.html#deliverables-10"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="r-functions.html"><a href="r-functions.html#prerequisites-10"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>12.2</b> Functions</a></li>
+<li class="chapter" data-level="12.3" data-path="r-functions.html"><a href="r-functions.html#on-missing-parameters"><i class="fa fa-check"></i><b>12.3</b> On missing parameters</a></li>
+<li class="chapter" data-level="12.4" data-path="r-functions.html"><a href="r-functions.html#reading-functions"><i class="fa fa-check"></i><b>12.4</b> Reading functions</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="r-functions.html"><a href="r-functions.html#basic-r"><i class="fa fa-check"></i><b>12.4.1</b> Basic R</a></li>
+<li class="chapter" data-level="12.4.2" data-path="r-functions.html"><a href="r-functions.html#s3-methods"><i class="fa fa-check"></i><b>12.4.2</b> S3 methods</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="r-functions.html"><a href="r-functions.html#primitives"><i class="fa fa-check"></i><b>12.5</b> Primitives</a></li>
+<li class="chapter" data-level="12.6" data-path="r-functions.html"><a href="r-functions.html#writing-your-own-functions"><i class="fa fa-check"></i><b>12.6</b> Writing your own functions</a></li>
+<li class="chapter" data-level="12.7" data-path="r-functions.html"><a href="r-functions.html#self-evaluation-10"><i class="fa fa-check"></i><b>12.7</b> Self-evaluation</a></li>
+<li class="chapter" data-level="12.8" data-path="r-functions.html"><a href="r-functions.html#further-reading-links-and-resources-10"><i class="fa fa-check"></i><b>12.8</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="r-code-style.html"><a href="r-code-style.html"><i class="fa fa-check"></i><b>13</b> R Coding Style</a><ul>
+<li class="chapter" data-level="13.1" data-path="r-code-style.html"><a href="r-code-style.html#overview-11"><i class="fa fa-check"></i><b>13.1</b> Overview</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="r-code-style.html"><a href="r-code-style.html#abstract-11"><i class="fa fa-check"></i><b>13.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="13.1.2" data-path="r-code-style.html"><a href="r-code-style.html#objectives-11"><i class="fa fa-check"></i><b>13.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="13.1.3" data-path="r-code-style.html"><a href="r-code-style.html#outcomes-11"><i class="fa fa-check"></i><b>13.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="13.1.4" data-path="r-code-style.html"><a href="r-code-style.html#deliverables-11"><i class="fa fa-check"></i><b>13.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="13.1.5" data-path="r-code-style.html"><a href="r-code-style.html#prerequisites-11"><i class="fa fa-check"></i><b>13.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="r-code-style.html"><a href="r-code-style.html#general"><i class="fa fa-check"></i><b>13.2</b> General</a></li>
+<li class="chapter" data-level="13.3" data-path="r-code-style.html"><a href="r-code-style.html#layout"><i class="fa fa-check"></i><b>13.3</b> Layout</a></li>
+<li class="chapter" data-level="13.4" data-path="r-code-style.html"><a href="r-code-style.html#design-and-granularity"><i class="fa fa-check"></i><b>13.4</b> Design and granularity</a></li>
+<li class="chapter" data-level="13.5" data-path="r-code-style.html"><a href="r-code-style.html#headers"><i class="fa fa-check"></i><b>13.5</b> Headers</a></li>
+<li class="chapter" data-level="13.6" data-path="r-code-style.html"><a href="r-code-style.html#sections"><i class="fa fa-check"></i><b>13.6</b> Sections</a></li>
+<li class="chapter" data-level="13.7" data-path="r-code-style.html"><a href="r-code-style.html#parentheses-and-braces"><i class="fa fa-check"></i><b>13.7</b> Parentheses and Braces</a></li>
+<li class="chapter" data-level="13.8" data-path="r-code-style.html"><a href="r-code-style.html#spaces"><i class="fa fa-check"></i><b>13.8</b> Spaces</a></li>
+<li class="chapter" data-level="13.9" data-path="r-code-style.html"><a href="r-code-style.html#names"><i class="fa fa-check"></i><b>13.9</b> Names</a></li>
+<li class="chapter" data-level="13.10" data-path="r-code-style.html"><a href="r-code-style.html#conditionals"><i class="fa fa-check"></i><b>13.10</b> Conditionals</a></li>
+<li class="chapter" data-level="13.11" data-path="r-code-style.html"><a href="r-code-style.html#indent-style"><i class="fa fa-check"></i><b>13.11</b> Indent Style</a></li>
+<li class="chapter" data-level="13.12" data-path="r-code-style.html"><a href="r-code-style.html#indentation-of-long-function-declarations"><i class="fa fa-check"></i><b>13.12</b> Indentation of long function declarations</a></li>
+<li class="chapter" data-level="13.13" data-path="r-code-style.html"><a href="r-code-style.html#loops"><i class="fa fa-check"></i><b>13.13</b> Loops</a></li>
+<li class="chapter" data-level="13.14" data-path="r-code-style.html"><a href="r-code-style.html#functions-1"><i class="fa fa-check"></i><b>13.14</b> Functions</a></li>
+<li class="chapter" data-level="13.15" data-path="r-code-style.html"><a href="r-code-style.html#efficiency"><i class="fa fa-check"></i><b>13.15</b> Efficiency</a></li>
+<li class="chapter" data-level="13.16" data-path="r-code-style.html"><a href="r-code-style.html#end"><i class="fa fa-check"></i><b>13.16</b> [END]</a></li>
+<li class="chapter" data-level="13.17" data-path="r-code-style.html"><a href="r-code-style.html#self-evaluation-11"><i class="fa fa-check"></i><b>13.17</b> Self-evaluation</a></li>
+<li class="chapter" data-level="13.18" data-path="r-code-style.html"><a href="r-code-style.html#further-reading-links-and-resources-11"><i class="fa fa-check"></i><b>13.18</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="r-plots.html"><a href="r-plots.html"><i class="fa fa-check"></i><b>14</b> Introduction to R Plots</a><ul>
+<li class="chapter" data-level="14.1" data-path="r-plots.html"><a href="r-plots.html#overview-12"><i class="fa fa-check"></i><b>14.1</b> Overview</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="r-plots.html"><a href="r-plots.html#abstract-12"><i class="fa fa-check"></i><b>14.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="14.1.2" data-path="r-plots.html"><a href="r-plots.html#objectives-12"><i class="fa fa-check"></i><b>14.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="14.1.3" data-path="r-plots.html"><a href="r-plots.html#outcomes-12"><i class="fa fa-check"></i><b>14.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="14.1.4" data-path="r-plots.html"><a href="r-plots.html#deliverables-12"><i class="fa fa-check"></i><b>14.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="14.1.5" data-path="r-plots.html"><a href="r-plots.html#prerequisites-12"><i class="fa fa-check"></i><b>14.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="r-plots.html"><a href="r-plots.html#types-of-plots"><i class="fa fa-check"></i><b>14.2</b> Types of plots</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="r-plots.html"><a href="r-plots.html#plot"><i class="fa fa-check"></i><b>14.2.1</b> plot()</a></li>
+<li class="chapter" data-level="14.2.2" data-path="r-plots.html"><a href="r-plots.html#barplot"><i class="fa fa-check"></i><b>14.2.2</b> barplot()</a></li>
+<li class="chapter" data-level="14.2.3" data-path="r-plots.html"><a href="r-plots.html#hist"><i class="fa fa-check"></i><b>14.2.3</b> hist()</a></li>
+<li class="chapter" data-level="14.2.4" data-path="r-plots.html"><a href="r-plots.html#boxplot"><i class="fa fa-check"></i><b>14.2.4</b> boxplot</a></li>
+<li class="chapter" data-level="14.2.5" data-path="r-plots.html"><a href="r-plots.html#colour"><i class="fa fa-check"></i><b>14.2.5</b> Colour</a></li>
+<li class="chapter" data-level="14.2.6" data-path="r-plots.html"><a href="r-plots.html#colour-palettes"><i class="fa fa-check"></i><b>14.2.6</b> Colour palettes</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="r-plots.html"><a href="r-plots.html#lines"><i class="fa fa-check"></i><b>14.3</b> Lines ===============================================================</a></li>
+<li class="chapter" data-level="14.4" data-path="r-plots.html"><a href="r-plots.html#axes"><i class="fa fa-check"></i><b>14.4</b> Axes</a></li>
+<li class="chapter" data-level="14.5" data-path="r-plots.html"><a href="r-plots.html#layout-1"><i class="fa fa-check"></i><b>14.5</b> Layout</a><ul>
+<li class="chapter" data-level="14.5.1" data-path="r-plots.html"><a href="r-plots.html#par-lattice-constant-aspect-ratio"><i class="fa fa-check"></i><b>14.5.1</b> par, lattice, constant aspect ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="r-plots.html"><a href="r-plots.html#plot-symbols-and-text"><i class="fa fa-check"></i><b>14.6</b> Plot symbols and text</a></li>
+<li class="chapter" data-level="14.7" data-path="r-plots.html"><a href="r-plots.html#drawing-on-plots"><i class="fa fa-check"></i><b>14.7</b> Drawing on plots</a></li>
+<li class="chapter" data-level="14.8" data-path="r-plots.html"><a href="r-plots.html#special-packages"><i class="fa fa-check"></i><b>14.8</b> Special packages</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="try.html"><a href="try.html"><i class="fa fa-check"></i><b>15</b> Try:</a><ul>
+<li class="chapter" data-level="15.1" data-path="try.html"><a href="try.html#self-evaluation-12"><i class="fa fa-check"></i><b>15.1</b> Self-evaluation</a></li>
+<li class="chapter" data-level="15.2" data-path="try.html"><a href="try.html#further-reading-links-and-resources-12"><i class="fa fa-check"></i><b>15.2</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="r-intro.html"><a href="r-intro.html"><i class="fa fa-check"></i><b>16</b> Introduction to R</a><ul>
+<li class="chapter" data-level="16.1" data-path="r-intro.html"><a href="r-intro.html#overview-13"><i class="fa fa-check"></i><b>16.1</b> Overview</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="r-intro.html"><a href="r-intro.html#abstract-13"><i class="fa fa-check"></i><b>16.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="16.1.2" data-path="r-intro.html"><a href="r-intro.html#objectives-13"><i class="fa fa-check"></i><b>16.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="16.1.3" data-path="r-intro.html"><a href="r-intro.html#outcomes-13"><i class="fa fa-check"></i><b>16.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="16.1.4" data-path="r-intro.html"><a href="r-intro.html#deliverables-13"><i class="fa fa-check"></i><b>16.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="16.1.5" data-path="r-intro.html"><a href="r-intro.html#prerequisites-13"><i class="fa fa-check"></i><b>16.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="r-intro.html"><a href="r-intro.html#the-abc-rstudio-project"><i class="fa fa-check"></i><b>16.2</b> The ABC RStudio Project</a></li>
+<li class="chapter" data-level="16.3" data-path="r-intro.html"><a href="r-intro.html#self-evaluation-13"><i class="fa fa-check"></i><b>16.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="16.4" data-path="r-intro.html"><a href="r-intro.html#further-reading-links-and-resources-13"><i class="fa fa-check"></i><b>16.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>17</b> About</a><ul>
+<li class="chapter" data-level="17.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>17.1</b> Attributions:</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BCB420 - Computational System Biology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-scalars" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> R scalars and vectors</h1>
+<p>(Types of R objects: scalars, vectors and matrices)</p>
+<div id="overview-5" class="section level2">
+<h2><span class="header-section-number">6.1</span> Overview</h2>
+<div id="abstract-5" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Abstract:</h3>
+<p>Introduction to vector objects in R: what are they, how are they created, how can they be subset?</p>
+</div>
+<div id="objectives-5" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Objectives:</h3>
+<p>This unit will:</p>
+<ul>
+<li>introduce scalars, vectors and matrices;</li>
+<li>demonstrate vectorized operations;</li>
+<li>teach various ways of subsetting;</li>
+</ul>
+</div>
+<div id="outcomes-5" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Outcomes:</h3>
+<p>After working through this unit you:</p>
+<ul>
+<li>can create vectors by assignment from sequences or using the c();</li>
+<li>are familar with subsetting by index, name, and boolean vectors;</li>
+<li>can subset elements, ranges, and slices from vectors and matrices;</li>
+<li>can combine objects with c(), rbind(), or cbind().</li>
+</ul>
+</div>
+<div id="deliverables-5" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Deliverables:</h3>
+<p><strong>Time management</strong>: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.</p>
+<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don’t overlook these.</p>
+<p><strong>Insights</strong>: If you find something particularly noteworthy about this unit, make a note in your insights! page.</p>
+</div>
+<div id="prerequisites-5" class="section level3">
+<h3><span class="header-section-number">6.1.5</span> Prerequisites</h3>
+<p><a href="#r-syntax">RPR-Syntax_basics (Basics of R syntax)</a></p>
+<p><strong>R</strong> objects can be composed of different kinds of data according to the type and number of “atomic” values they contain:</p>
+<ul>
+<li>Scalar items are single values;</li>
+<li>Vectors are ordered sequences of scalars, they must all have the same “data type” (e.g. numeric, logical, character …);</li>
+<li>Matrices are vectors for which one or more “dimension(s)” have been defined;</li>
+<li>“Data frames”&quot; are spreadsheet-like objects, their columns are like vectors and all columns must have the same length, but within one data frame, columns can have different data types. They are the most commonly used type of object to hold data;</li>
+<li>Lists are the most general collection of data items, the can contain items of any type and kind, including matrices, functions, data frames, and other lists.</li>
+</ul>
+</div>
+</div>
+<div id="scalar-data" class="section level2">
+<h2><span class="header-section-number">6.2</span> Scalar data</h2>
+<p>Scalars are single numbers, the “atomic” parts of more complex datatypes. Of course we can work with single numbers in R, but under the hood they are actually vectors of length 1. (More on vectors in the next section). To create a scalar object, simply assign some value to its name.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>pi       <span class="co"># define a scalar by assignment</span>
+x             <span class="co"># its value is ...</span></code></pre></div>
+<pre><code>## [1] 3.141593</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x)     <span class="co"># its length is ...</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">1</span>]          <span class="co"># it is actually a vector, and its first element is ...</span></code></pre></div>
+<pre><code>## [1] 3.141593</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">2</span>]          <span class="co"># a second element does not exist NA: Not Available</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Here are some remarks on the types of scalars <strong>R</strong> uses, and on coercion between types, i.e. casting one datatype into another. The following scalar types are supported:</p>
+<ul>
+<li>Boolean constants: TRUE and FALSE. This type has the “mode” logical;</li>
+<li>Integers, floats (floating point numbers) and complex numbers. These types have the mode numeric;</li>
+<li>Strings. These have the mode character.</li>
+<li>Other modes exist, such as list, function and expression, all of which can be combined into complex objects.</li>
+</ul>
+<p>The function mode() returns the mode of an object and typeof() returns its type. Also class() tells you what class it belongs to.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(3L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mode</span>(print)</code></pre></div>
+<pre><code>## [1] &quot;function&quot;</code></pre>
+<p>I have combined these information functions into a single function, objectInfo() which gets loaded and defined when you execute the init() function of the BasicSetup project, so you can explore objects in more detail. We can use objectInfo() to explore how R objects are made up, by handing various expressions as arguments to the function. Many of these you may not yet recognize … bear with it though:</p>
+<div class="rmd-task">
+<p>
+Load the R-Exercise_BasicSetup project in RStudio if you don’t already have it open. Type init() as instructed after the project has loaded. Continue below.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Let&#39;s have a brief look at the function itself: typing a function name without its parentheses returns the source code for the function:</span>
+objectInfo
+
+<span class="co"># Various objects:</span>
+ 
+<span class="co">#Scalars:</span>
+<span class="kw">objectInfo</span>( <span class="fl">3.0</span> )    <span class="co"># Double precision floating point number</span>
+<span class="kw">objectInfo</span>( <span class="fl">3.0e0</span> )  <span class="co"># Same value, exponential notation</span>
+ 
+<span class="kw">objectInfo</span>( <span class="dv">3</span> )   <span class="co"># Note: integers are double precision floats by default.</span>
+<span class="kw">objectInfo</span>( 3L )  <span class="co"># If we really want an integer, we must use R&#39;s</span>
+                  <span class="co"># special integer notation ...</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.integer</span>(<span class="dv">3</span>) )  <span class="co"># or explicitly &quot;coerce&quot; to type integer...</span>
+ 
+<span class="co"># Coercions: For each of these, first think what result you would expect:</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.character</span>(<span class="dv">3</span>) )  <span class="co"># Forcing the number to be interpreted as a character.</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.numeric</span>(<span class="st">&quot;3&quot;</span>) )   <span class="co"># character as numeric</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.numeric</span>(<span class="st">&quot;3.141592653&quot;</span>) )  <span class="co"># string as numeric. Where do the</span>
+                                         <span class="co"># non-zero digits at the end come from?</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.numeric</span>(pi) )    <span class="co"># not a string, but a predefined constant</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.numeric</span>(<span class="st">&quot;pi&quot;</span>) )  <span class="co"># another string as numeric ... Ooops -</span>
+                                <span class="co"># why the warning?</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.complex</span>(<span class="dv">1</span>) )
+ 
+<span class="kw">objectInfo</span>( <span class="kw">as.logical</span>(<span class="dv">0</span>) )
+<span class="kw">objectInfo</span>( <span class="kw">as.logical</span>(<span class="dv">1</span>) )
+<span class="kw">objectInfo</span>( <span class="kw">as.logical</span>(<span class="op">-</span><span class="dv">1</span>) )
+<span class="kw">objectInfo</span>( <span class="kw">as.logical</span>(pi) )      <span class="co"># any non-zero number is TRUE ...</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.logical</span>(<span class="st">&quot;pie&quot;</span>) )   <span class="co"># ... but not non-numeric types.</span>
+                                  <span class="co"># NA means &quot;Not Available&quot;.</span>
+<span class="kw">objectInfo</span>( <span class="kw">as.character</span>(pi) )    <span class="co"># Interesting: the conversion eats digits.</span>
+ 
+<span class="kw">objectInfo</span>( <span class="ot">Inf</span> )                <span class="co"># Larger than the largest representable number</span>
+<span class="kw">objectInfo</span>( <span class="op">-</span><span class="ot">Inf</span> )               <span class="co"># ... or smaller</span>
+<span class="kw">objectInfo</span>( <span class="ot">NaN</span> )                <span class="co"># &quot;Not a Number&quot; is numeric</span>
+<span class="kw">objectInfo</span>( <span class="ot">NA</span> )                 <span class="co"># &quot;Not Available&quot; - i.e. missing value is</span>
+                                 <span class="co"># logical by default</span>
+ 
+<span class="co"># NULL</span>
+<span class="kw">objectInfo</span>( <span class="ot">NULL</span> )  <span class="co"># NULL is nothing. Not 0, not NaN,</span>
+                    <span class="co"># not FALSE - nothing. NULL is the value that is returned</span>
+                    <span class="co"># by expressions or functions when the result is</span>
+                    <span class="co"># undefined and nothing more can be said about it.</span>
+ 
+<span class="kw">objectInfo</span>( <span class="kw">as.factor</span>(<span class="st">&quot;M&quot;</span>) )     <span class="co"># factor</span>
+<span class="kw">objectInfo</span>( <span class="kw">Sys.time</span>() )         <span class="co"># time</span>
+<span class="kw">objectInfo</span>( letters )            <span class="co"># inbuilt character vector</span>
+<span class="kw">objectInfo</span>( LETTERS )            <span class="co"># same</span>
+<span class="kw">objectInfo</span>( <span class="dv">1</span><span class="op">:</span><span class="dv">4</span> )                <span class="co"># numeric vector</span>
+<span class="kw">objectInfo</span>( <span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow=</span><span class="dv">2</span>)) <span class="co"># numeric matrix</span>
+<span class="kw">objectInfo</span>( <span class="kw">data.frame</span>(<span class="dt">arabic =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,                           <span class="co"># data frame</span>
+                       <span class="dt">roman =</span> <span class="kw">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;III&quot;</span>),
+                       <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>))
+<span class="kw">objectInfo</span>( <span class="kw">list</span>(<span class="dt">arabic =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">7</span>,
+                 <span class="dt">roman =</span> <span class="kw">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;III&quot;</span>),
+                 <span class="dt">chinese =</span> <span class="kw">c</span>(<span class="st">&quot;一&quot;</span>, <span class="st">&quot;二&quot;</span>, <span class="st">&quot;三&quot;</span>, <span class="st">&quot;四&quot;</span>)))   <span class="co"># list</span>
+ 
+<span class="co"># Expressions:</span>
+<span class="kw">objectInfo</span>( <span class="dv">3</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span> ) <span class="co"># Note: any combination of two variables via the logical</span>
+                    <span class="co"># operators ! == != &gt; &lt; &gt;= &lt;= | || &amp; and &amp;&amp; is a</span>
+                    <span class="co"># logical expression, and evaluates to TRUE or FALSE.</span>
+<span class="kw">objectInfo</span>( <span class="dv">3</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span> )
+<span class="kw">objectInfo</span>( <span class="dv">1</span><span class="op">:</span><span class="dv">6</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span> ) <span class="co"># these are &quot;vectorized&quot; operators</span>
+ 
+<span class="kw">objectInfo</span>( a <span class="op">~</span><span class="st"> </span>b )              <span class="co"># a formula</span>
+<span class="kw">objectInfo</span>( objectInfo )         <span class="co"># the function itself</span></code></pre></div>
+<p>Sometimes (but rarely) you may run into a distinction that R makes regarding integers and floating point numbers. By default, if you specify e.g. the number 2 in your code, it is stored as a floating point number. But if the numbers are generated e.g. from a range operator as in 1:2 they are integers! This can give rise to confusion as in the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">7</span>
+b &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">:</span><span class="dv">7</span>
+<span class="kw">str</span>(a)             <span class="co"># num 7</span></code></pre></div>
+<pre><code>##  num 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(b)             <span class="co"># int [1:2] 6 7</span></code></pre></div>
+<pre><code>##  int [1:2] 6 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a <span class="op">==</span><span class="st"> </span>b[<span class="dv">2</span>]          <span class="co"># TRUE</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(b[<span class="dv">2</span>], a) <span class="co"># FALSE ! Not identical! Why?</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">                   <span class="co"># (see the str() results above.)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If you need to be sure that a number is an</span>
+<span class="co"># integer, write it with an &quot;L&quot; after the number:</span>
+c &lt;-<span class="st"> </span>7L
+<span class="kw">str</span>(c)             <span class="co"># int 7</span></code></pre></div>
+<pre><code>##  int 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(b[<span class="dv">2</span>], c) <span class="co"># TRUE</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="vectors" class="section level2">
+<h2><span class="header-section-number">6.3</span> Vectors</h2>
+<p>Since we (almost) never do statistics on scalars, <strong>R</strong> obviously needs ways to handle collections of data items. In its simplest form such a collection is a vector: an ordered list of items of the same type. Vectors are created from scratch with the c() function which concatenates individual items into a vector, or with various sequencing functions. Vectors have properties, such as length; individual items in vectors can be combined in useful ways. It’s worth repeating: all elements of a vector must be of the same type. If they are not, they are silently(!) coerced to the most general type (which is often character). (The actual hierarchy for coercion is raw &lt; logical &lt; integer &lt; double &lt; complex &lt; character &lt; list ).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The c() function concatenates elements into a vector</span>
+<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] 2 4 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Create a vector and list its contents and length:</span>
+f &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">21</span>)
+f</code></pre></div>
+<pre><code>## [1]  1  1  3  5  8 13 21</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(f)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Often, for teaching code, I want to demonstrate the contents of an object after</span>
+<span class="co"># assigning it. I can simply wrap the assignment into parentheses to achieve that.</span>
+<span class="co"># Parentheses return the value of whatever they enclose. So ...</span>
+a &lt;-<span class="st"> </span><span class="dv">17</span>
+<span class="co"># ... assigns 17 to the variable &quot;a&quot;. But this happens silently. However ...</span>
+( a &lt;-<span class="st"> </span><span class="dv">17</span> )</code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ... returns the result of the assignment. I will use this idiom often.</span>
+ 
+( myVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">34</span>, <span class="dv">55</span>, <span class="dv">89</span>) )</code></pre></div>
+<pre><code>##  [1]  1  1  3  5  8 13 21 34 55 89</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Coercion:</span>
+<span class="co"># all elements of vectors must be of the same type</span>
+(mixed_type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">2.0</span>, <span class="st">&quot;3&quot;</span>, <span class="ot">TRUE</span>))  <span class="co"># trying to get a vector with mixed types ...</span></code></pre></div>
+<pre><code>## [1] &quot;1&quot;    &quot;2&quot;    &quot;3&quot;    &quot;TRUE&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(mixed_type)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>… shows that all elements are silently being coerced to character. The emphasis is on <strong>silently</strong>. This might be unexpected, for example if you are reading numeric data from a text-file into a vector but someone has entered a &quot; &quot; for a missing value … then everything is characterified. Nasty.</p>
+<p>There are various ways to subset (retrieve) specific values from a vector; this is important.</p>
+</div>
+<div id="subsetting-by-index" class="section level2">
+<h2><span class="header-section-number">6.4</span> Subsetting by index</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extracting by index ...</span>
+myVec[<span class="dv">1</span>]         <span class="co"># &quot;1&quot; is first element, not 0.</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(myVec, <span class="dv">1</span>)   <span class="co"># same thing</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec[<span class="kw">length</span>(myVec)] <span class="co"># length() is the index of the last element.</span></code></pre></div>
+<pre><code>## [1] 89</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(myVec, <span class="dv">1</span>)       <span class="co"># same thing</span></code></pre></div>
+<pre><code>## [1] 89</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># With a vector of indices ...</span>
+<span class="dv">1</span><span class="op">:</span><span class="dv">4</span> <span class="co"># This is the range operator</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>] <span class="co"># using the range operator (it generates a sequence and returns it in a vector)</span></code></pre></div>
+<pre><code>## [1] 1 1 3 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec[<span class="dv">4</span><span class="op">:</span><span class="dv">1</span>] <span class="co"># same thing, backwards</span></code></pre></div>
+<pre><code>## [1] 5 3 1 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">6</span>, <span class="dt">by=</span><span class="dv">2</span>) <span class="co"># The seq() function is a flexible, generic way to generate sequences</span></code></pre></div>
+<pre><code>## [1] 2 4 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">2</span>) <span class="co"># Same thing: arguments in default order</span></code></pre></div>
+<pre><code>## [1] 2 4 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec[<span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">2</span>)]</code></pre></div>
+<pre><code>## [1]  1  5 13</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># since a scalar is a vector of length 1, does this work?</span>
+<span class="dv">5</span>[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ...using an index vector with positive indices</span>
+a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>) <span class="co"># the elements of index vectors must be</span>
+                   <span class="co"># valid indices of the target vector.</span>
+                   <span class="co"># The index vector can be of any length.</span>
+myVec[a] <span class="co"># In this case, four elements are retrieved from f[]</span></code></pre></div>
+<pre><code>## [1] 1 3 5 1</code></pre>
+</div>
+<div id="excluding-items-through-negative-indexes" class="section level2">
+<h2><span class="header-section-number">6.5</span> Excluding items through negative indexes</h2>
+<p>Negative indices omit elements:</p>
+<ul>
+<li>using an index vector with negative indices</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If elements of index vectors are negative integers,</span>
+<span class="co"># the corresponding elements are excluded.</span>
+( a &lt;-<span class="st"> </span><span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) ) <span class="co"># Note that this is NOT the same as -1:4</span></code></pre></div>
+<pre><code>## [1] -1 -2 -3 -4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec[a] <span class="co"># Here, the first four elements are omitted from myVec[]</span></code></pre></div>
+<pre><code>## [1]  8 13 21 34 55 89</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec[<span class="op">-</span>((<span class="kw">length</span>(myVec)<span class="op">-</span><span class="dv">3</span>)<span class="op">:</span><span class="kw">length</span>(myVec))] <span class="co"># Here, the last four elements are omitted</span></code></pre></div>
+<pre><code>## [1]  1  1  3  5  8 13</code></pre>
+</div>
+<div id="subsetting-by-boolean-vectors" class="section level2">
+<h2><span class="header-section-number">6.6</span> Subsetting by boolean vectors</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>         <span class="co"># A logical expression operating on the target vector</span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">                  <span class="co"># returns a vector of logical elements. It has the</span>
+                  <span class="co"># same length as the target vector.</span>
+myVec[myVec <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>]; <span class="co"># We can use this logical vector to extract only</span></code></pre></div>
+<pre><code>## [1]  5  8 13 21 34 55 89</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">                  <span class="co"># elements for which the logical expression evaluates as TRUE.</span>
+                  <span class="co"># This is also called &quot;filtering&quot;.</span></code></pre></div>
+<p><strong>Note</strong>: the logical vector is aligned with the elements of the original vector. You can’t retrieve elements more than once, as you could with index vectors. If the logical vector is shorter than its target it is “recycled” to the full length.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]  <span class="co"># odd numbers, but how and why?</span></code></pre></div>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
+</div>
+<div id="subsetting-by-name" class="section level2">
+<h2><span class="header-section-number">6.7</span> Subsetting by name</h2>
+<p>If the vector has named elements, vectors of names can be used exactly like index vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(myVec)[<span class="st">&quot;Median&quot;</span>]</code></pre></div>
+<pre><code>## Median 
+##   10.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(myVec)[<span class="kw">c</span>(<span class="st">&quot;Max&quot;</span>, <span class="st">&quot;Min&quot;</span>)]  <span class="co"># Oooops - I mistyped. But you can fix the expression, right?</span></code></pre></div>
+<pre><code>## &lt;NA&gt; &lt;NA&gt; 
+## </code></pre>
+</div>
+<div id="is-an-operator" class="section level2">
+<h2><span class="header-section-number">6.8</span> “[” is an operator</h2>
+<p>Some more thoughts about “[”</p>
+<ul>
+<li>“[” is not just a special character, it is an operator.</li>
+<li>It operates on whatever it is attached to on the left.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?<span class="st">&quot;[&quot;</span>   <span class="co"># help is available ...</span></code></pre></div>
+<p>We have attached “[” to vectors above, but we can also attach it directly to functions or other expressions.</p>
+<p>For example, the summary() function returns some basic statistics of a vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(myVec)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    3.50   10.50   23.00   30.75   89.00</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This is a vector of six numbers:</span>
+<span class="kw">length</span>(<span class="kw">summary</span>(myVec))</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We can extract e.g. the median like so:</span>
+<span class="kw">summary</span>(myVec)[<span class="dv">3</span>]</code></pre></div>
+<pre><code>## Median 
+##   10.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ... or the boundaries of the interquartile range:</span>
+<span class="kw">summary</span>(myVec)[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>)]</code></pre></div>
+<pre><code>## 1st Qu. 3rd Qu. 
+##    3.50   30.75</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Note that the elements that summary() returns are &quot;named&quot;.</span>
+<span class="co"># &quot;Names&quot; are attributes.</span>
+<span class="kw">objectInfo</span>(<span class="kw">summary</span>(f))</code></pre></div>
+<pre><code>## object contents:                    Min.                  1st Qu.                   Median 
+##  1.000000000000000000000  2.000000000000000000000  5.000000000000000000000 
+##                     Mean                  3rd Qu.                     Max. 
+##  7.428570999999999813213 10.500000000000000000000 21.000000000000000000000 
+## 
+## structure of object:
+##  &#39;summaryDefault&#39; Named num [1:6] 1 2 5 7.43 10.5 ...
+##  - attr(*, &quot;names&quot;)= chr [1:6] &quot;Min.&quot; &quot;1st Qu.&quot; &quot;Median&quot; &quot;Mean&quot; ...
+## 
+## mode:    numeric 
+## typeof:  double 
+## class:   summaryDefault table 
+## 
+## attributes:</code></pre>
+<pre><code>## $names
+## [1] &quot;Min.&quot;    &quot;1st Qu.&quot; &quot;Median&quot;  &quot;Mean&quot;    &quot;3rd Qu.&quot; &quot;Max.&quot;   
+## 
+## $class
+## [1] &quot;summaryDefault&quot; &quot;table&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The names() function can retrieve (or set) names:</span>
+<span class="kw">names</span>(<span class="kw">summary</span>(myVec))</code></pre></div>
+<pre><code>## [1] &quot;Min.&quot;    &quot;1st Qu.&quot; &quot;Median&quot;  &quot;Mean&quot;    &quot;3rd Qu.&quot; &quot;Max.&quot;</code></pre>
+<p>… which brings us to yet another way to extract elements from Vectors:</p>
+</div>
+<div id="subsetting-by-name-1" class="section level2">
+<h2><span class="header-section-number">6.9</span> Subsetting by name:</h2>
+<p>Extending vectors:</p>
+<ul>
+<li>Vectors are not immutable. They can grow and shrink as required.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span> )</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="dv">4</span>; x</code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">7</span>] &lt;-<span class="st"> </span><span class="dv">7</span>; x</code></pre></div>
+<pre><code>## [1]  1  2  3  4 NA NA  7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( x &lt;-<span class="st"> </span>x[<span class="op">-</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">6</span>)] )</code></pre></div>
+<pre><code>## [1] 1 2 3 4 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(x)</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p><strong>Example</strong> : extending the Fibonacci series for three steps.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( myVec &lt;-<span class="st"> </span><span class="kw">c</span>(myVec, myVec[<span class="kw">length</span>(myVec)<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>myVec[<span class="kw">length</span>(myVec)]) )</code></pre></div>
+<pre><code>##  [1]   1   1   3   5   8  13  21  34  55  89 144</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( myVec &lt;-<span class="st"> </span><span class="kw">c</span>(myVec, myVec[<span class="kw">length</span>(myVec)<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>myVec[<span class="kw">length</span>(myVec)]) )</code></pre></div>
+<pre><code>##  [1]   1   1   3   5   8  13  21  34  55  89 144 233</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( myVec &lt;-<span class="st"> </span><span class="kw">c</span>(myVec, myVec[<span class="kw">length</span>(myVec)<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>myVec[<span class="kw">length</span>(myVec)]) )</code></pre></div>
+<pre><code>##  [1]   1   1   3   5   8  13  21  34  55  89 144 233 377</code></pre>
+<div class="rmd-task">
+<p>
+Think: How does this work? What numbers are we adding here and why does the result end up in the vector?
+</p>
+</div>
+</div>
+<div id="vectorized-operations" class="section level2">
+<h2><span class="header-section-number">6.10</span> Vectorized operations</h2>
+<p>Many operations on vectors are by default performed for every element of the vector, and <strong>R</strong> computes them <strong>very</strong> efficiently. These are called “vectorized” operations and definitely should be used whenever possible, rather than loops or other explicit iterations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec</code></pre></div>
+<pre><code>##  [1]   1   1   3   5   8  13  21  34  55  89 144 233 377</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>##  [1]   2   2   4   6   9  14  22  35  56  90 145 234 378</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec <span class="op">*</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>##  [1]   2   2   6  10  16  26  42  68 110 178 288 466 754</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(myVec)</code></pre></div>
+<pre><code>##  [1] 0.000000 0.000000 1.098612 1.609438 2.079442 2.564949 3.044522 3.526361
+##  [9] 4.007333 4.488636 4.969813 5.451038 5.932245</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-snytax.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="computing-with-two-vectors-of-same-length.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-R-scalars.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BCB420_Computational_Systems_Biology_Unit2_R_Basics.pdf", "BCB420_Computational_Systems_Biology_Unit2_R_Basics.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

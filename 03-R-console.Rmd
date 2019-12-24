@@ -1,0 +1,79 @@
+# Console and scripts {#r-console}
+(Code interactively or fom scripts.)
+
+## Overview
+### Abstract:
+This unit discusses use working from the RStudio console vs. working from scripts.
+
+### Objectives:
+This unit discusses principles of working interactively vs. working from scripts.
+
+### Outcomes:
+After working through this unit you:
+
+  * are familiar with the advantages of working from script files;
+  * should begin always working from script files in your own practice.
+  
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites 
+[RPR-Installation (Installing R and RStudio)](#r_install)
+
+## Typing code or executing it?
+The RStudio "console" is the bottom-left pane into which you can type commands for execution, and which will contain the output of print() or cat() commands.
+
+Commands can be:
+
+  * directly typed into the console;
+  * copied by you from the Wiki and pasted into the console;
+  * or executed from a script (i.e. a text-file of R commands that can run as a program), either by selecting and executing the code, or by executing the entire script with the source("<filename>") command.
+  
+  However, note the following: **it is convenient to copy/paste code, but you don't learn how to write code through that**. Practice has shown that it is better to actually type commands, even if you are just re-typing code from a book or online. Actively typing out the code character by character ensures you are reading and translating the code, and notice if anything is not entirely clear.^[ We use a predictive mental contents-model when we type - something like an inbuilt autocorrect-suggestion mechanism; thus if you type something unfamiliar or surprising (e.g. a subtle detail of syntax), you will notice and be able to figure out the issue. Pasting code is a merely mechanical activity.] In computer code, every single character matters. For example, I expect that by typing out commands you will be much less likely to confuse = with <- or even ==. Also, you will sometimes mistype and create errors. That's actually good, because you quickly learn to spot errors, fix them, and resume. That way you build confidence.
+
+  Regarding the larger scripts we load from GitHub - these are too long to be retyped. Select the line, or parts of the line, or a larger block of code that you want to execute, then press <command> R, or <command><enter> (depending on your operating system) to execute the selected block. In this case you'll need extra effort to discipline yourself and actually read and **understand** every single character and command. The point is not to execute the scripts. The point is to understand their contents. The best way to do this is to edit the code, vary parameters, try alternatives and in general **play**.
+
+  Actually **working** with code - i.e. developing code for the lab - is another story. In this case scripts are indispensable for development. I type all my **R** code into a script, never directly into the console - in this way it is much easier to come back, change things and recreate whatever analysis I was doing: this is essential for "reproducible research". I type into the script, save the script from time to time, and execute commands from the script, not the console - that's the easiest way to modify and develop. Making script and console work hand in hand is the way to work with **R**. There are four major advantages:
+
+  1. The script is an accurate record of my procedure so I know exactly what I have done;
+  1. I add numerous comments, to record what I was thinking when I developed it;
+  1. I can immediately reproduce the entire analysis from start to finish, simply by rerunning the script;
+  1. I can reuse parts easily, thus making new analyses quick to develop;
+  1. If I keep my script under version control, I can return to previous versions and undo errors. These were actually five points.
+
+ 
+## User interface
+Both **R** and RStudio have a GUI^[A GUI is a Graphical User Interface, it has windows and menu items, as opposed to a "command line interface".] to lay out common tasks. For example, there are a number of menu items, many of which are similar to other programs you will have worked with ("File", "Edit", "Format", "Window", "Help" ...). But note: all of these tasks can also be accessed through the command line in the console.
+
+In general, GUIs are useful when you are not sure what you want to do or how to go about it; the command line is much more powerful when you have more experience and know your way around in principle. R gives you both options.
+
+## Self-evaluation
+## Further reading, links and resources
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2018-05-04<br>
+Version: 1.0.1<br>
+**Version history**:<br>
+1.0.1 Maintenance<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

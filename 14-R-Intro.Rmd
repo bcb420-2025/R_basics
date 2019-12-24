@@ -1,0 +1,71 @@
+#Introduction to R {#r-intro}
+(Introduction to R)
+
+##Overview
+### Abstract:
+This page collects the learning units for an introduction to R.
+
+### Objectives:
+...
+
+### Outcomes:
+...
+
+### Deliverables:
+No separate deliverables: This unit collects other units and has no deliverables on its own.
+
+### Prerequisites:
+This unit builds on material covered in the following prerequisite units:
+
+[RPR-Coding_style (R Coding Style)](#r-code-style)
+
+This is a "milestone unit". Its purpose is merely to collect a number of preparatory units into a single, common prerequisite. It has no contents of its own; you are expected to be familiar and competent with all preparatory material at this point.
+
+## The ABC RStudio Project
+
+**R**-scripts and other resources for the learning units of this course are collected in an RStudio project. This makes it easy to update and distribute code. I push update material to the GitHub repository of the project for any unit, all you need to do is to pull the updated project to receive all updates and new files on your computer. Version control is really useful for this. However, there is an issue that you need to be aware of. If you create your own, local files and then commit them, git will complain that it would be overwriting such local material. As long as you don't commit your files then all should be fine. This means you'll need to do your own "versioning" by saving your own scripts under a different name from time to time. Once again: in this context:
+
+  * saving your own files is fine;
+  * committing your own files to version control will cause problems;
+  * changes you make to course material files and save under the same filename (like adding comments and notes) will not persist, these changes will be overwritten with the next update. You need to "Save As..." with a new filename (for example, prefix the original name with "my").
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+ 
+```{block, type="rmd-task"}
+  * Open RStudio and create a New Project... cloned from a git version control directory. The repository URL is https://github.com/hyginn/ABC-units. Create this in the same way as you did for the R-tutorial.
+  * As requested on the console, type init(). This will create a file called .myProfile.R and ask you for your UofT eMail address and Student ID. You need to enter the correct values because other scripts will assume that these variables exist and are valid.
+  * Work through the task: "Local script" in the RPR-Introduction.R script.
+```
+ 
+## Self-evaluation
+  * Understanding the setup
+    * Imagine you made a typo when you entered your eMail address and now the file .myProfile.R contains a mistake. How do you fix this?^[.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(".myProfile.R") into the console to overwrite the old (wrong) definition with the corrected one.]
+
+ [Expand] 
+Answer ...
+
+## Further reading, links and resources
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-08-05<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 Completed to first live version.<br>
+0.1 First stub<br>
+``` 
+ 
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

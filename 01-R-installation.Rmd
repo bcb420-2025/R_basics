@@ -1,0 +1,451 @@
+#Installing R and RStudio {#r_install}
+(Notation; installing R and RStudio; packages; first experiments.)
+ 
+ 
+## Overview 
+###Abstract:
+This unit works through the installation of R and RStudio and introduces R's packages of additional functions.
+
+### Objectives:
+This unit will:
+
+  * guide you through first steps for installing R and R Studio on your own computer; and
+  * introduce the concept of "packages" to extend R's functionality;
+
+### Outcomes:
+After working through this unit you:
+
+  * have a working installation of R and RStudio and know how to start RStudio;
+  * can find and install packages.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+This unit builds on material covered in the following prerequisite units:
+
+[ABC-Insights (insights!)]()<br>
+[FND-Biocomputing_setup (Computer Setup for Biocomputing)]()<br>
+ 
+## R
+ 
+### Introduction
+
+The [R statistics environment and programming language](https://en.wikipedia.org/wiki/R_(programming_language)) is an exceptionally well engineered, free (as in free speech) and free (as in free beer) platform for data manipulation and analysis. The number of functions that are included by default is large, there is a very large number of additional, community-generated analysis modules that can be simply imported from dedicated sites (e.g. the [Bioconductor](https://www.bioconductor.org/) project for molecular biology data), or via the CRAN network, and whatever function is not available can be easily programmed. The ability to filter and manipulate data to prepare it for analysis is an absolute requirement in research-centric fields such as ours, where the strategies for analysis are constantly shifting and prepackaged solutions become obsolete almost faster than they can be developed. Besides numerical analysis, R has very powerful and flexible functions for plotting graphical output.
+ 
+ 
+**Note: you can't learn a programming language in a single day.**
+
+Work through this material unit by unit, but when you are done, you need constant repetition to bring it into active memory. And make sure you understand every step. Taking shortcuts and/or cramming everything in a single, desperate effort is a waste of your time.
+ 
+ 
+### Before you begin: Notation and Formatting
+
+In this tutorial, I use specific notation and formatting to mean different things:
+
+  * If you see footnotes^[and when you click on the arrow to the left, this will take you back to where you came from], click on the number to read more.
+  * This is normal text for explanations. It is written in a proportionally spaced font.
+  
+```{r, eval=FALSE}
+Code formatting is for code examples, file- and function names, directory paths etc. Code is written in a monospaced font^[Proportional fonts are for elegant document layout. Monospaced fonts are needed to properly align characters in columns. For code and sequences, we alway use monospaced font. Code editors always use monospaced fonts, but since I need to eMail a lot of code and sequences, I have also set my eMail client to use monospaced font by default (Courier, or Monaco). I highly encourage you to do the same.].
+```
+  
+  * **Bold emphasis** and <u>underlining</u> are to mark words as particularly important.
+  * Examples of the right way to do something are <span style="background-color: #a9f08d">highlighted green</span>.
+  * Examples of the wrong way to do something are <span style="background-color: #f0948d">highlighted red</span>.
+ 
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Tasks and exercises are described in boxes with a blue background. You have to do them, they are not optional. If you have problems, you must contact your instructor, or discuss the issue on the mailing list. Don't simply continue. All material builds on previous material, and evaluation is cumulative.
+```
+
+```{block, type="rmd-troubleshooting"}
+These sections have information about issues I encounter more frequently. They are required reading when you need to troubleshoot problems but also give background information that may be useful to avoid problems in the first place.
+```
+
+### "Metasyntactic variables"
+When I use notation like <Year> in instructions, you type the year, the whole year and nothing but the year (e.g the four digits 2017). You never type the angle brackets! I use the angle brackets only to indicate that you should not type Year literally, but substitute the correct value. You might encounter this notation as <path>, <filename>, <firstname lastname> and similar. To repeat: if I specify
+
+```{r, eval=FALSE}
+<your name>
+```
+... and your name is Elcid Barrett, You type
+
+```{r, eval=FALSE}
+Elcid Barrett
+```
+
+... and not   <span style="background-color: #f0948d">your name</span>   or   <span style="background-color: #f0948d">\<Elcid Barret\></span>   or similar. (Oh the troubles I've seen ...)
+ 
+The sample code on this page sometimes copies text from the console, and sometimes shows the actual commands only. The > character at the beginning of the line is always just R's input prompt, it tells you that you can type something now - you never actually type > at the beginning of a line. If you read:
+
+```{r, eval=FALSE}
+> getwd()
+```
+
+you need to type:
+
+```{r, eval=FALSE}
+getwd()
+```
+ 
+If a line starts with [1] or similar, this is **R**'s output on the console.^[[1] means: the following is the first (often only) element of a vector.] The # character marks the following text as a comment which is not executed by R. These are lines that you do not type. They are program output, or comments, not commands. 
+
+### Characters
+Different characters mean different things for computers, and it is important to call them by their right name.
+
+  * /  ◁ this is a forward-slash. It leans forward in the reading direction.
+  * \\  ◁ this is a backslash. It leans backward in the reading direction.
+  * ( )  ◁ these are parentheses.
+  * [ ]  ◁ these are (square) brackets.
+  * < >  ◁ these are angle brackets.
+  * { }  ◁ these are (curly) braces.
+  *  "  ◁ this, and only this is a quotation mark or double quote. All of these are not: <span style="background-color: #f0948d">“”„«» </span>. They will break your code. Especially the first two are often automatically inserted by MSWord and hard to distinguish.^[Never, ever edit code in MS Word. Use R or RStudio. Actually, don't use notepad or TextEdit either.]
+  * '  ◁ this, and only this is a single quote. All of these are not: <span style="background-color: #f0948d">‘’‚‹› </span> . They will break your code. Especially the first two are often automatically inserted by MSWord and hard to distinguish.
+  
+
+```{block type="rmd-caution"}
+**MSWord is not useful as a code editor.**
+```
+ 
+ 
+## The environment
+In this section we discuss how to download and install the software, how to configure an R session and how to work in the R environment.
+ 
+ 
+## Install R
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Navigate to [CRAN (the Comprehensive R Archive Network)](https://cran.r-project.org/) ^[You can also use one of the mirror sites, if CRAN is down - for example the mirror site at the University of Toronto. A choice of mirror sites is listed on the R-project homepage.] and follow the link to Download R for your computer's operating system.
+  * Download a precompiled binary (or "build") of the R "framework" to your computer and follow the instructions for installing it. Make sure that the program is the correct one for your version of your operating system.
+  * Launch R.
+  * Once you see that R is running correctly, you may quit the program for now.
+```
+
+The program should open a window–this window is called the "R console" – and greet you with its input prompt, awaiting your input:
+
+```{r, eval = FALSE}
+>
+```
+
+
+```{block, type="rmd-troubleshooting"}
+
+**I can't install R.**
+
+  * Make sure that the version you downloaded is the right one for your operating system. 
+  * Also make sure that you have the necessary permissions on your computer to install new software.
+  
+```
+ 
+
+### Install RStudio
+
+[RStudio](https://rstudio.com/) is a free IDE (Integrated Development Environment) for **R**. RStudio is a wrapper^[A "wrapper" program uses another program's functionality in its own context. RStudio is a wrapper for **R** since it does not duplicate **R**'s functions, it runs the actual R in the background.] for **R** and as far as basic R is concerned, all the underlying functions are the same, only the user interface is different (and there are a few additional functions that are very useful e.g. for managing projects).
+
+Here is a small list of differences between **R** and RStudio.
+
+**pros (some pretty significant ones actually):**
+
+  * Integrated version control.
+  * Support for "projects" that package scripts and other assets.
+  * Syntax-aware code colouring.
+  * A consistent interface across all supported platforms. (Base R GUIs are not all the same for e.g. Mac OS X and Windows.)
+  * Code autocompletion in the script editor. (Depending on your point of view this can be a help or an annoyance. I used to hate it. After using it for a while I find it useful.)
+  * "Function signaturtes" (a list of named parameters) displayed when you hover over a function name.
+  * The ability to set breakpoints for debugging in the script editor.
+  * Support for knitr, and rmarkdown; also support for R notebooks ... (This supports "literate programming" and is actually a big advance in software development)
+  * Support for R notebooks.
+
+**cons (all minor actually):**
+
+  * The tiled interface uses more desktop space than the windows of the R GUI.
+  * There are sometimes (rarely) situations where R functions do not behave in exactly the same way in RStudio.
+  * The supported R version is not always immediately the most recent release.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Navigate to the RStudio Website.
+  * Find the right version of the RStudio Desktop installer for your computer, download it and install the software.
+  * Open RStudio.
+  * Focus on the bottom left pane of the window, this is the "console" pane.
+  * Type getwd().
+  * This prints out the path of the current working directory. Make a (mental) note where this is. We usually always need to change this "default directory" to a project directory.
+``` 
+ 
+ 
+### Packages
+
+R has many powerful functions built in, but one of it's greatest features is that it is easily extensible. Extensions have been written by legions of scientists for many years, most commonly in the R programming language itself, and made available through [CRAN–The Comprehensive R Archive Network](https://cran.r-project.org/) or through the [Bioconductor project](http://www.bioconductor.org/).
+
+A package is a collection of code, documentation and (often) sample data. To use packages, you need to install the package (once). You can then use all of the package's functions by prefixing them with the package name and a double colon (eg. package::function()); that's the preferred way. Or you can load all of the package's functions with a library(package) command, and then use the functions without a prefix. That's less typing, but it's also less explicit and you may end up constantly wondering where exactly a particular function came from. In the teaching code for this course, I use the package::function() idiom wherever reasonable.
+
+You can get an overview of installed and loaded packages by opening the Package Manager window from the Packages & Data Menu item. It gives a list of available packages you currently have installed, and identifies those that have been loaded at startup, or interactively. But note, a package does not have to be loaded to be used.
+ 
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Navigate to [http://cran.r-project.org/web/packages/](https://cran.r-project.org/web/packages/) and read the page.
+  * Navigate to [http://cran.r-project.org/web/views/](http://cran.r-project.org/web/views/) (the curated CRAN task-views).
+  * Follow the link to [Genetics](https://cran.r-project.org/web/views/Genetics.html) and read the synopsis of available packages. The library sequinr sounds useful, but check first whether it has been installed.
+  * Follow the exercise below
+```
+
+  * library() opens a window that lists the packages that are installed on your computer;
+
+```{r library}
+library()
+```
+
+  * search() shows which one are currently loaded.
+
+```{r search}
+search()
+```
+ 
+  * In the **Packages tab** of the lower-right pane in RStudio, confirm that seqinr is not yet installed.
+  * Follow the link to [seqinr](https://cran.r-project.org/web/packages/seqinr/index.html) to see what standard information is available with a package. Then follow the link to the [Reference manual](http://cran.r-project.org/web/packages/seqinr/seqinr.pdf) to access the documentation pdf. This is also sometimes referred to as a "vignette" and contains usage hints and sample code.
+  * Read the help for vignette. Note that there is a command to extract R sample code from a vignette, to experiment with it.
+  
+```{r vignette}
+?vignette
+```
+
+  * Install seqinr from the closest CRAN mirror and load it for this session. Explore some functions.
+
+```{r install}
+?install.packages
+```
+
+```{r}
+install.packages("seqinr",repos="https://cran.rstudio.com/")   # Note: the parameter is a quoted string!
+```
+
+```{r help_pkg}
+library(help="seqinr") # this will launch a new window with the seqinr package info
+```
+
+```{r ls}
+#Note: the file must be attached in order for the below function to work 
+library(seqinr)
+ls("package:seqinr")
+```
+
+```{r function_a}
+?seqinr::a #In Rstudio this will open the method description in the Help panel
+```
+
+```{r function_a_ex}
+seqinr::a("Tyr")
+```
+
+```{r function_words_ex}
+seqinr::words(3, c("A", "G", "C", "U"))
+```
+
+```{block, type="rmd-troubleshooting"}
+
+**The installation fails.** 
+  * **You might see an error message such as this:**
+  
+<font color="red">Warning message:</font><br>
+<font size="3" color="red">package ‘XYZ’ is not available (for R version 3.2.2)</font>
+
+  * This can mean several things:
+    * The package is not available on CRAN. Try Bioconductor instead or Google for the name to find it.
+    * The package requires a newer version of R than the one you have. Upgrade, or see if a legacy version exists.
+    * A comprehensive set of reasons and their resolution is here on [stackoverflow](https://stackoverflow.com/questions/25721884/how-should-i-deal-with-package-xxx-is-not-available-for-r-version-x-y-z-wa).
+
+
+  * **We have seen the following on Windows systems when typing library(help="seqinr")**
+<font color="red">Error in formatDL(nm, txt, indent = max(nchar(nm, "w")) + 3) :</font><br>
+<font color="red">incorrect values of 'indent' and 'width'</font><br>
+
+    * Anecdotally this was due to a previous installation problem with a mixup of 32-bit and 64-bit R versions, although another student told us that the problem simply went away when trying the command again. Whatever: Make sure you have the right R version installed for your operating system. Uninstall and reinstall when in doubt. Conflicting libraries can be the source of strange misbehaviour.
+```
+ 
+The fact that these methods work, shows that the package has been downloaded, installed, its functions are now available with the package name prefix and any datasets it contains can be loaded. Just like many other packages, seqinr comes with a number of datafiles. Try:
+
+
+```{r function_data}
+?data
+```
+
+
+```{r function_data_seqinr}
+data(package="seqinr")            # list the available data
+```
+
+```{r load_aaindex}
+data(aaindex, package="seqinr")   # load ''aaindex''
+```
+
+```{r about_aaindex}
+?aaindex                          # what is this?
+```
+
+```{r show_aaindex_ex1}
+aaindex$FASG890101                # two of the indices ...
+```
+
+```{r show_aaindex_ex2}
+aaindex$PONJ960101
+```
+
+Lets use the data: plot amino acid single-letter codes by hydrophobicity and volume. The values come from the dataset. Copy and paste the commands, we'll discuss them in detail later.
+ 
+```{r plot_hydrophobicity}
+plot(aaindex$FASG890101$I,
+     aaindex$PONJ960101$I,
+     xlab="hydrophobicity", ylab="volume", type="n")
+text(aaindex$FASG890101$I,
+     aaindex$PONJ960101$I,
+     labels=a(names(aaindex$FASG890101$I)))
+```
+
+ 
+Now, just for fun, let's use seqinr package functions to download a sequence and calculate some statistics (however, not to digress too far, without further explanation at this point). Copy the code below and paste it into the R-console.
+
+```{r full_ex1_sequinr, eval=FALSE, echo=TRUE}
+seqinr::choosebank("swissprot")
+mySeq <- seqinr::query("mySeq", "N=MBP1_YEAST")
+mbp1 <- seqinr::getSequence(mySeq)
+seqinr::closebank()
+x <- seqinr::AAstat(mbp1[[1]])
+barplot(sort(x$Compo), cex.names = 0.6)
+```
+
+We could have "loaded" the package with library(), and then used the functions without prefix. Less typing, but also less explicit.
+
+```{r full_ex2_sequinr, eval=FALSE, echo=TRUE}
+
+library(seqinr)
+choosebank("swissprot")
+mySeq <- query("mySeq", "N=MBP1_YEAST")
+mbp1 <- getSequence(mySeq)
+closebank()
+x <- AAstat(mbp1[[1]])
+barplot(sort(x$Compo), cex.names = 0.6)
+
+```
+
+In general we will be using the idiom with the package prefix throughout the course.
+ 
+The function **requireNamespace()** is useful because it does not produce an error when a package has not been installed. It simply returns TRUE if successful or FALSE if not. Therefore one can use the following code idiom in R scripts to avoid downloading the package every time the script is called.
+
+```{r req_namespace}
+if (! requireNamespace("seqinr", quietly=TRUE)) {
+  install.packages("seqinr")
+}
+```
+
+
+**You can get package information with the following commands:**
+
+```{r}
+library(help = seqinr)       # basic information
+```
+
+```{r}
+browseVignettes("seqinr")    # available vignettes
+```
+
+```{r}
+data(package = "seqinr")     # available datasets
+```
+
+  * **Note** that install.packages() takes a (quoted) string as its argument, but library() takes a variable name (without quotes). New users usually get this wrong :-)
+  * **Note** that the Bioconductor project has its own installation system, the Biocmanager::install() function. It is explained [here](https://bioconductor.org/install/).
+  * **Note**, just to mention it at this point: to install packages that are not on CRAN or Bioconductor, you need the [devtools package](https://www.r-project.org/nosvn/pandoc/devtools.html).
+ 
+ 
+### Finding packages
+One of the challenges of working with R is the overabundance of options. CRAN has over 10,000 packages and Bioconductor has over 1,300 more. How can you find ones that are useful to your work? There's actually a package to help you do that, the sos package on CRAN. Try this:
+```{r find_packages,eval=FALSE}
+if (! requireNamespace("sos", quietly=TRUE)) {
+    install.packages("sos")
+}
+library(help = sos)       # basic information
+browseVignettes("sos")    # available vignettes
+ 
+sos::findFn("moving average")
+```
+
+**Or: **
+
+  * Read a CRAN [Task View](https://cran.r-project.org/web/views/) for your area of interest
+  * or the [Bioconductor Views](https://www.bioconductor.org/packages/devel/BiocViews.html);
+  * Search on "Metacran" ([ "regex" example here"](https://www.r-pkg.org/search.html?q=regex)) ...
+  * or "MRAN" (["regex" example here"](https://mran.microsoft.com/packages?search=regex), not that the results are not identical);
+  * and, as always, Google.
+ 
+ 
+### Self-evaluation
+  1. Question 1 - What is the purpose of this code?
+```{r eval=FALSE}
+if (! requireNamespace("seqinr", quietly = TRUE)) {
+    install.packages("seqinr")
+}
+```
+
+Why not just use:
+```{r eval=FALSE}
+ install.packages("seqinr")
+```
+
+**Answer**:
+This code idiom is useful in scripts, to ensure a package is installed before we try to use its functions. If we would simply use install.packages("seqinr"), the package would be downloaded from CRAN every time the script is run. That would make our script slow, and require available internet access for the script to run.
+
+In the code above, the package is downloaded only when requireNamespace() returns FALSE, which presumably means the package has not yet been downloaded.
+
+### Further reading, links and resources
+[Wikipedia article](https://en.wikipedia.org/wiki/R_(programming_language)) on the R statistics environment and programming language
+[The R project homepage](https://www.r-project.org/)
+[The R Studio IDE](https://rstudio.com/products/rstudio/)
+[CRAN–The Comprehensive R Archive Network](https://cran.r-project.org/)
+[The Bioconductor project homepage](http://www.bioconductor.org/)
+[R bloggers](https://www.r-bloggers.com/)
+[Package finding strategies (Revolutions Analytics Blog)](https://blog.revolutionanalytics.com/2017/01/cran-10000.html)
+[Intro to R packages](https://www.datacamp.com/community/tutorials/r-packages-guide) (at DataCamp).
+["The Impressive Growth of R" (Stackoverflow Data Analytics Team Blog)](https://stackoverflow.blog/2017/10/10/impressive-growth-r/)
+[Ten simple rules for biologists learning to program](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005871) - Carey and Papin advise novice biologist programmers how to begin. Much of this paper resonates well with our Introduction to R learning units. Good context for a beginning, to get a sense of where we are going with this.
+ 
+ 
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2019-01-07<br>
+Version: 1.1<br>
+**Version history**:<br>
+1.1 Change from require() to requireNamespace() and use <package>::<function>() idiom.<br>
+1.02 Maintenance<br>
+1.0.1 Removed mention of Sweave - obsolete, and broken link. Added mention of "literate programming".<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

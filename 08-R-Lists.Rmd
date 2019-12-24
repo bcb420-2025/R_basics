@@ -1,0 +1,149 @@
+# R "Lists" {#r-lists}
+(R Lists)
+
+## Overview
+
+### Abstract:
+
+Introduction to R list data types: properties, how to create, and modify them and how to retrieve data.
+
+### Objectives:
+
+This unit will:
+
+  * introduce R lists;
+  * cover a number of basic operations.
+
+### Outcomes:
+
+After working through this unit you:
+
+  * know how to create and manipulate lists;
+  * can extract items from lists.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites 
+[RPR-Objects-Data_frames (R "data frames"")](#r-data-frames)
+
+## Lists
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open.
+Type init() as instructed after the project has loaded.
+Continue below.
+```
+
+The elements of matrices and arrays all have to be of the same type. Data frames allow us to store elements of different types in columns, but all columns have to have the same length and the elements have to be "atomic" - i.e. you can't put vectors into dataframe columns. But R's lists are much more versatile. They are simply ordered collections of components. These components can have different type - all kinds of R objects can go into a list: characters, booleans, any kind of numeric data, even functions - AND they can have different size.
+
+Lists are created with the list() function, which works similar to the c() function for vectors. Components are accessed through their index in double square brackets, or through their name, using the "$" operator, if the name has been defined. Here is an example:
+
+```{r}
+pUC19 <- list(size=2686, marker="ampicillin", ori="ColE1", accession="L01397", BanI=c(235, 408, 550, 1647) )
+```
+
+```{r}
+objectInfo(pUC19)
+```
+
+ 
+```{r}
+pUC19[[1]]
+```
+
+```{r}
+pUC19[[2]]
+```
+
+```{r}
+pUC19$ori
+```
+
+```{r}
+pUC19$BanI[2]
+```
+
+
+
+
+**Note** that in we stored multiple restriction enzymes in one string, separated by commas, in our data frame example. While we can take such strings apart again, by using the strsplit() function, the string itself still has to be one single element in the data frame's column. Lists have no such restriction. In our example above, we assigned a vector of restriction site positions to the element "BanI".
+
+You can easily imagine that we could now create a list of lists, and that list of lists could hold an entire plasmid database in a most versatile way. Let's do this!
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Create a list like with data for pACYC184 following the structure for the pUC19 example but using only size, marker and ori data:
+
+    * size: 4245
+    * marker: Tet, Cam
+    * ori: p15A
+
+  * Confirm that your new list's structure looks the pUC19 one (minus "accession", and the "BanI"" element).
+
+  * Make a new list, call it plasmidDB and assign to it the puc19 list:
+     * plasmidDB <- list()
+     * plasmidDB[["pUC19"]] <- pUC19
+  * Add your pACYC184 list
+  * Add a third element to plasmidDB, "pBR322" using the pBR322 data:
+      * size: 4361
+      * marker: Amp, Tet
+      * ori: ColE1
+
+  * Then: retrieve the entire pACYC184 list
+  * Retrieve all sizes from the list. Use unlist() to flatten the result. Then use min() to find the size of the smallest one. [see solution here](http://steipe.biochemistry.utoronto.ca/abc/index.php/RPR-Objects-Lists)
+
+```
+
+Whereas data frames allow you to get all data from a column directly, this is not possible for lists. You need a function that iterates over all list elements instead. Such a function is lapply(), one of several "apply" functions. For example, to get all "ori" elements, try:
+
+```{r}
+plasmidDB <- list()
+plasmidDB[["pUC19"]] <- pUC19
+lapply(plasmidDB, function(x) { return(x$ori) })
+```
+
+## Self-evaluation
+  * Question 1: Execute: x <- strsplit(plasmidData$Sites, ", ") and analyze the result.
+
+  1. What is plasmidData$Sites?
+  1. What is x?
+  1. Why does strsplit() have a list as return value, not a vector or a data frame?
+
+## Further reading, links and resources
+
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2018-05-05<br>
+Version: 1.0.2<br>
+**Version history**:<br>
+1.0.2 Maintenace<br>
+1.0.1 Fixed error in list example<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+ 
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

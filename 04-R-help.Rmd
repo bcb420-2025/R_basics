@@ -1,0 +1,177 @@
+# Getting help for R {#r-help}
+(The internal R help system; other help resources.)
+
+## Overview
+### Abstract:
+This unit discusses the available Help resources for R programming and develops effective strategies for solving problems.
+
+### Objectives:
+
+This unit will:
+
+  * introduce the inbuilt R help system;
+  * point you to useful alternatives;
+  * discuss how to write effective questions on technical forums and mailing lists.
+
+### Outcomes:
+
+After working through this unit you:
+
+  * have used the R help system;
+  * are able to get help on a function:
+    * via R's internal system,
+    * via Web searches, or
+    * by asking effective questions (including Minimal Working Examples - MWE) on mailing lists.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites 
+[RPR-Installation (Installing R and RStudio)](#r_install)
+
+
+## The Help system
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Start RStudio (if it's not already open) and as you work through the sections below, type the commands and explore what they do.
+```
+
+If all you need is the correct name of a function (eg. was it list_files(), list.files(), or listFiles()?), just type the first three characters of the function name and use RStudio's autocomplete mechanism to find what you need.
+
+If you are wondering about the parameters of a function, just hover the cursor over the function name in the script pane or the command line in the console and wait a moment: a little window with the function signature will pop up.
+
+But for more detailed information, help is available for all commands as well as for the R syntax. As well, help is available to find the names of commands when you are not sure of them. You can get help through the command line, or from a search field in the Help tab of the lower-right pane.
+
+(help() is a function in R, arguments to a function are passed in parentheses "()")
+
+```{r}
+help(rnorm)
+```
+
+(shorthand for the same thing)
+```{r}
+?rnorm
+```
+
+(what was the name of that again ... ?)
+
+```{r}
+?binom
+```
+
+```{r}
+??binom
+```
+
+(I see "Binomial" in the list of keywords...)
+
+```{r}
+?Binomial
+```
+
+(Alternatively: use the apropos() function.
+```{r}
+?apropos
+apropos("med")   # all functions that contain the string "med"
+apropos("^med")  # all functions that begin with the string
+apropos("med$")  # all functions that end with the string
+```
+
+If you need help on operators, place them in quotation marks. Try:
+```{r}
+?"+"
+?"~"
+?"["
+?"%in%"
+```
+
+That's all fine, but you will soon notice that **R**'s help documentation is very technical and precise but not all that helpful for newcomers (who need the most help). To illustrate, open the help window for the function var().
+
+```{r}
+?var
+```
+
+Here's what you might look for:
+
+  * The **Description** section describes the function in general technical terms.
+  * The **Usage** section tells you what arguments are required (these don't have defaults), what arguments have defaults, and what the defaults are, and whether additional arguments ("...") are allowed. Often a function comes in several variants, you will find them here.
+  * The **Arguments** section provides detailed information . You should read it, especially regarding whether the arguments are single values, vectors, or other objects, and what effect missing arguments will have.
+  * The **Details** section might provide common usage and context information. It might also not. Often functions have crucial information buried in an innocuous note here.
+  * You really have to read and understand the **Value** section. It explains the output of the function (its returnvalue). The object a function returns could be a list, a matrix or something else (we'll discuss these data types in detail elsewhere.). The value could also be an object that has special methods defined e.g. for plotting it. In that case, the object is formally a "list", and its named "components" can be retrieved with the usual list syntax.
+  
+If you look at the bottom of the help text, you will usually find examples of the function's usage; these sometimes make matters more clear than the terse and principled help-text above.
+
+What you often won't find:
+
+  * Clear commented, examples that relate to the most frequent use cases.
+  * Explanations why a particular function is done in a particular way (e.g. why the denominator is n-1 for sd() and var()).
+
+Notes on common errors:
+
+  * A (reasonably) exhaustive list of alternatives and related functions. There are usually some entries, but there is no guarantee that all alternatives are listed – especially if they are provided by an external package.
+
+Therefore, my first approach for **R** information is usually to Google for what interests me and this is often the quickest way to find working example code. R has a very large user base and it is becoming very rare that a reasonable question will not have a reasonable answer among the top three hits of a Google search. Also, as a result of a Google search, it may turn out that something can't be done (easily) – and you won't find things that can't be done in the help system at all. You may want to include "r language" in your search terms, although Google is usually pretty good at figuring out what kind of "r" you are looking for, especially if your query includes a few terms vaguely related to statistics or programming.
+
+  * There is an active [R-help mailing](https://stat.ethz.ch/mailman/listinfo/r-help) list to which you can post–or at least search the archives: your question probably has been asked and answered before. A number of SIGs (Special Interest Groups) exist for more specific discussions - e.g. for mac OS, geography, ecology etc. They are [listed here](https://stat.ethz.ch/mailman/listinfo).
+  * Most of the good responses these days are on stack overflow, discussion seems to be shifting to there from the R mailing list. Information on statistics questions can often be found or obtained from the CrossValidated forum of stackexchange.
+    * try this sample search on [stackOverflow...](https://stackoverflow.com/search?q=R+sort+dataframe)
+    * try this sample search on [CrossValidated...](https://stats.stackexchange.com/search?q=R+bootstrapping+jackknifing+cross-validation)
+  * [Rseek](https://rseek.org/) is a specialized Google search on R-related sites. Try "time series analysis" for an example.
+  * The bioconductor project has its own [support site on the Web](https://support.bioconductor.org/).
+
+If you want a quick and constructive answer from the R mailing list or stackoverflow, you must do a bit of homework first. If you ask your question well, you will get incredibly insightful and helpful responses, but you need to help the helpers to help you:
+
+  * Use the dput() function, perhaps combined with head() to create a **small, reproducible dataset** with which your problem can be reproduced or your question illustrated. Keep this as small as possible. Post that. **Don't post screenshots!**
+  * Post minimal **code** that reproduces the problem with the data you have supplied. Together the code and data have to form an MWE – a minimal working example. People love to play with your code and get it to work, but they hate having to copy, paste, reformat or otherwise edit someone's stuff just so they can answer their question.
+  * Don't waste too much time on explaining what you did (since that didn't work) - just enough to help your readers understand that you did indeed invest some effort in trying to solve the problem yourself. Spend your time to explain clearly what you want to achieve. Focus on the desired result - not on how to fix your algorithm; your algorithm may be the wrong mental model in the first place.
+  * Don't post in HTML, be sure to post in **plain text only**.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Read ["How to write a reproducible example"](http://adv-r.had.co.nz/Reproducibility.html) and ["How to make a great R reproducible example"](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example). 
+  
+  BTW: the same principles apply to questions you post on the course mailing list.
+```
+
+## Self-evaluation
+ * Question 1
+   * Is the apropos() command case-sensitive?
+   * Try it out:
+      * apropos("^med")
+      * apropos("^MED")
+
+## Notes
+## Further reading, links and resources
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2018-05-04<br>
+Version: 1.0.1<br>
+**Version history**:<br>
+1.0.1 Maintenance<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:

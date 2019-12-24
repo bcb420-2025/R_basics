@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 R Functions | BCB420 - Computational System Biology</title>
+  <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 R Functions | BCB420 - Computational System Biology" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 R Functions | BCB420 - Computational System Biology" />
+  
+  <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+<meta name="author" content="Boris Steipe" />
+
+
+<meta name="date" content="2019-01-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-control-structures.html"/>
+<link rel="next" href="r-code-style.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Unit 1 - Bioinfo Prep</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="r-install.html"><a href="r-install.html"><i class="fa fa-check"></i><b>1</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>1.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="1.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>1.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="1.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>1.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="1.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>1.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="1.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>1.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="r-install.html"><a href="r-install.html#r"><i class="fa fa-check"></i><b>1.2</b> R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="r-install.html"><a href="r-install.html#introduction"><i class="fa fa-check"></i><b>1.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-install.html"><a href="r-install.html#before-you-begin-notation-and-formatting"><i class="fa fa-check"></i><b>1.2.2</b> Before you begin: Notation and Formatting</a></li>
+<li class="chapter" data-level="1.2.3" data-path="r-install.html"><a href="r-install.html#task"><i class="fa fa-check"></i><b>1.2.3</b> Task</a></li>
+<li class="chapter" data-level="1.2.4" data-path="r-install.html"><a href="r-install.html#metasyntactic-variables"><i class="fa fa-check"></i><b>1.2.4</b> “Metasyntactic variables”</a></li>
+<li class="chapter" data-level="1.2.5" data-path="r-install.html"><a href="r-install.html#characters"><i class="fa fa-check"></i><b>1.2.5</b> Characters</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-install.html"><a href="r-install.html#the-environment"><i class="fa fa-check"></i><b>1.3</b> The environment</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="r-install.html"><a href="r-install.html#install-r"><i class="fa fa-check"></i><b>1.3.1</b> Install R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-install.html"><a href="r-install.html#install-rstudio"><i class="fa fa-check"></i><b>1.3.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-install.html"><a href="r-install.html#packages"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-install.html"><a href="r-install.html#finding-packages"><i class="fa fa-check"></i><b>1.3.4</b> Finding packages</a></li>
+<li class="chapter" data-level="1.3.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>1.3.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="1.3.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>1.3.6</b> Further reading, links and resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-setup.html"><a href="r-setup.html"><i class="fa fa-check"></i><b>2</b> Setup R to work with it</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-setup.html"><a href="r-setup.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-setup.html"><a href="r-setup.html#abstract-1"><i class="fa fa-check"></i><b>2.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-setup.html"><a href="r-setup.html#objectives-1"><i class="fa fa-check"></i><b>2.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-setup.html"><a href="r-setup.html#outcomes-1"><i class="fa fa-check"></i><b>2.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="2.1.4" data-path="r-setup.html"><a href="r-setup.html#deliverables-1"><i class="fa fa-check"></i><b>2.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="2.1.5" data-path="r-setup.html"><a href="r-setup.html#prerequisites-1"><i class="fa fa-check"></i><b>2.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-setup.html"><a href="r-setup.html#your-course-folder"><i class="fa fa-check"></i><b>2.2</b> Your Course Folder</a></li>
+<li class="chapter" data-level="2.3" data-path="r-setup.html"><a href="r-setup.html#projects"><i class="fa fa-check"></i><b>2.3</b> “Projects”</a></li>
+<li class="chapter" data-level="2.4" data-path="r-setup.html"><a href="r-setup.html#git-version-control"><i class="fa fa-check"></i><b>2.4</b> Git Version control</a></li>
+<li class="chapter" data-level="2.5" data-path="r-setup.html"><a href="r-setup.html#working-directory"><i class="fa fa-check"></i><b>2.5</b> Working directory</a></li>
+<li class="chapter" data-level="2.6" data-path="r-setup.html"><a href="r-setup.html#rprofile---startup-commands"><i class="fa fa-check"></i><b>2.6</b> .Rprofile - startup commands</a></li>
+<li class="chapter" data-level="2.7" data-path="r-setup.html"><a href="r-setup.html#the-workspace"><i class="fa fa-check"></i><b>2.7</b> The “Workspace”</a></li>
+<li class="chapter" data-level="2.8" data-path="r-setup.html"><a href="r-setup.html#self-evaluation-1"><i class="fa fa-check"></i><b>2.8</b> Self-evaluation</a></li>
+<li class="chapter" data-level="2.9" data-path="r-setup.html"><a href="r-setup.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>2.9</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>3</b> Console and scripts</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-console.html"><a href="r-console.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="r-console.html"><a href="r-console.html#abstract-2"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-console.html"><a href="r-console.html#objectives-2"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-console.html"><a href="r-console.html#outcomes-2"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="r-console.html"><a href="r-console.html#deliverables-2"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="r-console.html"><a href="r-console.html#prerequisites-2"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>3.2</b> Typing code or executing it?</a></li>
+<li class="chapter" data-level="3.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>3.3</b> User interface</a></li>
+<li class="chapter" data-level="3.4" data-path="r-console.html"><a href="r-console.html#self-evaluation-2"><i class="fa fa-check"></i><b>3.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="3.5" data-path="r-console.html"><a href="r-console.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>3.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-help.html"><a href="r-help.html"><i class="fa fa-check"></i><b>4</b> Getting help for R</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-help.html"><a href="r-help.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-help.html"><a href="r-help.html#abstract-3"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-help.html"><a href="r-help.html#objectives-3"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-help.html"><a href="r-help.html#outcomes-3"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-help.html"><a href="r-help.html#deliverables-3"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="r-help.html"><a href="r-help.html#prerequisites-3"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>4.2</b> The Help system</a></li>
+<li class="chapter" data-level="4.3" data-path="r-help.html"><a href="r-help.html#self-evaluation-3"><i class="fa fa-check"></i><b>4.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="4.4" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>4.4</b> Notes</a></li>
+<li class="chapter" data-level="4.5" data-path="r-help.html"><a href="r-help.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-snytax.html"><a href="r-snytax.html"><i class="fa fa-check"></i><b>5</b> Basics of R syntax</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-snytax.html"><a href="r-snytax.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-snytax.html"><a href="r-snytax.html#abstract-4"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-snytax.html"><a href="r-snytax.html#objectives-4"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-snytax.html"><a href="r-snytax.html#outcomes-4"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-snytax.html"><a href="r-snytax.html#deliverables-4"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-snytax.html"><a href="r-snytax.html#prerequisites-4"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-snytax.html"><a href="r-snytax.html#simple-commands"><i class="fa fa-check"></i><b>5.2</b> Simple commands</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-snytax.html"><a href="r-snytax.html#operators"><i class="fa fa-check"></i><b>5.2.1</b> Operators</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-snytax.html"><a href="r-snytax.html#variables"><i class="fa fa-check"></i><b>5.3</b> Variables</a></li>
+<li class="chapter" data-level="5.4" data-path="r-snytax.html"><a href="r-snytax.html#self-evaluation-4"><i class="fa fa-check"></i><b>5.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.5" data-path="r-snytax.html"><a href="r-snytax.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>5.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-scalars.html"><a href="r-scalars.html"><i class="fa fa-check"></i><b>6</b> R scalars and vectors</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-scalars.html"><a href="r-scalars.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="r-scalars.html"><a href="r-scalars.html#abstract-5"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="r-scalars.html"><a href="r-scalars.html#objectives-5"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="r-scalars.html"><a href="r-scalars.html#outcomes-5"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="r-scalars.html"><a href="r-scalars.html#deliverables-5"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="r-scalars.html"><a href="r-scalars.html#prerequisites-5"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="r-scalars.html"><a href="r-scalars.html#scalar-data"><i class="fa fa-check"></i><b>6.2</b> Scalar data</a></li>
+<li class="chapter" data-level="6.3" data-path="r-scalars.html"><a href="r-scalars.html#vectors"><i class="fa fa-check"></i><b>6.3</b> Vectors</a></li>
+<li class="chapter" data-level="6.4" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-index"><i class="fa fa-check"></i><b>6.4</b> Subsetting by index</a></li>
+<li class="chapter" data-level="6.5" data-path="r-scalars.html"><a href="r-scalars.html#excluding-items-through-negative-indexes"><i class="fa fa-check"></i><b>6.5</b> Excluding items through negative indexes</a></li>
+<li class="chapter" data-level="6.6" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-boolean-vectors"><i class="fa fa-check"></i><b>6.6</b> Subsetting by boolean vectors</a></li>
+<li class="chapter" data-level="6.7" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name"><i class="fa fa-check"></i><b>6.7</b> Subsetting by name</a></li>
+<li class="chapter" data-level="6.8" data-path="r-scalars.html"><a href="r-scalars.html#is-an-operator"><i class="fa fa-check"></i><b>6.8</b> “[” is an operator</a></li>
+<li class="chapter" data-level="6.9" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name-1"><i class="fa fa-check"></i><b>6.9</b> Subsetting by name:</a></li>
+<li class="chapter" data-level="6.10" data-path="r-scalars.html"><a href="r-scalars.html#vectorized-operations"><i class="fa fa-check"></i><b>6.10</b> Vectorized operations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html"><i class="fa fa-check"></i><b>7</b> computing with two vectors of same length</a><ul>
+<li class="chapter" data-level="7.1" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html#matrices-and-higher-dimensional-objects"><i class="fa fa-check"></i><b>7.1</b> Matrices and higher-dimensional objects</a></li>
+<li class="chapter" data-level="7.2" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html#self-evaluation-5"><i class="fa fa-check"></i><b>7.2</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.3" data-path="computing-with-two-vectors-of-same-length.html"><a href="computing-with-two-vectors-of-same-length.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>7.3</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> R “data frames”&quot;</a><ul>
+<li class="chapter" data-level="8.1" data-path="r-data-frames.html"><a href="r-data-frames.html#overview-6"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="r-data-frames.html"><a href="r-data-frames.html#abstract-6"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="r-data-frames.html"><a href="r-data-frames.html#objectives-6"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="r-data-frames.html"><a href="r-data-frames.html#outcomes-6"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="r-data-frames.html"><a href="r-data-frames.html#deliverables-6"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="r-data-frames.html"><a href="r-data-frames.html#prerequisites-6"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="r-data-frames.html"><a href="r-data-frames.html#data-frames"><i class="fa fa-check"></i><b>8.2</b> Data frames</a></li>
+<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#basic-operations"><i class="fa fa-check"></i><b>8.3</b> Basic operations</a></li>
+<li class="chapter" data-level="8.4" data-path="r-data-frames.html"><a href="r-data-frames.html#self-evaluation-6"><i class="fa fa-check"></i><b>8.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>8.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> R “Lists”</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-lists.html"><a href="r-lists.html#overview-7"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="r-lists.html"><a href="r-lists.html#abstract-7"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="r-lists.html"><a href="r-lists.html#objectives-7"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="r-lists.html"><a href="r-lists.html#outcomes-7"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="r-lists.html"><a href="r-lists.html#deliverables-7"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="r-lists.html"><a href="r-lists.html#prerequisites-7"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="r-lists.html"><a href="r-lists.html#lists"><i class="fa fa-check"></i><b>9.2</b> Lists</a></li>
+<li class="chapter" data-level="9.3" data-path="r-lists.html"><a href="r-lists.html#self-evaluation-7"><i class="fa fa-check"></i><b>9.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="9.4" data-path="r-lists.html"><a href="r-lists.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>9.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="r-subsetting.html"><a href="r-subsetting.html"><i class="fa fa-check"></i><b>10</b> Subsetting and filtering R objects</a><ul>
+<li class="chapter" data-level="10.1" data-path="r-subsetting.html"><a href="r-subsetting.html#overview-8"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="r-subsetting.html"><a href="r-subsetting.html#abstract-8"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="r-subsetting.html"><a href="r-subsetting.html#objectives-8"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="r-subsetting.html"><a href="r-subsetting.html#outcomes-8"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="r-subsetting.html"><a href="r-subsetting.html#deliverables-8"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="r-subsetting.html"><a href="r-subsetting.html#prerequisites-8"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="r-subsetting.html"><a href="r-subsetting.html#subsetting"><i class="fa fa-check"></i><b>10.2</b> Subsetting</a></li>
+<li class="chapter" data-level="10.3" data-path="r-subsetting.html"><a href="r-subsetting.html#self-evaluation-8"><i class="fa fa-check"></i><b>10.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="10.4" data-path="r-subsetting.html"><a href="r-subsetting.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>10.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="r-control-structures.html"><a href="r-control-structures.html"><i class="fa fa-check"></i><b>11</b> Control structures of R</a><ul>
+<li class="chapter" data-level="11.1" data-path="r-control-structures.html"><a href="r-control-structures.html#overview-9"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="r-control-structures.html"><a href="r-control-structures.html#abstract-9"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="11.1.2" data-path="r-control-structures.html"><a href="r-control-structures.html#objectives-9"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="11.1.3" data-path="r-control-structures.html"><a href="r-control-structures.html#outcomes-9"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="11.1.4" data-path="r-control-structures.html"><a href="r-control-structures.html#deliverables-9"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="11.1.5" data-path="r-control-structures.html"><a href="r-control-structures.html#prerequisites-9"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="r-control-structures.html"><a href="r-control-structures.html#control-structures"><i class="fa fa-check"></i><b>11.2</b> Control structures</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="r-control-structures.html"><a href="r-control-structures.html#if-and-else"><i class="fa fa-check"></i><b>11.2.1</b> if and else</a></li>
+<li class="chapter" data-level="11.2.2" data-path="r-control-structures.html"><a href="r-control-structures.html#conditional-expressions"><i class="fa fa-check"></i><b>11.2.2</b> conditional expressions</a></li>
+<li class="chapter" data-level="11.2.3" data-path="r-control-structures.html"><a href="r-control-structures.html#if-else-if-and-else"><i class="fa fa-check"></i><b>11.2.3</b> “if”, “else if”, and “else”</a></li>
+<li class="chapter" data-level="11.2.4" data-path="r-control-structures.html"><a href="r-control-structures.html#ifelse"><i class="fa fa-check"></i><b>11.2.4</b> ifelse</a></li>
+<li class="chapter" data-level="11.2.5" data-path="r-control-structures.html"><a href="r-control-structures.html#for"><i class="fa fa-check"></i><b>11.2.5</b> for</a></li>
+<li class="chapter" data-level="11.2.6" data-path="r-control-structures.html"><a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers"><i class="fa fa-check"></i><b>11.2.6</b> Compare excution times: one million square roots from a vector of random numbers …</a></li>
+<li class="chapter" data-level="11.2.7" data-path="r-control-structures.html"><a href="r-control-structures.html#seq_along-vs.range"><i class="fa fa-check"></i><b>11.2.7</b> seq_along() vs. range</a></li>
+<li class="chapter" data-level="11.2.8" data-path="r-control-structures.html"><a href="r-control-structures.html#loops-vs.vectorized-expressions"><i class="fa fa-check"></i><b>11.2.8</b> loops vs. vectorized expressions</a></li>
+<li class="chapter" data-level="11.2.9" data-path="r-control-structures.html"><a href="r-control-structures.html#while"><i class="fa fa-check"></i><b>11.2.9</b> while</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="r-control-structures.html"><a href="r-control-structures.html#self-evaluation-9"><i class="fa fa-check"></i><b>11.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.4" data-path="r-control-structures.html"><a href="r-control-structures.html#further-reading-links-and-resources-9"><i class="fa fa-check"></i><b>11.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>12</b> R Functions</a><ul>
+<li class="chapter" data-level="12.1" data-path="r-functions.html"><a href="r-functions.html#overview-10"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="r-functions.html"><a href="r-functions.html#abstract-10"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="r-functions.html"><a href="r-functions.html#objectives-10"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="r-functions.html"><a href="r-functions.html#outcomes-10"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="12.1.4" data-path="r-functions.html"><a href="r-functions.html#deliverables-10"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="r-functions.html"><a href="r-functions.html#prerequisites-10"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>12.2</b> Functions</a></li>
+<li class="chapter" data-level="12.3" data-path="r-functions.html"><a href="r-functions.html#on-missing-parameters"><i class="fa fa-check"></i><b>12.3</b> On missing parameters</a></li>
+<li class="chapter" data-level="12.4" data-path="r-functions.html"><a href="r-functions.html#reading-functions"><i class="fa fa-check"></i><b>12.4</b> Reading functions</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="r-functions.html"><a href="r-functions.html#basic-r"><i class="fa fa-check"></i><b>12.4.1</b> Basic R</a></li>
+<li class="chapter" data-level="12.4.2" data-path="r-functions.html"><a href="r-functions.html#s3-methods"><i class="fa fa-check"></i><b>12.4.2</b> S3 methods</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="r-functions.html"><a href="r-functions.html#primitives"><i class="fa fa-check"></i><b>12.5</b> Primitives</a></li>
+<li class="chapter" data-level="12.6" data-path="r-functions.html"><a href="r-functions.html#writing-your-own-functions"><i class="fa fa-check"></i><b>12.6</b> Writing your own functions</a></li>
+<li class="chapter" data-level="12.7" data-path="r-functions.html"><a href="r-functions.html#self-evaluation-10"><i class="fa fa-check"></i><b>12.7</b> Self-evaluation</a></li>
+<li class="chapter" data-level="12.8" data-path="r-functions.html"><a href="r-functions.html#further-reading-links-and-resources-10"><i class="fa fa-check"></i><b>12.8</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="r-code-style.html"><a href="r-code-style.html"><i class="fa fa-check"></i><b>13</b> R Coding Style</a><ul>
+<li class="chapter" data-level="13.1" data-path="r-code-style.html"><a href="r-code-style.html#overview-11"><i class="fa fa-check"></i><b>13.1</b> Overview</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="r-code-style.html"><a href="r-code-style.html#abstract-11"><i class="fa fa-check"></i><b>13.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="13.1.2" data-path="r-code-style.html"><a href="r-code-style.html#objectives-11"><i class="fa fa-check"></i><b>13.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="13.1.3" data-path="r-code-style.html"><a href="r-code-style.html#outcomes-11"><i class="fa fa-check"></i><b>13.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="13.1.4" data-path="r-code-style.html"><a href="r-code-style.html#deliverables-11"><i class="fa fa-check"></i><b>13.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="13.1.5" data-path="r-code-style.html"><a href="r-code-style.html#prerequisites-11"><i class="fa fa-check"></i><b>13.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="r-code-style.html"><a href="r-code-style.html#general"><i class="fa fa-check"></i><b>13.2</b> General</a></li>
+<li class="chapter" data-level="13.3" data-path="r-code-style.html"><a href="r-code-style.html#layout"><i class="fa fa-check"></i><b>13.3</b> Layout</a></li>
+<li class="chapter" data-level="13.4" data-path="r-code-style.html"><a href="r-code-style.html#design-and-granularity"><i class="fa fa-check"></i><b>13.4</b> Design and granularity</a></li>
+<li class="chapter" data-level="13.5" data-path="r-code-style.html"><a href="r-code-style.html#headers"><i class="fa fa-check"></i><b>13.5</b> Headers</a></li>
+<li class="chapter" data-level="13.6" data-path="r-code-style.html"><a href="r-code-style.html#sections"><i class="fa fa-check"></i><b>13.6</b> Sections</a></li>
+<li class="chapter" data-level="13.7" data-path="r-code-style.html"><a href="r-code-style.html#parentheses-and-braces"><i class="fa fa-check"></i><b>13.7</b> Parentheses and Braces</a></li>
+<li class="chapter" data-level="13.8" data-path="r-code-style.html"><a href="r-code-style.html#spaces"><i class="fa fa-check"></i><b>13.8</b> Spaces</a></li>
+<li class="chapter" data-level="13.9" data-path="r-code-style.html"><a href="r-code-style.html#names"><i class="fa fa-check"></i><b>13.9</b> Names</a></li>
+<li class="chapter" data-level="13.10" data-path="r-code-style.html"><a href="r-code-style.html#conditionals"><i class="fa fa-check"></i><b>13.10</b> Conditionals</a></li>
+<li class="chapter" data-level="13.11" data-path="r-code-style.html"><a href="r-code-style.html#indent-style"><i class="fa fa-check"></i><b>13.11</b> Indent Style</a></li>
+<li class="chapter" data-level="13.12" data-path="r-code-style.html"><a href="r-code-style.html#indentation-of-long-function-declarations"><i class="fa fa-check"></i><b>13.12</b> Indentation of long function declarations</a></li>
+<li class="chapter" data-level="13.13" data-path="r-code-style.html"><a href="r-code-style.html#loops"><i class="fa fa-check"></i><b>13.13</b> Loops</a></li>
+<li class="chapter" data-level="13.14" data-path="r-code-style.html"><a href="r-code-style.html#functions-1"><i class="fa fa-check"></i><b>13.14</b> Functions</a></li>
+<li class="chapter" data-level="13.15" data-path="r-code-style.html"><a href="r-code-style.html#efficiency"><i class="fa fa-check"></i><b>13.15</b> Efficiency</a></li>
+<li class="chapter" data-level="13.16" data-path="r-code-style.html"><a href="r-code-style.html#end"><i class="fa fa-check"></i><b>13.16</b> [END]</a></li>
+<li class="chapter" data-level="13.17" data-path="r-code-style.html"><a href="r-code-style.html#self-evaluation-11"><i class="fa fa-check"></i><b>13.17</b> Self-evaluation</a></li>
+<li class="chapter" data-level="13.18" data-path="r-code-style.html"><a href="r-code-style.html#further-reading-links-and-resources-11"><i class="fa fa-check"></i><b>13.18</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="r-plots.html"><a href="r-plots.html"><i class="fa fa-check"></i><b>14</b> Introduction to R Plots</a><ul>
+<li class="chapter" data-level="14.1" data-path="r-plots.html"><a href="r-plots.html#overview-12"><i class="fa fa-check"></i><b>14.1</b> Overview</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="r-plots.html"><a href="r-plots.html#abstract-12"><i class="fa fa-check"></i><b>14.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="14.1.2" data-path="r-plots.html"><a href="r-plots.html#objectives-12"><i class="fa fa-check"></i><b>14.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="14.1.3" data-path="r-plots.html"><a href="r-plots.html#outcomes-12"><i class="fa fa-check"></i><b>14.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="14.1.4" data-path="r-plots.html"><a href="r-plots.html#deliverables-12"><i class="fa fa-check"></i><b>14.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="14.1.5" data-path="r-plots.html"><a href="r-plots.html#prerequisites-12"><i class="fa fa-check"></i><b>14.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="r-plots.html"><a href="r-plots.html#types-of-plots"><i class="fa fa-check"></i><b>14.2</b> Types of plots</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="r-plots.html"><a href="r-plots.html#plot"><i class="fa fa-check"></i><b>14.2.1</b> plot()</a></li>
+<li class="chapter" data-level="14.2.2" data-path="r-plots.html"><a href="r-plots.html#barplot"><i class="fa fa-check"></i><b>14.2.2</b> barplot()</a></li>
+<li class="chapter" data-level="14.2.3" data-path="r-plots.html"><a href="r-plots.html#hist"><i class="fa fa-check"></i><b>14.2.3</b> hist()</a></li>
+<li class="chapter" data-level="14.2.4" data-path="r-plots.html"><a href="r-plots.html#boxplot"><i class="fa fa-check"></i><b>14.2.4</b> boxplot</a></li>
+<li class="chapter" data-level="14.2.5" data-path="r-plots.html"><a href="r-plots.html#colour"><i class="fa fa-check"></i><b>14.2.5</b> Colour</a></li>
+<li class="chapter" data-level="14.2.6" data-path="r-plots.html"><a href="r-plots.html#colour-palettes"><i class="fa fa-check"></i><b>14.2.6</b> Colour palettes</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="r-plots.html"><a href="r-plots.html#lines"><i class="fa fa-check"></i><b>14.3</b> Lines ===============================================================</a></li>
+<li class="chapter" data-level="14.4" data-path="r-plots.html"><a href="r-plots.html#axes"><i class="fa fa-check"></i><b>14.4</b> Axes</a></li>
+<li class="chapter" data-level="14.5" data-path="r-plots.html"><a href="r-plots.html#layout-1"><i class="fa fa-check"></i><b>14.5</b> Layout</a><ul>
+<li class="chapter" data-level="14.5.1" data-path="r-plots.html"><a href="r-plots.html#par-lattice-constant-aspect-ratio"><i class="fa fa-check"></i><b>14.5.1</b> par, lattice, constant aspect ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="r-plots.html"><a href="r-plots.html#plot-symbols-and-text"><i class="fa fa-check"></i><b>14.6</b> Plot symbols and text</a></li>
+<li class="chapter" data-level="14.7" data-path="r-plots.html"><a href="r-plots.html#drawing-on-plots"><i class="fa fa-check"></i><b>14.7</b> Drawing on plots</a></li>
+<li class="chapter" data-level="14.8" data-path="r-plots.html"><a href="r-plots.html#special-packages"><i class="fa fa-check"></i><b>14.8</b> Special packages</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="try.html"><a href="try.html"><i class="fa fa-check"></i><b>15</b> Try:</a><ul>
+<li class="chapter" data-level="15.1" data-path="try.html"><a href="try.html#self-evaluation-12"><i class="fa fa-check"></i><b>15.1</b> Self-evaluation</a></li>
+<li class="chapter" data-level="15.2" data-path="try.html"><a href="try.html#further-reading-links-and-resources-12"><i class="fa fa-check"></i><b>15.2</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="r-intro.html"><a href="r-intro.html"><i class="fa fa-check"></i><b>16</b> Introduction to R</a><ul>
+<li class="chapter" data-level="16.1" data-path="r-intro.html"><a href="r-intro.html#overview-13"><i class="fa fa-check"></i><b>16.1</b> Overview</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="r-intro.html"><a href="r-intro.html#abstract-13"><i class="fa fa-check"></i><b>16.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="16.1.2" data-path="r-intro.html"><a href="r-intro.html#objectives-13"><i class="fa fa-check"></i><b>16.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="16.1.3" data-path="r-intro.html"><a href="r-intro.html#outcomes-13"><i class="fa fa-check"></i><b>16.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="16.1.4" data-path="r-intro.html"><a href="r-intro.html#deliverables-13"><i class="fa fa-check"></i><b>16.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="16.1.5" data-path="r-intro.html"><a href="r-intro.html#prerequisites-13"><i class="fa fa-check"></i><b>16.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="r-intro.html"><a href="r-intro.html#the-abc-rstudio-project"><i class="fa fa-check"></i><b>16.2</b> The ABC RStudio Project</a></li>
+<li class="chapter" data-level="16.3" data-path="r-intro.html"><a href="r-intro.html#self-evaluation-13"><i class="fa fa-check"></i><b>16.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="16.4" data-path="r-intro.html"><a href="r-intro.html#further-reading-links-and-resources-13"><i class="fa fa-check"></i><b>16.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>17</b> About</a><ul>
+<li class="chapter" data-level="17.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>17.1</b> Attributions:</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BCB420 - Computational System Biology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-functions" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> R Functions</h1>
+<p>(Anatomy of a function: arguments, parameters and values; the concept of functional programming.)</p>
+<div id="overview-10" class="section level2">
+<h2><span class="header-section-number">12.1</span> Overview</h2>
+<div id="abstract-10" class="section level3">
+<h3><span class="header-section-number">12.1.1</span> Abstract:</h3>
+<p>In this unit we discuss the “anatomy”&quot; of R functions: arguments, parameters and values, and how R’s treatment of functions supports “functional programming”.</p>
+</div>
+<div id="objectives-10" class="section level3">
+<h3><span class="header-section-number">12.1.2</span> Objectives:</h3>
+<p>This unit will:</p>
+<ul>
+<li>introduce the basic pattern of R functions;</li>
+<li>discuss arguments and parameters;</li>
+<li>show how to retrieve the source code from within a function;</li>
+<li>practice writing your own functions.</li>
+</ul>
+</div>
+<div id="outcomes-10" class="section level3">
+<h3><span class="header-section-number">12.1.3</span> Outcomes:</h3>
+<p>After working through this unit you:</p>
+<ul>
+<li>know how to pass parameters into functions and assign the returned values;</li>
+<li>can read, analyze, and write your own functions.</li>
+</ul>
+</div>
+<div id="deliverables-10" class="section level3">
+<h3><span class="header-section-number">12.1.4</span> Deliverables:</h3>
+<p><strong>Time management</strong>: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.</p>
+<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don’t overlook these.</p>
+<p><strong>Insights</strong>: If you find something particularly noteworthy about this unit, make a note in your insights! page.</p>
+</div>
+<div id="prerequisites-10" class="section level3">
+<h3><span class="header-section-number">12.1.5</span> Prerequisites</h3>
+<p><a href="r-control-structures.html#r-control-structures">RPR-Control_structures (Control structures of R)</a></p>
+</div>
+</div>
+<div id="functions" class="section level2">
+<h2><span class="header-section-number">12.2</span> Functions</h2>
+<p><strong>R</strong> is considered an (impure) functional programming language and thus the focus of R programs is on functions. The key advantage is that this encourages programming without side-effects and this makes it easier to write error free code and maintain it. Function parameters<a href="about.html#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a> are instantiated for use inside a function as the function’s arguments, and a single result is returned[However a function may have side-effects, such as writing something to console, plotting graphics, saving data to a file, or changing the value of variables outside the function scope. But changing values outside the scope is poor practice, always to be avoided.]. The return values can either be assigned to a variable, or used directly as the argument of another function. This means functions can be nested, and intermediate assignment is not required.</p>
+<p>Functions are either built-in (i.e. available in the basic <strong>R</strong> installation), loaded via specific packages, or they can be easily defined by you (see below). In general a function is invoked through its name, followed by one or more arguments in parentheses, separated by commas. Whenever I refer to a function, I write the parentheses to identify it as such and not a constant or other keyword eg. log(). Here are some examples for you to try and play with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cos</span>(pi) <span class="co">#&quot;pi&quot; is a predefined constant.</span></code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sin</span>(pi) <span class="co"># Note the rounding error. This number is not really different from zero.</span></code></pre></div>
+<pre><code>## [1] 1.224647e-16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sin</span>(<span class="dv">30</span> <span class="op">*</span><span class="st"> </span>pi<span class="op">/</span><span class="dv">180</span>) <span class="co"># Trigonometric functions use radians as their argument - this conversion calculates sin(30 degrees)</span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">1</span>) <span class="co"># &quot;e&quot; is not predefined, but easy to calculate.</span></code></pre></div>
+<pre><code>## [1] 2.718282</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="kw">exp</span>(<span class="dv">1</span>)) <span class="co"># functions can be arguments to functions - nested functions are evaluated from the inside out.</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="dv">10000</span>) <span class="op">/</span><span class="st"> </span><span class="kw">log</span>(<span class="dv">10</span>) <span class="co"># log() calculates natural logarithms; convert to any base by dividing by the log of the base. Here: log to base 10.</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">complex</span>(<span class="dt">r=</span><span class="dv">0</span>, <span class="dt">i=</span>pi)) <span class="co">#Euler&#39;s identity</span></code></pre></div>
+<pre><code>## [1] -1+0i</code></pre>
+<p>There are several ways to populate the argument list for a function and <strong>R</strong> makes a reasonable guess what you want to do. Arguments can either be used in their predefined order, or assigned via an argument name. Let’s look at the complex() function to illustrate this. Consider the specification of a complex number in Euler’s identity above. The function complex() can work with a number of arguments that are explained in the documentation (see: ?complex). Its signature includes length.out, real, imaginary, and some more.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dt">length.out =</span> <span class="dv">0</span>, <span class="dt">real =</span> <span class="kw">numeric</span>(), <span class="dt">imaginary =</span> <span class="kw">numeric</span>(), <span class="dt">modulus =</span> <span class="dv">1</span>, <span class="dt">argument =</span> <span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] 1+0i</code></pre>
+<p>The length.out argument creates a vector with one or more complex numbers. If nothing else is specified, this will be a vector of complex zero(s). If there are two, or three arguments, they will be placed in the respective slots. However, since the arguments are named, we can also define which slot of the argument list they should populate.</p>
+<p>Consider the following to illustrate this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dv">1</span>)    <span class="co"># parameter is in the first slot -&gt; length.out</span></code></pre></div>
+<pre><code>## [1] 0+0i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 0+0i 0+0i 0+0i 0+0i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dv">1</span>, <span class="dv">2</span>) <span class="co"># imaginary part missing</span></code></pre></div>
+<pre><code>## [1] 2+0i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># one complex number with real and imaginary parts defined</span></code></pre></div>
+<pre><code>## [1] 2+3i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># four complex numbers</span></code></pre></div>
+<pre><code>## [1] 2+3i 2+3i 2+3i 2+3i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dt">real =</span> <span class="dv">0</span>, <span class="dt">imaginary =</span> pi) <span class="co"># defining values via named parameters</span></code></pre></div>
+<pre><code>## [1] 0+3.141593i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dt">imaginary =</span> pi, <span class="dt">real =</span> <span class="dv">0</span>) <span class="co"># same thing - if names are used, order is not important</span></code></pre></div>
+<pre><code>## [1] 0+3.141593i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dt">re =</span> <span class="dv">0</span>, <span class="dt">im =</span> pi) <span class="co"># names can be abbreviated ...</span></code></pre></div>
+<pre><code>## [1] 0+3.141593i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dt">r =</span> <span class="dv">0</span>, <span class="dt">i =</span> pi)   <span class="co"># ... to the shortest string that is unique among the named parameters,</span></code></pre></div>
+<pre><code>## [1] 0+3.141593i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">                         <span class="co"># but this is _poor_ practice, strongly advises against.</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">complex</span>(<span class="dt">i =</span> pi, <span class="dv">1</span>, <span class="dv">0</span>) <span class="co"># Think: what have I done here? Why does this work?</span></code></pre></div>
+<pre><code>## [1] 0+3.141593i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">complex</span>(<span class="dt">i =</span> pi, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="co"># (The complex number above is the same as in Euler&#39;s identity.)</span></code></pre></div>
+<pre><code>## [1] -1+0i</code></pre>
+<div class="rmd-task">
+<p>
+A frequently used function is seq().
+</p>
+<ol style="list-style-type: decimal">
+<li>
+Read the help page about seq()
+</li>
+<li>
+Use seq() to generate a sequence of integers from -5 to 3. Pass arguments in default order, don’t use argument names.
+</li>
+<li>
+Use seq() to generate a sequence of numbers from -2 to 2 in intervals of 1/3. This time, use argument names.
+</li>
+<li>
+Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the arguments in the following order: length.out, to, from.
+</li>
+</ol>
+</div>
+</div>
+<div id="on-missing-parameters" class="section level2">
+<h2><span class="header-section-number">12.3</span> On missing parameters</h2>
+<p>If a parameter is missing several things can happen. Let’s illustrate wih a little function that returns the golden-ratio pair to a number, either the smaller, or the larger one.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio &lt;-<span class="st"> </span><span class="cf">function</span>(x, smaller) {
+  phi &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+  <span class="cf">if</span> (smaller <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    <span class="kw">return</span>(x <span class="op">/</span><span class="st"> </span>phi)
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(x <span class="op">*</span><span class="st"> </span>phi)
+  }
+}</code></pre></div>
+<p>If there’s no way to recover, executing the function will throw an error:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>)</code></pre></div>
+<p>Error in goldenRatio(1) : argument “smaller” is missing, with no default</p>
+<p>If the function has a default parameter defined, it is used :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">smaller =</span> <span class="ot">TRUE</span>) {
+  phi &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+  <span class="cf">if</span> (smaller <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    <span class="kw">return</span>(x <span class="op">/</span><span class="st"> </span>phi)
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(x <span class="op">*</span><span class="st"> </span>phi)
+  }
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 0.618034</code></pre>
+<p>Alternatively, the function body can check whether a parameter is missing with the missing() function, and then react accordingly:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio &lt;-<span class="st"> </span><span class="cf">function</span>(x, smaller) {
+  <span class="cf">if</span> (<span class="kw">missing</span>(smaller)) {
+    smaller &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+  }
+  phi &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+  <span class="cf">if</span> (smaller <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    <span class="kw">return</span>(x <span class="op">/</span><span class="st"> </span>phi)
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(x <span class="op">*</span><span class="st"> </span>phi)
+  }
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 0.618034</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>, <span class="dt">smaller =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] 1.618034</code></pre>
+<p>Why is this useful, if you could just define a default? Because the parameter can then be the result of a (complex) computation, based on other parameters.</p>
+</div>
+<div id="reading-functions" class="section level2">
+<h2><span class="header-section-number">12.4</span> Reading functions</h2>
+<div id="basic-r" class="section level3">
+<h3><span class="header-section-number">12.4.1</span> Basic R</h3>
+<p>If the function is a normal R function, like the ones we have defined above, you can read the function code when type its name without parantheses:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio</code></pre></div>
+<pre><code>## function(x, smaller) {
+##   if (missing(smaller)) {
+##     smaller &lt;- TRUE
+##   }
+##   phi &lt;- (1 + sqrt(5)) / 2
+##   if (smaller == TRUE) {
+##     return(x / phi)
+##   } else {
+##     return(x * phi)
+##   }
+## }
+## &lt;bytecode: 0x7f98eaae4db0&gt;</code></pre>
+<p>But that strictly only works for functions which have been written in basic R code.</p>
+</div>
+<div id="s3-methods" class="section level3">
+<h3><span class="header-section-number">12.4.2</span> S3 methods</h3>
+<p>You might also get a line saying UseMethod(<function name>). Then you are looking at a “method” from R’s S3 object oriented system - such a function is also called a “generic”, because it dispatches to more specific code, depending on the type of the parameter it is being given. Use methods() to see which specific methods are defined, and then use getAnywhere(&lt;function.class&gt;) to get the code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seq</code></pre></div>
+<pre><code>## function (...) 
+## UseMethod(&quot;seq&quot;)
+## &lt;bytecode: 0x7f98ecbc0298&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">methods</span>(seq)</code></pre></div>
+<pre><code>## [1] seq.Date    seq.default seq.POSIXt 
+## see &#39;?methods&#39; for accessing help and source code</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getAnywhere</span>(seq.default)</code></pre></div>
+<pre><code>## A single object matching &#39;seq.default&#39; was found
+## It was found in the following places
+##   package:base
+##   registered S3 method for seq from namespace base
+##   namespace:base
+## with value
+## 
+## function (from = 1, to = 1, by = ((to - from)/(length.out - 1)), 
+##     length.out = NULL, along.with = NULL, ...) 
+## {
+##     is.logint &lt;- function(.) (is.integer(.) || is.logical(.)) &amp;&amp; 
+##         !is.object(.)
+##     if ((One &lt;- nargs() == 1L) &amp;&amp; !missing(from)) {
+##         lf &lt;- length(from)
+##         return(if (mode(from) == &quot;numeric&quot; &amp;&amp; lf == 1L) {
+##             if (!is.finite(from)) stop(&quot;&#39;from&#39; must be a finite number&quot;)
+##             1L:from
+##         } else if (lf) 1L:lf else integer())
+##     }
+##     if (!missing(along.with)) {
+##         length.out &lt;- length(along.with)
+##         if (One) 
+##             return(if (length.out) seq_len(length.out) else integer())
+##         intn1 &lt;- is.integer(length.out)
+##     }
+##     else if (!missing(length.out)) {
+##         len &lt;- length(length.out)
+##         if (!len) 
+##             stop(&quot;argument &#39;length.out&#39; must be of length 1&quot;)
+##         if (len &gt; 1L) {
+##             warning(&quot;first element used of &#39;length.out&#39; argument&quot;)
+##             length.out &lt;- length.out[1L]
+##         }
+##         if (!(intn1 &lt;- is.logint(length.out))) 
+##             length.out &lt;- as.numeric(ceiling(length.out))
+##     }
+##     chkDots(...)
+##     if (!missing(from) &amp;&amp; length(from) != 1L) 
+##         stop(&quot;&#39;from&#39; must be of length 1&quot;)
+##     if (!missing(to) &amp;&amp; length(to) != 1L) 
+##         stop(&quot;&#39;to&#39; must be of length 1&quot;)
+##     if (!missing(from) &amp;&amp; !is.finite(if (is.character(from)) from &lt;- as.numeric(from) else from)) 
+##         stop(&quot;&#39;from&#39; must be a finite number&quot;)
+##     if (!missing(to) &amp;&amp; !is.finite(if (is.character(to)) to &lt;- as.numeric(to) else to)) 
+##         stop(&quot;&#39;to&#39; must be a finite number&quot;)
+##     if (is.null(length.out)) 
+##         if (missing(by)) 
+##             from:to
+##         else {
+##             int &lt;- is.logint(from) &amp;&amp; is.logint(to)
+##             del &lt;- to - if (int) 
+##                 as.double(from)
+##             else from
+##             if (del == 0 &amp;&amp; to == 0) 
+##                 return(to)
+##             if (length(by) != 1L) 
+##                 stop(&quot;&#39;by&#39; must be of length 1&quot;)
+##             if (!is.logint(by)) 
+##                 int &lt;- FALSE
+##             else if (!int) 
+##                 storage.mode(by) &lt;- &quot;double&quot;
+##             n &lt;- del/by
+##             if (!is.finite(n)) {
+##                 if (!is.na(by) &amp;&amp; by == 0 &amp;&amp; del == 0) 
+##                   return(from)
+##                 stop(&quot;invalid &#39;(to - from)/by&#39;&quot;)
+##             }
+##             if (n &lt; 0L) 
+##                 stop(&quot;wrong sign in &#39;by&#39; argument&quot;)
+##             if (n &gt; .Machine$integer.max) 
+##                 stop(&quot;&#39;by&#39; argument is much too small&quot;)
+##             dd &lt;- abs(del)/max(abs(to), abs(from))
+##             if (dd &lt; 100 * .Machine$double.eps) 
+##                 return(from)
+##             if (int) {
+##                 n &lt;- as.integer(n)
+##                 if (n &gt;= 2L) 
+##                   cumsum(rep.int(c(from, by), c(1L, n)))
+##                 else from + (0L:n) * by
+##             }
+##             else {
+##                 n &lt;- as.integer(n + 1e-10)
+##                 x &lt;- from + (0L:n) * by
+##                 if (by &gt; 0) 
+##                   pmin(x, to)
+##                 else pmax(x, to)
+##             }
+##         }
+##     else if (!is.finite(length.out) || length.out &lt; 0L) 
+##         stop(&quot;&#39;length.out&#39; must be a non-negative number&quot;)
+##     else if (length.out == 0L) 
+##         integer()
+##     else if (One) 
+##         seq_len(length.out)
+##     else if (missing(by)) {
+##         if (missing(to)) {
+##             to &lt;- from + (length.out - 1)
+##             intdel &lt;- intn1 &amp;&amp; is.logint(from) &amp;&amp; to &lt;= .Machine$integer.max
+##             if (intdel) 
+##                 storage.mode(to) &lt;- &quot;integer&quot;
+##         }
+##         else intdel &lt;- is.logint(to)
+##         if (missing(from)) {
+##             from &lt;- to - (length.out - 1)
+##             if (intdel) {
+##                 intdel &lt;- intn1 &amp;&amp; from &gt;= -.Machine$integer.max
+##                 if (intdel) 
+##                   storage.mode(from) &lt;- &quot;integer&quot;
+##             }
+##         }
+##         else if (intdel) 
+##             intdel &lt;- is.logint(from)
+##         if (length.out &gt; 2L) 
+##             if (from == to) 
+##                 rep.int(from, length.out)
+##             else {
+##                 n1 &lt;- length.out - 1L
+##                 if (intdel &amp;&amp; intn1 &amp;&amp; from%%n1 == to%%n1) {
+##                   by &lt;- to%/%n1 - from%/%n1
+##                   cumsum(rep.int(c(from, by), c(1L, n1)))
+##                 }
+##                 else {
+##                   if (intdel) 
+##                     storage.mode(from) &lt;- &quot;double&quot;
+##                   by &lt;- (to - from)/n1
+##                   as.vector(c(from, from + seq_len(length.out - 
+##                     2L) * by, to))
+##                 }
+##             }
+##         else as.vector(c(from, to))[seq_len(length.out)]
+##     }
+##     else if (missing(to)) {
+##         int &lt;- (intby &lt;- is.logint(by)) &amp;&amp; is.logint(from) &amp;&amp; 
+##             (!(nby &lt;- length(by)) || (naby &lt;- is.na(by)) || ((to &lt;- from + 
+##                 (length.out - 1) * by) &lt;= .Machine$integer.max &amp;&amp; 
+##                 to &gt;= -.Machine$integer.max))
+##         if (int &amp;&amp; length.out &gt; 2L &amp;&amp; nby == 1L &amp;&amp; !naby) 
+##             cumsum(rep.int(c(from, by), c(1L, length.out - 1L)))
+##         else {
+##             if (intby &amp;&amp; !(int || is.object(from))) 
+##                 storage.mode(by) &lt;- &quot;double&quot;
+##             from + (0L:(length.out - 1L)) * by
+##         }
+##     }
+##     else if (missing(from)) {
+##         int &lt;- (intby &lt;- is.logint(by)) &amp;&amp; is.logint(to) &amp;&amp; (!(nby &lt;- length(by)) || 
+##             (naby &lt;- is.na(by)) || ((from &lt;- to - (length.out - 
+##             1) * by) &gt;= -.Machine$integer.max &amp;&amp; from &lt;= .Machine$integer.max))
+##         if (int &amp;&amp; length.out &gt; 2L &amp;&amp; nby == 1L &amp;&amp; !naby) 
+##             cumsum(rep.int(c(as.integer(from), by), c(1L, length.out - 
+##                 1L)))
+##         else {
+##             if (intby &amp;&amp; !(int || is.object(to))) 
+##                 storage.mode(by) &lt;- &quot;double&quot;
+##             to - ((length.out - 1L):0L) * by
+##         }
+##     }
+##     else stop(&quot;too many arguments&quot;)
+## }
+## &lt;bytecode: 0x7f98ecbc2b90&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+</div>
+</div>
+<div id="primitives" class="section level2">
+<h2><span class="header-section-number">12.5</span> Primitives</h2>
+<p>You might also get a line saying .Call(C_<function name> <arguments>). Then you are looking at a primitive - a function that has been compiled in the C programming language, for efficiency.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">runif</code></pre></div>
+<pre><code>## function (n, min = 0, max = 1) 
+## .Call(C_runif, n, min, max)
+## &lt;bytecode: 0x7f98eb9b03c8&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<p>To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:</p>
+<p>This search finds runif.c (have a look).<a href="https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;rlz=1C5CHFA_enCA740CA742&amp;oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;aqs=chrome..69i57j69i58.3647j0j4&amp;sourceid=chrome&amp;ie=UTF-8">site:https://svn.r-project.org/R/trunk/src runif</a></p>
+</div>
+<div id="writing-your-own-functions" class="section level2">
+<h2><span class="header-section-number">12.6</span> Writing your own functions</h2>
+<p><strong>R</strong> is a “functional programming language” and working with <strong>R</strong> will involve writing your own functions. This is easy and gives you access to flexible, powerful and reusable solutions. You have to understand the “anatomy” of an R function however.</p>
+<p>Functions are assigned to function names. They are treated like any other R object and you can have vectors of functions, and functions that return functions etc. Data gets into the function via the function’s parameters.</p>
+<p>Data is returned from a function via the return() statement[Actually the return() statement is optional, if missing, the result of the last expression is returned. You will find this frequently in other people’s code, somthing to be aware of. However, you’ll surely understand that it is really poor practice to omit return(), it makes the code harder to read and can give rise to misunderstandings. Never use implicit behaviour where you can be explicit instead]. One and only one object is returned. However the object can be a list, and thus contain values of arbitrary complexity. This is called the “value” of the function. Well-written functions have no side-effects like changing global variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the function definition pattern:</span>
+ 
+<span class="op">&lt;</span>myName<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> </span><span class="cf">function</span>(<span class="op">&lt;</span>myArguments<span class="op">&gt;</span>) {
+  <span class="co"># &lt;documentation!&gt;</span>
+    result &lt;-<span class="st"> </span><span class="er">&lt;</span>do something with the parameters<span class="op">&gt;</span>
+<span class="st">    </span><span class="kw">return</span>(result)
+}</code></pre></div>
+<p>In this pattern, the function is assigned to the name - any valid name in <strong>R</strong>. Once it is assigned, it the function can be invoked with myName(). The parameter list (the values we write into the parentheses following the function name) can be empty, or hold a list of variable names. If variable names are present, you need to enter the corresponding parameters when you execute the function. These assigned variables are available inside the function, and can be used for computations. This is called “passing variables into the function”.</p>
+<div class="rmd-task">
+<p>
+This exercise is similar to the while loop exercise. The only difference is to put the code into a function. Write a function countDown() so that you can start the countdown call from any number. For example calling countDown(5) should give:
+</p>
+<p>
+[1] “5” “4” “3” “2” “1” “0” “Lift Off!”
+</p>
+</div>
+<p>Answer<a href="about.html#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a></p>
+<p>The scope of functions is local: this means all variables within a function are lost upon return, and global variables are not overwritten by a definition within a function. However variables that are defined outside the function are also available inside.</p>
+<p>We can use loops and control structures inside functions. For example the following creates a vector containing n Fibonacci numbers.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fibSeq &lt;-<span class="st"> </span><span class="cf">function</span>(n) {
+   <span class="cf">if</span> (n <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) { <span class="kw">return</span>( <span class="dv">0</span> ) }
+   <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) { <span class="kw">return</span>( <span class="dv">1</span> ) }
+   <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) { <span class="kw">return</span>( <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>) ) }
+   <span class="cf">else</span> {
+      v &lt;-<span class="st"> </span><span class="kw">numeric</span>(n)
+      v[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1</span>
+      v[<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">1</span>
+      <span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span>n ) {
+         v[n] &lt;-<span class="st"> </span>v[n<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>v[n<span class="op">-</span><span class="dv">1</span>]
+      }
+      <span class="kw">return</span>( v )
+   }
+}</code></pre></div>
+<p>Here is another example to play with: a function that calculates how old you are. In days. This is neat - you can celebrate your 10,000 birthday - or so.</p>
+<div class="rmd-task">
+<p>
+Copy, explore and run the below code
+</p>
+</div>
+<p>Define the function …</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A lifedays calculator function</span>
+ 
+myLifeDays &lt;-<span class="st"> </span><span class="cf">function</span>(birthday) {
+  <span class="cf">if</span> (<span class="kw">missing</span>(birthday)) {
+    <span class="kw">print</span> (<span class="st">&quot;Enter your birthday as a string in </span><span class="ch">\&quot;</span><span class="st">YYYY-MM-DD</span><span class="ch">\&quot;</span><span class="st"> format.&quot;</span>)
+    <span class="kw">return</span>()
+  }
+  bd &lt;-<span class="st"> </span><span class="kw">strptime</span>(birthday, <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert string to time</span>
+  now &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">Sys.time</span>(), <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert &quot;now&quot; to time</span>
+  diff &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">as.numeric</span>(<span class="kw">difftime</span>(now, bd, <span class="dt">unit=</span><span class="st">&quot;days&quot;</span>)))
+  <span class="kw">print</span>(<span class="kw">sprintf</span>(<span class="st">&quot;This date was %d days ago.&quot;</span>, diff))
+}</code></pre></div>
+<p>Use the function (example)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">   <span class="kw">myLifeDays</span>(<span class="st">&quot;1932-09-25&quot;</span>)  <span class="co"># Glenn Gould&#39;s birthday</span></code></pre></div>
+<pre><code>## [1] &quot;This date was 31857 days ago.&quot;</code></pre>
+<p>Here is a good opportunity to practice programming: modify this function to accept a second argument. When a second argument is present (e.g. 10000) the function should print the calendar date on which the input date will be the required number of days ago. Then you could use it to know when to celebrate your 10,000th life-day, or your 777th anniversary or whatever.</p>
+</div>
+<div id="self-evaluation-10" class="section level2">
+<h2><span class="header-section-number">12.7</span> Self-evaluation</h2>
+</div>
+<div id="further-reading-links-and-resources-10" class="section level2">
+<h2><span class="header-section-number">12.8</span> Further reading, links and resources</h2>
+<p><a href="https://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function">“How can I view the source code for a function?” (On Stack Overflow)</a></p>
+<p><strong>If in doubt, ask!</strong><br> If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
+
+<div class="rmd-original-history">
+<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca">boris.steipe@utoronto.ca</a> <br> <strong>Created</strong>: 2017-08-05<br> <strong>Modified</strong>: 2019-01-07<br> Version: 1.0.1<br> <strong>Version history</strong>:<br> 1.0.1 Maintenance<br> 1.0 Completed to first live version<br> 0.1 Material collected from previous tutorial<br>
+</div>
+
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p>The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.<a href="r-functions.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>countDown &lt;- function(n) {<br>start &lt;- n<br> countdown &lt;- start<br> txt &lt;- as.character(start)<br> <br> while (countdown &gt; 0) {<br> countdown &lt;- countdown - 1<br> txt &lt;- c(txt, countdown)<br> }<br> txt &lt;- c(txt,“Lift Off!”)<br> return(txt)<br>}<br> <br>countDown(7)<br><a href="r-functions.html#fnref14">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-control-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-code-style.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/11-R-Functions.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BCB420_Computational_Systems_Biology_Unit2_R_Basics.pdf", "BCB420_Computational_Systems_Biology_Unit2_R_Basics.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

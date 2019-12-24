@@ -1,0 +1,403 @@
+# R Coding Style {#r-code-style}
+(R coding style; software development)
+
+## Overview
+### Abstract:
+Now that you have encountered some concepts of R programming, how do you write good R code?
+
+### Objectives:
+
+This unit will:
+
+  * introduce tried and proven principles of writing expressive and maintainable R code.
+
+### Outcomes:
+
+After working through this unit you:
+
+  * can identify poor practice in formatting R code;
+  * know better;
+  * begin incorporating these principles into your own practice.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites 
+[RPR-Plotting (Introduction to R Plots)](#r-plots)
+
+
+What do we even mean by "good" R code? ...
+
+```{block type="rmd-caution"}
+Warning: Coding style is a volatile topic. Friendships have been renounced, eternal vows of marriage have been dissolved, stock-options have been lost, all over a disagreement about the One True Brace Style, or whether fetchSequenceFromPDB()is a good function name or not. I am laying out coding rules below that reflect a few years of experience. They work for me, they may not work for you.
+```
+
+However:
+
+  * If you are taking one of my workshops, I recommend you to follow these rules: I write this way, and we will find it easier to communicate if you do too.
+  * If you are collaborating on a software project, these rules embody the standard across the project, and I will not check-in code that deviates. Here, consistency is key; but if you think you have a better approach, you only need to convince me and we will change the rule and apply it throughout the codebase^[I'm serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.].
+  *If you are taking one of my courses, you may lose marks if you do not adhere to these standards. Of course, following rules must not be done blindly – we are training future collaborators, not parrots – but you need to write in the spirit of the one rule we all agree on:
+
+Well written code helps the reader to understand the intent.
+
+## General
+
+One of the goals of the coding style expressed below is that it should be easy to read for people for whom R is not the first language, or even the language of choice. There are many things that R-purists might do differently, however those probably are not well suited for a research collaboration in which people speak python, C++, javascript and R all at the same time.
+
+It should always be your goal to code as clearly and explicitly as possible. R has many complex idioms, and since it is a functional language that can generally insert functions anywhere into expressions, it is possible to write very terse, expressive code. Use this with discretion. Pace yourself, and make sure your reader can follow your flow of thought. You should aim for a generic coding style that can easily be translated to other languages if necessary, and easily understood by others whose background is in another language. And resist being crafty: more often than not the poor soul who will be confused by a particularly witty use of the language will be you, yourself, half a year later. There is an astute observation by Brian Kernighan that applies completely:
+
+"Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it."
+
+Never sacrifice being explicit for saving on keystrokes. Code is read much more often than it is written!
+
+Use lots of comments. Don't describe what the code does, but explain why you wrote it that way.
+
+Indent comment "#"-characters to align with the expressions in a block.
+
+Use only <- for assignment, not =
+
+...but do use = when passing values into the arguments of functions.
+
+Define global variables at the beginning of the code, use all caps variable names (MAXWIDTH) for such parameters. Never have "magic numbers" appear in your code.
+
+If such variables are meant to be truly global use options() to set them.
+
+Always use for (i in seq(along=x)) {...} rather than for (i in 1:length(x)) {...} because if x == NULL the loop is executed once, with an undefined variable.
+
+Don't use attach().
+
+Avoid importing functions wholesale from packages with library(). Rather use the <package>::<function>() syntax to make it clear which function you mean^[It is happening more and more frequently that functions in different packages we load have the same name. Then our code's behaviour will depend on the order in which the libraries were loaded. Evil.]. That's what package namespaces are for in the first place.
+
+Bad:
+
+library(igraph)
+ 
+...
+ 
+...
+ 
+clu <- components(g)
+Good:
+
+clu <- igraph::components(g)
+
+Don't change the global state
+ 
+We do understand why our functions should not have side-effects (other than the explicit intended effects of printing, plotting, or writing files). But there are subtle ways to change the global state that we need to remember - and avoid. Here's an obvious one:
+
+Don't use <<- (global assignment) except in very unusual cases. Actually never.
+Less obvious is:
+
+Don't use set.seed() in functions.
+
+set.seed() changes the state of the Random Number Generator (RNG), which is part of Rs global state. If this state is changed inside a function, it might result in vastly smaller space of random numbers than you would expect. Even resetting the RNG is not a good idea: a repeatable script might require the RNG to be in a defined state and if your function does set.seed(NULL), your enclosing script is no longer repeatable. But of course, we need to be able to compute simulations repeatably. The only acceptable idiom is something like:
+
+mySim <- function(N) { ...
+  # do something random N times
+  return(result)
+}
+ 
+set.seed(112358)                       # set RNG seed for repeatable randomness
+x <- mySim(N)
+set.seed(NULL)                         # reset the RNG
+
+Then you can comment out the lines, or change them to a different seed, or reset the RNG with set.seed(NULL) - everything is explicit.
+
+
+## Layout
+
+Limit yourself to 80 characters per line.
+
+Don't use semicolons to write more than one expression on a line.
+
+ 
+## Design and granularity
+
+  * Don't repeat code. Use functions instead.
+  * Don't repeat code. If you feel the urge to type code more than once, that's how you know you should break up the code into functions.
+  * Don't repeat code. I'm repeating this for emphasis.
+
+One of the general principles of writing clear, maintainable code is collocation. This means that information items that can affect each other should be viewable on the same screen. Spolski makes a great argument for this, together with a few excellent examples; he also makes a case for a special kind of prefix notation for variable and function names that has a lot of merit.
+
+
+If the code for a function does not fit on approxiamtaley one printed page, you should probably break it up further.
+
+if your loops or conditionals are nested more than three levels deep, you should rethink the logic. Actually three is already a lot. Unless you are working on 3D-objects.
+
+ 
+## Headers
+
+Give your script files headers that state purpose, author, date and version information, and note bugs and issues.
+
+Give your functions headers that describe purpose, parameters (including required datatypes), and return values. Callers should be able to work with the function without having to read the code.
+
+ 
+## Sections
+
+Use separators (# --- SECTION -----------------) to structure your code.
+
+ 
+## Parentheses and Braces
+
+In mathematical expressions, always use parentheses to define priority explicitly. Never rely on implicit operator priority. (( 1 + 2 ) / 3 ) * 4
+
+Always use braces {}, even if you write single-line if statements and loops.
+
+ 
+## Spaces
+
+if and for are language keywords, not functions. Separate the following parenthesis from the keyword with a space.
+
+Good:
+
+if (silent) { ...
+
+Bad:
+
+if(silent) { ...
+
+Always separate operators and arguments with spaces.^[Separating operators with spaces is especially important for the assignment operator <-. Consider this: myPreciousData < -2 returns a vector of TRUE and FALSE, depending on whether the values in myPreciousData are less than -2. But myPreciousData<-2 overwrites every single element with the number 2! I'm not even making this up - happened to a student in a workshop I taught.]^[The = sign is a bit of a special case. When I write e.g. a plot statement, or construct a dataframe, I prefer not to use spaces if the expression ends up all on one line, but to use spaces when the arguments are on separate lines.]
+
+Never separate function names and their following parentheses with spaces.
+
+Always use a space after a comma, and never before a comma. Except in subsetting expressions, where we don't want the comma to hide against the bracket.
+
+Good:
+
+print(1 / 3, digits = 10)
+if (! id %in% IDs) { ...'
+expressionProfiles[ , 1:3]
+
+Bad:
+
+print (1 / 3 ,digits=10)
+if (!id %in% IDs) { ...
+expressionProfiles[, 1:3]
+
+ 
+## Names
+
+There are only two hard things in Computer Science: cache invalidation and naming things.
+
+- Phil Karlton^[For a complementary perspective, [see here](http://thecodelesscode.com/case/220).]
+
+Use informative and specific filenames for code sources; give them the extension .R
+
+Periods have a syntactic meaning in object-oriented classes. I consider their use in normal variables names wrong, even though this is not a syntax error and many R library functions have such names (e.g. Sys.time() and other system calls.)
+
+Create names so that related variables or functions are alphabetically sorted together, code autocomplete will be more useful.
+
+Use the concise camelCaseStyle for variable names, don't use the confusing.dot.style or the rambling pothole_style^[But nevert hesitate to make exceptions if this makes your code more legible.]^[This is not a random opinion but based on that it's easier to keep within the 80-character line limit. Also see the [linked article](http://citeseerx.ist.psu.edu/viewdoc/similar?doi=10.1.1.158.9499&type=ab)].
+
+Don't abbreviate argument names when calling functions. You can, but you shouldn't.
+
+Never reassign reserved words^[In my opinion, base R uses far too many function names that would be useful for variables. But we're not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.].
+
+Don't use c as a variable name since c() is a function.
+
+Don't call your data frames df since df() is a function.^[Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I'm sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.]
+
+Name length should be commensurate with the scope of a variable. Short names for local scope. More explicit names for global scope. I often write global parameters in ALL CAPS: MAXWIDTH if they are defined at the top of a code module.
+
+Specific naming conventions I like:
+
+  * isValid, hasNeighbour ... Boolean variables
+  * findRange(), getLimits() ... simple function names (verbs!)
+  * initializeTable() ... not initTab()
+  * Use plurals to good advantage. node ... for one element; nodes ... for more elements - you can then write code like:
+  * for (node in nodes) { ...
+  * nPoints ... for number-of
+  * iPoints ... for indices-of-points
+  * isError ... don't use isNotError: avoid double negation
+
+ 
+## Conditionals
+
+This may be controversial. The code block in an if (<condition>) {...} statement is evaluated if <condition> is TRUE. But what if we use a boolean variable in the condition? 
+
+Should we write:
+
+if (<boolean variable>) { ...
+
+or
+
+if (<boolean variable> == TRUE) { ...
+
+It depends. Remember - the goal is to make your code as explicit and readable as possible. 
+
+If our variable is e.g. a, then ...
+
+if (a) { ...
+... is not good. Better write ...
+
+if (a == TRUE) { ...
+... and treat this as any other condition that needs to be evaluated. However - if you have given this a meaningful variable name in the first place, something like ...
+
+if (recordIsValid) { ...
+... is great, whereas ...
+
+if (recordIsValid == TRUE) { ...
+... is something that feels oddly self-contradictory. So best practice here depends on context. Myself, I more often than not end up write if (something-something-that-is-boolean == TRUE) ..., (and that's not because I don't understand how conditionals work).
+
+Make the FALSE behaviour explicit. Always use an else at the end of a conditional to define what your code does if the condition is not TRUE. Otherwise your reader will wonder whether your code covers all cases. What if your code should do nothing in the FALSE case? Make that explicit:
+
+if (a > b) {
+  tmp <- b
+  b <- a
+  a <- tmp
+} else {
+  ;
+}
+
+Instead of the lone semicolon you could also write NULL, or invisible(NULL).
+
+
+ 
+## Indent Style
+
+No need for much discussion. Follow the One True Bracing Style and we will all be happy. If you don't immediately see why: read about indent style here. (1) Opening brace on the same line as the function or control declaration; (2) closing brace aligned with the declaration; (3) braces mandatory even if there is only one statement to execute. Sample:
+
+if (length(x) > 1) {
+  perm <- sample(x)
+} else if (length(x) > 0) {
+  perm <- x
+} else  {
+  perm <- NULL
+}
+
+## Indentation of long function declarations
+
+Use spaces to align repeating parts of code, so errors become easier to spot.
+
+ 
+## Loops
+
+Pre-allocate your result objects to have the correct size if at all possible. Growing objects dynamically with c(), cbind(), or rbind() is much, much slower.
+
+Use seq_along(), not length() to compute the range of index variables. If the object you are iterating over has length zero (i.e. it is NULL, like e.g. the result of a grep() operation if the pattern was not found) then using ...
+
+for (idx in 1:length(myVector)) { ...
+... will result in an iteration range of 1:0 since length(NULL) is zero, and the loop will be executed twice even though it should not have been. The correct and safe way to iterate is ...
+
+for (idx in seq_along(myVector)) { ...
+... which will not execute since seq_along(NULL) is NULL.
+
+
+ 
+## Functions
+
+Explicitly assign values to crucial function arguments, even if you think you know that that value is the language default. For example ...
+sort(x)
+... sorts in increasing order, smallest first. But even though ...
+
+sort(x, decreasing = FALSE)
+... does the same thing, the expression explicitly tells the reader what it is going to do. And that's good.
+
+Always explicitly return values from functions, never rely on the implicit behaviour that returns the last expression. This is not superfluous, it is explicit.
+
+If there is nothing to return because the function is invoked for its side effects of writing a file or plotting a graph, write it into your code that nothing will be returned. This prevents you from accidentally returning the result of last expression anyway (as the language does by default), or the reader might think you forgot something. The idiom is:
+return(invisible(NULL))
+
+In general, return only from the end of the function, not from multiple places.
+
+ 
+## Efficiency
+
+If possible, do not grow data structures dynamically, but create the whole structure with "empty" values, then assign values to its elements. This is much faster.
+
+```{r}
+# This is really bad:
+ system.time({
+   N <- 100000
+   v <- numeric()
+   for (i in 1:N) {
+       v <- c(v, sqrt(i))
+   }
+ })
+
+```
+ 
+ 
+```{r}
+ 
+ # Even only writing directly to new elements is much, much better:
+ system.time({
+   N <- 100000
+   v <- numeric()
+   for (i in 1:N) {
+       v[i] <- sqrt(i)
+   }
+ })
+```
+ 
+```{r}
+# That's abaout as fast as doing the same thing with a vapply() function.
+ 
+ # The fastest way is to preallocate memory, it actually comes close to the
+ # vectorized operation:
+ 
+ system.time({
+   N <- 100000
+   v <- numeric(N)
+   for (i in seq_along(v)) {
+       v[i] <- sqrt(i)
+   }
+ })
+```
+
+```{r}
+# Using a vectorized operation is the fastest approach overall and the
+# method of choice:
+ 
+system.time({ v <- sqrt(1:100000) })
+```
+  
+Don't buy into the "apply good, for-loop bad" nonsense. Especially not if you need speed: a well-written for-loop will outperform an apply() statement, which internally uses a for-loop anyway. The reason we often use apply() is because we are following a functional programming idiom, not because there is something magical and exalted about the apply() function. It's usually a bit subtle which idiom is "better" at any given time.
+
+
+ 
+## [END]
+Always end your code with an # [END] comment. This way you can be sure it was copied or saved completely and nothig has been inadvertently omitted. This is important in teamwork. If even ONE team member does not adhere to this, it invalidates the efforts of EVERYONE.
+
+ 
+
+## Self-evaluation
+
+## Further reading, links and resources
+  * [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html)
+  * [Jenny Bryan has very useful comments on how style supports coding](https://www.stat.ubc.ca/~jenny/STAT545A/block19_codeFormattingOrganization.html)
+  * [XKCD on Code Quality](https://xkcd.com/1513/)
+  * R source code itself is largely based on the [GNU coding standards](https://www.gnu.org/prep/standards/standards.html)
+  * [Tim Ottinger on Naming](http://agileinaflash.blogspot.com/2009/02/meaningful-names.html)
+  * [Joel Spolski on collocation](https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/)
+
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2019-04-12<br>
+Version: 1.1.1<br>
+**Version history**:<br>
+1.1.1 Maintenance<br>
+1.1 Add: Dont change the global state; Avoid library()<br>
+1.0.1 Maintenance<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+``` 
+
+
+### Updated Revision history
+```{r echo=FALSE}
+source("./bcb420_books_helper_functions.R")
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+
+```
+
+### Footnotes:
