@@ -613,7 +613,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 ##     return(x * phi)
 ##   }
 ## }
-## &lt;bytecode: 0x7fb60d6e92a8&gt;</code></pre>
+## &lt;bytecode: 0x7fc869711000&gt;</code></pre>
 <p>But that strictly only works for functions which have been written in basic R code.</p>
 </div>
 <div id="s3-methods" class="section level3">
@@ -622,7 +622,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seq</code></pre></div>
 <pre><code>## function (...) 
 ## UseMethod(&quot;seq&quot;)
-## &lt;bytecode: 0x7fb61440b0f0&gt;
+## &lt;bytecode: 0x7fc86ef6f398&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">methods</span>(seq)</code></pre></div>
 <pre><code>## [1] seq.Date    seq.default seq.POSIXt 
@@ -787,7 +787,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 ##     }
 ##     else stop(&quot;too many arguments&quot;)
 ## }
-## &lt;bytecode: 0x7fb61440e120&gt;
+## &lt;bytecode: 0x7fc86ef6e4b8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -797,7 +797,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">runif</code></pre></div>
 <pre><code>## function (n, min = 0, max = 1) 
 ## .Call(C_runif, n, min, max)
-## &lt;bytecode: 0x7fb613b58d30&gt;
+## &lt;bytecode: 0x7fc86e0d3050&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:</p>
 <p>This search finds runif.c (have a look).<a href="https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;rlz=1C5CHFA_enCA740CA742&amp;oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;aqs=chrome..69i57j69i58.3647j0j4&amp;sourceid=chrome&amp;ie=UTF-8">site:https://svn.r-project.org/R/trunk/src runif</a></p>
