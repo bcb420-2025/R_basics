@@ -128,14 +128,15 @@ If you use a Windows system, you need know that backslashes – "\" – have a s
 
 My home directory...
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+original_dir <- getwd()
 setwd("~") # Note: ~ is the "tilde" - the squiggly line - not the straight hyphen
 getwd()
 ```
 
 Relative path: home directory, up one level, then down into baderlab's home directory)
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 setwd("~/../baderlab")
 getwd()
 ```
@@ -146,6 +147,10 @@ setwd("/Users/ruthisserlin/Documents")
 getwd()
 ```
 
+Reset the directory to the original directory
+```{r}
+setwd(original_dir) 
+```
 
 In RStudio you can use the Session → Set Working Directory menu. This includes the useful option to set the current project directory as the working directory ^[Projects that I create for teaching are configured to use this option by default, thus once the project is loaded, the Working Directory should already be correctly set.].
 
@@ -241,7 +246,7 @@ Note: you can save() more than one item in an .RData file. When you then load() 
 We can use the output of ls() as input to rm() to remove all items from the workspace. (cf. ?rm for details)
 
 ```{r}
-rm(list = ls())
+rm(list=setdiff(ls(), "task_counter"))
 ls()
 ```
 

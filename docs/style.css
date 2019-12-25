@@ -18,9 +18,9 @@ pre code {
 .rmd-task {
   padding: 0em 0em 0em 3em;
   margin-bottom: 2px;
-  background:  #8ecdfa  url("images/iconfinder_document_309087.png") left center/3em no-repeat /*!important*/;
+  background:  #9ad4fe  url("images/iconfinder_document_309087.png") left center/3em no-repeat /*!important*/;
   border-style:solid;
-  border-color:#8ecdfa;
+  border-color:#9ad4fe;
 }
 .rmd-task:before {
   color: #fcf403;
