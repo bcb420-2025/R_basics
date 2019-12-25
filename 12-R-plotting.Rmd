@@ -392,7 +392,7 @@ plot.tile.list(tl, fillcol = pal[dCol], cex=0.8, pch=20, col.pts="slategrey")
 
 
 
-## Lines  ===============================================================
+## Lines
 
 Basically all plots take arguments lty to define the line type, and lwd to define line width
 
@@ -656,7 +656,7 @@ if (!requireNamespace("prada", quietly = TRUE)){
 ```
 
 
-#      Try:
+Try:
 ```{r}
 n <- 1000
 x <- rnorm(n)

@@ -260,7 +260,7 @@ seq(2, 6, 2) # Same thing: arguments in default order
 myVec[seq(2, 6, 2)]
 ```
 
-```{r}
+```{r eval=FALSE}
 # since a scalar is a vector of length 1, does this work?
 5[1]
 ```
@@ -409,7 +409,7 @@ log(myVec)
 
 
  
-# computing with two vectors of same length
+## computing with two vectors of same length
 
 ```{r}
 myVec  # the Fibonacci numbers you have defined above

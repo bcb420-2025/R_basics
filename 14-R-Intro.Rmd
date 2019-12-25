@@ -42,9 +42,6 @@ This is a "milestone unit". Its purpose is merely to collect a number of prepara
   * Understanding the setup
     * Imagine you made a typo when you entered your eMail address and now the file .myProfile.R contains a mistake. How do you fix this?^[.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(".myProfile.R") into the console to overwrite the old (wrong) definition with the corrected one.]
 
- [Expand] 
-Answer ...
-
 ## Further reading, links and resources
  
 **If in doubt, ask!**<br>
