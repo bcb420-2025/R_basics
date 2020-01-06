@@ -486,7 +486,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">12.2</span> Functions</h2>
-<p><strong>R</strong> is considered an (impure) functional programming language and thus the focus of R programs is on functions. The key advantage is that this encourages programming without side-effects and this makes it easier to write error free code and maintain it. Function parameters<a href="r-intro.html#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a> are instantiated for use inside a function as the function’s arguments, and a single result is returned[However a function may have side-effects, such as writing something to console, plotting graphics, saving data to a file, or changing the value of variables outside the function scope. But changing values outside the scope is poor practice, always to be avoided.]. The return values can either be assigned to a variable, or used directly as the argument of another function. This means functions can be nested, and intermediate assignment is not required.</p>
+<p><strong>R</strong> is considered an (impure) functional programming language and thus the focus of R programs is on functions. The key advantage is that this encourages programming without side-effects and this makes it easier to write error free code and maintain it. Function parameters<a href="r-intro.html#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> are instantiated for use inside a function as the function’s arguments, and a single result is returned[However a function may have side-effects, such as writing something to console, plotting graphics, saving data to a file, or changing the value of variables outside the function scope. But changing values outside the scope is poor practice, always to be avoided.]. The return values can either be assigned to a variable, or used directly as the argument of another function. This means functions can be nested, and intermediate assignment is not required.</p>
 <p>Functions are either built-in (i.e. available in the basic <strong>R</strong> installation), loaded via specific packages, or they can be easily defined by you (see below). In general a function is invoked through its name, followed by one or more arguments in parentheses, separated by commas. Whenever I refer to a function, I write the parentheses to identify it as such and not a constant or other keyword eg. log(). Here are some examples for you to try and play with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cos</span>(pi) <span class="co">#&quot;pi&quot; is a predefined constant.</span></code></pre></div>
 <pre><code>## [1] -1</code></pre>
@@ -613,7 +613,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 ##     return(x * phi)
 ##   }
 ## }
-## &lt;bytecode: 0x7fc869711000&gt;</code></pre>
+## &lt;bytecode: 0x7ffcb8a26ec8&gt;</code></pre>
 <p>But that strictly only works for functions which have been written in basic R code.</p>
 </div>
 <div id="s3-methods" class="section level3">
@@ -622,7 +622,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seq</code></pre></div>
 <pre><code>## function (...) 
 ## UseMethod(&quot;seq&quot;)
-## &lt;bytecode: 0x7fc86ef6f398&gt;
+## &lt;bytecode: 0x7ffcb5935580&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">methods</span>(seq)</code></pre></div>
 <pre><code>## [1] seq.Date    seq.default seq.POSIXt 
@@ -787,7 +787,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 ##     }
 ##     else stop(&quot;too many arguments&quot;)
 ## }
-## &lt;bytecode: 0x7fc86ef6e4b8&gt;
+## &lt;bytecode: 0x7ffcb5936738&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -797,7 +797,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">runif</code></pre></div>
 <pre><code>## function (n, min = 0, max = 1) 
 ## .Call(C_runif, n, min, max)
-## &lt;bytecode: 0x7fc86e0d3050&gt;
+## &lt;bytecode: 0x7ffcb13b3a00&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:</p>
 <p>This search finds runif.c (have a look).<a href="https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;rlz=1C5CHFA_enCA740CA742&amp;oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;aqs=chrome..69i57j69i58.3647j0j4&amp;sourceid=chrome&amp;ie=UTF-8">site:https://svn.r-project.org/R/trunk/src runif</a></p>
@@ -826,7 +826,7 @@ This exercise is similar to the while loop exercise. The only difference is to p
 [1] “5” “4” “3” “2” “1” “0” “Lift Off!”
 </p>
 </div>
-<p>Answer<a href="r-intro.html#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a></p>
+<p>Answer<a href="r-intro.html#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a></p>
 <p>The scope of functions is local: this means all variables within a function are lost upon return, and global variables are not overwritten by a definition within a function. However variables that are defined outside the function are also available inside.</p>
 <p>We can use loops and control structures inside functions. For example the following creates a vector containing n Fibonacci numbers.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fibSeq &lt;-<span class="st"> </span><span class="cf">function</span>(n) {
@@ -867,7 +867,7 @@ myLifeDays &lt;-<span class="st"> </span><span class="cf">function</span>(birthd
 }</code></pre></div>
 <p>Use the function (example)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">   <span class="kw">myLifeDays</span>(<span class="st">&quot;1932-09-25&quot;</span>)  <span class="co"># Glenn Gould&#39;s birthday</span></code></pre></div>
-<pre><code>## [1] &quot;This date was 31866 days ago.&quot;</code></pre>
+<pre><code>## [1] &quot;This date was 31878 days ago.&quot;</code></pre>
 <p>Here is a good opportunity to practice programming: modify this function to accept a second argument. When a second argument is present (e.g. 10000) the function should print the calendar date on which the input date will be the required number of days ago. Then you could use it to know when to celebrate your 10,000th life-day, or your 777th anniversary or whatever.</p>
 </div>
 <div id="self-evaluation-10" class="section level2">
@@ -917,9 +917,9 @@ myLifeDays &lt;-<span class="st"> </span><span class="cf">function</span>(birthd
 </div>
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p>The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.<a href="r-functions.html#fnref13">↩</a></p></li>
-<li id="fn14"><p>countDown &lt;- function(n) {<br>start &lt;- n<br> countdown &lt;- start<br> txt &lt;- as.character(start)<br> <br> while (countdown &gt; 0) {<br> countdown &lt;- countdown - 1<br> txt &lt;- c(txt, countdown)<br> }<br> txt &lt;- c(txt,“Lift Off!”)<br> return(txt)<br>}<br> <br>countDown(7)<br><a href="r-functions.html#fnref14">↩</a></p></li>
+<ol start="14">
+<li id="fn14"><p>The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.<a href="r-functions.html#fnref14">↩</a></p></li>
+<li id="fn15"><p>countDown &lt;- function(n) {<br>start &lt;- n<br> countdown &lt;- start<br> txt &lt;- as.character(start)<br> <br> while (countdown &gt; 0) {<br> countdown &lt;- countdown - 1<br> txt &lt;- c(txt, countdown)<br> }<br> txt &lt;- c(txt,“Lift Off!”)<br> return(txt)<br>}<br> <br>countDown(7)<br><a href="r-functions.html#fnref15">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -983,20 +983,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

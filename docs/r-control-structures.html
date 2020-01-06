@@ -510,15 +510,9 @@ This page is tagged for revision; expect changes and proceed with caution.
 <li>! - not equals</li>
 <li>== - equals</li>
 <li>&lt; - less than</li>
-<li><blockquote>
-<ul>
-<li>greater than</li>
-</ul>
-</blockquote></li>
+<li>\&gt; - greater than</li>
 <li>&lt;= - less than or equal</li>
-<li><blockquote>
-<p>= - greater than or equal</p>
-</blockquote></li>
+<li>\&gt;= - greater than or equal</li>
 </ul></li>
 <li><p>but there are also a number of in-built functions that are useful for this purpose:</p>
 <ul>
@@ -543,7 +537,7 @@ This page is tagged for revision; expect changes and proceed with caution.
     x &lt;-<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">1</span>))
 }
 <span class="kw">print</span>(x)</code></pre></div>
-<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 4</code></pre>
 </div>
 <div id="if-else-if-and-else" class="section level3">
 <h3><span class="header-section-number">11.2.3</span> “if”, “else if”, and “else”</h3>
@@ -557,7 +551,7 @@ b &lt;-<span class="st">  </span><span class="kw">sample</span>(<span class="dv"
 } <span class="cf">else</span> {
     <span class="kw">print</span>(<span class="st">&quot;seven&quot;</span>)
 }</code></pre></div>
-<pre><code>## [1] &quot;low&quot;</code></pre>
+<pre><code>## [1] &quot;high&quot;</code></pre>
 <p>We need to talk about conditional expressions that test for more than one condition for a moment, things like: “if this is true OR that is true OR my birthday is a Sunday this year …”. To join logical expressions, R has two distinct sets of operators:</p>
 <ul>
 <li>| and ||,</li>
@@ -619,7 +613,11 @@ x <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span>
 ## [1]   8  64 512
 ## [1]   9  81 729
 ## [1]   10  100 1000</code></pre>
-<p>Let’s stay with the high-low game for a moment: * What are the odds of winning? * Let’s simulate some runs with a “for” loop.</p>
+<p>Let’s stay with the high-low game for a moment:</p>
+<ul>
+<li>What are the odds of winning?</li>
+<li>Let’s simulate some runs with a “for” loop.</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">N &lt;-<span class="st"> </span><span class="dv">25000</span>
 outcomes &lt;-<span class="st"> </span><span class="kw">character</span>(N)  <span class="co"># initialize an empty vector</span>
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {          <span class="co"># repeat, assign each element of 1:N to</span>
@@ -635,14 +633,14 @@ outcomes &lt;-<span class="st"> </span><span class="kw">character</span>(N)  <sp
     }
 }
 <span class="kw">head</span>(outcomes, <span class="dv">36</span>)</code></pre></div>
-<pre><code>##  [1] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;high&quot; 
-## [10] &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;high&quot; 
-## [19] &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;seven&quot;
-## [28] &quot;high&quot;  &quot;seven&quot; &quot;high&quot;  &quot;seven&quot; &quot;seven&quot; &quot;high&quot;  &quot;seven&quot; &quot;low&quot;   &quot;seven&quot;</code></pre>
+<pre><code>##  [1] &quot;seven&quot; &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;seven&quot;
+## [10] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;low&quot;   &quot;high&quot; 
+## [19] &quot;low&quot;   &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;seven&quot; &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot; 
+## [28] &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;seven&quot; &quot;high&quot;  &quot;high&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(outcomes)  <span class="co"># the table() function tabulates the elements</span></code></pre></div>
 <pre><code>## outcomes
 ##  high   low seven 
-## 10458 10362  4180</code></pre>
+## 10499 10363  4138</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">                 <span class="co"># of a vector</span></code></pre></div>
 <p>round((36 * table(outcomes))/N) # Can you explain this expression?</p>
 <p>Note that there is nothing special about the expression for (i in 1:N) { … . Any expression that generates a sequence of items will do; I write a lot of code like for (fileName in dir()) { … or for (gene in data$name) {… , or for (column in colnames(expressionTable)) {… etc.</p>
@@ -659,7 +657,7 @@ startTime &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()      
   y[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x[i])         <span class="co"># calculate one square root, grow y to store it</span>
 }
 <span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>startTime       <span class="co"># time it took</span></code></pre></div>
-<pre><code>## Time difference of 0.49913 secs</code></pre>
+<pre><code>## Time difference of 0.69346 secs</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(x)                        <span class="co"># clean up</span>
 <span class="kw">rm</span>(y)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Version 2: Define result object to be large enough</span>
@@ -671,7 +669,7 @@ startTime &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()      
   y[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x[i])         <span class="co"># calculate one square root, store in Y</span>
 }
 <span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>startTime       <span class="co"># time it took</span></code></pre></div>
-<pre><code>## Time difference of 0.1053228 secs</code></pre>
+<pre><code>## Time difference of 0.2185581 secs</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(x)                        <span class="co"># clean up</span>
 <span class="kw">rm</span>(y)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Version 3: vectorized</span>
@@ -680,10 +678,10 @@ x &lt;-<span class="st"> </span><span class="kw">runif</span>(N)                
 startTime &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()      <span class="co"># save start time</span>
 y &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x)                 <span class="co"># sqrt() is vectorized!</span>
 <span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>startTime       <span class="co"># time it took</span></code></pre></div>
-<pre><code>## Time difference of 0.008141994 secs</code></pre>
+<pre><code>## Time difference of 0.008234024 secs</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(x)                        <span class="co"># clean up</span>
 <span class="kw">rm</span>(y)</code></pre></div>
-<p>** The tiny change of pre-allocating memory for the result object y, rather than dynamically growing the vector has made a huge difference. But using the vectorized version of the sqrt() function directly is the fastest approach.**</p>
+<p><strong>The tiny change of pre-allocating memory for the result object y, rather than dynamically growing the vector has made a huge difference. But using the vectorized version of the sqrt() function directly is the fastest approach.</strong></p>
 </div>
 <div id="seq_along-vs.range" class="section level3">
 <h3><span class="header-section-number">11.2.7</span> seq_along() vs. range</h3>
@@ -726,7 +724,7 @@ y &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x)                 
 ## integer(0)</code></pre>
 <p>The problem with the last iteration is: we probably didn’t want to execute the loop if the vector has length 0. But since 1:length(v0) is the same as 1:0, we get an erroneous execution.</p>
 <p>This is why we should always use the following idiom instead, when iterating over a vector: the function seq_along().</p>
-<p>** seq_along() builds a vector of indices over its argument.**</p>
+<p><strong>seq_along() builds a vector of indices over its argument.</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq_along</span>(v5)</code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq_along</span>(v2)</code></pre></div>
@@ -760,7 +758,10 @@ y &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x)                 
 <div id="loops-vs.vectorized-expressions" class="section level3">
 <h3><span class="header-section-number">11.2.8</span> loops vs. vectorized expressions</h3>
 <p>If you can achieve your result with an R vector expression, it will be faster than using a loop. But sometimes you need to do things explicitly, for example if you need to access intermediate results.</p>
-<p>Here is an example to play some more with loops: a password generator. Passwords are a pain. We need them everywhere, they are frustrating to type, to remember and since the cracking programs are getting smarter they become more and more likely to be broken. Here is a simple password generator that creates random strings with consonant/vowel alterations. These are melodic and easy to memorize, but actually as strong as an 8-character, fully random password that uses all characters of the keyboard such as )He.{2jJ or #h<span class="math inline">\(bB2X^ (which is pretty much unmemorizable). The former is taken from 207 * 77 1015 possibilities, the latter is from 948 ~ 6*1015 possibilities. High-end GPU supported password crackers can test about 109 passwords a second, the passwords generated by this little algorithm would thus take on the order of 106 seconds or eleven days to crack^[That&#39;s assuming the worst case in that the attacker needs to know the pattern with which the password is formed, i.e. the number of characters and the alphabet that we chose from. But note that there is an even worse case: if the attacker had access to our code and the seed to our random number generator. If you start the random number generator e.g. with a new seed that is generated from Sys.time(), the possible space of seeds can be devastatingly small. But even if a seed is set explicitly with the set.seed(&lt;number&gt;) function, the &lt;number&gt; seed is a 32-bit integer (check this with .Machine\)</span>integer.max) and thus can take only a bit more than 4*109 values, six orders of magnitude less than the 1015 password complexity we thought we had! It turns out that the code may be a much greater vulnerability than the password itself. Keep that in mind. Keep it secret. Keep it safe.]. This is probably good enough to deter a casual attack.</p>
+<p>Here is an example to play some more with loops: a password generator.</p>
+<p>Passwords are a pain. We need them everywhere, they are frustrating to type, to remember and since the cracking programs are getting smarter they become more and more likely to be broken.</p>
+<p>Here is a simple password generator that creates random strings with consonant/vowel alterations. These are melodic and easy to memorize, but actually as strong as an 8-character, fully random password that uses all characters of the keyboard such as “!He.%2jJ” or “#hb,B2X^” (which is pretty much unmemorizable).</p>
+<p>The former is taken from 20^7 X 7^7 10^15 possibilities, the latter is from 94^8 ~ 6 X 10^15 possibilities. High-end GPU supported password crackers can test about 109 passwords a second, the passwords generated by this little algorithm would thus take on the order of 10^6 seconds or eleven days to crack<a href="r-intro.html#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>. This is probably good enough to deter a casual attack.</p>
 </div>
 </div>
 <div id="task-21" class="section level2">
@@ -798,7 +799,7 @@ vow &lt;-<span class="st"> &quot;aeiouy&quot;</span>
     }
     <span class="kw">print</span>( <span class="kw">paste</span>(pass, <span class="dt">collapse=</span><span class="st">&quot;&quot;</span>) )  <span class="co"># collapse the vector in to a string and print</span>
 }</code></pre></div>
-<p>** Try this a few times.**</p>
+<p><strong>Try this a few times.</strong></p>
 <div id="while" class="section level3">
 <h3><span class="header-section-number">11.3.1</span> while</h3>
 <p>Whereas a for-loop runs for a fixed number of times, a “while” loop runs as long as a condition is true, possibly forever. Here is an example, again our high-low game: this time we simulate what happens when we play it more than once with a strategy that compensates us for losing.</p>
@@ -855,7 +856,7 @@ A rocket ship has to sequence a countdown for the rocket to launch. You are star
 Sample Solution:
 </p>
 <p>
-start &lt;- 3 txt &lt;- as.character(start) countdown &lt;- start while (countdown &gt; 0) { countdown &lt;- countdown - 1 txt &lt;- c(txt, countdown) } txt &lt;- c(txt, “Lift Off!”) txt
+start &lt;- 3<br> txt &lt;- as.character(start)<br> countdown &lt;- start<br> while (countdown &gt; 0) { <br> countdown &lt;- countdown - 1 <br> txt &lt;- c(txt, countdown) <br> } <br> txt &lt;- c(txt, “Lift Off!”) <br> txt<br>
 </p>
 </div>
 </div>
@@ -902,6 +903,12 @@ start &lt;- 3 txt &lt;- as.character(start) countdown &lt;- start while (countdo
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p>That’s assuming the worst case in that the attacker needs to know the pattern with which the password is formed, i.e. the number of characters and the alphabet that we chose from. But note that there is an even worse case: if the attacker had access to our code and the seed to our random number generator. If you start the random number generator e.g. with a new seed that is generated from Sys.time(), the possible space of seeds can be devastatingly small. But even if a seed is set explicitly with the set.seed(<number>) function, the <number> seed is a 32-bit integer (check this with .Machine$integer.max) and thus can take only a bit more than 4 X 10^9 values, six orders of magnitude less than the 10^15 password complexity we thought we had! It turns out that the code may be a much greater vulnerability than the password itself. Keep that in mind. Keep it secret. Keep it safe.<a href="r-control-structures.html#fnref13">↩</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -964,20 +971,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

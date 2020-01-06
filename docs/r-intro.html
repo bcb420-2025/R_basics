@@ -504,7 +504,7 @@ Work through the task: “Local script” in the RPR-Introduction.R script.
 <ul>
 <li>Understanding the setup
 <ul>
-<li>Imagine you made a typo when you entered your eMail address and now the file .myProfile.R contains a mistake. How do you fix this?<a href="r-intro.html#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a></li>
+<li>Imagine you made a typo when you entered your eMail address and now the file .myProfile.R contains a mistake. How do you fix this?<a href="r-intro.html#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a></li>
 </ul></li>
 </ul>
 </div>
@@ -564,20 +564,21 @@ Work through the task: “Local script” in the RPR-Introduction.R script.
 <li id="fn10"><p>A GUI is a Graphical User Interface, it has windows and menu items, as opposed to a “command line interface”.<a href="r-console.html#fnref10">↩</a></p></li>
 <li id="fn11"><p>We call these “variables” because of what function they perform in our code, they actually are R “objects”.<a href="r-snytax.html#fnref11">↩</a></p></li>
 <li id="fn12"><p>and this means [<rows>, <columns<, <slices>] is correct.<a href="r-scalars.html#fnref12">↩</a></p></li>
-<li id="fn13"><p>The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.<a href="r-functions.html#fnref13">↩</a></p></li>
-<li id="fn14"><p>countDown &lt;- function(n) {<br>start &lt;- n<br> countdown &lt;- start<br> txt &lt;- as.character(start)<br> <br> while (countdown &gt; 0) {<br> countdown &lt;- countdown - 1<br> txt &lt;- c(txt, countdown)<br> }<br> txt &lt;- c(txt,“Lift Off!”)<br> return(txt)<br>}<br> <br>countDown(7)<br><a href="r-functions.html#fnref14">↩</a></p></li>
-<li id="fn15"><p>I’m serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.<a href="r-code-style.html#fnref15">↩</a></p></li>
-<li id="fn16"><p>It is happening more and more frequently that functions in different packages we load have the same name. Then our code’s behaviour will depend on the order in which the libraries were loaded. Evil.<a href="r-code-style.html#fnref16">↩</a></p></li>
-<li id="fn17"><p>For a complementary perspective, <a href="http://thecodelesscode.com/case/220">see here</a>.<a href="r-code-style.html#fnref17">↩</a></p></li>
-<li id="fn18"><p>In my opinion, base R uses far too many function names that would be useful for variables. But we’re not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.<a href="r-code-style.html#fnref18">↩</a></p></li>
-<li id="fn19"><p>Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I’m sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.<a href="r-code-style.html#fnref19">↩</a></p></li>
-<li id="fn20"><p>.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(“.myProfile.R”) into the console to overwrite the old (wrong) definition with the corrected one.<a href="r-intro.html#fnref20">↩</a></p></li>
+<li id="fn13"><p>That’s assuming the worst case in that the attacker needs to know the pattern with which the password is formed, i.e. the number of characters and the alphabet that we chose from. But note that there is an even worse case: if the attacker had access to our code and the seed to our random number generator. If you start the random number generator e.g. with a new seed that is generated from Sys.time(), the possible space of seeds can be devastatingly small. But even if a seed is set explicitly with the set.seed(<number>) function, the <number> seed is a 32-bit integer (check this with .Machine$integer.max) and thus can take only a bit more than 4 X 10^9 values, six orders of magnitude less than the 10^15 password complexity we thought we had! It turns out that the code may be a much greater vulnerability than the password itself. Keep that in mind. Keep it secret. Keep it safe.<a href="r-control-structures.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.<a href="r-functions.html#fnref14">↩</a></p></li>
+<li id="fn15"><p>countDown &lt;- function(n) {<br>start &lt;- n<br> countdown &lt;- start<br> txt &lt;- as.character(start)<br> <br> while (countdown &gt; 0) {<br> countdown &lt;- countdown - 1<br> txt &lt;- c(txt, countdown)<br> }<br> txt &lt;- c(txt,“Lift Off!”)<br> return(txt)<br>}<br> <br>countDown(7)<br><a href="r-functions.html#fnref15">↩</a></p></li>
+<li id="fn16"><p>I’m serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.<a href="r-code-style.html#fnref16">↩</a></p></li>
+<li id="fn17"><p>It is happening more and more frequently that functions in different packages we load have the same name. Then our code’s behaviour will depend on the order in which the libraries were loaded. Evil.<a href="r-code-style.html#fnref17">↩</a></p></li>
+<li id="fn18"><p>For a complementary perspective, <a href="http://thecodelesscode.com/case/220">see here</a>.<a href="r-code-style.html#fnref18">↩</a></p></li>
+<li id="fn19"><p>In my opinion, base R uses far too many function names that would be useful for variables. But we’re not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.<a href="r-code-style.html#fnref19">↩</a></p></li>
+<li id="fn20"><p>Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I’m sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.<a href="r-code-style.html#fnref20">↩</a></p></li>
+<li id="fn21"><p>.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(“.myProfile.R”) into the console to overwrite the old (wrong) definition with the corrected one.<a href="r-intro.html#fnref21">↩</a></p></li>
 </ol>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="20">
-<li id="fn20"><p>.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(“.myProfile.R”) into the console to overwrite the old (wrong) definition with the corrected one.<a href="r-intro.html#fnref20">↩</a></p></li>
+<ol start="21">
+<li id="fn21"><p>.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(“.myProfile.R”) into the console to overwrite the old (wrong) definition with the corrected one.<a href="r-intro.html#fnref21">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -641,20 +642,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
