@@ -660,7 +660,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
    }
  })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##  20.575  10.620  31.348</code></pre>
+##  20.364   9.550  30.043</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># Even only writing directly to new elements is much, much better:</span>
  <span class="kw">system.time</span>({
    N &lt;-<span class="st"> </span><span class="dv">100000</span>
@@ -670,7 +670,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
    }
  })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.030   0.004   0.035</code></pre>
+##   0.023   0.002   0.025</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># That&#39;s abaout as fast as doing the same thing with a vapply() function.</span>
  
  <span class="co"># The fastest way is to preallocate memory, it actually comes close to the</span>
@@ -684,7 +684,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
    }
  })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.006   0.000   0.006</code></pre>
+##   0.009   0.000   0.009</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using a vectorized operation is the fastest approach overall and the</span>
 <span class="co"># method of choice:</span>
  

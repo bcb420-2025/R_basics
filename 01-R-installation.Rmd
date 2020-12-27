@@ -281,19 +281,7 @@ docker run -e PASSWORD=changeit --rm \
   * Windows defender firewall might pop up with warning.  Click on *Allow access*.
   * In docker desktop you see all containers you are running and easily manage them. 
 <p align="center"><img src="./images/docker_windows_desktop.png" alt="R startup" width="75%" align="center" /></p>   
-  * Open a web browser to localhost:8787
-<p align="center"><img src="./images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" /></p> 
-  * enter username: rstudio 
-  * enter password: changeit 
-  * changing the parameter *-e PASSWORD=changeit* in the above docker command will change the password you need to specify
-  
-```{block no_prompt, type="rmd-troubleshooting"}
-When you go to localhost:8787 all you get is:
-<p align="center"><img src="./images/no_site.png" alt="R startup" width="75%" align="center" /></p> 
 
-  * Make sure your docker container is running.  (If you rebooted your machine you will need to restart the container on reboot.)
-  * Make sure you got the right port.  
-```
 
 ### MacOS / Linux
   * Open Terminal
@@ -306,16 +294,26 @@ docker run -e PASSWORD=changeit --rm \
   risserlin/bcb420-base-image:winter2021
 ```
 <p align="center"><img src="./images/docker_creation_output.png" alt="R startup" width="75%" align="center" /></p> 
-  * Open a web browser to localhost:8787
-<p align="center"><img src="./images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" /></p> 
-  * enter username: rstudio 
-  * enter password: changeit 
-  * changing the parameter *-e PASSWORD=changeit* in the above docker command will change the password you need to specify
 
 `r task_counter <- task_counter + 1`
 ## Task `r task_counter` - Create your first notebook using Docker
 
 ### Start coding!
+
+  * Open a web browser to localhost:8787
+<p align="center"><img src="./images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" /></p> 
+  * enter username: rstudio 
+  * enter password: changeit 
+  * changing the parameter *-e PASSWORD=changeit* in the above docker command will change the password you need to specify
+  
+```{block no_prompt, type="rmd-troubleshooting"}
+When you go to localhost:8787 all you get is:
+
+<p align="center"><img src="./images/no_site.png" alt="no prompt" width="75%" align="center" /></p> 
+
+  * Make sure your docker container is running.  (If you rebooted your machine you will need to restart the container on reboot.)
+  * Make sure you got the right port.  
+```
 
 After logging in, you will see an Rstudio window just like when you install it directly on your computer. This RStudio will be running in your docker container and will be a completely separate instance from the one you have installed on your machine (with a different set of packages and potentially versions installed).
 
