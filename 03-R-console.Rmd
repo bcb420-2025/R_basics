@@ -1,5 +1,5 @@
-# Console and scripts {#r-console}
-(Code interactively or fom scripts.)
+# Console, Scripts and Notebooks {#r-console}
+(Code interactively or from scripts.)
 
 ## Overview
 ### Abstract:
@@ -27,6 +27,8 @@ After working through this unit you:
 ## Typing code or executing it?
 The RStudio "console" is the bottom-left pane into which you can type commands for execution, and which will contain the output of print() or cat() commands.
 
+<p align="center"><img src="./images/Rstudio_start.png" alt="console" width="75%" align="center" /></p> 
+
 Commands can be:
 
   * directly typed into the console;
@@ -44,6 +46,18 @@ Commands can be:
   1. I can immediately reproduce the entire analysis from start to finish, simply by rerunning the script;
   1. I can reuse parts easily, thus making new analyses quick to develop;
   1. If I keep my script under version control, I can return to previous versions and undo errors. These were actually five points.
+
+### RNotebooks
+
+  Building on this, **RNotebooks** are one step up on scripts.  RNotebooks, similiar to [jupyter notebooks](https://jupyter.org/) are a mixture of markdown and code (For all the many uses of R markdown see: [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)).  They can be rendered into multiple formats (html, pdf and even into Word) and serve as journal page, report, or full summary of the work involved.  If generating a report to be given to collaborators, who are interested in the results, code sections can be hidden.  Additionally, parameters can be specified for a notebook similar to a function call and an entire pipeline can be run on multiple datasets generating a report for each separately (see [here](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) for details on using parameters).  
+  
+  The major advantages of scripts are reiterated for RNotebooks with small modifications:
+  
+  1. The **RNotebook** is an accurate record of my procedure so I know exactly what I have done;
+  1. I add **text, figures, explanations, table of contents, references...**, to record what I was thinking when I developed it;
+  1. I can immediately reproduce the entire analysis from start to finish, simply by rerunning the **RNotebook with different defined parameters**;
+  1. I can reuse parts easily, thus making new analyses quick to develop;
+  1. If I keep my **RNotebook** under version control, I can return to previous versions and undo errors. 
 
  
 ## User interface

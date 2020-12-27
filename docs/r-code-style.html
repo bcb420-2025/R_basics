@@ -174,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.12.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>3.12.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console and scripts</a><ul>
+<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console, Scripts and Notebooks</a><ul>
 <li class="chapter" data-level="4.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
 <li class="chapter" data-level="4.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
@@ -182,7 +182,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
 <li class="chapter" data-level="4.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a></li>
+<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="r-console.html"><a href="r-console.html#rnotebooks"><i class="fa fa-check"></i><b>4.2.1</b> RNotebooks</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>4.3</b> User interface</a></li>
 <li class="chapter" data-level="4.4" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>4.4</b> Self-evaluation</a></li>
 <li class="chapter" data-level="4.5" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a><ul>
@@ -660,7 +662,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
    }
  })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##  20.188   9.930  30.166</code></pre>
+##  20.117  10.518  30.680</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># Even only writing directly to new elements is much, much better:</span>
  <span class="kw">system.time</span>({
    N &lt;-<span class="st"> </span><span class="dv">100000</span>
@@ -690,7 +692,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
  
 <span class="kw">system.time</span>({ v &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>) })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##       0       0       0</code></pre>
+##   0.001   0.000   0.001</code></pre>
 <p>Don't buy into the &quot;apply good, for-loop bad&quot; nonsense. Especially not if you need speed: a well-written for-loop will outperform an apply() statement, which internally uses a for-loop anyway. The reason we often use apply() is because we are following a functional programming idiom, not because there is something magical and exalted about the apply() function. It's usually a bit subtle which idiom is &quot;better&quot; at any given time.</p>
 </div>
 <div id="end" class="section level2">

@@ -174,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.12.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>3.12.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console and scripts</a><ul>
+<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console, Scripts and Notebooks</a><ul>
 <li class="chapter" data-level="4.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
 <li class="chapter" data-level="4.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
@@ -182,7 +182,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
 <li class="chapter" data-level="4.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a></li>
+<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="r-console.html"><a href="r-console.html#rnotebooks"><i class="fa fa-check"></i><b>4.2.1</b> RNotebooks</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>4.3</b> User interface</a></li>
 <li class="chapter" data-level="4.4" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>4.4</b> Self-evaluation</a></li>
 <li class="chapter" data-level="4.5" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a><ul>
@@ -582,12 +584,12 @@ plasmidData<span class="op">$</span>Size <span class="op">&gt;</span><span class
 <pre><code>## [1] &quot;ColE1&quot; &quot;p15A&quot;</code></pre>
 <p>Elements that can be extracted from an object also can be replaced. Simply assign the new value to the element.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) )</code></pre></div>
-<pre><code>##  [1]  7  6  3  9  2  8 10  5  4  1</code></pre>
+<pre><code>##  [1]  9  4  2  8  1  7  6  3  5 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="dv">99</span>
 x</code></pre></div>
-<pre><code>##  [1]  7  6  3 99  2  8 10  5  4  1</code></pre>
+<pre><code>##  [1]  9  4  2 99  1  7  6  3  5 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( x &lt;-<span class="st"> </span>x[<span class="kw">order</span>(x)] )</code></pre></div>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8 10 99</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  9 10 99</code></pre>
 <p>Try your own subsetting ideas. Play with this. I find that even seasoned investigators have problems with subsetting their data and if you become comfortable with the many ways of subsetting, you will be ahead of the game right away.</p>
 </div>
 <div id="task-21" class="section level2">

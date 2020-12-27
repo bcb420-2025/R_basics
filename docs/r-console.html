@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Console and scripts | BCB420 - Computational System Biology</title>
+  <title>Chapter 4 Console, Scripts and Notebooks | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Console and scripts | BCB420 - Computational System Biology" />
+  <meta property="og:title" content="Chapter 4 Console, Scripts and Notebooks | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bcb420-2021/R_basics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Console and scripts | BCB420 - Computational System Biology" />
+  <meta name="twitter:title" content="Chapter 4 Console, Scripts and Notebooks | BCB420 - Computational System Biology" />
   
   <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   
@@ -174,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.12.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>3.12.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console and scripts</a><ul>
+<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console, Scripts and Notebooks</a><ul>
 <li class="chapter" data-level="4.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
 <li class="chapter" data-level="4.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
@@ -182,7 +182,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
 <li class="chapter" data-level="4.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a></li>
+<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="r-console.html"><a href="r-console.html#rnotebooks"><i class="fa fa-check"></i><b>4.2.1</b> RNotebooks</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>4.3</b> User interface</a></li>
 <li class="chapter" data-level="4.4" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>4.4</b> Self-evaluation</a></li>
 <li class="chapter" data-level="4.5" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a><ul>
@@ -458,8 +460,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="r-console" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Console and scripts</h1>
-<p>(Code interactively or fom scripts.)</p>
+<h1><span class="header-section-number">Chapter 4</span> Console, Scripts and Notebooks</h1>
+<p>(Code interactively or from scripts.)</p>
 <div id="overview" class="section level2">
 <h2><span class="header-section-number">4.1</span> Overview</h2>
 <div id="abstract" class="section level3">
@@ -492,6 +494,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="typing-code-or-executing-it" class="section level2">
 <h2><span class="header-section-number">4.2</span> Typing code or executing it?</h2>
 <p>The RStudio &quot;console&quot; is the bottom-left pane into which you can type commands for execution, and which will contain the output of print() or cat() commands.</p>
+<p align="center">
+<img src="images/Rstudio_start.png" alt="console" width="75%" align="center" />
+</p>
 <p>Commands can be:</p>
 <ul>
 <li>directly typed into the console;</li>
@@ -508,6 +513,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>I can reuse parts easily, thus making new analyses quick to develop;</li>
 <li>If I keep my script under version control, I can return to previous versions and undo errors. These were actually five points.</li>
 </ol>
+<div id="rnotebooks" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> RNotebooks</h3>
+<p>Building on this, <strong>RNotebooks</strong> are one step up on scripts. RNotebooks, similiar to <a href="https://jupyter.org/">jupyter notebooks</a> are a mixture of markdown and code (For all the many uses of R markdown see: <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>). They can be rendered into multiple formats (html, pdf and even into Word) and serve as journal page, report, or full summary of the work involved. If generating a report to be given to collaborators, who are interested in the results, code sections can be hidden. Additionally, parameters can be specified for a notebook similar to a function call and an entire pipeline can be run on multiple datasets generating a report for each separately (see <a href="https://bookdown.org/yihui/rmarkdown/parameterized-reports.html">here</a> for details on using parameters).</p>
+<p>The major advantages of scripts are reiterated for RNotebooks with small modifications:</p>
+<ol style="list-style-type: decimal">
+<li>The <strong>RNotebook</strong> is an accurate record of my procedure so I know exactly what I have done;</li>
+<li>I add <strong>text, figures, explanations, table of contents, references...</strong>, to record what I was thinking when I developed it;</li>
+<li>I can immediately reproduce the entire analysis from start to finish, simply by rerunning the <strong>RNotebook with different defined parameters</strong>;</li>
+<li>I can reuse parts easily, thus making new analyses quick to develop;</li>
+<li>If I keep my <strong>RNotebook</strong> under version control, I can return to previous versions and undo errors.</li>
+</ol>
+</div>
 </div>
 <div id="user-interface" class="section level2">
 <h2><span class="header-section-number">4.3</span> User interface</h2>
