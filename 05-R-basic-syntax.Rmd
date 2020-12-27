@@ -29,16 +29,15 @@ After working through this unit you:
 **Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
 
 ### Prerequisites 
-[RPR-Console (Console and scripts)](#r-console)
-[RPR-Help (Getting help for R)](#r-help)
-[RPR-Setup (Setup R to work with it)](#r-setup)
-[RPR-Installation (Installing R and RStudio)](#r_install)
+  * [RPR-Console (Console and scripts)](#r-console)
+  * [RPR-Help (Getting help for R)](#r-help)
+  * [RPR-Setup (Setup R to work with it)](#r-setup)
+  * [RPR-Installation (Installing R and RStudio)](#r_install)
 
 
 ## Simple commands
 
-The R command line evaluates expressions. Expressions can contain constants, variables, operators and functions of the various datatypes that R recognizes.
-
+The **R** command line evaluates expressions. Expressions can contain constants, variables, operators and functions of the various datatypes that **R** recognizes.
 
  
 ### Operators
@@ -130,7 +129,8 @@ numbers
 ## Task `r task_counter`
 
 ```{block, type="rmd-task"}
-Write R expressions:
+Write R expressions for the following:
+```
 
   1.  To check whether lastNum is less than 6 or greater than 10 ^[lastNum < 6 | lastNum > 10]
   1. To check whether lastNum is in the interval [10, 20). (By the rules of mathematical notation this means 10 is included but 20 is not).^[lastNum >= 10 & lastNum < 20]
@@ -143,20 +143,17 @@ Write R expressions:
     * integer divide by 1
     * take the third root
 (Hints: use lots of parentheses and compare the final result to 2. To debug, select parts of the code and execute separately. If the console gets stuck because it is expecting a closing parenthesis, and all you see is the "+" sign, simply press <escape> to abort evaluation.)
-```
 
-
- 
 ## Variables
 
-In order to store the results of expressions and computations, you can freely assign them to variables^[We call these "variables" because of what function they perform in our code, they actually are R "objects".]. Variables are created by **R** whenever you first use them (i.e. space in memory is allocated to the variable and a value is stored in that space.) Variable names distinguish between upper case and lower case letters. There are a small number of reserved names that you are not allowed to redefine, and R syntax contains very small number of predefined constants, such as pi. However these constants can be overwritten - be careful: **R** will allow you to define pi <- 3 but casually redefining the foundations of mathematics may lead to unintended consequences. Read more about variable names at:
+In order to store the results of expressions and computations, you can freely assign them to variables^[We call these "variables" because of what function they perform in our code, they actually are **R** "objects".]. Variables are created by **R** whenever you first use them (i.e. space in memory is allocated to the variable and a value is stored in that space.) Variable names distinguish between upper case and lower case letters. There are a small number of reserved names that you are not allowed to redefine, and **R** syntax contains very small number of predefined constants, such as pi. However these constants can be overwritten - be careful: **R** will allow you to define pi <- 3 but casually redefining the foundations of mathematics may lead to unintended consequences. Read more about variable names at:
 
 ```{r}
 ?make.names
 ?reserved
 ```
 
-To assign a value to a constant, use the assignment operator <-. This is the default way of assigning values in R. You could also use the = sign, but there are subtle differences. (See: ?"<-"). There is a variant of the assignment operator <<- which is sometimes used inside functions. It assigns to a global context. This is possible, but not preferred since it generates a side effect of a function. Don't do this. Just forget that <<- even exists.
+To assign a value to a constant, use the assignment operator <-. This is the default way of assigning values in **R**. You could also use the = sign, but there are subtle differences. (See: ?"<-"). There is a variant of the assignment operator <<- which is sometimes used inside functions. It assigns to a global context. This is possible, but not preferred since it generates a side effect of a function. Don't do this. Just forget that <<- even exists.
 
 ```{r}
 a <- 5

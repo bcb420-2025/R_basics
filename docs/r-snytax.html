@@ -494,12 +494,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="prerequisites" class="section level3">
 <h3><span class="header-section-number">6.1.5</span> Prerequisites</h3>
-<p><a href="r-console.html#r-console">RPR-Console (Console and scripts)</a> <a href="r-help.html#r-help">RPR-Help (Getting help for R)</a> <a href="r-setup.html#r-setup">RPR-Setup (Setup R to work with it)</a> <a href="r-install.html#r_install">RPR-Installation (Installing R and RStudio)</a></p>
+<ul>
+<li><a href="r-console.html#r-console">RPR-Console (Console and scripts)</a></li>
+<li><a href="r-help.html#r-help">RPR-Help (Getting help for R)</a></li>
+<li><a href="r-setup.html#r-setup">RPR-Setup (Setup R to work with it)</a></li>
+<li><a href="r-install.html#r_install">RPR-Installation (Installing R and RStudio)</a></li>
+</ul>
 </div>
 </div>
 <div id="simple-commands" class="section level2">
 <h2><span class="header-section-number">6.2</span> Simple commands</h2>
-<p>The R command line evaluates expressions. Expressions can contain constants, variables, operators and functions of the various datatypes that R recognizes.</p>
+<p>The <strong>R</strong> command line evaluates expressions. Expressions can contain constants, variables, operators and functions of the various datatypes that <strong>R</strong> recognizes.</p>
 <div id="operators" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Operators</h3>
 <p>The common arithmetic operators are recognized in the usual way.</p>
@@ -584,69 +589,29 @@ numbers
 <h2><span class="header-section-number">6.4</span> Task 12</h2>
 <div class="rmd-task">
 <p>
-Write R expressions:
+Write R expressions for the following:
 </p>
+</div>
 <ol style="list-style-type: decimal">
-<li>
-To check whether lastNum is less than 6 or greater than 10 <a href="r-snytax.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>
-</li>
-<li>
-To check whether lastNum is in the interval [10, 20). (By the rules of mathematical notation this means 10 is included but 20 is not).<a href="r-snytax.html#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>
-</li>
-<li>
-<p>
-To output TRUE if the following operation gives 2<a href="r-snytax.html#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>:
-</p>
+<li>To check whether lastNum is less than 6 or greater than 10<a href="r-intro.html#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></li>
+<li>To check whether lastNum is in the interval [10, 20). (By the rules of mathematical notation this means 10 is included but 20 is not).<a href="r-intro.html#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a></li>
+<li><p>To output TRUE if the following operation gives 2<a href="r-intro.html#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>:</p>
 <ul>
-<li>
-take lastNum
-</li>
-<li>
-divide it by 7
-</li>
-<li>
-subtract the integer part and the first digit after the decimal point (hint: multiply by 10, then integer division by 1 gives you ... what)
-</li>
-<li>
-multiply by 100
-</li>
-<li>
-integer divide by 1
-</li>
-<li>
-take the third root (Hints: use lots of parentheses and compare the final result to 2. To debug, select parts of the code and execute separately. If the console gets stuck because it is expecting a closing parenthesis, and all you see is the &quot;+&quot; sign, simply press <escape> to abort evaluation.)
-</li>
-</ul>
-</li>
+<li>take lastNum</li>
+<li>divide it by 7</li>
+<li>subtract the integer part and the first digit after the decimal point (hint: multiply by 10, then integer division by 1 gives you ... what)</li>
+<li>multiply by 100</li>
+<li>integer divide by 1</li>
+<li>take the third root (Hints: use lots of parentheses and compare the final result to 2. To debug, select parts of the code and execute separately. If the console gets stuck because it is expecting a closing parenthesis, and all you see is the &quot;+&quot; sign, simply press <escape> to abort evaluation.)</li>
+</ul></li>
 </ol>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1">
-<p>
-lastNum &lt; 6 | lastNum &gt; 10<a href="r-install.html#fnref1">↩</a>
-</p>
-</li>
-<li id="fn2">
-<p>
-lastNum &gt;= 10 &amp; lastNum &lt; 20<a href="r-install.html#fnref2">↩</a>
-</p>
-</li>
-<li id="fn3">
-<p>
-((((9/7) - ((((9/7) * 10) %/% 1 )/10)) * 100) %/% 1 )^(1/3) == 2<a href="r-install.html#fnref3">↩</a>
-</p>
-</li>
-</ol>
-</div>
-</div>
 </div>
 <div id="variables" class="section level2">
 <h2><span class="header-section-number">6.5</span> Variables</h2>
-<p>In order to store the results of expressions and computations, you can freely assign them to variables<a href="r-intro.html#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>. Variables are created by <strong>R</strong> whenever you first use them (i.e. space in memory is allocated to the variable and a value is stored in that space.) Variable names distinguish between upper case and lower case letters. There are a small number of reserved names that you are not allowed to redefine, and R syntax contains very small number of predefined constants, such as pi. However these constants can be overwritten - be careful: <strong>R</strong> will allow you to define pi &lt;- 3 but casually redefining the foundations of mathematics may lead to unintended consequences. Read more about variable names at:</p>
+<p>In order to store the results of expressions and computations, you can freely assign them to variables<a href="r-intro.html#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>. Variables are created by <strong>R</strong> whenever you first use them (i.e. space in memory is allocated to the variable and a value is stored in that space.) Variable names distinguish between upper case and lower case letters. There are a small number of reserved names that you are not allowed to redefine, and <strong>R</strong> syntax contains very small number of predefined constants, such as pi. However these constants can be overwritten - be careful: <strong>R</strong> will allow you to define pi &lt;- 3 but casually redefining the foundations of mathematics may lead to unintended consequences. Read more about variable names at:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?make.names
 ?reserved</code></pre></div>
-<p>To assign a value to a constant, use the assignment operator &lt;-. This is the default way of assigning values in R. You could also use the = sign, but there are subtle differences. (See: ?&quot;&lt;-&quot;). There is a variant of the assignment operator &lt;&lt;- which is sometimes used inside functions. It assigns to a global context. This is possible, but not preferred since it generates a side effect of a function. Don't do this. Just forget that &lt;&lt;- even exists.</p>
+<p>To assign a value to a constant, use the assignment operator &lt;-. This is the default way of assigning values in <strong>R</strong>. You could also use the = sign, but there are subtle differences. (See: ?&quot;&lt;-&quot;). There is a variant of the assignment operator &lt;&lt;- which is sometimes used inside functions. It assigns to a global context. This is possible, but not preferred since it generates a side effect of a function. Don't do this. Just forget that &lt;&lt;- even exists.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">5</span>
 a</code></pre></div>
 <pre><code>## [1] 5</code></pre>
@@ -726,11 +691,11 @@ stripes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st"
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>and when you click on the arrow to the left, this will take you back to where you came from<a href="r-install.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>Proportional fonts are for elegant document layout. Monospaced fonts are needed to properly align characters in columns. For code and sequences, we always use monospaced font.<a href="r-install.html#fnref2">↩</a></p></li>
-<li id="fn3"><p>[1] means: the following is the first (often only) element of a vector.<a href="r-install.html#fnref3">↩</a></p></li>
-<li id="fn11"><p>We call these &quot;variables&quot; because of what function they perform in our code, they actually are R &quot;objects&quot;.<a href="r-snytax.html#fnref11">↩</a></p></li>
+<ol start="11">
+<li id="fn11"><p>lastNum &lt; 6 | lastNum &gt; 10<a href="r-snytax.html#fnref11">↩</a></p></li>
+<li id="fn12"><p>lastNum &gt;= 10 &amp; lastNum &lt; 20<a href="r-snytax.html#fnref12">↩</a></p></li>
+<li id="fn13"><p>((((9/7) - ((((9/7) * 10) %/% 1 )/10)) * 100) %/% 1 )^(1/3) == 2<a href="r-snytax.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>We call these &quot;variables&quot; because of what function they perform in our code, they actually are <strong>R</strong> &quot;objects&quot;.<a href="r-snytax.html#fnref14">↩</a></p></li>
 </ol>
 </div>
             </section>

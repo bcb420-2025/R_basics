@@ -502,7 +502,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
 <p>However:</p>
 <ul>
 <li>If you are taking one of my workshops, I recommend you to follow these rules: I write this way, and we will find it easier to communicate if you do too.</li>
-<li>If you are collaborating on a software project, these rules embody the standard across the project, and I will not check-in code that deviates. Here, consistency is key; but if you think you have a better approach, you only need to convince me and we will change the rule and apply it throughout the codebase<a href="r-intro.html#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>. *If you are taking one of my courses, you may lose marks if you do not adhere to these standards. Of course, following rules must not be done blindly – we are training future collaborators, not parrots – but you need to write in the spirit of the one rule we all agree on:</li>
+<li>If you are collaborating on a software project, these rules embody the standard across the project, and I will not check-in code that deviates. Here, consistency is key; but if you think you have a better approach, you only need to convince me and we will change the rule and apply it throughout the codebase<a href="r-intro.html#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>. *If you are taking one of my courses, you may lose marks if you do not adhere to these standards. Of course, following rules must not be done blindly – we are training future collaborators, not parrots – but you need to write in the spirit of the one rule we all agree on:</li>
 </ul>
 <p>Well written code helps the reader to understand the intent.</p>
 </div>
@@ -521,7 +521,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
 <p>If such variables are meant to be truly global use options() to set them.</p>
 <p>Always use for (i in seq(along=x)) {...} rather than for (i in 1:length(x)) {...} because if x == NULL the loop is executed once, with an undefined variable.</p>
 <p>Don't use attach().</p>
-<p>Avoid importing functions wholesale from packages with library(). Rather use the <package>::<function>() syntax to make it clear which function you mean<a href="r-intro.html#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>. That's what package namespaces are for in the first place.</p>
+<p>Avoid importing functions wholesale from packages with library(). Rather use the <package>::<function>() syntax to make it clear which function you mean<a href="r-intro.html#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>. That's what package namespaces are for in the first place.</p>
 <p>Bad:</p>
 <p>library(igraph)</p>
 <p>...</p>
@@ -586,16 +586,16 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
 <h2><span class="header-section-number">14.9</span> Names</h2>
 <p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
 <ul>
-<li>Phil Karlton<a href="r-intro.html#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a></li>
+<li>Phil Karlton<a href="r-intro.html#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a></li>
 </ul>
 <p>Use informative and specific filenames for code sources; give them the extension .R</p>
 <p>Periods have a syntactic meaning in object-oriented classes. I consider their use in normal variables names wrong, even though this is not a syntax error and many R library functions have such names (e.g. Sys.time() and other system calls.)</p>
 <p>Create names so that related variables or functions are alphabetically sorted together, code autocomplete will be more useful.</p>
 <p>Use the concise camelCaseStyle for variable names, don't use the confusing.dot.style or the rambling pothole_style<sup>[But nevert hesitate to make exceptions if this makes your code more legible.]</sup>[This is not a random opinion but based on that it's easier to keep within the 80-character line limit. Also see the <a href="http://citeseerx.ist.psu.edu/viewdoc/similar?doi=10.1.1.158.9499&amp;type=ab">linked article</a>].</p>
 <p>Don't abbreviate argument names when calling functions. You can, but you shouldn't.</p>
-<p>Never reassign reserved words<a href="r-intro.html#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>.</p>
+<p>Never reassign reserved words<a href="r-intro.html#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>.</p>
 <p>Don't use c as a variable name since c() is a function.</p>
-<p>Don't call your data frames df since df() is a function.<a href="r-intro.html#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a></p>
+<p>Don't call your data frames df since df() is a function.<a href="r-intro.html#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a></p>
 <p>Name length should be commensurate with the scope of a variable. Short names for local scope. More explicit names for global scope. I often write global parameters in ALL CAPS: MAXWIDTH if they are defined at the top of a code module.</p>
 <p>Specific naming conventions I like:</p>
 <ul>
@@ -662,7 +662,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
    }
  })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##  20.179   8.308  28.529</code></pre>
+##  20.420  10.401  30.877</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># Even only writing directly to new elements is much, much better:</span>
  <span class="kw">system.time</span>({
    N &lt;-<span class="st"> </span><span class="dv">100000</span>
@@ -672,7 +672,7 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
    }
  })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.024   0.003   0.026</code></pre>
+##   0.023   0.003   0.027</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># That&#39;s abaout as fast as doing the same thing with a vapply() function.</span>
  
  <span class="co"># The fastest way is to preallocate memory, it actually comes close to the</span>
@@ -686,13 +686,13 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
    }
  })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.007   0.000   0.007</code></pre>
+##   0.007   0.000   0.006</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using a vectorized operation is the fastest approach overall and the</span>
 <span class="co"># method of choice:</span>
  
 <span class="kw">system.time</span>({ v &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>) })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.001   0.000   0.001</code></pre>
+##   0.000   0.000   0.001</code></pre>
 <p>Don't buy into the &quot;apply good, for-loop bad&quot; nonsense. Especially not if you need speed: a well-written for-loop will outperform an apply() statement, which internally uses a for-loop anyway. The reason we often use apply() is because we are following a functional programming idiom, not because there is something magical and exalted about the apply() function. It's usually a bit subtle which idiom is &quot;better&quot; at any given time.</p>
 </div>
 <div id="end" class="section level2">
@@ -759,12 +759,12 @@ Warning: Coding style is a volatile topic. Friendships have been renounced, eter
 </div>
 <div class="footnotes">
 <hr />
-<ol start="16">
-<li id="fn16"><p>I'm serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.<a href="r-code-style.html#fnref16">↩</a></p></li>
-<li id="fn17"><p>It is happening more and more frequently that functions in different packages we load have the same name. Then our code's behaviour will depend on the order in which the libraries were loaded. Evil.<a href="r-code-style.html#fnref17">↩</a></p></li>
-<li id="fn18"><p>For a complementary perspective, <a href="http://thecodelesscode.com/case/220">see here</a>.<a href="r-code-style.html#fnref18">↩</a></p></li>
-<li id="fn19"><p>In my opinion, base R uses far too many function names that would be useful for variables. But we're not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.<a href="r-code-style.html#fnref19">↩</a></p></li>
-<li id="fn20"><p>Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I'm sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.<a href="r-code-style.html#fnref20">↩</a></p></li>
+<ol start="19">
+<li id="fn19"><p>I'm serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.<a href="r-code-style.html#fnref19">↩</a></p></li>
+<li id="fn20"><p>It is happening more and more frequently that functions in different packages we load have the same name. Then our code's behaviour will depend on the order in which the libraries were loaded. Evil.<a href="r-code-style.html#fnref20">↩</a></p></li>
+<li id="fn21"><p>For a complementary perspective, <a href="http://thecodelesscode.com/case/220">see here</a>.<a href="r-code-style.html#fnref21">↩</a></p></li>
+<li id="fn22"><p>In my opinion, base R uses far too many function names that would be useful for variables. But we're not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.<a href="r-code-style.html#fnref22">↩</a></p></li>
+<li id="fn23"><p>Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I'm sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.<a href="r-code-style.html#fnref23">↩</a></p></li>
 </ol>
 </div>
             </section>
