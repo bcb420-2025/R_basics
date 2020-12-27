@@ -37,7 +37,7 @@ After working through this unit you:
 ## The Help system
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - R help
 
 ```{block, type="rmd-task"}
   * Start RStudio (if it's not already open) and as you work through the sections below, type the commands and explore what they do.
@@ -117,16 +117,16 @@ Notes on common errors:
 
   * A (reasonably) exhaustive list of alternatives and related functions. There are usually some entries, but there is no guarantee that all alternatives are listed – especially if they are provided by an external package.
 
-Therefore, my first approach for **R** information is usually to Google for what interests me and this is often the quickest way to find working example code. R has a very large user base and it is becoming very rare that a reasonable question will not have a reasonable answer among the top three hits of a Google search. Also, as a result of a Google search, it may turn out that something can't be done (easily) – and you won't find things that can't be done in the help system at all. You may want to include "r language" in your search terms, although Google is usually pretty good at figuring out what kind of "r" you are looking for, especially if your query includes a few terms vaguely related to statistics or programming.
+Therefore, my first approach for **R** information is usually to Google for what interests me and this is often the quickest way to find working example code. **R** has a very large user base and it is becoming very rare that a reasonable question will not have a reasonable answer among the top three hits of a Google search. Also, as a result of a Google search, it may turn out that something can't be done (easily) – and you won't find things that can't be done in the help system at all. You may want to include "r language" in your search terms, although Google is usually pretty good at figuring out what kind of "r" you are looking for, especially if your query includes a few terms vaguely related to statistics or programming.
 
   * There is an active [R-help mailing](https://stat.ethz.ch/mailman/listinfo/r-help) list to which you can post–or at least search the archives: your question probably has been asked and answered before. A number of SIGs (Special Interest Groups) exist for more specific discussions - e.g. for mac OS, geography, ecology etc. They are [listed here](https://stat.ethz.ch/mailman/listinfo).
-  * Most of the good responses these days are on stack overflow, discussion seems to be shifting to there from the R mailing list. Information on statistics questions can often be found or obtained from the CrossValidated forum of stackexchange.
+  * Most of the good responses these days are on stack overflow, discussion seems to be shifting to there from the **R** mailing list. Information on statistics questions can often be found or obtained from the CrossValidated forum of stackexchange.
     * try this sample search on [stackOverflow...](https://stackoverflow.com/search?q=R+sort+dataframe)
     * try this sample search on [CrossValidated...](https://stats.stackexchange.com/search?q=R+bootstrapping+jackknifing+cross-validation)
   * [Rseek](https://rseek.org/) is a specialized Google search on R-related sites. Try "time series analysis" for an example.
   * The bioconductor project has its own [support site on the Web](https://support.bioconductor.org/).
 
-If you want a quick and constructive answer from the R mailing list or stackoverflow, you must do a bit of homework first. If you ask your question well, you will get incredibly insightful and helpful responses, but you need to help the helpers to help you:
+If you want a quick and constructive answer from the **R** mailing list or stackoverflow, you must do a bit of homework first. If you ask your question well, you will get incredibly insightful and helpful responses, but you need to help the helpers to help you:
 
   * Use the dput() function, perhaps combined with head() to create a **small, reproducible dataset** with which your problem can be reproduced or your question illustrated. Keep this as small as possible. Post that. **Don't post screenshots!**
   * Post minimal **code** that reproduces the problem with the data you have supplied. Together the code and data have to form an MWE – a minimal working example. People love to play with your code and get it to work, but they hate having to copy, paste, reformat or otherwise edit someone's stuff just so they can answer their question.
@@ -134,10 +134,12 @@ If you want a quick and constructive answer from the R mailing list or stackover
   * Don't post in HTML, be sure to post in **plain text only**.
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - reproducible example
 
 ```{block, type="rmd-task"}
-  * Read ["How to write a reproducible example"](http://adv-r.had.co.nz/Reproducibility.html) and ["How to make a great R reproducible example"](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example). 
+  * Read 
+    * ["How to write a reproducible example"](http://adv-r.had.co.nz/Reproducibility.html) and 
+    * ["How to make a great R reproducible example"](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example). 
   
   BTW: the same principles apply to questions you post on the course mailing list.
 ```

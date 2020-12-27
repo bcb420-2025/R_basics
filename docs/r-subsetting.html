@@ -201,8 +201,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>5.2</b> The Help system</a></li>
-<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9"><i class="fa fa-check"></i><b>5.3</b> Task 9</a></li>
-<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10"><i class="fa fa-check"></i><b>5.4</b> Task 10</a></li>
+<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9---r-help"><i class="fa fa-check"></i><b>5.3</b> Task 9 - R help</a></li>
+<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10---reproducible-example"><i class="fa fa-check"></i><b>5.4</b> Task 10 - reproducible example</a></li>
 <li class="chapter" data-level="5.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>5.5</b> Self-evaluation</a></li>
 <li class="chapter" data-level="5.6" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>5.6</b> Notes</a></li>
 <li class="chapter" data-level="5.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>5.7</b> Further reading, links and resources</a><ul>
@@ -584,10 +584,10 @@ plasmidData<span class="op">$</span>Size <span class="op">&gt;</span><span class
 <pre><code>## [1] &quot;ColE1&quot; &quot;p15A&quot;</code></pre>
 <p>Elements that can be extracted from an object also can be replaced. Simply assign the new value to the element.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) )</code></pre></div>
-<pre><code>##  [1]  9  4  2  8  1  7  6  3  5 10</code></pre>
+<pre><code>##  [1]  1  9  2  8  5  6  4 10  3  7</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="dv">99</span>
 x</code></pre></div>
-<pre><code>##  [1]  9  4  2 99  1  7  6  3  5 10</code></pre>
+<pre><code>##  [1]  1  9  2 99  5  6  4 10  3  7</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( x &lt;-<span class="st"> </span>x[<span class="kw">order</span>(x)] )</code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  9 10 99</code></pre>
 <p>Try your own subsetting ideas. Play with this. I find that even seasoned investigators have problems with subsetting their data and if you become comfortable with the many ways of subsetting, you will be ahead of the game right away.</p>

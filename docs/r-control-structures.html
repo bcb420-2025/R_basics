@@ -201,8 +201,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>5.2</b> The Help system</a></li>
-<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9"><i class="fa fa-check"></i><b>5.3</b> Task 9</a></li>
-<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10"><i class="fa fa-check"></i><b>5.4</b> Task 10</a></li>
+<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9---r-help"><i class="fa fa-check"></i><b>5.3</b> Task 9 - R help</a></li>
+<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10---reproducible-example"><i class="fa fa-check"></i><b>5.4</b> Task 10 - reproducible example</a></li>
 <li class="chapter" data-level="5.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>5.5</b> Self-evaluation</a></li>
 <li class="chapter" data-level="5.6" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>5.6</b> Notes</a></li>
 <li class="chapter" data-level="5.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>5.7</b> Further reading, links and resources</a><ul>
@@ -550,7 +550,7 @@ This page is tagged for revision; expect changes and proceed with caution.
     x &lt;-<span class="st"> </span><span class="kw">c</span>(x, <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">1</span>))
 }
 <span class="kw">print</span>(x)</code></pre></div>
-<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 5</code></pre>
 </div>
 <div id="if-else-if-and-else" class="section level3">
 <h3><span class="header-section-number">11.2.3</span> &quot;if&quot;, &quot;else if&quot;, and &quot;else&quot;</h3>
@@ -564,7 +564,7 @@ b &lt;-<span class="st">  </span><span class="kw">sample</span>(<span class="dv"
 } <span class="cf">else</span> {
     <span class="kw">print</span>(<span class="st">&quot;seven&quot;</span>)
 }</code></pre></div>
-<pre><code>## [1] &quot;high&quot;</code></pre>
+<pre><code>## [1] &quot;low&quot;</code></pre>
 <p>We need to talk about conditional expressions that test for more than one condition for a moment, things like: &quot;if this is true OR that is true OR my birthday is a Sunday this year ...&quot;. To join logical expressions, R has two distinct sets of operators:</p>
 <ul>
 <li>| and ||,</li>
@@ -595,7 +595,7 @@ x <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span>
 <p>The ifelse() function deserves special mention: its arguments work like an if / else construct ...</p>
 <p>ifelse(5 &gt; 7, TRUE, FALSE)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(<span class="kw">runif</span>(<span class="dv">1</span>) <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>, <span class="st">&quot;pickles&quot;</span>, <span class="st">&quot;cucumbers&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;cucumbers&quot;</code></pre>
+<pre><code>## [1] &quot;pickles&quot;</code></pre>
 <p>i.e. ifelse(<condition is true>, <evaluate this>, <evaluate that> )</p>
 <p>But the cool thing about ifelse() is that it's vectorized! You can apply it to a whole vector of conditions at once:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">27</span>);        <span class="kw">runif</span>(<span class="dv">10</span>)</code></pre></div>
@@ -646,14 +646,14 @@ outcomes &lt;-<span class="st"> </span><span class="kw">character</span>(N)  <sp
     }
 }
 <span class="kw">head</span>(outcomes, <span class="dv">36</span>)</code></pre></div>
-<pre><code>##  [1] &quot;seven&quot; &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot; 
-## [10] &quot;seven&quot; &quot;low&quot;   &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;high&quot; 
-## [19] &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;seven&quot; &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;low&quot;  
-## [28] &quot;high&quot;  &quot;seven&quot; &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;</code></pre>
+<pre><code>##  [1] &quot;seven&quot; &quot;low&quot;   &quot;high&quot;  &quot;seven&quot; &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;high&quot; 
+## [10] &quot;low&quot;   &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;  
+## [19] &quot;high&quot;  &quot;seven&quot; &quot;seven&quot; &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;seven&quot; &quot;low&quot;  
+## [28] &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;seven&quot; &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;seven&quot; &quot;high&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(outcomes)  <span class="co"># the table() function tabulates the elements</span></code></pre></div>
 <pre><code>## outcomes
 ##  high   low seven 
-## 10465 10306  4229</code></pre>
+## 10418 10330  4252</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">                 <span class="co"># of a vector</span></code></pre></div>
 <p>round((36 * table(outcomes))/N) # Can you explain this expression?</p>
 <p>Note that there is nothing special about the expression for (i in 1:N) { ... . Any expression that generates a sequence of items will do; I write a lot of code like for (fileName in dir()) { ... or for (gene in data$name) {... , or for (column in colnames(expressionTable)) {... etc.</p>
@@ -670,7 +670,7 @@ startTime &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()      
   y[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x[i])         <span class="co"># calculate one square root, grow y to store it</span>
 }
 <span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>startTime       <span class="co"># time it took</span></code></pre></div>
-<pre><code>## Time difference of 0.5589199 secs</code></pre>
+<pre><code>## Time difference of 0.5940392 secs</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(x)                        <span class="co"># clean up</span>
 <span class="kw">rm</span>(y)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Version 2: Define result object to be large enough</span>
@@ -682,7 +682,7 @@ startTime &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()      
   y[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x[i])         <span class="co"># calculate one square root, store in Y</span>
 }
 <span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>startTime       <span class="co"># time it took</span></code></pre></div>
-<pre><code>## Time difference of 0.07144809 secs</code></pre>
+<pre><code>## Time difference of 0.08481193 secs</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(x)                        <span class="co"># clean up</span>
 <span class="kw">rm</span>(y)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Version 3: vectorized</span>
@@ -691,7 +691,7 @@ x &lt;-<span class="st"> </span><span class="kw">runif</span>(N)                
 startTime &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()      <span class="co"># save start time</span>
 y &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x)                 <span class="co"># sqrt() is vectorized!</span>
 <span class="kw">Sys.time</span>() <span class="op">-</span><span class="st"> </span>startTime       <span class="co"># time it took</span></code></pre></div>
-<pre><code>## Time difference of 0.008466959 secs</code></pre>
+<pre><code>## Time difference of 0.01007414 secs</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(x)                        <span class="co"># clean up</span>
 <span class="kw">rm</span>(y)</code></pre></div>
 <p><strong>The tiny change of pre-allocating memory for the result object y, rather than dynamically growing the vector has made a huge difference. But using the vectorized version of the sqrt() function directly is the fastest approach.</strong></p>

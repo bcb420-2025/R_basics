@@ -201,8 +201,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>5.2</b> The Help system</a></li>
-<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9"><i class="fa fa-check"></i><b>5.3</b> Task 9</a></li>
-<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10"><i class="fa fa-check"></i><b>5.4</b> Task 10</a></li>
+<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9---r-help"><i class="fa fa-check"></i><b>5.3</b> Task 9 - R help</a></li>
+<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10---reproducible-example"><i class="fa fa-check"></i><b>5.4</b> Task 10 - reproducible example</a></li>
 <li class="chapter" data-level="5.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>5.5</b> Self-evaluation</a></li>
 <li class="chapter" data-level="5.6" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>5.6</b> Notes</a></li>
 <li class="chapter" data-level="5.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>5.7</b> Further reading, links and resources</a><ul>
@@ -504,8 +504,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="the-help-system" class="section level2">
 <h2><span class="header-section-number">5.2</span> The Help system</h2>
 </div>
-<div id="task-9" class="section level2">
-<h2><span class="header-section-number">5.3</span> Task 9</h2>
+<div id="task-9---r-help" class="section level2">
+<h2><span class="header-section-number">5.3</span> Task 9 - R help</h2>
 <div class="rmd-task">
 <ul>
 <li>
@@ -561,10 +561,10 @@ Start RStudio (if it's not already open) and as you work through the sections be
 <ul>
 <li>A (reasonably) exhaustive list of alternatives and related functions. There are usually some entries, but there is no guarantee that all alternatives are listed – especially if they are provided by an external package.</li>
 </ul>
-<p>Therefore, my first approach for <strong>R</strong> information is usually to Google for what interests me and this is often the quickest way to find working example code. R has a very large user base and it is becoming very rare that a reasonable question will not have a reasonable answer among the top three hits of a Google search. Also, as a result of a Google search, it may turn out that something can't be done (easily) – and you won't find things that can't be done in the help system at all. You may want to include &quot;r language&quot; in your search terms, although Google is usually pretty good at figuring out what kind of &quot;r&quot; you are looking for, especially if your query includes a few terms vaguely related to statistics or programming.</p>
+<p>Therefore, my first approach for <strong>R</strong> information is usually to Google for what interests me and this is often the quickest way to find working example code. <strong>R</strong> has a very large user base and it is becoming very rare that a reasonable question will not have a reasonable answer among the top three hits of a Google search. Also, as a result of a Google search, it may turn out that something can't be done (easily) – and you won't find things that can't be done in the help system at all. You may want to include &quot;r language&quot; in your search terms, although Google is usually pretty good at figuring out what kind of &quot;r&quot; you are looking for, especially if your query includes a few terms vaguely related to statistics or programming.</p>
 <ul>
 <li>There is an active <a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help mailing</a> list to which you can post–or at least search the archives: your question probably has been asked and answered before. A number of SIGs (Special Interest Groups) exist for more specific discussions - e.g. for mac OS, geography, ecology etc. They are <a href="https://stat.ethz.ch/mailman/listinfo">listed here</a>.</li>
-<li>Most of the good responses these days are on stack overflow, discussion seems to be shifting to there from the R mailing list. Information on statistics questions can often be found or obtained from the CrossValidated forum of stackexchange.
+<li>Most of the good responses these days are on stack overflow, discussion seems to be shifting to there from the <strong>R</strong> mailing list. Information on statistics questions can often be found or obtained from the CrossValidated forum of stackexchange.
 <ul>
 <li>try this sample search on <a href="https://stackoverflow.com/search?q=R+sort+dataframe">stackOverflow...</a></li>
 <li>try this sample search on <a href="https://stats.stackexchange.com/search?q=R+bootstrapping+jackknifing+cross-validation">CrossValidated...</a></li>
@@ -572,7 +572,7 @@ Start RStudio (if it's not already open) and as you work through the sections be
 <li><a href="https://rseek.org/">Rseek</a> is a specialized Google search on R-related sites. Try &quot;time series analysis&quot; for an example.</li>
 <li>The bioconductor project has its own <a href="https://support.bioconductor.org/">support site on the Web</a>.</li>
 </ul>
-<p>If you want a quick and constructive answer from the R mailing list or stackoverflow, you must do a bit of homework first. If you ask your question well, you will get incredibly insightful and helpful responses, but you need to help the helpers to help you:</p>
+<p>If you want a quick and constructive answer from the <strong>R</strong> mailing list or stackoverflow, you must do a bit of homework first. If you ask your question well, you will get incredibly insightful and helpful responses, but you need to help the helpers to help you:</p>
 <ul>
 <li>Use the dput() function, perhaps combined with head() to create a <strong>small, reproducible dataset</strong> with which your problem can be reproduced or your question illustrated. Keep this as small as possible. Post that. <strong>Don't post screenshots!</strong></li>
 <li>Post minimal <strong>code</strong> that reproduces the problem with the data you have supplied. Together the code and data have to form an MWE – a minimal working example. People love to play with your code and get it to work, but they hate having to copy, paste, reformat or otherwise edit someone's stuff just so they can answer their question.</li>
@@ -580,12 +580,20 @@ Start RStudio (if it's not already open) and as you work through the sections be
 <li>Don't post in HTML, be sure to post in <strong>plain text only</strong>.</li>
 </ul>
 </div>
-<div id="task-10" class="section level2">
-<h2><span class="header-section-number">5.4</span> Task 10</h2>
+<div id="task-10---reproducible-example" class="section level2">
+<h2><span class="header-section-number">5.4</span> Task 10 - reproducible example</h2>
 <div class="rmd-task">
 <ul>
 <li>
-Read <a href="http://adv-r.had.co.nz/Reproducibility.html">&quot;How to write a reproducible example&quot;</a> and <a href="https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example">&quot;How to make a great R reproducible example&quot;</a>.
+Read
+<ul>
+<li>
+<a href="http://adv-r.had.co.nz/Reproducibility.html">&quot;How to write a reproducible example&quot;</a> and
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example">&quot;How to make a great R reproducible example&quot;</a>.
+</li>
+</ul>
 </li>
 </ul>
 <p>
