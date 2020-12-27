@@ -44,15 +44,15 @@ Take note! When you write a Windows paths in an R command, you have to use the "
 
 <span style="background-color: #a9f08d">/Users/Pierette/Documents/BCB420</span>  ◁ Looking good on a Mac.
 
-<span style="background-color: #a9f08d">C:\Users\Pulcinella\Documents\CBW</span>  ◁ Looking good on a Windows computer.
+<span style="background-color: #a9f08d">C:\\Users\\Pulcinella\\Documents\\CBW</span>  ◁ Looking good on a Windows computer.
 
 <span style="background-color: #a9f08d">"C:/Users/Pulcinella/Documents/CBW"</span>  ◁ Looking good inside R on a Windows computer (note the quotation marks!).
 
-<span style="background-color: #f0948d">C:\Users\Pantalone\Documents\BCH1441 (2017)</span>  ◁ Wrong. No special characters please.
+<span style="background-color: #f0948d">C:\\Users\\Pantalone\\Documents\\BCH1441 (2017)</span>  ◁ Wrong. No special characters please.
 
 <span style="background-color: #f0948d">/Users/Brighella/Documents/UofT Stuffz/Courses/more/Comp Sys biol. course </span> ◁ Wrong. Please read instructions more carefully.
 
-<span style="background-color: #f0948d">C:\Users\Tartaglia\Documents\KUWTK\<Coursecode></span>  ◁ I can't even ...
+<span style="background-color: #f0948d">C:\\Users\\Tartaglia\\Documents\\KUWTK\\\<Coursecode\></span>  ◁ I can't even ...
 
  
 ## "Projects"
@@ -64,7 +64,7 @@ We will make extensive use of "projects" in class. Read more about projects in R
 We will also make extensive use of version control. In fact, we will now load a project via Git version control from its free, public repository on [GitHub](https://github.com/).
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - Git 
 
 ```{block, type="rmd-task"}
   * Read more about [Version Control in RStudio here](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN).
@@ -78,7 +78,8 @@ Then do the following:
   * Click on Git
   * Enter https://github.com/hyginn/R_Exercise-BasicSetup as the Repository URL.
   * Type a <tab> character, the Project directory name field should then autofill to read R_Exercise-BasicSetup
-  * Click on Browse... to find your Course Folder. (The one that you have already created).   * Click Open.
+  * Click on Browse... to find your Course Folder. (The one that you have already created).   (**If you are using docker make sure the directory you choose is in the projectes directory so it gets stored in your mapped volume on your machine**)
+  * Click Open.
   * Click Create Project; the project files should be downloaded and the console should prompt you to type init() to begin.
   * Type init() into the console pane.
   * An R script should load.
@@ -112,7 +113,7 @@ Then do the following:
  
 ## Working directory
 
-To locate a file in a computer, one has to specify the filename and the directory in which the file is stored; this is also called the path of the file. However R uses a default "working directory"", which is assumed if no path is specified. This "working directory" for R is either the directory in which the R-program has been installed, or some other directory, that has been defined in a startup script, or specifically defined with the command setwd("<working Directory>") at any time. You can execute the command getwd() to list what the Working Directory is currently set to:
+To locate a file in a computer, one has to specify the filename and the directory in which the file is stored; this is also called the path of the file. However R uses a default *working directory*, which is assumed if no path is specified. This *working directory* for **R** is either the directory in which the **R**-program has been installed, or some other directory, that has been defined in a startup script, or specifically defined with the command setwd("<working Directory>") at any time. You can execute the command getwd() to list what the Working Directory is currently set to:
 
 
 ```{r}
@@ -121,9 +122,11 @@ getwd()
 
 In RStudio, the contents of the working directory is listed in the Files Pane (lower-right).
 
-It is convenient to put all your R-input and output files into a project specific directory and then define this to be the "Working Directory". Use the setwd() command for this. setwd() requires an argument that you type between the parentheses: a string with the directory path, or a variable containing such a string. Strings in R are delimited with " or ' characters. If the directory does not exist, an Error will be reported. Make sure you have created the directory. On Mac and Unix systems, the usual shorthand notation for relative paths can be used: ~ for the home directory, . for the current directory, .. for the parent of the current directory.
+<p align="center"><img src="./images/Rstudio_files.png" alt="Rstudio files" width="75%" align="center" /></p> 
 
-If you use a Windows system, you need know that backslashes – "\" – have a special meaning for R, they work as escape characters. For example the string "\n" means newline, and "\t" means tab. Thus R gets confused when you put backslashes into string literals, such as Windows path names. R has a simple solution: you simply use forward slashes instead of backslashes when you specify paths, and R will translate them correctly when it talks to your operating system. Instead of C:\documents\projectfiles you write C:/documents/projectfiles. Also note that on Windows the ~ tilde is a shorthand for the directory in which R is installed, not the user's home directory.
+It is convenient to put all your **R**-input and output files into a project specific directory and then define this to be the "Working Directory". Use the setwd() command for this. setwd() requires an argument that you type between the parentheses: a string with the directory path, or a variable containing such a string. Strings in **R** are delimited with " or ' characters. If the directory does not exist, an Error will be reported. Make sure you have created the directory. On Mac and Unix systems, the usual shorthand notation for relative paths can be used: ~ for the home directory, . for the current directory, .. for the parent of the current directory.
+
+If you use a Windows system, you need to know that backslashes – "\\" – have a special meaning for **R**, they work as escape characters. For example the string "\\n" means newline, and "\\t" means tab. Thus **R** gets confused when you put backslashes into string literals, such as Windows path names. **R** has a simple solution: you simply use forward slashes instead of backslashes when you specify paths, and **R** will translate them correctly when it talks to your operating system. Instead of C:\\documents\\projectfiles you write C:/documents/projectfiles. **Also note that on Windows the ~ tilde is a shorthand for the directory in which R is installed, not the user's home directory**.
 
 
 My home directory...
@@ -152,10 +155,20 @@ Reset the directory to the original directory
 setwd(original_dir) 
 ```
 
-In RStudio you can use the Session → Set Working Directory menu. This includes the useful option to set the current project directory as the working directory ^[Projects that I create for teaching are configured to use this option by default, thus once the project is loaded, the Working Directory should already be correctly set.].
+In RStudio you can use the Session → Set Working Directory menu: 
+
+<p align="center"><img src="./images/set_session.png" alt="set wd" width="75%" align="center" /></p> 
+
+This includes the useful option to set the current project directory as the working directory ^[Projects that I create for teaching are configured to use this option by default, thus once the project is loaded, the Working Directory should already be correctly set.].
+
+Or in the Files browser in the bottom right by clicking on the *More* option:
+<p align="center"><img src="./images/set_session_2.png" alt="set wd" width="75%" align="center" /></p> 
+
+You can set the current directory to the *working directory*.
+
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter`- Working directory
 
 ```{block, type="rmd-task"}
 
@@ -169,7 +182,7 @@ In RStudio you can use the Session → Set Working Directory menu. This includes
 
 ## .Rprofile - startup commands
 
-Often, when working on a project, you would like to start off in your working directory right away when you start up R, instead of typing the setwd() command. This is easily done in a special R-script that is executed automatically on startup^[Actually, the first script that runs is Rprofile.site which is found on Linux and Windows machines in the C:\Program Files\R\R-{version}\etc directory. But not on Macs.]. The name of the script is .Rprofile and R expects to find it in the user's home directory. You can edit these files with a simple text editor like Textedit (Mac), Notepad (windows) or Gedit (Linux) - or, of course, by opening it in RStudio - don't forget that a code editor is also a text editor^[Operating systems commonly hide files whose name starts with a period "." from normal directory listings. All files however are displayed in RStudio's File pane. Nevertheless, it is useful to know how to view such files by default. On Macs, you can configure the Finder to show you such "hidden files" by default. To do this: (i) Open a terminal window; (ii) Type: $defaults write com.apple.Finder AppleShowAllFiles YES (iii) Restart the Finder by accessing Force quit (under the Apple menu), selecting the Finder and clicking Relaunch. (iV) If you ever want to revert this, just do the same thing but set the default to NO instead.].
+Often, when working on a project, you would like to start off in your working directory right away when you start up **R**, instead of typing the setwd() command. This is easily done in a special **R**-script that is executed automatically on startup^[Actually, the first script that runs is Rprofile.site which is found on Linux and Windows machines in the C:\\Program Files\\R\\R-{version}\\etc directory. But not on Macs.]. The name of the script is .Rprofile and **R** expects to find it in the user's home directory. You can edit these files with a simple text editor like Textedit (Mac), Notepad (windows) or Gedit (Linux) - or, of course, by opening it in RStudio - don't forget that a code editor is also a text editor^[Operating systems commonly hide files whose name starts with a period "." from normal directory listings. All files however are displayed in RStudio's File pane. Nevertheless, it is useful to know how to view such files by default. On Macs, you can configure the Finder to show you such "hidden files" by default. To do this: (i) Open a terminal window; (ii) Type: $defaults write com.apple.Finder AppleShowAllFiles YES (iii) Restart the Finder by accessing Force quit (under the Apple menu), selecting the Finder and clicking Relaunch. (iV) If you ever want to revert this, just do the same thing but set the default to NO instead.].
 
 Besides setting the working directory, other items that might go into such a file could be
 
@@ -183,7 +196,7 @@ For more details, use R's help function:
 ```
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - .Rprofile
 
 ```{block, type="rmd-task"}
 Just for information:
@@ -195,7 +208,7 @@ Just for information:
  
 
 ## The "Workspace"
-During an R session, you might define a large number of R-objects: variables, data structures, functions etc., and you might load packages and scripts. All of this information is stored in the so-called "Workspace". When you quit R you have the option to save the Workspace; it will then be restored in your next session. Now, you might think: how convenient - I can just stop R, and when I restart it, it will go into the same state as it was. But no. Restoring the Workspace from a previous state is actually a bad idea: if you load data or variables in a startup script, they may be overwritten with a corrupted version that you happened to save in the workspace when you last quit. This is very hard to troubleshoot. Essentially, when you save and reload your Workspace habitually, you have overlapping and potentially conflicting behaviour of startup script and Workspace restore.
+During an **R** session, you might define a large number of **R**-objects: variables, data structures, functions etc., and you might load packages and scripts. All of this information is stored in the so-called "Workspace". When you quit **R** you have the option to save the Workspace; it will then be restored in your next session. Now, you might think: how convenient - I can just stop **R**, and when I restart it, it will go into the same state as it was. But no. Restoring the Workspace from a previous state is actually a bad idea: if you load data or variables in a startup script, they may be overwritten with a corrupted version that you happened to save in the workspace when you last quit. This is very hard to troubleshoot. Essentially, when you save and reload your Workspace habitually, you have overlapping and potentially conflicting behaviour of startup script and Workspace restore.
 
 What I recommend instead is the following:
 
@@ -250,7 +263,11 @@ rm(list=setdiff(ls(), "task_counter"))
 ls()
 ```
 
-The contents of the workspace is displayed in RStudio's Environment Pane (top-right). You can see a little "broom" icon at the top that you can click to remove all items from the workspace.
+The contents of the workspace is displayed in RStudio's Environment Pane (top-right). 
+
+<p align="center"><img src="./images/environment.png" alt="Rstudio env" width="75%" align="center" /></p> 
+
+You can see a little "broom" icon at the top that you can click to remove all items from the workspace.
 
 ## Self-evaluation
 
