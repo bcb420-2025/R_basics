@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Introduction to R Plots | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Introduction to R Plots | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2020/R_basics" />
+  <meta name="github-repo" content="bcb420-2021/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 13 Introduction to R Plots | BCB420 - Computational System Biology" />
@@ -119,222 +119,233 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2" data-path="r-install.html"><a href="r-install.html#r"><i class="fa fa-check"></i><b>2.2</b> R</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="r-install.html"><a href="r-install.html#introduction"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-install.html"><a href="r-install.html#before-you-begin-notation-and-formatting"><i class="fa fa-check"></i><b>2.2.2</b> Before you begin: Notation and Formatting</a></li>
+<li class="chapter" data-level="2.2.3" data-path="r-install.html"><a href="r-install.html#task---example"><i class="fa fa-check"></i><b>2.2.3</b> Task - example</a></li>
+<li class="chapter" data-level="2.2.4" data-path="r-install.html"><a href="r-install.html#metasyntactic-variables"><i class="fa fa-check"></i><b>2.2.4</b> &quot;Metasyntactic variables&quot;</a></li>
+<li class="chapter" data-level="2.2.5" data-path="r-install.html"><a href="r-install.html#characters"><i class="fa fa-check"></i><b>2.2.5</b> Characters</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="r-install.html"><a href="r-install.html#task-1"><i class="fa fa-check"></i><b>2.3</b> Task 1</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="r-install.html"><a href="r-install.html#metasyntactic-variables"><i class="fa fa-check"></i><b>2.3.1</b> “Metasyntactic variables”</a></li>
-<li class="chapter" data-level="2.3.2" data-path="r-install.html"><a href="r-install.html#characters"><i class="fa fa-check"></i><b>2.3.2</b> Characters</a></li>
+<li class="chapter" data-level="2.3" data-path="r-install.html"><a href="r-install.html#the-environment"><i class="fa fa-check"></i><b>2.3</b> The environment</a></li>
+<li class="chapter" data-level="2.4" data-path="r-install.html"><a href="r-install.html#task-1---install-r"><i class="fa fa-check"></i><b>2.4</b> Task 1 - Install R</a></li>
+<li class="chapter" data-level="2.5" data-path="r-install.html"><a href="r-install.html#task-2---install-rstudio"><i class="fa fa-check"></i><b>2.5</b> Task 2 - Install RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="r-install.html"><a href="r-install.html#docker"><i class="fa fa-check"></i><b>2.6</b> Docker</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="r-install.html"><a href="r-install.html#what-is-docker"><i class="fa fa-check"></i><b>2.6.1</b> What is docker?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="r-install.html"><a href="r-install.html#the-environment"><i class="fa fa-check"></i><b>2.4</b> The environment</a></li>
-<li class="chapter" data-level="2.5" data-path="r-install.html"><a href="r-install.html#install-r"><i class="fa fa-check"></i><b>2.5</b> Install R</a></li>
-<li class="chapter" data-level="2.6" data-path="r-install.html"><a href="r-install.html#task-2"><i class="fa fa-check"></i><b>2.6</b> Task 2</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="r-install.html"><a href="r-install.html#install-rstudio"><i class="fa fa-check"></i><b>2.6.1</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="r-install.html"><a href="r-install.html#docker---basic-term-definition"><i class="fa fa-check"></i><b>2.7</b> Docker - Basic term definition</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="r-install.html"><a href="r-install.html#container"><i class="fa fa-check"></i><b>2.7.1</b> Container</a></li>
+<li class="chapter" data-level="2.7.2" data-path="r-install.html"><a href="r-install.html#image"><i class="fa fa-check"></i><b>2.7.2</b> Image</a></li>
+<li class="chapter" data-level="2.7.3" data-path="r-install.html"><a href="r-install.html#docker-volumes"><i class="fa fa-check"></i><b>2.7.3</b> Docker Volumes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="r-install.html"><a href="r-install.html#task-3"><i class="fa fa-check"></i><b>2.7</b> Task 3</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="r-install.html"><a href="r-install.html#packages"><i class="fa fa-check"></i><b>2.7.1</b> Packages</a></li>
+<li class="chapter" data-level="2.8" data-path="r-install.html"><a href="r-install.html#r_docker"><i class="fa fa-check"></i><b>2.8</b> Task 3 - Install Docker</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="r-install.html"><a href="r-install.html#windows"><i class="fa fa-check"></i><b>2.8.1</b> Windows</a></li>
+<li class="chapter" data-level="2.8.2" data-path="r-install.html"><a href="r-install.html#macos-linux"><i class="fa fa-check"></i><b>2.8.2</b> MacOS / Linux</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="r-install.html"><a href="r-install.html#task-4"><i class="fa fa-check"></i><b>2.8</b> Task 4</a><ul>
-<li class="chapter" data-level="2.8.1" data-path="r-install.html"><a href="r-install.html#finding-packages"><i class="fa fa-check"></i><b>2.8.1</b> Finding packages</a></li>
-<li class="chapter" data-level="2.8.2" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>2.8.2</b> Self-evaluation</a></li>
-<li class="chapter" data-level="2.8.3" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>2.8.3</b> Further reading, links and resources</a></li>
-<li class="chapter" data-level="2.8.4" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>2.8.4</b> Updated Revision history</a></li>
-<li class="chapter" data-level="2.8.5" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>2.8.5</b> Footnotes:</a></li>
+<li class="chapter" data-level="2.9" data-path="r-install.html"><a href="r-install.html#task-4---create-your-first-notebook-using-docker"><i class="fa fa-check"></i><b>2.9</b> Task 4 - Create your first notebook using Docker</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="r-install.html"><a href="r-install.html#start-coding"><i class="fa fa-check"></i><b>2.9.1</b> Start coding!</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="r-install.html"><a href="r-install.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a></li>
+<li class="chapter" data-level="2.11" data-path="r-install.html"><a href="r-install.html#task-5---experiment-with-rstudio-and-packages"><i class="fa fa-check"></i><b>2.11</b> Task 5 - Experiment with RStudio and packages</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="r-install.html"><a href="r-install.html#exercise"><i class="fa fa-check"></i><b>2.11.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.11.2" data-path="r-install.html"><a href="r-install.html#finding-packages"><i class="fa fa-check"></i><b>2.11.2</b> Finding packages</a></li>
+<li class="chapter" data-level="2.11.3" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>2.11.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="2.11.4" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>2.11.4</b> Further reading, links and resources</a></li>
+<li class="chapter" data-level="2.11.5" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>2.11.5</b> Updated Revision history</a></li>
+<li class="chapter" data-level="2.11.6" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>2.11.6</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-setup.html"><a href="r-setup.html"><i class="fa fa-check"></i><b>3</b> Setup R to work with it</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-setup.html"><a href="r-setup.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="r-setup.html"><a href="r-setup.html#abstract-1"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="3.1.2" data-path="r-setup.html"><a href="r-setup.html#objectives-1"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="3.1.3" data-path="r-setup.html"><a href="r-setup.html#outcomes-1"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="3.1.4" data-path="r-setup.html"><a href="r-setup.html#deliverables-1"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="3.1.5" data-path="r-setup.html"><a href="r-setup.html#prerequisites-1"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="3.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="r-setup.html"><a href="r-setup.html#your-course-folder"><i class="fa fa-check"></i><b>3.2</b> Your Course Folder</a></li>
-<li class="chapter" data-level="3.3" data-path="r-setup.html"><a href="r-setup.html#projects"><i class="fa fa-check"></i><b>3.3</b> “Projects”</a></li>
+<li class="chapter" data-level="3.3" data-path="r-setup.html"><a href="r-setup.html#projects"><i class="fa fa-check"></i><b>3.3</b> &quot;Projects&quot;</a></li>
 <li class="chapter" data-level="3.4" data-path="r-setup.html"><a href="r-setup.html#git-version-control"><i class="fa fa-check"></i><b>3.4</b> Git Version control</a></li>
-<li class="chapter" data-level="3.5" data-path="r-setup.html"><a href="r-setup.html#task-5"><i class="fa fa-check"></i><b>3.5</b> Task 5</a></li>
+<li class="chapter" data-level="3.5" data-path="r-setup.html"><a href="r-setup.html#task-6"><i class="fa fa-check"></i><b>3.5</b> Task 6</a></li>
 <li class="chapter" data-level="3.6" data-path="r-setup.html"><a href="r-setup.html#working-directory"><i class="fa fa-check"></i><b>3.6</b> Working directory</a></li>
-<li class="chapter" data-level="3.7" data-path="r-setup.html"><a href="r-setup.html#task-6"><i class="fa fa-check"></i><b>3.7</b> Task 6</a></li>
+<li class="chapter" data-level="3.7" data-path="r-setup.html"><a href="r-setup.html#task-7"><i class="fa fa-check"></i><b>3.7</b> Task 7</a></li>
 <li class="chapter" data-level="3.8" data-path="r-setup.html"><a href="r-setup.html#rprofile---startup-commands"><i class="fa fa-check"></i><b>3.8</b> .Rprofile - startup commands</a></li>
-<li class="chapter" data-level="3.9" data-path="r-setup.html"><a href="r-setup.html#task-7"><i class="fa fa-check"></i><b>3.9</b> Task 7</a></li>
-<li class="chapter" data-level="3.10" data-path="r-setup.html"><a href="r-setup.html#the-workspace"><i class="fa fa-check"></i><b>3.10</b> The “Workspace”</a></li>
-<li class="chapter" data-level="3.11" data-path="r-setup.html"><a href="r-setup.html#self-evaluation-1"><i class="fa fa-check"></i><b>3.11</b> Self-evaluation</a></li>
-<li class="chapter" data-level="3.12" data-path="r-setup.html"><a href="r-setup.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>3.12</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="3.12.1" data-path="r-setup.html"><a href="r-setup.html#updated-revision-history-1"><i class="fa fa-check"></i><b>3.12.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="3.12.2" data-path="r-setup.html"><a href="r-setup.html#footnotes-1"><i class="fa fa-check"></i><b>3.12.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="3.9" data-path="r-setup.html"><a href="r-setup.html#task-8"><i class="fa fa-check"></i><b>3.9</b> Task 8</a></li>
+<li class="chapter" data-level="3.10" data-path="r-setup.html"><a href="r-setup.html#the-workspace"><i class="fa fa-check"></i><b>3.10</b> The &quot;Workspace&quot;</a></li>
+<li class="chapter" data-level="3.11" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>3.11</b> Self-evaluation</a></li>
+<li class="chapter" data-level="3.12" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>3.12</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>3.12.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="3.12.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>3.12.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console and scripts</a><ul>
-<li class="chapter" data-level="4.1" data-path="r-console.html"><a href="r-console.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="r-console.html"><a href="r-console.html#abstract-2"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="4.1.2" data-path="r-console.html"><a href="r-console.html#objectives-2"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="4.1.3" data-path="r-console.html"><a href="r-console.html#outcomes-2"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="4.1.4" data-path="r-console.html"><a href="r-console.html#deliverables-2"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="4.1.5" data-path="r-console.html"><a href="r-console.html#prerequisites-2"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="4.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a></li>
 <li class="chapter" data-level="4.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>4.3</b> User interface</a></li>
-<li class="chapter" data-level="4.4" data-path="r-console.html"><a href="r-console.html#self-evaluation-2"><i class="fa fa-check"></i><b>4.4</b> Self-evaluation</a></li>
-<li class="chapter" data-level="4.5" data-path="r-console.html"><a href="r-console.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="r-console.html"><a href="r-console.html#updated-revision-history-2"><i class="fa fa-check"></i><b>4.5.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="4.5.2" data-path="r-console.html"><a href="r-console.html#footnotes-2"><i class="fa fa-check"></i><b>4.5.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="4.4" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>4.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="4.5" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>4.5.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="4.5.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>4.5.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="r-help.html"><a href="r-help.html"><i class="fa fa-check"></i><b>5</b> Getting help for R</a><ul>
-<li class="chapter" data-level="5.1" data-path="r-help.html"><a href="r-help.html#overview-3"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="r-help.html"><a href="r-help.html#abstract-3"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="5.1.2" data-path="r-help.html"><a href="r-help.html#objectives-3"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="5.1.3" data-path="r-help.html"><a href="r-help.html#outcomes-3"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="5.1.4" data-path="r-help.html"><a href="r-help.html#deliverables-3"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="5.1.5" data-path="r-help.html"><a href="r-help.html#prerequisites-3"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="5.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>5.2</b> The Help system</a></li>
-<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-8"><i class="fa fa-check"></i><b>5.3</b> Task 8</a></li>
-<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-9"><i class="fa fa-check"></i><b>5.4</b> Task 9</a></li>
-<li class="chapter" data-level="5.5" data-path="r-help.html"><a href="r-help.html#self-evaluation-3"><i class="fa fa-check"></i><b>5.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9"><i class="fa fa-check"></i><b>5.3</b> Task 9</a></li>
+<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10"><i class="fa fa-check"></i><b>5.4</b> Task 10</a></li>
+<li class="chapter" data-level="5.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>5.5</b> Self-evaluation</a></li>
 <li class="chapter" data-level="5.6" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>5.6</b> Notes</a></li>
-<li class="chapter" data-level="5.7" data-path="r-help.html"><a href="r-help.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>5.7</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="r-help.html"><a href="r-help.html#updated-revision-history-3"><i class="fa fa-check"></i><b>5.7.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="5.7.2" data-path="r-help.html"><a href="r-help.html#footnotes-3"><i class="fa fa-check"></i><b>5.7.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="5.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>5.7</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>5.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>5.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="r-snytax.html"><a href="r-snytax.html"><i class="fa fa-check"></i><b>6</b> Basics of R syntax</a><ul>
-<li class="chapter" data-level="6.1" data-path="r-snytax.html"><a href="r-snytax.html#overview-4"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="r-snytax.html"><a href="r-snytax.html#abstract-4"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="6.1.2" data-path="r-snytax.html"><a href="r-snytax.html#objectives-4"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="6.1.3" data-path="r-snytax.html"><a href="r-snytax.html#outcomes-4"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="6.1.4" data-path="r-snytax.html"><a href="r-snytax.html#deliverables-4"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="6.1.5" data-path="r-snytax.html"><a href="r-snytax.html#prerequisites-4"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="6.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="r-snytax.html"><a href="r-snytax.html#simple-commands"><i class="fa fa-check"></i><b>6.2</b> Simple commands</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="r-snytax.html"><a href="r-snytax.html#operators"><i class="fa fa-check"></i><b>6.2.1</b> Operators</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="r-snytax.html"><a href="r-snytax.html#task-10"><i class="fa fa-check"></i><b>6.3</b> Task 10</a></li>
-<li class="chapter" data-level="6.4" data-path="r-snytax.html"><a href="r-snytax.html#task-11"><i class="fa fa-check"></i><b>6.4</b> Task 11</a></li>
+<li class="chapter" data-level="6.3" data-path="r-snytax.html"><a href="r-snytax.html#task-11"><i class="fa fa-check"></i><b>6.3</b> Task 11</a></li>
+<li class="chapter" data-level="6.4" data-path="r-snytax.html"><a href="r-snytax.html#task-12"><i class="fa fa-check"></i><b>6.4</b> Task 12</a></li>
 <li class="chapter" data-level="6.5" data-path="r-snytax.html"><a href="r-snytax.html#variables"><i class="fa fa-check"></i><b>6.5</b> Variables</a></li>
-<li class="chapter" data-level="6.6" data-path="r-snytax.html"><a href="r-snytax.html#self-evaluation-4"><i class="fa fa-check"></i><b>6.6</b> Self-evaluation</a></li>
-<li class="chapter" data-level="6.7" data-path="r-snytax.html"><a href="r-snytax.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>6.7</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="r-snytax.html"><a href="r-snytax.html#updated-revision-history-4"><i class="fa fa-check"></i><b>6.7.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="6.7.2" data-path="r-snytax.html"><a href="r-snytax.html#footnotes-4"><i class="fa fa-check"></i><b>6.7.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="6.6" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>6.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="6.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>6.7</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>6.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="6.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>6.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="r-scalars.html"><a href="r-scalars.html"><i class="fa fa-check"></i><b>7</b> R scalars and vectors</a><ul>
-<li class="chapter" data-level="7.1" data-path="r-scalars.html"><a href="r-scalars.html#overview-5"><i class="fa fa-check"></i><b>7.1</b> Overview</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="r-scalars.html"><a href="r-scalars.html#abstract-5"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="7.1.2" data-path="r-scalars.html"><a href="r-scalars.html#objectives-5"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="7.1.3" data-path="r-scalars.html"><a href="r-scalars.html#outcomes-5"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="7.1.4" data-path="r-scalars.html"><a href="r-scalars.html#deliverables-5"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="7.1.5" data-path="r-scalars.html"><a href="r-scalars.html#prerequisites-5"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="7.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>7.1</b> Overview</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="7.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="7.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="7.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="7.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="r-scalars.html"><a href="r-scalars.html#scalar-data"><i class="fa fa-check"></i><b>7.2</b> Scalar data</a></li>
-<li class="chapter" data-level="7.3" data-path="r-scalars.html"><a href="r-scalars.html#task-12"><i class="fa fa-check"></i><b>7.3</b> Task 12</a></li>
+<li class="chapter" data-level="7.3" data-path="r-scalars.html"><a href="r-scalars.html#task-13"><i class="fa fa-check"></i><b>7.3</b> Task 13</a></li>
 <li class="chapter" data-level="7.4" data-path="r-scalars.html"><a href="r-scalars.html#vectors"><i class="fa fa-check"></i><b>7.4</b> Vectors</a></li>
 <li class="chapter" data-level="7.5" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-index"><i class="fa fa-check"></i><b>7.5</b> Subsetting by index</a></li>
 <li class="chapter" data-level="7.6" data-path="r-scalars.html"><a href="r-scalars.html#excluding-items-through-negative-indexes"><i class="fa fa-check"></i><b>7.6</b> Excluding items through negative indexes</a></li>
 <li class="chapter" data-level="7.7" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-boolean-vectors"><i class="fa fa-check"></i><b>7.7</b> Subsetting by boolean vectors</a></li>
 <li class="chapter" data-level="7.8" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name"><i class="fa fa-check"></i><b>7.8</b> Subsetting by name</a></li>
-<li class="chapter" data-level="7.9" data-path="r-scalars.html"><a href="r-scalars.html#is-an-operator"><i class="fa fa-check"></i><b>7.9</b> “[” is an operator</a></li>
+<li class="chapter" data-level="7.9" data-path="r-scalars.html"><a href="r-scalars.html#is-an-operator"><i class="fa fa-check"></i><b>7.9</b> &quot;[&quot; is an operator</a></li>
 <li class="chapter" data-level="7.10" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name-1"><i class="fa fa-check"></i><b>7.10</b> Subsetting by name:</a></li>
-<li class="chapter" data-level="7.11" data-path="r-scalars.html"><a href="r-scalars.html#task-13"><i class="fa fa-check"></i><b>7.11</b> Task 13</a></li>
+<li class="chapter" data-level="7.11" data-path="r-scalars.html"><a href="r-scalars.html#task-14"><i class="fa fa-check"></i><b>7.11</b> Task 14</a></li>
 <li class="chapter" data-level="7.12" data-path="r-scalars.html"><a href="r-scalars.html#vectorized-operations"><i class="fa fa-check"></i><b>7.12</b> Vectorized operations</a></li>
 <li class="chapter" data-level="7.13" data-path="r-scalars.html"><a href="r-scalars.html#computing-with-two-vectors-of-same-length"><i class="fa fa-check"></i><b>7.13</b> computing with two vectors of same length</a></li>
 <li class="chapter" data-level="7.14" data-path="r-scalars.html"><a href="r-scalars.html#matrices-and-higher-dimensional-objects"><i class="fa fa-check"></i><b>7.14</b> Matrices and higher-dimensional objects</a></li>
-<li class="chapter" data-level="7.15" data-path="r-scalars.html"><a href="r-scalars.html#task-14"><i class="fa fa-check"></i><b>7.15</b> Task 14</a></li>
-<li class="chapter" data-level="7.16" data-path="r-scalars.html"><a href="r-scalars.html#self-evaluation-5"><i class="fa fa-check"></i><b>7.16</b> Self-evaluation</a></li>
-<li class="chapter" data-level="7.17" data-path="r-scalars.html"><a href="r-scalars.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>7.17</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="7.17.1" data-path="r-scalars.html"><a href="r-scalars.html#updated-revision-history-5"><i class="fa fa-check"></i><b>7.17.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="7.17.2" data-path="r-scalars.html"><a href="r-scalars.html#footnotes-5"><i class="fa fa-check"></i><b>7.17.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="7.15" data-path="r-scalars.html"><a href="r-scalars.html#task-15"><i class="fa fa-check"></i><b>7.15</b> Task 15</a></li>
+<li class="chapter" data-level="7.16" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>7.16</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.17" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>7.17</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="7.17.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>7.17.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="7.17.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>7.17.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> R “data frames”&quot;</a><ul>
-<li class="chapter" data-level="8.1" data-path="r-data-frames.html"><a href="r-data-frames.html#overview-6"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="r-data-frames.html"><a href="r-data-frames.html#abstract-6"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="8.1.2" data-path="r-data-frames.html"><a href="r-data-frames.html#objectives-6"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="8.1.3" data-path="r-data-frames.html"><a href="r-data-frames.html#outcomes-6"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="8.1.4" data-path="r-data-frames.html"><a href="r-data-frames.html#deliverables-6"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="8.1.5" data-path="r-data-frames.html"><a href="r-data-frames.html#prerequisites-6"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> R &quot;data frames&quot;&quot;</a><ul>
+<li class="chapter" data-level="8.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="r-data-frames.html"><a href="r-data-frames.html#data-frames"><i class="fa fa-check"></i><b>8.2</b> Data frames</a></li>
-<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#task-15"><i class="fa fa-check"></i><b>8.3</b> Task 15</a></li>
+<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#task-16"><i class="fa fa-check"></i><b>8.3</b> Task 16</a></li>
 <li class="chapter" data-level="8.4" data-path="r-data-frames.html"><a href="r-data-frames.html#basic-operations"><i class="fa fa-check"></i><b>8.4</b> Basic operations</a></li>
-<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#task-16"><i class="fa fa-check"></i><b>8.5</b> Task 16</a></li>
-<li class="chapter" data-level="8.6" data-path="r-data-frames.html"><a href="r-data-frames.html#self-evaluation-6"><i class="fa fa-check"></i><b>8.6</b> Self-evaluation</a></li>
-<li class="chapter" data-level="8.7" data-path="r-data-frames.html"><a href="r-data-frames.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>8.7</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="r-data-frames.html"><a href="r-data-frames.html#updated-revision-history-6"><i class="fa fa-check"></i><b>8.7.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="8.7.2" data-path="r-data-frames.html"><a href="r-data-frames.html#footnotes-6"><i class="fa fa-check"></i><b>8.7.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#task-17"><i class="fa fa-check"></i><b>8.5</b> Task 17</a></li>
+<li class="chapter" data-level="8.6" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>8.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="8.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>8.7</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>8.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="8.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>8.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> R “Lists”</a><ul>
-<li class="chapter" data-level="9.1" data-path="r-lists.html"><a href="r-lists.html#overview-7"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="r-lists.html"><a href="r-lists.html#abstract-7"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="9.1.2" data-path="r-lists.html"><a href="r-lists.html#objectives-7"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="9.1.3" data-path="r-lists.html"><a href="r-lists.html#outcomes-7"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="9.1.4" data-path="r-lists.html"><a href="r-lists.html#deliverables-7"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="9.1.5" data-path="r-lists.html"><a href="r-lists.html#prerequisites-7"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> R &quot;Lists&quot;</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="r-lists.html"><a href="r-lists.html#lists"><i class="fa fa-check"></i><b>9.2</b> Lists</a></li>
-<li class="chapter" data-level="9.3" data-path="r-lists.html"><a href="r-lists.html#task-17"><i class="fa fa-check"></i><b>9.3</b> Task 17</a></li>
-<li class="chapter" data-level="9.4" data-path="r-lists.html"><a href="r-lists.html#task-18"><i class="fa fa-check"></i><b>9.4</b> Task 18</a></li>
-<li class="chapter" data-level="9.5" data-path="r-lists.html"><a href="r-lists.html#self-evaluation-7"><i class="fa fa-check"></i><b>9.5</b> Self-evaluation</a></li>
-<li class="chapter" data-level="9.6" data-path="r-lists.html"><a href="r-lists.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>9.6</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="r-lists.html"><a href="r-lists.html#updated-revision-history-7"><i class="fa fa-check"></i><b>9.6.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="9.6.2" data-path="r-lists.html"><a href="r-lists.html#footnotes-7"><i class="fa fa-check"></i><b>9.6.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="9.3" data-path="r-lists.html"><a href="r-lists.html#task-18"><i class="fa fa-check"></i><b>9.3</b> Task 18</a></li>
+<li class="chapter" data-level="9.4" data-path="r-lists.html"><a href="r-lists.html#task-19"><i class="fa fa-check"></i><b>9.4</b> Task 19</a></li>
+<li class="chapter" data-level="9.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>9.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="9.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>9.6</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>9.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="9.6.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>9.6.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="r-subsetting.html"><a href="r-subsetting.html"><i class="fa fa-check"></i><b>10</b> Subsetting and filtering R objects</a><ul>
-<li class="chapter" data-level="10.1" data-path="r-subsetting.html"><a href="r-subsetting.html#overview-8"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="r-subsetting.html"><a href="r-subsetting.html#abstract-8"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="10.1.2" data-path="r-subsetting.html"><a href="r-subsetting.html#objectives-8"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="10.1.3" data-path="r-subsetting.html"><a href="r-subsetting.html#outcomes-8"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="10.1.4" data-path="r-subsetting.html"><a href="r-subsetting.html#deliverables-8"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="10.1.5" data-path="r-subsetting.html"><a href="r-subsetting.html#prerequisites-8"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="10.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="r-subsetting.html"><a href="r-subsetting.html#subsetting"><i class="fa fa-check"></i><b>10.2</b> Subsetting</a></li>
-<li class="chapter" data-level="10.3" data-path="r-subsetting.html"><a href="r-subsetting.html#task-19"><i class="fa fa-check"></i><b>10.3</b> Task 19</a></li>
-<li class="chapter" data-level="10.4" data-path="r-subsetting.html"><a href="r-subsetting.html#task-20"><i class="fa fa-check"></i><b>10.4</b> Task 20</a></li>
-<li class="chapter" data-level="10.5" data-path="r-subsetting.html"><a href="r-subsetting.html#self-evaluation-8"><i class="fa fa-check"></i><b>10.5</b> Self-evaluation</a></li>
-<li class="chapter" data-level="10.6" data-path="r-subsetting.html"><a href="r-subsetting.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>10.6</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="10.6.1" data-path="r-subsetting.html"><a href="r-subsetting.html#updated-revision-history-8"><i class="fa fa-check"></i><b>10.6.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="10.6.2" data-path="r-subsetting.html"><a href="r-subsetting.html#footnotes-8"><i class="fa fa-check"></i><b>10.6.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="10.3" data-path="r-subsetting.html"><a href="r-subsetting.html#task-20"><i class="fa fa-check"></i><b>10.3</b> Task 20</a></li>
+<li class="chapter" data-level="10.4" data-path="r-subsetting.html"><a href="r-subsetting.html#task-21"><i class="fa fa-check"></i><b>10.4</b> Task 21</a></li>
+<li class="chapter" data-level="10.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>10.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="10.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>10.6</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>10.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="10.6.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>10.6.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="r-control-structures.html"><a href="r-control-structures.html"><i class="fa fa-check"></i><b>11</b> Control structures of R</a><ul>
-<li class="chapter" data-level="11.1" data-path="r-control-structures.html"><a href="r-control-structures.html#overview-9"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="r-control-structures.html"><a href="r-control-structures.html#abstract-9"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="11.1.2" data-path="r-control-structures.html"><a href="r-control-structures.html#objectives-9"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="11.1.3" data-path="r-control-structures.html"><a href="r-control-structures.html#outcomes-9"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="11.1.4" data-path="r-control-structures.html"><a href="r-control-structures.html#deliverables-9"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="11.1.5" data-path="r-control-structures.html"><a href="r-control-structures.html#prerequisites-9"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="11.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="11.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="11.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="11.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="11.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="r-control-structures.html"><a href="r-control-structures.html#control-structures"><i class="fa fa-check"></i><b>11.2</b> Control structures</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="r-control-structures.html"><a href="r-control-structures.html#if-and-else"><i class="fa fa-check"></i><b>11.2.1</b> if and else</a></li>
 <li class="chapter" data-level="11.2.2" data-path="r-control-structures.html"><a href="r-control-structures.html#conditional-expressions"><i class="fa fa-check"></i><b>11.2.2</b> conditional expressions</a></li>
-<li class="chapter" data-level="11.2.3" data-path="r-control-structures.html"><a href="r-control-structures.html#if-else-if-and-else"><i class="fa fa-check"></i><b>11.2.3</b> “if”, “else if”, and “else”</a></li>
+<li class="chapter" data-level="11.2.3" data-path="r-control-structures.html"><a href="r-control-structures.html#if-else-if-and-else"><i class="fa fa-check"></i><b>11.2.3</b> &quot;if&quot;, &quot;else if&quot;, and &quot;else&quot;</a></li>
 <li class="chapter" data-level="11.2.4" data-path="r-control-structures.html"><a href="r-control-structures.html#ifelse"><i class="fa fa-check"></i><b>11.2.4</b> ifelse</a></li>
 <li class="chapter" data-level="11.2.5" data-path="r-control-structures.html"><a href="r-control-structures.html#for"><i class="fa fa-check"></i><b>11.2.5</b> for</a></li>
-<li class="chapter" data-level="11.2.6" data-path="r-control-structures.html"><a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers"><i class="fa fa-check"></i><b>11.2.6</b> Compare excution times: one million square roots from a vector of random numbers …</a></li>
-<li class="chapter" data-level="11.2.7" data-path="r-control-structures.html"><a href="r-control-structures.html#seq_along-vs.range"><i class="fa fa-check"></i><b>11.2.7</b> seq_along() vs. range</a></li>
-<li class="chapter" data-level="11.2.8" data-path="r-control-structures.html"><a href="r-control-structures.html#loops-vs.vectorized-expressions"><i class="fa fa-check"></i><b>11.2.8</b> loops vs. vectorized expressions</a></li>
+<li class="chapter" data-level="11.2.6" data-path="r-control-structures.html"><a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers-..."><i class="fa fa-check"></i><b>11.2.6</b> Compare excution times: one million square roots from a vector of random numbers ...</a></li>
+<li class="chapter" data-level="11.2.7" data-path="r-control-structures.html"><a href="r-control-structures.html#seq_along-vs.-range"><i class="fa fa-check"></i><b>11.2.7</b> seq_along() vs. range</a></li>
+<li class="chapter" data-level="11.2.8" data-path="r-control-structures.html"><a href="r-control-structures.html#loops-vs.-vectorized-expressions"><i class="fa fa-check"></i><b>11.2.8</b> loops vs. vectorized expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="r-control-structures.html"><a href="r-control-structures.html#task-21"><i class="fa fa-check"></i><b>11.3</b> Task 21</a><ul>
+<li class="chapter" data-level="11.3" data-path="r-control-structures.html"><a href="r-control-structures.html#task-22"><i class="fa fa-check"></i><b>11.3</b> Task 22</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="r-control-structures.html"><a href="r-control-structures.html#while"><i class="fa fa-check"></i><b>11.3.1</b> while</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="r-control-structures.html"><a href="r-control-structures.html#task-22"><i class="fa fa-check"></i><b>11.4</b> Task 22</a></li>
-<li class="chapter" data-level="11.5" data-path="r-control-structures.html"><a href="r-control-structures.html#self-evaluation-9"><i class="fa fa-check"></i><b>11.5</b> Self-evaluation</a></li>
-<li class="chapter" data-level="11.6" data-path="r-control-structures.html"><a href="r-control-structures.html#further-reading-links-and-resources-9"><i class="fa fa-check"></i><b>11.6</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="11.6.1" data-path="r-control-structures.html"><a href="r-control-structures.html#updated-revision-history-9"><i class="fa fa-check"></i><b>11.6.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="11.6.2" data-path="r-control-structures.html"><a href="r-control-structures.html#footnotes-9"><i class="fa fa-check"></i><b>11.6.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="11.4" data-path="r-control-structures.html"><a href="r-control-structures.html#task-23"><i class="fa fa-check"></i><b>11.4</b> Task 23</a></li>
+<li class="chapter" data-level="11.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>11.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>11.6</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>11.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="11.6.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>11.6.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>12</b> R Functions</a><ul>
-<li class="chapter" data-level="12.1" data-path="r-functions.html"><a href="r-functions.html#overview-10"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="r-functions.html"><a href="r-functions.html#abstract-10"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="12.1.2" data-path="r-functions.html"><a href="r-functions.html#objectives-10"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="12.1.3" data-path="r-functions.html"><a href="r-functions.html#outcomes-10"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="12.1.4" data-path="r-functions.html"><a href="r-functions.html#deliverables-10"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="12.1.5" data-path="r-functions.html"><a href="r-functions.html#prerequisites-10"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="12.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="12.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>12.2</b> Functions</a></li>
-<li class="chapter" data-level="12.3" data-path="r-functions.html"><a href="r-functions.html#task-23"><i class="fa fa-check"></i><b>12.3</b> Task 23</a></li>
+<li class="chapter" data-level="12.3" data-path="r-functions.html"><a href="r-functions.html#task-24"><i class="fa fa-check"></i><b>12.3</b> Task 24</a></li>
 <li class="chapter" data-level="12.4" data-path="r-functions.html"><a href="r-functions.html#on-missing-parameters"><i class="fa fa-check"></i><b>12.4</b> On missing parameters</a></li>
 <li class="chapter" data-level="12.5" data-path="r-functions.html"><a href="r-functions.html#reading-functions"><i class="fa fa-check"></i><b>12.5</b> Reading functions</a><ul>
 <li class="chapter" data-level="12.5.1" data-path="r-functions.html"><a href="r-functions.html#basic-r"><i class="fa fa-check"></i><b>12.5.1</b> Basic R</a></li>
@@ -342,23 +353,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="r-functions.html"><a href="r-functions.html#primitives"><i class="fa fa-check"></i><b>12.6</b> Primitives</a></li>
 <li class="chapter" data-level="12.7" data-path="r-functions.html"><a href="r-functions.html#writing-your-own-functions"><i class="fa fa-check"></i><b>12.7</b> Writing your own functions</a></li>
-<li class="chapter" data-level="12.8" data-path="r-functions.html"><a href="r-functions.html#task-24"><i class="fa fa-check"></i><b>12.8</b> Task 24</a></li>
-<li class="chapter" data-level="12.9" data-path="r-functions.html"><a href="r-functions.html#task-25"><i class="fa fa-check"></i><b>12.9</b> Task 25</a></li>
-<li class="chapter" data-level="12.10" data-path="r-functions.html"><a href="r-functions.html#self-evaluation-10"><i class="fa fa-check"></i><b>12.10</b> Self-evaluation</a></li>
-<li class="chapter" data-level="12.11" data-path="r-functions.html"><a href="r-functions.html#further-reading-links-and-resources-10"><i class="fa fa-check"></i><b>12.11</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="12.11.1" data-path="r-functions.html"><a href="r-functions.html#updated-revision-history-10"><i class="fa fa-check"></i><b>12.11.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="12.11.2" data-path="r-functions.html"><a href="r-functions.html#footnotes-10"><i class="fa fa-check"></i><b>12.11.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="12.8" data-path="r-functions.html"><a href="r-functions.html#task-25"><i class="fa fa-check"></i><b>12.8</b> Task 25</a></li>
+<li class="chapter" data-level="12.9" data-path="r-functions.html"><a href="r-functions.html#task-26"><i class="fa fa-check"></i><b>12.9</b> Task 26</a></li>
+<li class="chapter" data-level="12.10" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>12.10</b> Self-evaluation</a></li>
+<li class="chapter" data-level="12.11" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>12.11</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="12.11.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>12.11.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="12.11.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>12.11.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="r-plots.html"><a href="r-plots.html"><i class="fa fa-check"></i><b>13</b> Introduction to R Plots</a><ul>
-<li class="chapter" data-level="13.1" data-path="r-plots.html"><a href="r-plots.html#overview-11"><i class="fa fa-check"></i><b>13.1</b> Overview</a><ul>
-<li class="chapter" data-level="13.1.1" data-path="r-plots.html"><a href="r-plots.html#abstract-11"><i class="fa fa-check"></i><b>13.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="13.1.2" data-path="r-plots.html"><a href="r-plots.html#objectives-11"><i class="fa fa-check"></i><b>13.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="13.1.3" data-path="r-plots.html"><a href="r-plots.html#outcomes-11"><i class="fa fa-check"></i><b>13.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="13.1.4" data-path="r-plots.html"><a href="r-plots.html#deliverables-11"><i class="fa fa-check"></i><b>13.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="13.1.5" data-path="r-plots.html"><a href="r-plots.html#prerequisites-11"><i class="fa fa-check"></i><b>13.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="13.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>13.1</b> Overview</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>13.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="13.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>13.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="13.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>13.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="13.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>13.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="13.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>13.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="r-plots.html"><a href="r-plots.html#task-26"><i class="fa fa-check"></i><b>13.2</b> Task 26</a></li>
+<li class="chapter" data-level="13.2" data-path="r-plots.html"><a href="r-plots.html#task-27"><i class="fa fa-check"></i><b>13.2</b> Task 27</a></li>
 <li class="chapter" data-level="13.3" data-path="r-plots.html"><a href="r-plots.html#types-of-plots"><i class="fa fa-check"></i><b>13.3</b> Types of plots</a><ul>
 <li class="chapter" data-level="13.3.1" data-path="r-plots.html"><a href="r-plots.html#plot"><i class="fa fa-check"></i><b>13.3.1</b> plot()</a></li>
 <li class="chapter" data-level="13.3.2" data-path="r-plots.html"><a href="r-plots.html#barplot"><i class="fa fa-check"></i><b>13.3.2</b> barplot()</a></li>
@@ -375,22 +386,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.7" data-path="r-plots.html"><a href="r-plots.html#plot-symbols-and-text"><i class="fa fa-check"></i><b>13.7</b> Plot symbols and text</a></li>
 <li class="chapter" data-level="13.8" data-path="r-plots.html"><a href="r-plots.html#drawing-on-plots"><i class="fa fa-check"></i><b>13.8</b> Drawing on plots</a></li>
 <li class="chapter" data-level="13.9" data-path="r-plots.html"><a href="r-plots.html#special-packages"><i class="fa fa-check"></i><b>13.9</b> Special packages</a></li>
-<li class="chapter" data-level="13.10" data-path="r-plots.html"><a href="r-plots.html#self-evaluation-11"><i class="fa fa-check"></i><b>13.10</b> Self-evaluation</a></li>
-<li class="chapter" data-level="13.11" data-path="r-plots.html"><a href="r-plots.html#further-reading-links-and-resources-11"><i class="fa fa-check"></i><b>13.11</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="13.11.1" data-path="r-plots.html"><a href="r-plots.html#updated-revision-history-11"><i class="fa fa-check"></i><b>13.11.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="13.11.2" data-path="r-plots.html"><a href="r-plots.html#footnotes-11"><i class="fa fa-check"></i><b>13.11.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="13.10" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>13.10</b> Self-evaluation</a></li>
+<li class="chapter" data-level="13.11" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>13.11</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="13.11.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>13.11.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="13.11.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>13.11.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="r-code-style.html"><a href="r-code-style.html"><i class="fa fa-check"></i><b>14</b> R Coding Style</a><ul>
-<li class="chapter" data-level="14.1" data-path="r-code-style.html"><a href="r-code-style.html#overview-12"><i class="fa fa-check"></i><b>14.1</b> Overview</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="r-code-style.html"><a href="r-code-style.html#abstract-12"><i class="fa fa-check"></i><b>14.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="14.1.2" data-path="r-code-style.html"><a href="r-code-style.html#objectives-12"><i class="fa fa-check"></i><b>14.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="14.1.3" data-path="r-code-style.html"><a href="r-code-style.html#outcomes-12"><i class="fa fa-check"></i><b>14.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="14.1.4" data-path="r-code-style.html"><a href="r-code-style.html#deliverables-12"><i class="fa fa-check"></i><b>14.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="14.1.5" data-path="r-code-style.html"><a href="r-code-style.html#prerequisites-12"><i class="fa fa-check"></i><b>14.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="14.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>14.1</b> Overview</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>14.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="14.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>14.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="14.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>14.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="14.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>14.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="14.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>14.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="r-code-style.html"><a href="r-code-style.html#general"><i class="fa fa-check"></i><b>14.2</b> General</a></li>
-<li class="chapter" data-level="14.3" data-path="r-code-style.html"><a href="r-code-style.html#layout-1"><i class="fa fa-check"></i><b>14.3</b> Layout</a></li>
+<li class="chapter" data-level="14.3" data-path="r-plots.html"><a href="r-plots.html#layout"><i class="fa fa-check"></i><b>14.3</b> Layout</a></li>
 <li class="chapter" data-level="14.4" data-path="r-code-style.html"><a href="r-code-style.html#design-and-granularity"><i class="fa fa-check"></i><b>14.4</b> Design and granularity</a></li>
 <li class="chapter" data-level="14.5" data-path="r-code-style.html"><a href="r-code-style.html#headers"><i class="fa fa-check"></i><b>14.5</b> Headers</a></li>
 <li class="chapter" data-level="14.6" data-path="r-code-style.html"><a href="r-code-style.html#sections"><i class="fa fa-check"></i><b>14.6</b> Sections</a></li>
@@ -401,29 +412,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14.11" data-path="r-code-style.html"><a href="r-code-style.html#indent-style"><i class="fa fa-check"></i><b>14.11</b> Indent Style</a></li>
 <li class="chapter" data-level="14.12" data-path="r-code-style.html"><a href="r-code-style.html#indentation-of-long-function-declarations"><i class="fa fa-check"></i><b>14.12</b> Indentation of long function declarations</a></li>
 <li class="chapter" data-level="14.13" data-path="r-code-style.html"><a href="r-code-style.html#loops"><i class="fa fa-check"></i><b>14.13</b> Loops</a></li>
-<li class="chapter" data-level="14.14" data-path="r-code-style.html"><a href="r-code-style.html#functions-1"><i class="fa fa-check"></i><b>14.14</b> Functions</a></li>
+<li class="chapter" data-level="14.14" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>14.14</b> Functions</a></li>
 <li class="chapter" data-level="14.15" data-path="r-code-style.html"><a href="r-code-style.html#efficiency"><i class="fa fa-check"></i><b>14.15</b> Efficiency</a></li>
 <li class="chapter" data-level="14.16" data-path="r-code-style.html"><a href="r-code-style.html#end"><i class="fa fa-check"></i><b>14.16</b> [END]</a></li>
-<li class="chapter" data-level="14.17" data-path="r-code-style.html"><a href="r-code-style.html#self-evaluation-12"><i class="fa fa-check"></i><b>14.17</b> Self-evaluation</a></li>
-<li class="chapter" data-level="14.18" data-path="r-code-style.html"><a href="r-code-style.html#further-reading-links-and-resources-12"><i class="fa fa-check"></i><b>14.18</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="14.18.1" data-path="r-code-style.html"><a href="r-code-style.html#updated-revision-history-12"><i class="fa fa-check"></i><b>14.18.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="14.18.2" data-path="r-code-style.html"><a href="r-code-style.html#footnotes-12"><i class="fa fa-check"></i><b>14.18.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="14.17" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>14.17</b> Self-evaluation</a></li>
+<li class="chapter" data-level="14.18" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>14.18</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="14.18.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>14.18.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="14.18.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>14.18.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="r-intro.html"><a href="r-intro.html"><i class="fa fa-check"></i><b>15</b> Introduction to R</a><ul>
-<li class="chapter" data-level="15.1" data-path="r-intro.html"><a href="r-intro.html#overview-13"><i class="fa fa-check"></i><b>15.1</b> Overview</a><ul>
-<li class="chapter" data-level="15.1.1" data-path="r-intro.html"><a href="r-intro.html#abstract-13"><i class="fa fa-check"></i><b>15.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="15.1.2" data-path="r-intro.html"><a href="r-intro.html#objectives-13"><i class="fa fa-check"></i><b>15.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="15.1.3" data-path="r-intro.html"><a href="r-intro.html#outcomes-13"><i class="fa fa-check"></i><b>15.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="15.1.4" data-path="r-intro.html"><a href="r-intro.html#deliverables-13"><i class="fa fa-check"></i><b>15.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="15.1.5" data-path="r-intro.html"><a href="r-intro.html#prerequisites-13"><i class="fa fa-check"></i><b>15.1.5</b> Prerequisites:</a></li>
+<li class="chapter" data-level="15.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>15.1</b> Overview</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>15.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="15.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>15.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="15.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>15.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="15.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>15.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="15.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>15.1.5</b> Prerequisites:</a></li>
 </ul></li>
 <li class="chapter" data-level="15.2" data-path="r-intro.html"><a href="r-intro.html#the-abc-rstudio-project"><i class="fa fa-check"></i><b>15.2</b> The ABC RStudio Project</a></li>
-<li class="chapter" data-level="15.3" data-path="r-intro.html"><a href="r-intro.html#task-27"><i class="fa fa-check"></i><b>15.3</b> Task 27</a></li>
-<li class="chapter" data-level="15.4" data-path="r-intro.html"><a href="r-intro.html#self-evaluation-13"><i class="fa fa-check"></i><b>15.4</b> Self-evaluation</a></li>
-<li class="chapter" data-level="15.5" data-path="r-intro.html"><a href="r-intro.html#further-reading-links-and-resources-13"><i class="fa fa-check"></i><b>15.5</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="15.5.1" data-path="r-intro.html"><a href="r-intro.html#updated-revision-history-13"><i class="fa fa-check"></i><b>15.5.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="15.5.2" data-path="r-intro.html"><a href="r-intro.html#footnotes-13"><i class="fa fa-check"></i><b>15.5.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="15.3" data-path="r-intro.html"><a href="r-intro.html#task-28"><i class="fa fa-check"></i><b>15.3</b> Task 28</a></li>
+<li class="chapter" data-level="15.4" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>15.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="15.5" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>15.5</b> Further reading, links and resources</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>15.5.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="15.5.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>15.5.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -449,13 +460,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-plots" class="section level1">
 <h1><span class="header-section-number">Chapter 13</span> Introduction to R Plots</h1>
 <p>(Introduction to R plots)</p>
-<div id="overview-11" class="section level2">
+<div id="overview" class="section level2">
 <h2><span class="header-section-number">13.1</span> Overview</h2>
-<div id="abstract-11" class="section level3">
+<div id="abstract" class="section level3">
 <h3><span class="header-section-number">13.1.1</span> Abstract:</h3>
 <p>Introductory concepts and exercises for creating graphics with R.</p>
 </div>
-<div id="objectives-11" class="section level3">
+<div id="objectives" class="section level3">
 <h3><span class="header-section-number">13.1.2</span> Objectives:</h3>
 <p>This unit will:</p>
 <ul>
@@ -463,7 +474,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>teach basic plotting methods;</li>
 </ul>
 </div>
-<div id="outcomes-11" class="section level3">
+<div id="outcomes" class="section level3">
 <h3><span class="header-section-number">13.1.3</span> Outcomes:</h3>
 <p>After working through this unit you:</p>
 <ul>
@@ -471,22 +482,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>can create and customize basic plots in R;</li>
 </ul>
 </div>
-<div id="deliverables-11" class="section level3">
+<div id="deliverables" class="section level3">
 <h3><span class="header-section-number">13.1.4</span> Deliverables:</h3>
 <p><strong>Time management</strong>: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.</p>
-<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don’t overlook these.</p>
+<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.</p>
 <p><strong>Insights</strong>: If you find something particularly noteworthy about this unit, make a note in your insights! page.</p>
 </div>
-<div id="prerequisites-11" class="section level3">
+<div id="prerequisites" class="section level3">
 <h3><span class="header-section-number">13.1.5</span> Prerequisites</h3>
 <p><a href="r-functions.html#r-functions">RPR-Functions (R Functions)</a></p>
 </div>
 </div>
-<div id="task-26" class="section level2">
-<h2><span class="header-section-number">13.2</span> Task 26</h2>
+<div id="task-27" class="section level2">
+<h2><span class="header-section-number">13.2</span> Task 27</h2>
 <div class="rmd-task">
 <p>
-Read the introductory notes on <a href="boris_docs/RPR-Plotting.pdf">graphics in R</a>, and some concepts of graphics for descriptive statistics. Load the R-Exercise_BasicSetup project in RStudio if you don’t already have it open. Type init() as instructed after the project has loaded. Work through the plottingIntro.R script.
+Read the introductory notes on <a href="boris_docs/RPR-Plotting.pdf">graphics in R</a>, and some concepts of graphics for descriptive statistics. Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open. Type init() as instructed after the project has loaded. Work through the plottingIntro.R script.
 </p>
 </div>
 </div>
@@ -512,19 +523,19 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</sp
 ?plot
 <span class="co"># standard scatterplot</span>
 <span class="kw">plot</span>(x,y)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-232-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y)
 
 <span class="co"># Add a rug representation:</span>
 <span class="kw">rug</span>(x)
 <span class="kw">rug</span>(y, <span class="dt">side=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-233-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-239-1.png" width="672" /></p>
 </div>
 <div id="barplot" class="section level3">
 <h3><span class="header-section-number">13.3.2</span> barplot()</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?barplot
 <span class="kw">barplot</span>(<span class="kw">table</span>(<span class="kw">round</span>(y)))</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-234-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
 </div>
 <div id="hist" class="section level3">
 <h3><span class="header-section-number">13.3.3</span> hist()</h3>
@@ -532,15 +543,15 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</sp
 <span class="kw">set.seed</span>(<span class="dv">12357</span>)
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)
 <span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="dv">5</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-235-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-241-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="dv">5</span>)
 <span class="co"># add a stripchart() of the actual values</span>
 <span class="kw">stripchart</span>(x, <span class="dt">pch=</span><span class="st">&quot;|&quot;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;red3&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="dt">at=</span><span class="op">-</span><span class="fl">0.5</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-236-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-242-1.png" width="672" /></p>
 <p><strong>Note:</strong> a similar plot for bivarite data is achieved with the rug() function.</p>
 <p>assigning the output of hist() makes the values used in constructing the histogram accessible:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">info &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="dv">5</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-237-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-243-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">info</code></pre></div>
 <pre><code>## $breaks
 ## [1] -3 -2 -1  0  1  2  3
@@ -565,7 +576,7 @@ x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">5
 <p>we can explicitly set breakpoints in a vector: * here we set them at 0.5 sigma intervals from -3 to 3</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="fl">1.0</span>
 <span class="kw">hist</span>(x, <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span><span class="op">*</span>s, <span class="dv">3</span><span class="op">*</span>s, <span class="dt">by=</span><span class="fl">0.5</span><span class="op">*</span>s))</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-244-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we can colour the bars individually...</span>
 hcol &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#4F47FD&quot;</span>, <span class="st">&quot;#6982FC&quot;</span>, <span class="st">&quot;#8AA6EF&quot;</span>, <span class="st">&quot;#AFBBDB&quot;</span>, <span class="st">&quot;#BEBEBE&quot;</span>, <span class="st">&quot;#A9A9A9&quot;</span>,
           <span class="st">&quot;#A9A9A9&quot;</span>, <span class="st">&quot;#BEBEBE&quot;</span>, <span class="st">&quot;#DBBBAF&quot;</span>, <span class="st">&quot;#EFA68A&quot;</span>, <span class="st">&quot;#FC8269&quot;</span>, <span class="st">&quot;#FD474F&quot;</span>)
@@ -579,30 +590,30 @@ h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt"
 
 <span class="co"># ... and we can add the individual counts to the plot.</span>
 <span class="kw">text</span>(h<span class="op">$</span>mids, h<span class="op">$</span>counts, h<span class="op">$</span>counts, <span class="dt">adj =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>), <span class="dt">col =</span> hcol)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-239-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-245-1.png" width="672" /></p>
 </div>
 <div id="boxplot" class="section level3">
 <h3><span class="header-section-number">13.3.4</span> boxplot</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?boxplot
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">200</span>)
 <span class="kw">boxplot</span>(x)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-246-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m &lt;-<span class="st"> </span>x
 m &lt;-<span class="st"> </span><span class="kw">cbind</span>(m, x<span class="op">^</span><span class="dv">2</span>)
 m &lt;-<span class="st"> </span><span class="kw">cbind</span>(m, x<span class="op">^</span><span class="dv">3</span>)
 m &lt;-<span class="st"> </span><span class="kw">cbind</span>(m, x<span class="op">^</span><span class="dv">4</span>)
 m &lt;-<span class="st"> </span><span class="kw">cbind</span>(m, x<span class="op">^</span><span class="dv">5</span>)
 <span class="kw">boxplot</span>(m)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-241-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-247-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(<span class="kw">log</span>(<span class="kw">abs</span>(m)))</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-242-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-248-1.png" width="672" /></p>
 </div>
 <div id="colour" class="section level3">
 <h3><span class="header-section-number">13.3.5</span> Colour</h3>
 <p>Colours can be specified by number, by name, as hex-triplets as rgb or hsv values, and through colour palettes.</p>
 <div id="colours-by-number" class="section level4">
 <h4><span class="header-section-number">13.3.5.1</span> Colours by number</h4>
-<p>The col=… parameter for plots is 1 by default and you can set it to the range 0:8.</p>
+<p>The col=... parameter for plots is 1 by default and you can set it to the range 0:8.</p>
 <ul>
 <li>0: white</li>
 <li>1: black (the default)</li>
@@ -615,12 +626,12 @@ m &lt;-<span class="st"> </span><span class="kw">cbind</span>(m, x<span class="o
 <li>8: grey</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">col=</span><span class="dv">0</span><span class="op">:</span><span class="dv">8</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>, <span class="dt">names.arg=</span><span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">8</span>))</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-243-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-249-1.png" width="672" /></p>
 <p>As you can see, these primary colours are decidedly garish and offend even the most rudimentary sense of aesthetics. Fortunately there are much more sophisticated ways to define colours in R.</p>
 </div>
 <div id="colours-by-name" class="section level4">
 <h4><span class="header-section-number">13.3.5.2</span> 2.2 Colours by name</h4>
-<p>You may have noticed that “red”, “green”, and “blue” work for the col=… parameter, but you probably would not have imagined that “peachpuff”, “firebrick” and “goldenrod” are valid as well. In fact, there are 657 named colours in R. Access them all by typing:</p>
+<p>You may have noticed that &quot;red&quot;, &quot;green&quot;, and &quot;blue&quot; work for the col=... parameter, but you probably would not have imagined that &quot;peachpuff&quot;, &quot;firebrick&quot; and &quot;goldenrod&quot; are valid as well. In fact, there are 657 named colours in R. Access them all by typing:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colors</span>()</code></pre></div>
 <pre><code>##   [1] &quot;white&quot;                &quot;aliceblue&quot;            &quot;antiquewhite&quot;        
 ##   [4] &quot;antiquewhite1&quot;        &quot;antiquewhite2&quot;        &quot;antiquewhite3&quot;       
@@ -852,12 +863,12 @@ m &lt;-<span class="st"> </span><span class="kw">cbind</span>(m, x<span class="o
     <span class="st">&quot;whitesmoke&quot;</span>
     )
     )</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-245-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-251-1.png" width="672" /></p>
 <p>Read more about named colours (and related topics) <a href="http://research.stowers.org/mcm/efg/R/Color/Chart/">here</a></p>
 </div>
 <div id="colours-as-hex-triplets" class="section level4">
 <h4><span class="header-section-number">13.3.5.3</span> Colours as hex-triplets</h4>
-<p>Hex triplets in <strong>R</strong> work exactly as in HTML: a triplet of RGB values in two-digit hexadecimal representation. The first two digits specify the red value, the second two are for green, then blue. R accepts a fourth pair of digits to optionally specify the transparency, the semantics of the code is thus “#RRGGBB” or “#RRGGBBAA”. Read more e.g. at <a href="http://en.wikipedia.org/wiki/Web_colors" class="uri">http://en.wikipedia.org/wiki/Web_colors</a></p>
+<p>Hex triplets in <strong>R</strong> work exactly as in HTML: a triplet of RGB values in two-digit hexadecimal representation. The first two digits specify the red value, the second two are for green, then blue. R accepts a fourth pair of digits to optionally specify the transparency, the semantics of the code is thus &quot;#RRGGBB&quot; or &quot;#RRGGBBAA&quot;. Read more e.g. at <a href="http://en.wikipedia.org/wiki/Web_colors" class="uri">http://en.wikipedia.org/wiki/Web_colors</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The function col2rgb() converts colour names to rgb values ...</span>
 <span class="kw">col2rgb</span>(<span class="st">&quot;violetred&quot;</span>)</code></pre></div>
 <pre><code>##       [,1]
@@ -873,29 +884,29 @@ m &lt;-<span class="st"> </span><span class="kw">cbind</span>(m, x<span class="o
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rgb</span>(<span class="kw">t</span>(<span class="kw">col2rgb</span>(<span class="st">&quot;peachpuff&quot;</span>))<span class="op">/</span><span class="dv">255</span>)  <span class="co"># &quot;#FFDAB9&quot;</span></code></pre></div>
 <pre><code>## [1] &quot;#FFDAB9&quot;</code></pre>
 <p>There are many tools on the Web that help to generate pleasing palettes.</p>
-<p>Here is an example -“Creative Cloud”- taken from <a href="https://kuler.adobe.com/" class="uri">https://kuler.adobe.com/</a></p>
+<p>Here is an example -&quot;Creative Cloud&quot;- taken from <a href="https://kuler.adobe.com/" class="uri">https://kuler.adobe.com/</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CC &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#011640&quot;</span>, <span class="st">&quot;#024059&quot;</span>, <span class="st">&quot;#F2F0D0&quot;</span>, <span class="st">&quot;#BE6C5C&quot;</span>, <span class="st">&quot;#8C3037&quot;</span> )
 <span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>), <span class="dt">breaks=</span><span class="dv">20</span> , <span class="dt">col=</span>CC)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-249-1.png" width="672" /></p>
-<p>R colours are actually specified as quartets: the fourth value the “Alpha channel” defines the transparency. Setting this to values other than “FF” (the default) can be useful for very crowded plots, or for creating overlays.</p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-255-1.png" width="672" /></p>
+<p>R colours are actually specified as quartets: the fourth value the &quot;Alpha channel&quot; defines the transparency. Setting this to values other than &quot;FF&quot; (the default) can be useful for very crowded plots, or for creating overlays.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">2000</span>)
 y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.25</span> <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">2000</span>, <span class="dv">0</span>, <span class="fl">0.75</span>)</code></pre></div>
 <p>compare:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">col =</span> <span class="st">&quot;#EE3A8C&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-251-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-257-1.png" width="672" /></p>
 <p>And</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">col =</span> <span class="st">&quot;#EE3A8C12&quot;</span>) <span class="co"># Alpha at ~ 10%</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-252-1.png" width="672" /></p>
-<p>or with multiple overlays of varying size using points() …</p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-258-1.png" width="672" /></p>
+<p>or with multiple overlays of varying size using points() ...</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(  x,y, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">1</span>,   <span class="dt">col =</span> <span class="st">&quot;#AA330009&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-253-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="dv">2</span>,   <span class="dt">col =</span> <span class="st">&quot;#44558803&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-254-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y, <span class="dt">pch =</span> <span class="dv">20</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">col =</span> <span class="st">&quot;#EE3A8C08&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-255-1.png" width="672" /></p>
-<p>A similar behaviour can be obtained from “density adapted colors with the densCols() function</p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-261-1.png" width="672" /></p>
+<p>A similar behaviour can be obtained from &quot;density adapted colors with the densCols() function</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span> (x, y, <span class="dt">col =</span> <span class="kw">densCols</span>(x, y), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
 </div>
 </div>
 <div id="colour-palettes" class="section level3">
@@ -915,20 +926,21 @@ sq &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1<
 <span class="kw">barplot</span>(sq, <span class="dt">col=</span><span class="kw">terrain.colors</span>(n), <span class="dt">axes=</span>F, <span class="dt">main=</span><span class="st">&quot;terrain.colors(n)&quot;</span>)
 <span class="kw">barplot</span>(sq, <span class="dt">col=</span><span class="kw">heat.colors</span>(n),    <span class="dt">axes=</span>F, <span class="dt">main=</span><span class="st">&quot;heat.colors(n)&quot;</span>)
 par &lt;-<span class="st"> </span>opar</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-258-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
 <p>Useful palettes have also been described specifically for cartography. <a href="http://colorbrewer2.org/" class="uri">http://colorbrewer2.org/</a> has palettes for seqential and qualitative diferences, and options for colourblind-safe and photocopy friendly palettes. You can use them via an R package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(RColorBrewer, <span class="dt">quietly=</span><span class="ot">TRUE</span>)) {
   <span class="kw">install.packages</span>(<span class="st">&quot;RColorBrewer&quot;</span>)
   <span class="kw">library</span>(RColorBrewer)
 }
 <span class="kw">display.brewer.all</span>()</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
 <p>Here, we apply a Brewer palette to a Voronoi tesselation of a point set.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(deldir, <span class="dt">quietly=</span><span class="ot">TRUE</span>)) {
   <span class="kw">install.packages</span>(<span class="st">&quot;deldir&quot;</span>)
   <span class="kw">library</span>(deldir)
 }</code></pre></div>
-<pre><code>## deldir 0.1-23</code></pre>
+<pre><code>## Warning: package &#39;deldir&#39; was built under R version 3.6.2</code></pre>
+<pre><code>## deldir 0.1-28</code></pre>
 <p>Create a point set along a logarithmic spiral, with a bit of added noise.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">li &lt;-<span class="st"> </span><span class="fl">0.1</span>
 n &lt;-<span class="st"> </span><span class="dv">45</span>
@@ -947,7 +959,7 @@ x &lt;-<span class="st"> </span><span class="kw">cbind</span>(x, <span class="kw
     x[i,<span class="dv">2</span>] &lt;-<span class="st"> </span>(l<span class="op">+</span>(<span class="kw">rnorm</span>(<span class="dv">1</span>)<span class="op">*</span>fnoise<span class="op">*</span>l)) <span class="op">*</span><span class="st"> </span><span class="kw">sin</span>((i<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>da)
 }
 <span class="kw">plot</span>(x[,<span class="dv">1</span>], x[,<span class="dv">2</span>])</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ts &lt;-<span class="st"> </span><span class="kw">deldir</span>(x[,<span class="dv">1</span>], x[,<span class="dv">2</span>])       <span class="co"># calculate the tesselation</span></code></pre></div>
 <pre><code>## 
 ##      PLEASE NOTE:  The components &quot;delsgs&quot; and &quot;summary&quot; of the
@@ -960,11 +972,11 @@ x &lt;-<span class="st"> </span><span class="kw">cbind</span>(x, <span class="kw
 ##  0.0-9 of this package (and previously). See help(&quot;deldir&quot;).</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tl &lt;-<span class="st"> </span><span class="kw">tile.list</span>(ts)      <span class="co"># calculate the list of tiles</span>
 <span class="kw">plot.tile.list</span>(tl)       <span class="co"># plot it</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
-<p>Let’s colour the cells by distance from a defined point using a Brewer palette</p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<p>Let's colour the cells by distance from a defined point using a Brewer palette</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot.tile.list</span>(tl)       <span class="co"># plot it</span>
 <span class="kw">points</span>(x[<span class="dv">25</span>,<span class="dv">1</span>], x[<span class="dv">25</span>,<span class="dv">2</span>], <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)   <span class="co"># pick a point</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec &lt;-<span class="st"> </span><span class="kw">c</span>(x[<span class="dv">25</span>,<span class="dv">1</span>], x[<span class="dv">25</span>,<span class="dv">2</span>]) <span class="co"># define a point</span></code></pre></div>
 <p>define a function for Euclidian distance</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vDist &lt;-<span class="st"> </span><span class="cf">function</span>(x,v) { <span class="kw">sqrt</span>(<span class="kw">sum</span>((x<span class="op">-</span>v)<span class="op">^</span><span class="dv">2</span>)) }  <span class="co"># calculates Euclidian distance</span>
@@ -977,7 +989,7 @@ pal &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(<span class
 
 <span class="co"># plot the tesselation, colour by palette</span>
 <span class="kw">plot.tile.list</span>(tl, <span class="dt">fillcol =</span> pal[dCol], <span class="dt">cex=</span><span class="fl">0.8</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col.pts=</span><span class="st">&quot;slategrey&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
 </div>
 </div>
 <div id="lines" class="section level2">
@@ -999,7 +1011,7 @@ pal &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(<span class
     <span class="kw">segments</span>(<span class="dv">1</span>,y,<span class="dv">5</span>,y, <span class="dt">lwd=</span>(<span class="fl">0.3</span><span class="op">*</span>i)<span class="op">^</span><span class="dv">2</span>)
     <span class="kw">text</span>(<span class="dv">6</span>, y, <span class="kw">paste</span>(<span class="st">&quot;lwd = &quot;</span>, (<span class="fl">0.3</span><span class="op">*</span>i)<span class="op">^</span><span class="dv">2</span>), <span class="dt">col=</span><span class="st">&quot;grey60&quot;</span>, <span class="dt">adj=</span><span class="dv">0</span>, <span class="dt">cex=</span><span class="fl">0.75</span>)
 }</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
 </div>
 <div id="axes" class="section level2">
 <h2><span class="header-section-number">13.5</span> Axes</h2>
@@ -1010,17 +1022,17 @@ x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)
 y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.25</span> <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">sd=</span><span class="fl">0.75</span>)
 
 <span class="kw">plot</span>(x,y)  <span class="co"># Default</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="co"># fixed limits</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">10</span>, <span class="op">-</span><span class="dv">10</span>)) <span class="co"># reverse is possible</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x,y, <span class="dt">log=</span><span class="st">&quot;xy&quot;</span>) <span class="co"># log axes</span></code></pre></div>
 <pre><code>## Warning in xy.coords(x, y, xlabel, ylabel, log): 498 x values &lt;= 0 omitted from
 ## logarithmic plot</code></pre>
 <pre><code>## Warning in xy.coords(x, y, xlabel, ylabel, log): 484 y values &lt;= 0 omitted from
 ## logarithmic plot</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
 <p>The axis parameters in the default plot are limited. If you want more control, suppress the printing of an axis in the plot and use the axis() function instead.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?axis</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Axis-labels and title are straightforward parameters of plot</span>
@@ -1032,7 +1044,7 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</sp
           <span class="dt">col.sub=</span><span class="st">&quot;grey&quot;</span>,
           <span class="dt">sub=</span><span class="st">&quot;Scatterplot of noisy 3d-degree polynomial&quot;</span>
           )</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
 <p>Add gridlines</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?grid
 <span class="kw">plot</span>(x,y, <span class="dt">xlab=</span><span class="st">&quot;rnorm(n)&quot;</span>,
@@ -1044,7 +1056,7 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</sp
           <span class="dt">sub=</span><span class="st">&quot;Scatterplot of noisy 3d-degree polynomial&quot;</span>
           )
 <span class="kw">grid</span>()</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
 </div>
 <div id="layout" class="section level2">
 <h2><span class="header-section-number">13.6</span> Layout</h2>
@@ -1065,11 +1077,11 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</sp
 opar &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="dt">bg=</span><span class="st">&quot;steelblue&quot;</span>, <span class="dt">fg=</span><span class="st">&quot;lightyellow&quot;</span>)
 <span class="co"># set axis lables and titles via plot parameters</span>
 <span class="kw">plot</span>(x,y, <span class="dt">col.axis=</span><span class="st">&quot;lightyellow&quot;</span>, <span class="dt">col.lab=</span><span class="st">&quot;lightyellow&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(opar)  <span class="co"># rest to old values</span>
 
 <span class="kw">plot</span>(x,y) <span class="co"># confirm reset</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-276-2.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-282-2.png" width="672" /></p>
 </div>
 </div>
 <div id="plot-symbols-and-text" class="section level2">
@@ -1082,7 +1094,7 @@ opar &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="dt">
 x1 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="fl">0.5</span><span class="op">:</span><span class="fl">9.5</span>, <span class="dv">2</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>]
 y1 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rep</span>(<span class="fl">9.5</span><span class="op">:</span><span class="fl">8.5</span>, <span class="dv">10</span>), <span class="dt">dec=</span><span class="ot">TRUE</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>]
 <span class="kw">points</span>(x1, y1, <span class="dt">pch=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Empty plot frame ...</span>
 <span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)
 
@@ -1090,7 +1102,7 @@ y1 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 x2 &lt;-<span class="st"> </span><span class="fl">0.5</span><span class="op">:</span><span class="fl">4.5</span>
 y2 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="fl">7.5</span>,<span class="dv">5</span>)
 <span class="kw">points</span>(x2, y2, <span class="dt">pch=</span><span class="dv">21</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;slategrey&quot;</span>, <span class="dt">bg=</span><span class="kw">rainbow</span>(<span class="dv">5</span>))</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Empty plot frame ...</span>
 <span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)
 
@@ -1099,7 +1111,7 @@ x3 &lt;-<span class="st"> </span><span class="fl">0.5</span><span class="op">:</
 y3 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="fl">6.5</span>,<span class="dv">10</span>)
 extra =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;O&quot;</span>, <span class="st">&quot;0&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;A&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>,<span class="st">&quot;|&quot;</span>)
 <span class="kw">points</span>(x3, y3, <span class="dt">pch=</span>extra) <span class="co"># note: ext is a character vector</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-285-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Empty plot frame ...</span>
 <span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)
 
@@ -1107,7 +1119,7 @@ extra =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot
 x4 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">seq</span>(<span class="fl">0.5</span>,<span class="fl">9.5</span>,<span class="fl">0.5</span>), <span class="dv">5</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">96</span>]
 y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">rep</span>(<span class="fl">5.5</span><span class="op">:</span><span class="fl">0.5</span>, <span class="dv">19</span>), <span class="dt">dec=</span><span class="ot">TRUE</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">96</span>]
 <span class="kw">points</span>(x4, y4, <span class="dt">pch=</span><span class="dv">32</span><span class="op">:</span><span class="dv">126</span>, <span class="dt">col=</span><span class="st">&quot;navyblue&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
 <p>Plotting arbitrary text use the text() function to plot characters and strings to coordinates</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?text</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Empty plot frame ...</span>
@@ -1120,7 +1132,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 <span class="kw">text</span>(x2<span class="op">-</span><span class="fl">0.4</span>, y2, <span class="kw">paste</span>(<span class="dv">21</span><span class="op">:</span><span class="dv">25</span>), <span class="dt">cex=</span><span class="fl">0.75</span>)
 <span class="co"># third set: special characters, change font for clarity</span>
 <span class="kw">text</span>(x3<span class="op">-</span><span class="fl">0.4</span>, y3, extra, <span class="dt">col=</span><span class="st">&quot;slateblue&quot;</span>, <span class="dt">cex=</span><span class="fl">0.75</span>, <span class="dt">vfont=</span><span class="kw">c</span>(<span class="st">&quot;serif&quot;</span>, <span class="st">&quot;plain&quot;</span>))</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
 <p>a large set of Hershey vector fonts is available which gives access to many more plotting and labeling options via text()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">demo</span>(Hershey)</code></pre></div>
 <pre><code>## 
@@ -1177,7 +1189,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## &gt; nc &lt;- 1
 ## 
 ## &gt; oldpar &lt;- make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -1238,7 +1250,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## &gt; fi &lt;- &quot;plain&quot;
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-2.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-289-2.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -1675,7 +1687,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## &gt; nc &lt;- 4
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-3.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-289-3.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -1944,7 +1956,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## &gt; nc &lt;- 2
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-4.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-289-4.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -2075,7 +2087,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## &gt; nc &lt;- 3
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-5.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-289-5.png" width="672" /></p>
 <pre><code>## 
 ## &gt; ## octal escape codes, as decimals
 ## &gt; code &lt;- c(300:307,310:317,320:327,330:337,340:347,350:357,360:367,370:377,
@@ -2096,7 +2108,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## &gt; nc &lt;- 3
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-6.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-289-6.png" width="672" /></p>
 <pre><code>## 
 ## &gt; code &lt;- c(252,254,256,262:269,275,278:281,284,745,746,750:768,796:802,
 ## +           804:807,809,814:828,830:834,840:844)
@@ -2108,7 +2120,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## +                  i-1, nr)
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-7.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-289-7.png" width="672" /></p>
 <pre><code>## 
 ## &gt; code &lt;- c(845:847,850:856,860:874,899:909,2296:2299,2318:2332,2367:2382,
 ## +           4014,4109)
@@ -2122,7 +2134,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 ## &gt; par(oldpar)</code></pre>
 <p>Plotting other symbols: In the most general way, Unicode characters can be plotted as text. The code is passed in hexadecimal, long integer, with a negative sign. Here is a quarter note (Unicode: 266a) using plot()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>, <span class="dt">pch=</span><span class="op">-</span>0x266aL, <span class="dt">cex=</span><span class="dv">5</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
 <p>However, rendering varies across platforms since it depends on unicode support. It is safer to use the inbuilt Hershey vector fonts.</p>
 </div>
 <div id="drawing-on-plots" class="section level2">
@@ -2131,10 +2143,10 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 <li>abline()</li>
 <li>segments()</li>
 <li>lines()</li>
-<li>arrows() … but to get a filled arrow use polygon()</li>
+<li>arrows() ... but to get a filled arrow use polygon()</li>
 </ul>
-<p>Example: dividing a plot into 60° regions, centred on a point. A general approach to “lines” on a plot is provided by segments(). However in this special case one can use abline(). We have to take care though that the aspect ratio for the plot is exactly 1 - otherwise our angles are not right. Therefore we need to set the asp parameter for plots.</p>
-<p>For a general sketch * we plot the frame a bit larger, don’t draw axes * draw the ablines * draw two arrows to symbolize the coordinate axes</p>
+<p>Example: dividing a plot into 60° regions, centred on a point. A general approach to &quot;lines&quot; on a plot is provided by segments(). However in this special case one can use abline(). We have to take care though that the aspect ratio for the plot is exactly 1 - otherwise our angles are not right. Therefore we need to set the asp parameter for plots.</p>
+<p>For a general sketch * we plot the frame a bit larger, don't draw axes * draw the ablines * draw two arrows to symbolize the coordinate axes</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">2</span>)
 <span class="kw">plot</span>(p[<span class="dv">1</span>], p[<span class="dv">2</span>],
      <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">10.5</span>),
@@ -2147,7 +2159,7 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 <span class="kw">abline</span>(p[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>(p[<span class="dv">1</span>]<span class="op">*</span><span class="kw">tan</span>(pi<span class="op">/</span><span class="dv">3</span>)), <span class="op">-</span><span class="kw">tan</span>(pi<span class="op">/</span><span class="dv">3</span>), <span class="dt">lty=</span><span class="dv">2</span>)  <span class="co"># intercept, slope</span>
 <span class="kw">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dt">length=</span><span class="fl">0.1</span>)   <span class="co"># length of arrow</span>
 <span class="kw">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dt">length=</span><span class="fl">0.1</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-285-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
 <ul>
 <li>curves()</li>
 <li>rect()</li>
@@ -2159,14 +2171,14 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 <h2><span class="header-section-number">13.9</span> Special packages</h2>
 <p>Packages in the standard distribution:</p>
 <ul>
-<li>use with library(“package”)</li>
+<li>use with library(&quot;package&quot;)</li>
 <li><p>graphics</p></li>
 <li><p>grid</p></li>
 <li><p>lattice</p></li>
 </ul>
 <p>Packages that can be downloaded from CRAN:</p>
 <ul>
-<li><p>use with install.packages(“package”), then library(“package”)</p></li>
+<li><p>use with install.packages(&quot;package&quot;), then library(&quot;package&quot;)</p></li>
 <li>hexbin</li>
 <li><p>ggplot2</p></li>
 </ul>
@@ -2179,22 +2191,40 @@ y4 &lt;-<span class="st"> </span><span class="kw">sort</span>(<span class="kw">r
 <pre><code>## Installing package(s) &#39;prada&#39;</code></pre>
 <pre><code>## 
 ## The downloaded binary packages are in
-##  /var/folders/t7/0bt7j4gj4fgfhztd_45bktbm0000gp/T//RtmpYAyIam/downloaded_packages</code></pre>
+##  /var/folders/t7/0bt7j4gj4fgfhztd_45bktbm0000gp/T//RtmpZUpFyF/downloaded_packages</code></pre>
+<pre><code>## Old packages: &#39;ade4&#39;, &#39;admisc&#39;, &#39;av&#39;, &#39;backports&#39;, &#39;bit&#39;, &#39;bit64&#39;, &#39;blogdown&#39;,
+##   &#39;bnlearn&#39;, &#39;bookdown&#39;, &#39;broom&#39;, &#39;callr&#39;, &#39;car&#39;, &#39;circlize&#39;, &#39;cli&#39;, &#39;clipr&#39;,
+##   &#39;clue&#39;, &#39;codetools&#39;, &#39;colorspace&#39;, &#39;conquer&#39;, &#39;covr&#39;, &#39;cowplot&#39;,
+##   &#39;data.table&#39;, &#39;dbplyr&#39;, &#39;deldir&#39;, &#39;devEMF&#39;, &#39;devtools&#39;, &#39;digest&#39;,
+##   &#39;doParallel&#39;, &#39;dplyr&#39;, &#39;DT&#39;, &#39;foreach&#39;, &#39;Formula&#39;, &#39;fs&#39;, &#39;generics&#39;,
+##   &#39;GetoptLong&#39;, &#39;ggfortify&#39;, &#39;ggrepel&#39;, &#39;gh&#39;, &#39;glue&#39;, &#39;gprofiler2&#39;, &#39;Hmisc&#39;,
+##   &#39;htmlTable&#39;, &#39;htmlwidgets&#39;, &#39;hunspell&#39;, &#39;igraph&#39;, &#39;isoband&#39;, &#39;iterators&#39;,
+##   &#39;jsonlite&#39;, &#39;kableExtra&#39;, &#39;KernSmooth&#39;, &#39;knitr&#39;, &#39;labeling&#39;, &#39;lme4&#39;,
+##   &#39;lubridate&#39;, &#39;magick&#39;, &#39;magrittr&#39;, &#39;maptools&#39;, &#39;MASS&#39;, &#39;Matrix&#39;,
+##   &#39;matrixStats&#39;, &#39;mgcv&#39;, &#39;multcomp&#39;, &#39;nlme&#39;, &#39;officer&#39;, &#39;openssl&#39;, &#39;openxlsx&#39;,
+##   &#39;pagedown&#39;, &#39;pbkrtest&#39;, &#39;pillar&#39;, &#39;pkgbuild&#39;, &#39;plotly&#39;, &#39;processx&#39;,
+##   &#39;profvis&#39;, &#39;ps&#39;, &#39;quantreg&#39;, &#39;R.methodsS3&#39;, &#39;R.oo&#39;, &#39;R.utils&#39;, &#39;R6&#39;,
+##   &#39;raster&#39;, &#39;RcppArmadillo&#39;, &#39;RcppEigen&#39;, &#39;readr&#39;, &#39;rentrez&#39;, &#39;renv&#39;, &#39;rgdal&#39;,
+##   &#39;rlang&#39;, &#39;rmarkdown&#39;, &#39;rms&#39;, &#39;rprojroot&#39;, &#39;rrcov&#39;, &#39;RSQLite&#39;, &#39;rstudioapi&#39;,
+##   &#39;rticles&#39;, &#39;rvest&#39;, &#39;sandwich&#39;, &#39;segmented&#39;, &#39;servr&#39;, &#39;shape&#39;, &#39;sos&#39;, &#39;sp&#39;,
+##   &#39;spelling&#39;, &#39;statmod&#39;, &#39;stringi&#39;, &#39;survival&#39;, &#39;survminer&#39;, &#39;sys&#39;, &#39;testit&#39;,
+##   &#39;testthat&#39;, &#39;tibble&#39;, &#39;tidyr&#39;, &#39;tinytex&#39;, &#39;tufte&#39;, &#39;usethis&#39;, &#39;vctrs&#39;,
+##   &#39;withr&#39;, &#39;xaringan&#39;, &#39;xfun&#39;, &#39;XML&#39;, &#39;zip&#39;</code></pre>
 <p>Try:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">1000</span>
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)
 y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.25</span> <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">sd=</span><span class="fl">0.75</span>)
 <span class="co"># smoothed scatterplot with outliers</span>
 <span class="kw">smoothScatter</span>(x,y, <span class="dt">nrpoints=</span><span class="dv">200</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="fl">0.5</span>, <span class="dt">col=</span><span class="st">&quot;#6633BB55&quot;</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># density adapted colours</span>
 <span class="kw">plot</span> (x, y, <span class="dt">col=</span><span class="kw">densCols</span>(x,y), <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">1.5</span>)</code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
 </div>
-<div id="self-evaluation-11" class="section level2">
+<div id="self-evaluation" class="section level2">
 <h2><span class="header-section-number">13.10</span> Self-evaluation</h2>
 </div>
-<div id="further-reading-links-and-resources-11" class="section level2">
+<div id="further-reading-links-and-resources" class="section level2">
 <h2><span class="header-section-number">13.11</span> Further reading, links and resources</h2>
 <p><strong>If in doubt, ask!</strong><br> If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
 
@@ -2202,9 +2232,15 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</sp
 <br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca">boris.steipe@utoronto.ca</a> <br> <strong>Created</strong>: 2017-08-05<br> <strong>Modified</strong>: 2018-05-05<br> Version: 1.0.1<br> <strong>Version history</strong>:<br> 1.0.1 Maintenance<br> 1.0 Completed to first live version<br> 0.1 Material collected from previous tutorial<br>
 </div>
 
-<div id="updated-revision-history-11" class="section level3">
+<div id="updated-revision-history" class="section level3">
 <h3><span class="header-section-number">13.11.1</span> Updated Revision history</h3>
 <table>
+<colgroup>
+<col width="7%" />
+<col width="11%" />
+<col width="9%" />
+<col width="70%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Revision</th>
@@ -2229,7 +2265,7 @@ y &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</sp
 </tbody>
 </table>
 </div>
-<div id="footnotes-11" class="section level3">
+<div id="footnotes" class="section level3">
 <h3><span class="header-section-number">13.11.2</span> Footnotes:</h3>
 
 </div>
