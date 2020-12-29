@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 R &quot;data frames&quot;&quot; | BCB420 - Computational System Biology</title>
+  <title>Chapter 8 Data frames | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 R &quot;data frames&quot;&quot; | BCB420 - Computational System Biology" />
+  <meta property="og:title" content="Chapter 8 Data frames | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bcb420-2021/R_basics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 R &quot;data frames&quot;&quot; | BCB420 - Computational System Biology" />
+  <meta name="twitter:title" content="Chapter 8 Data frames | BCB420 - Computational System Biology" />
   
   <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   
@@ -261,7 +261,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.18.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>7.18.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> R &quot;data frames&quot;&quot;</a><ul>
+<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> Data frames</a><ul>
 <li class="chapter" data-level="8.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
 <li class="chapter" data-level="8.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
@@ -270,9 +270,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="r-data-frames.html"><a href="r-data-frames.html#data-frames"><i class="fa fa-check"></i><b>8.2</b> Data frames</a></li>
-<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#task-16"><i class="fa fa-check"></i><b>8.3</b> Task 16</a></li>
+<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#task-16---basic-operations"><i class="fa fa-check"></i><b>8.3</b> Task 16 - Basic operations</a></li>
 <li class="chapter" data-level="8.4" data-path="r-data-frames.html"><a href="r-data-frames.html#basic-operations"><i class="fa fa-check"></i><b>8.4</b> Basic operations</a></li>
-<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#task-17"><i class="fa fa-check"></i><b>8.5</b> Task 17</a></li>
+<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#task-17---modify-data-frame"><i class="fa fa-check"></i><b>8.5</b> Task 17 - modify data frame</a></li>
 <li class="chapter" data-level="8.6" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>8.6</b> Self-evaluation</a></li>
 <li class="chapter" data-level="8.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>8.7</b> Further reading, links and resources</a><ul>
 <li class="chapter" data-level="8.7.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>8.7.1</b> Updated Revision history</a></li>
@@ -463,7 +463,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="r-data-frames" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> R &quot;data frames&quot;&quot;</h1>
+<h1><span class="header-section-number">Chapter 8</span> Data frames</h1>
 <p>(R data frames)</p>
 <div id="overview" class="section level2">
 <h2><span class="header-section-number">8.1</span> Overview</h2>
@@ -501,8 +501,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="data-frames" class="section level2">
 <h2><span class="header-section-number">8.2</span> Data frames</h2>
 </div>
-<div id="task-16" class="section level2">
-<h2><span class="header-section-number">8.3</span> Task 16</h2>
+<div id="task-16---basic-operations" class="section level2">
+<h2><span class="header-section-number">8.3</span> Task 16 - Basic operations</h2>
 <div class="rmd-task">
 <p>
 Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open. Type init() as instructed after the project has loaded. Continue below.
@@ -510,12 +510,16 @@ Load the R-Exercise_BasicSetup project in RStudio if you don't already have it o
 </div>
 <p>Data frames are probably the most important type of data object for bioinformatics in <strong>R</strong>; they emulate our mental model of data in a spreadsheet and can be used to implement entity-relationship datamodels.</p>
 <p>Usually the result of reading external data from an input file is a data frame. The file below is included with the R-Exercise-BasicSetup project files - it is called plasmidData.tsv, and you can click on it in the Files Pane to open and inspect it.</p>
-<p>Name Size Marker Ori Sites pUC19 2686 Amp ColE1 EcoRI, SacI, SmaI, BamHI, XbaI, PstI, HindIII pBR322 4361 Amp, Tet ColE1 EcoRI, ClaI, HindIII pACYC184 4245 Tet, Cam p15A ClaI, HindIII</p>
-<p>This data set uses tabs as column separators and it has a header line. Similar files can be exported from Excel or other spreadsheet programs. Read this as a data frame as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( plasmidData &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">file.path</span>(<span class="st">&quot;data_files&quot;</span>,<span class="st">&quot;plasmidData.tsv&quot;</span>),
-                            <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,
-                            <span class="dt">header=</span><span class="ot">TRUE</span>,
-                            <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) )</code></pre></div>
+<p align="center">
+<img src="images/plasmid_file.png" alt="plasmid" width="75%" align="center" />
+</p>
+<p>This data set uses tabs as column separators and it has a header line. Similar files can be exported from Excel or other spreadsheet programs.</p>
+<p>Read this as a data frame as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">( plasmidData &lt;-<span class="st"> </span><span class="kw">read.table</span>(
+                    <span class="kw">file.path</span>(<span class="st">&quot;data_files&quot;</span>,<span class="st">&quot;plasmidData.tsv&quot;</span>),
+                    <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,
+                    <span class="dt">header=</span><span class="ot">TRUE</span>,
+                    <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) )</code></pre></div>
 <pre><code>##       Name Size   Marker   Ori                                         Sites
 ## 1    pUC19 2686      Amp ColE1 EcoRI, SacI, SmaI, BamHI, XbaI, PstI, HindIII
 ## 2   pBR322 4361 Amp, Tet ColE1                          EcoRI, ClaI, HindIII
@@ -543,14 +547,18 @@ Load the R-Exercise_BasicSetup project in RStudio if you don't already have it o
 ## 
 ## $row.names
 ## [1] 1 2 3</code></pre>
-<p>Note the argument stringsAsFactors = FALSE. If this is TRUE instead, <strong>R</strong> will convert all strings in the input to factors and this may lead to problems. Make it a habit to turn this behaviour off, you can always turn a column of strings into factors when you actually mean to have factors.</p>
+<p>Note the argument <strong>stringsAsFactors = FALSE</strong>. If this is TRUE instead, <strong>R</strong> will convert all strings in the input to factors and this may lead to problems. Make it a habit to turn this behaviour off, you can always turn a column of strings into factors when you actually mean to have factors.</p>
 <p>You can view the data frame contents by clicking on the spreadsheet icon behind its name in the Environment Pane.</p>
+<p align="center">
+<img src="images/plasmid_tsv.png" alt="plasmid" width="75%" align="center" />
+</p>
 </div>
 <div id="basic-operations" class="section level2">
 <h2><span class="header-section-number">8.4</span> Basic operations</h2>
 <p>Here are some basic operations with the data frame. Try them and experiment. If you break it by mistake, you can just recreate it by reading the source file again:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rownames</span>(plasmidData) &lt;-<span class="st"> </span>plasmidData[ , <span class="dv">1</span>]  <span class="co"># use column 1 as rownames</span>
-<span class="kw">nrow</span>(plasmidData)</code></pre></div>
+<p>use column 1 as rownames</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rownames</span>(plasmidData) &lt;-<span class="st"> </span>plasmidData[ , <span class="dv">1</span>]  </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(plasmidData)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ncol</span>(plasmidData)</code></pre></div>
 <pre><code>## [1] 5</code></pre>
@@ -581,8 +589,9 @@ Load the R-Exercise_BasicSetup project in RStudio if you don't already have it o
 ## 
 ## $row.names
 ## [1] &quot;pUC19&quot;    &quot;pBR322&quot;   &quot;pACYC184&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>plasmidData[<span class="dv">2</span>, ]  <span class="co"># assign one row to a variable</span>
-<span class="kw">objectInfo</span>(x)  <span class="co"># This is also a data frame! One row. It has to be, because</span></code></pre></div>
+<p>assign one row to a variable. This is also a data frame! One row. It has to be, because it contains elements of type chr and of type int!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>plasmidData[<span class="dv">2</span>, ]
+<span class="kw">objectInfo</span>(x) </code></pre></div>
 <pre><code>## object contents:         Name Size   Marker   Ori                Sites
 ## pBR322 pBR322 4361 Amp, Tet ColE1 EcoRI, ClaI, HindIII
 ## 
@@ -603,16 +612,17 @@ Load the R-Exercise_BasicSetup project in RStudio if you don't already have it o
 ## 
 ## $class
 ## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">               <span class="co"># it contains elements of type chr and of type int!</span>
- 
-plasmidData[<span class="st">&quot;pBR322&quot;</span>, ]  <span class="co"># retrieve one row: different syntax, same thing</span></code></pre></div>
+<p>retrieve one row: different syntax, same thing</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData[<span class="st">&quot;pBR322&quot;</span>, ]  </code></pre></div>
 <pre><code>##          Name Size   Marker   Ori                Sites
 ## pBR322 pBR322 4361 Amp, Tet ColE1 EcoRI, ClaI, HindIII</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData[ , <span class="dv">2</span>]       <span class="co"># retrieve one column</span></code></pre></div>
+<p>retrieve one column - two different methods</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData[ , <span class="dv">2</span>]        </code></pre></div>
 <pre><code>## [1] 2686 4361 4245</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData[ , <span class="st">&quot;Size&quot;</span>]  <span class="co"># retrieve one column: same principle</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData[ , <span class="st">&quot;Size&quot;</span>]  </code></pre></div>
 <pre><code>## [1] 2686 4361 4245</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData &lt;-<span class="st"> </span>plasmidData[<span class="op">-</span><span class="dv">2</span>, ]  <span class="co"># remove one row</span>
+<p>remove one row</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData &lt;-<span class="st"> </span>plasmidData[<span class="op">-</span><span class="dv">2</span>, ]
 <span class="kw">objectInfo</span>(plasmidData)</code></pre></div>
 <pre><code>## object contents:             Name Size   Marker   Ori
 ## pUC19       pUC19 2686      Amp ColE1
@@ -638,7 +648,8 @@ plasmidData[<span class="st">&quot;pBR322&quot;</span>, ]  <span class="co"># re
 ## 
 ## $class
 ## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData &lt;-<span class="st"> </span><span class="kw">rbind</span>(plasmidData, x)  <span class="co"># add it back at the end</span>
+<p>add it back at the end</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData &lt;-<span class="st"> </span><span class="kw">rbind</span>(plasmidData, x)  
 <span class="kw">objectInfo</span>(plasmidData)</code></pre></div>
 <pre><code>## object contents:             Name Size   Marker   Ori
 ## pUC19       pUC19 2686      Amp ColE1
@@ -666,13 +677,12 @@ plasmidData[<span class="st">&quot;pBR322&quot;</span>, ]  <span class="co"># re
 ## 
 ## $class
 ## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add a new row from scratch:</span>
-plasmidData &lt;-<span class="st"> </span><span class="kw">rbind</span>(plasmidData, <span class="kw">data.frame</span>(<span class="dt">Name =</span> <span class="st">&quot;pMAL-p5x&quot;</span>,
-                                                     <span class="dt">Size =</span> <span class="dv">5752</span>,
-                                                     <span class="dt">Marker =</span> <span class="st">&quot;Amp&quot;</span>,
-                                                     <span class="dt">Ori =</span> <span class="st">&quot;pMB1&quot;</span>,
-                                                     <span class="dt">Sites =</span> <span class="st">&quot;SacI, AvaI, ..., HindIII&quot;</span>,
-                                                     <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>))
+<p>add a new row from scratch:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidData &lt;-<span class="st"> </span><span class="kw">rbind</span>(plasmidData, 
+                     <span class="kw">data.frame</span>(<span class="dt">Name =</span> <span class="st">&quot;pMAL-p5x&quot;</span>, <span class="dt">Size =</span> <span class="dv">5752</span>,
+                                <span class="dt">Marker =</span> <span class="st">&quot;Amp&quot;</span>,<span class="dt">Ori =</span> <span class="st">&quot;pMB1&quot;</span>,
+                                <span class="dt">Sites =</span> <span class="st">&quot;SacI, AvaI, ..., HindIII&quot;</span>,
+                                <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>))
 <span class="kw">objectInfo</span>(plasmidData)</code></pre></div>
 <pre><code>## object contents:             Name Size   Marker   Ori
 ## pUC19       pUC19 2686      Amp ColE1
@@ -703,8 +713,8 @@ plasmidData &lt;-<span class="st"> </span><span class="kw">rbind</span>(plasmidD
 ## $class
 ## [1] &quot;data.frame&quot;</code></pre>
 </div>
-<div id="task-17" class="section level2">
-<h2><span class="header-section-number">8.5</span> Task 17</h2>
+<div id="task-17---modify-data-frame" class="section level2">
+<h2><span class="header-section-number">8.5</span> Task 17 - modify data frame</h2>
 <div class="rmd-task">
 <p>
 The rowname of the new row of plasmidData is now &quot;1&quot;. It should be &quot;pMAL-p5x&quot;. Fix this.

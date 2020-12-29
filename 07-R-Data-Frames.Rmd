@@ -1,4 +1,4 @@
-# R "data frames"" {#r-data-frames}
+# Data frames {#r-data-frames}
 (R data frames)
 
 ## Overview
@@ -30,10 +30,10 @@ After working through this unit you:
 [RPR-Objects-Vectors (R scalars and vectors)](#r-scalars)
 
 
-## Data frames
+## Data frames 
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - Basic operations
 
 ```{block, type="rmd-task"}
 Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open.
@@ -45,71 +45,85 @@ Data frames are probably the most important type of data object for bioinformati
 
 Usually the result of reading external data from an input file is a data frame. The file below is included with the R-Exercise-BasicSetup project files - it is called plasmidData.tsv, and you can click on it in the Files Pane to open and inspect it.
 
-Name	Size	Marker	Ori	Sites
-pUC19	2686	Amp	ColE1	EcoRI, SacI, SmaI, BamHI, XbaI, PstI, HindIII
-pBR322	4361	Amp, Tet	ColE1	EcoRI, ClaI, HindIII
-pACYC184	4245	Tet, Cam	p15A	ClaI, HindIII
+<p align="center"><img src="./images/plasmid_file.png" alt="plasmid" width="75%" align="center" /></p>
 
-This data set uses tabs as column separators and it has a header line. Similar files can be exported from Excel or other spreadsheet programs. Read this as a data frame as follows:
+This data set uses tabs as column separators and it has a header line. Similar files can be exported from Excel or other spreadsheet programs. 
+
+Read this as a data frame as follows:
 
 ```{r}
 
-( plasmidData <- read.table(file.path("data_files","plasmidData.tsv"),
-                            sep="\t",
-                            header=TRUE,
-                            stringsAsFactors = FALSE) )
+( plasmidData <- read.table(
+                    file.path("data_files","plasmidData.tsv"),
+                    sep="\t",
+                    header=TRUE,
+                    stringsAsFactors = FALSE) )
 objectInfo(plasmidData)
 ```
 
-Note the argument stringsAsFactors = FALSE. If this is TRUE instead, **R** will convert all strings in the input to factors and this may lead to problems. Make it a habit to turn this behaviour off, you can always turn a column of strings into factors when you actually mean to have factors.
+Note the argument **stringsAsFactors = FALSE**. If this is TRUE instead, **R** will convert all strings in the input to factors and this may lead to problems. Make it a habit to turn this behaviour off, you can always turn a column of strings into factors when you actually mean to have factors.
 
 You can view the data frame contents by clicking on the spreadsheet icon behind its name in the Environment Pane.
+
+<p align="center"><img src="./images/plasmid_tsv.png" alt="plasmid" width="75%" align="center" /></p>
 
 ## Basic operations
 
 Here are some basic operations with the data frame. Try them and experiment. If you break it by mistake, you can just recreate it by reading the source file again:
 
+use column 1 as rownames
 ```{r}
-rownames(plasmidData) <- plasmidData[ , 1]  # use column 1 as rownames
+rownames(plasmidData) <- plasmidData[ , 1]  
+```
+
+```{r}
 nrow(plasmidData)
 ncol(plasmidData)
 objectInfo(plasmidData)
 ```
-
  
+assign one row to a variable.  This is also a data frame! One row. It has to be, because it contains elements of type chr and of type int!
 ```{r}
-x <- plasmidData[2, ]  # assign one row to a variable
-objectInfo(x)  # This is also a data frame! One row. It has to be, because
-               # it contains elements of type chr and of type int!
- 
-plasmidData["pBR322", ]  # retrieve one row: different syntax, same thing
- 
-plasmidData[ , 2]       # retrieve one column
-plasmidData[ , "Size"]  # retrieve one column: same principle
+x <- plasmidData[2, ]
+objectInfo(x) 
 ```
 
+retrieve one row: different syntax, same thing
 ```{r}
-plasmidData <- plasmidData[-2, ]  # remove one row
+plasmidData["pBR322", ]  
+```
+
+retrieve one column - two different methods
+```{r}
+plasmidData[ , 2]        
+plasmidData[ , "Size"]  
+```
+
+remove one row
+```{r}
+plasmidData <- plasmidData[-2, ]
 objectInfo(plasmidData)
- 
-plasmidData <- rbind(plasmidData, x)  # add it back at the end
+```
+
+add it back at the end
+```{r}
+plasmidData <- rbind(plasmidData, x)  
 objectInfo(plasmidData)
  
 ```
- 
+
+add a new row from scratch: 
 ```{r}
-# add a new row from scratch:
-plasmidData <- rbind(plasmidData, data.frame(Name = "pMAL-p5x",
-                                                     Size = 5752,
-                                                     Marker = "Amp",
-                                                     Ori = "pMB1",
-                                                     Sites = "SacI, AvaI, ..., HindIII",
-                                                     stringsAsFactors = FALSE))
+plasmidData <- rbind(plasmidData, 
+                     data.frame(Name = "pMAL-p5x", Size = 5752,
+                                Marker = "Amp",Ori = "pMB1",
+                                Sites = "SacI, AvaI, ..., HindIII",
+                                stringsAsFactors = FALSE))
 objectInfo(plasmidData)
 ```
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - modify data frame
 
 ```{block, type="rmd-task"}
 The rowname of the new row of plasmidData is now "1". It should be "pMAL-p5x". Fix this.
