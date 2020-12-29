@@ -32,7 +32,8 @@ After working through this unit you:
 ### Prerequisites 
 [RPR-Syntax_basics (Basics of R syntax)](#r-syntax)
 
- 
+## R Data types
+
 **R** objects can be composed of different kinds of data according to the type and number of "atomic" values they contain:
 
   * Scalar items are single values;
@@ -44,21 +45,35 @@ After working through this unit you:
  
 ## Scalar data
 
-Scalars are single numbers, the "atomic" parts of more complex datatypes. Of course we can work with single numbers in R, but under the hood they are actually vectors of length 1. (More on vectors in the next section). To create a scalar object, simply assign some value to its name.
+Scalars are single numbers, the "atomic" parts of more complex datatypes. Of course we can work with single numbers in **R**, but under the hood they are actually vectors of length 1. (More on vectors in the next section). To create a scalar object, simply assign some value to its name.
 
+define a scalar by assignment
 ```{r}
-x <- pi       # define a scalar by assignment
-x             # its value is ...
-length(x)     # its length is ...
-x[1]          # it is actually a vector, and its first element is ...
-x[2]          # a second element does not exist NA: Not Available
+x <- pi   
+```
+
+its value is ...
+```{r}
+x   
+```
+its length is ...
+```{r}
+length(x) 
+```
+it is actually a vector, and its first element is ...
+```{r}
+x[1]    
+```
+a second element does not exist NA: Not Available
+```{r}
+x[2]        
 ```
 
 Here are some remarks on the types of scalars **R** uses, and on coercion between types, i.e. casting one datatype into another. The following scalar types are supported:
 
-  * Boolean constants: TRUE and FALSE. This type has the "mode" logical;
-  * Integers, floats (floating point numbers) and complex numbers. These types have the mode numeric;
-  * Strings. These have the mode character.
+  * **Boolean** constants: TRUE and FALSE. This type has the "mode" logical;
+  * **Integers**, **floats** (floating point numbers) and **complex numbers**. These types have the mode numeric;
+  * **Strings**. These have the mode character.
   * Other modes exist, such as list, function and expression, all of which can be combined into complex objects.
 
 The function mode() returns the mode of an object and typeof() returns its type. Also class() tells you what class it belongs to.
@@ -100,7 +115,7 @@ objectInfo <- function(x) {
 ```
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - scalars
 
 ```{block, type="rmd-task"}
 Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open.
@@ -108,10 +123,13 @@ Type init() as instructed after the project has loaded.
 Continue below.
 ```
 
-```{r, eval=FALSE}
-#Let's have a brief look at the function itself: typing a function name without its parentheses returns the source code for the function:
+Let's have a brief look at the function itself: typing a function name without its parentheses returns the source code for the function:
+```{r}
 objectInfo
+```
 
+Try out the below
+```{r, eval=FALSE}
 # Various objects:
  
 #Scalars:
@@ -179,7 +197,7 @@ objectInfo( objectInfo )         # the function itself
 ```
 
 
-Sometimes (but rarely) you may run into a distinction that R makes regarding integers and floating point numbers. By default, if you specify e.g. the number 2 in your code, it is stored as a floating point number. But if the numbers are generated e.g. from a range operator as in 1:2 they are integers! This can give rise to confusion as in the following example:
+Sometimes (but rarely) you may run into a distinction that **R** makes regarding integers and floating point numbers. By default, if you specify e.g. the number 2 in your code, it is stored as a floating point number. But if the numbers are generated e.g. from a range operator as in 1:2 they are integers! This can give rise to confusion as in the following example:
 
 ```{r}
 a <- 7
@@ -201,36 +219,45 @@ identical(b[2], c) # TRUE
 
 ## Vectors
 
-Since we (almost) never do statistics on scalars, **R** obviously needs ways to handle collections of data items. In its simplest form such a collection is a vector: an ordered list of items of the same type. Vectors are created from scratch with the c() function which concatenates individual items into a vector, or with various sequencing functions. Vectors have properties, such as length; individual items in vectors can be combined in useful ways. It's worth repeating: all elements of a vector must be of the same type. If they are not, they are silently(!) coerced to the most general type (which is often character). (The actual hierarchy for coercion is raw < logical < integer < double < complex < character < list ).
+Since we (almost) never do statistics on scalars, **R** obviously needs ways to handle collections of data items. In its simplest form such a collection is a vector: an ordered list of items of the same type. 
+  * Vectors are created from scratch with the c() function which concatenates individual items into a vector, or with various sequencing functions. 
+  * Vectors have properties, such as length; 
+  * individual items in vectors can be combined in useful ways. 
+  * It's worth repeating: all elements of a vector must be of the same type. If they are not, they are silently(!) coerced to the most general type (which is often character). (The actual hierarchy for coercion is raw < logical < integer < double < complex < character < list ).
 
+The c() function concatenates elements into a vector
 ```{r}
-# The c() function concatenates elements into a vector
 c(2, 4, 6)
 ```
 
+Create a vector and list its contents and length:
 ```{r}
-#Create a vector and list its contents and length:
 f <- c(1, 1, 3, 5, 8, 13, 21)
 f
 length(f)
 ```
- 
+
+
+Often, for teaching code, I want to demonstrate the contents of an object after assigning it. I can simply wrap the assignment into parentheses to achieve that.
+
+Parentheses return the value of whatever they enclose. So ...
+assigns 17 to the variable "a". But this happens silently.
 ```{r}
-# Often, for teaching code, I want to demonstrate the contents of an object after
-# assigning it. I can simply wrap the assignment into parentheses to achieve that.
-# Parentheses return the value of whatever they enclose. So ...
 a <- 17
-# ... assigns 17 to the variable "a". But this happens silently. However ...
+```
+However, returns the result of the assignment. I will use this idiom often.
+```{r}
 ( a <- 17 )
-# ... returns the result of the assignment. I will use this idiom often.
- 
+
 ( myVec <- c(1, 1, 3, 5, 8, 13, 21, 34, 55, 89) )
 ```
 
+### Coercion:
+all elements of vectors must be of the same type
+
 ```{r}
-# Coercion:
-# all elements of vectors must be of the same type
-(mixed_type <- c(1, 2.0, "3", TRUE))  # trying to get a vector with mixed types ...
+# trying to get a vector with mixed types ...
+(mixed_type <- c(1, 2.0, "3", TRUE))  
 class(mixed_type)
 ```
 
@@ -239,37 +266,53 @@ class(mixed_type)
 There are various ways to subset (retrieve) specific values from a vector; this is important.
 
 ## Subsetting by index
+Extracting by index:
+  * "1" is first element, not 0.
+  * head() gets the first n elements
+  * length() is the index of the last element.
+  * tail() get the last n elements
 ```{r}
-# Extracting by index ...
-myVec[1]         # "1" is first element, not 0.
+myVec[1]        
 head(myVec, 1)   # same thing
  
-myVec[length(myVec)] # length() is the index of the last element.
+myVec[length(myVec)] 
 tail(myVec, 1)       # same thing
  
 ```
 
-
+With a vector of indices:
+  * This is the range operator
 ```{r}
-# With a vector of indices ...
-1:4 # This is the range operator
-myVec[1:4] # using the range operator (it generates a sequence and returns it in a vector)
-myVec[4:1] # same thing, backwards
-seq(from=2, to=6, by=2) # The seq() function is a flexible, generic way to generate sequences
+1:4 
+```
+
+using the range operator (it generates a sequence and returns it in a vector)
+```{r}
+myVec[1:4] 
+```
+
+same thing, backwards
+```{r}
+myVec[4:1]
+```
+
+The seq() function is a flexible, generic way to generate sequences
+```{r}
+seq(from=2, to=6, by=2) 
 seq(2, 6, 2) # Same thing: arguments in default order
 myVec[seq(2, 6, 2)]
 ```
 
+
+since a scalar is a vector of length 1, does this work?
 ```{r eval=FALSE}
-# since a scalar is a vector of length 1, does this work?
 5[1]
 ```
 
+Using an index vector with positive indices the elements of index vectors must be valid indices of the target vector. The index vector can be of any length.
 ```{r}
-# ...using an index vector with positive indices
-a <- c(1, 3, 4, 1) # the elements of index vectors must be
-                   # valid indices of the target vector.
-                   # The index vector can be of any length.
+
+a <- c(1, 3, 4, 1) 
 myVec[a] # In this case, four elements are retrieved from f[]
 ```
  
@@ -286,22 +329,23 @@ Negative indices omit elements:
 ```
 
 ```{r}
+( a <- -(1:4) ) 
 myVec[a] # Here, the first four elements are omitted from myVec[]
  
 myVec[-((length(myVec)-3):length(myVec))] # Here, the last four elements are omitted
 ```
 
 ## Subsetting by boolean vectors
+A logical expression operating on the target vector returns a vector of logical elements. It has the same length as the target vector.
 
 ```{r}
-myVec > 4         # A logical expression operating on the target vector
-                  # returns a vector of logical elements. It has the
-                  # same length as the target vector.
-myVec[myVec > 4]; # We can use this logical vector to extract only
-                  # elements for which the logical expression evaluates as TRUE.
-                  # This is also called "filtering".
+myVec > 4         
 ```
 
+We can use this logical vector to extract only elements for which the logical expression evaluates as TRUE. This is also called "filtering".
+```{r}
+myVec[myVec > 4];  
+```
 **Note**: the logical vector is aligned with the elements of the original vector. You can't retrieve elements more than once, as you could with index vectors. If the logical vector is shorter than its target it is "recycled" to the full length.
 
 ```{r}
@@ -336,29 +380,29 @@ For example, the summary() function returns some basic statistics of a vector:
 summary(myVec)
 ```
 
+This is a vector of six numbers:
 ```{r}
-# This is a vector of six numbers:
 length(summary(myVec))
 ```
 
+We can extract e.g. the median like so:
 ```{r}
-# We can extract e.g. the median like so:
 summary(myVec)[3]
 ```
 
+... or the boundaries of the interquartile range:
 ```{r}
-# ... or the boundaries of the interquartile range:
 summary(myVec)[c(2, 5)]
 ```
- 
+
+Note that the elements that summary() returns are "named".
+"Names" are attributes. 
 ```{r}
-# Note that the elements that summary() returns are "named".
-# "Names" are attributes.
 objectInfo(summary(f))
 ```
 
+The names() function can retrieve (or set) names:
 ```{r}
-# The names() function can retrieve (or set) names:
 names(summary(myVec))
 ```
  
@@ -373,15 +417,23 @@ Extending vectors:
 ```{r}
 ( x <- 1:3 )
 length(x)
+```
+
+```{r}
 x[4] <- 4; x
 length(x)
+```
+You can add to any index you would like.  R will fill the intermediary spots with NA
+```{r}
 x[7] <- 7; x
-length(x)
-( x <- x[-(5:6)] )
 length(x)
 ```
 
- 
+```{r}
+( x <- x[-(5:6)] )
+length(x)
+``` 
+
 **Example** : extending the Fibonacci series for three steps.
 ```{r}
 ( myVec <- c(myVec, myVec[length(myVec)-1] + myVec[length(myVec)]) )
@@ -390,38 +442,54 @@ length(x)
 ```
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - vectors
 
 ```{block, type="rmd-task"}
-Think: How does this work? What numbers are we adding here and why does the result end up in the vector?
+Think: How does this work? 
+What numbers are we adding here and why does the result end up in the vector?
 ```
 
  
 ## Vectorized operations
 Many operations on vectors are by default performed for every element of the vector, and **R** computes them **very** efficiently. These are called "vectorized" operations and definitely should be used whenever possible, rather than loops or other explicit iterations.
- 
+
+For example:
+
 ```{r}
 myVec
 myVec + 1
-myVec * 2
+```
+
+```{r}
 log(myVec)
 ```
 
-
+```{r}
+myVec * 2
+```
  
 ## computing with two vectors of same length
 
+the Fibonacci numbers you have defined above
 ```{r}
-myVec  # the Fibonacci numbers you have defined above
-( a <- myVec[-1] )  # like myVec, but omitting the first element
-( b <- myVec[1:(length(myVec)-1)] ) # like f, but shortened by the last element
-c <- a / b # the "golden ratio", phi (~1.61803 or (1+sqrt(5))/2 ),
-           # an irrational number, is approximated by the ratio of
-           # two consecutive Fibonacci numbers.
+myVec 
+```
 
-c
+like myVec, but omitting the first element
+```{r}
+( a <- myVec[-1] )
+```
+
+like f, but shortened by the last element
+```{r}
+( b <- myVec[1:(length(myVec)-1)] )
+```
+the "golden ratio", phi (~1.61803 or (1+sqrt(5))/2 ),an irrational number, is approximated by the ratio of two consecutive Fibonacci numbers.
+```{r}
+c <- a / b
 abs(c - ((1+sqrt(5))/2)) # Calculating the error of the approximation, element by element
 ```
+
 
 ```{block, type="rmd-troubleshooting"}
 When a number is not a single number:
@@ -436,6 +504,7 @@ x <- 6; sample(6:x)  # Oi!
 x <- 6:8; seq(x)
 x <- 6:7; seq(x)
 x <- 6:6; seq(x)    # Oi vay!
+
 Wherever this misbehaviour is a possibility - i.e. when the number of elements to sample from is variable and could be just one, for example in some simulation code - you can write a replacement function like so...
 safeSample <- function(x, size, ...) {
 	# Replace the sample() function to ensure sampling from a single
@@ -454,13 +523,14 @@ Don't be discouraged though: such warts are rare in R.
  
 ## Matrices and higher-dimensional objects
 
-If we need to operate with several vectors, or multi-dimensional data, we make use of matrices or more generally k-dimensional arrays R. Matrix operations are very similar to vector operations, in fact a matrix actually is a vector for which the number of rows and columns have been defined. Thus matrices inherit the basic limitation of vectors: all elements have to be of the same type.
+If we need to operate with several vectors, or multi-dimensional data, we make use of matrices or more generally k-dimensional arrays. Matrix operations are very similar to vector operations, in fact a matrix actually is a vector for which the number of rows and columns have been defined. Thus matrices inherit the basic limitation of vectors: all elements have to be of the same type.
 
 The most basic way to define matrix rows and columns is to use the dim() function and specify the size of each dimension. Consider:
 
 ```{r}
 ( a <- 1:12 )
 ```
+
 ```{r}
 dim(a) <- c(2,6)
 a
@@ -488,12 +558,15 @@ As an alternative to dim(), matrices can be defined using the matrix() or array(
 ```{r}
 ( a  <- 1:4 )
 ```
+
 ```{r}
 ( b  <- 5:8 )
 ```
+
 ```{r}
 ( m1 <- rbind(a, b) )
 ```
+
 ```{r}
 ( m2 <- cbind(a, b) )
 ```
@@ -506,7 +579,7 @@ As an alternative to dim(), matrices can be defined using the matrix() or array(
 "Subsetting" (retrieving) individual elements or slices from matrices is simply done by specifying the appropriate indices, where a missing index indicates that the entire row or column is to be retrieved.
 
 `r task_counter <- task_counter + 1`
-## Task `r task_counter`
+## Task `r task_counter` - matrices
 
 ```{block, type="rmd-task"}
 Explore how you extract rows or columns from a matrix by specifying them. Within the square brackets the order is [<rows>, <columns<]
