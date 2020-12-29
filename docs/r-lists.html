@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 R &quot;Lists&quot; | BCB420 - Computational System Biology</title>
+  <title>Chapter 9 Lists | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 R &quot;Lists&quot; | BCB420 - Computational System Biology" />
+  <meta property="og:title" content="Chapter 9 Lists | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bcb420-2021/R_basics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 R &quot;Lists&quot; | BCB420 - Computational System Biology" />
+  <meta name="twitter:title" content="Chapter 9 Lists | BCB420 - Computational System Biology" />
   
   <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   
@@ -279,7 +279,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>8.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> R &quot;Lists&quot;</a><ul>
+<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> Lists</a><ul>
 <li class="chapter" data-level="9.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
 <li class="chapter" data-level="9.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
@@ -463,7 +463,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="r-lists" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> R &quot;Lists&quot;</h1>
+<h1><span class="header-section-number">Chapter 9</span> Lists</h1>
 <p>(R Lists)</p>
 <div id="overview" class="section level2">
 <h2><span class="header-section-number">9.1</span> Overview</h2>
@@ -547,7 +547,7 @@ Load the R-Exercise_BasicSetup project in RStudio if you don't already have it o
 <pre><code>## [1] &quot;ColE1&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pUC19<span class="op">$</span>BanI[<span class="dv">2</span>]</code></pre></div>
 <pre><code>## [1] 408</code></pre>
-<p><strong>Note</strong> that in we stored multiple restriction enzymes in one string, separated by commas, in our data frame example. While we can take such strings apart again, by using the strsplit() function, the string itself still has to be one single element in the data frame's column. Lists have no such restriction. In our example above, we assigned a vector of restriction site positions to the element &quot;BanI&quot;.</p>
+<p><strong>Note</strong> that if we stored multiple restriction enzymes in one string, separated by commas, in our data frame example. While we can take such strings apart again, by using the strsplit() function, the string itself still has to be one single element in the data frame's column. Lists have no such restriction. In our example above, we assigned a vector of restriction site positions to the element &quot;BanI&quot;.</p>
 <p>You can easily imagine that we could now create a list of lists, and that list of lists could hold an entire plasmid database in a most versatile way. Let's do this!</p>
 </div>
 <div id="task-19" class="section level2">
@@ -608,10 +608,20 @@ Then: retrieve the entire pACYC184 list
 </li>
 <li>
 <p>
-Retrieve all sizes from the list. Use unlist() to flatten the result. Then use min() to find the size of the smallest one. <a href="http://steipe.biochemistry.utoronto.ca/abc/index.php/RPR-Objects-Lists">see solution here</a>
+Retrieve all sizes from the list. Use unlist() to flatten the result. Then use min() to find the size of the smallest one. <a href="r-lists.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>
 </p>
 </li>
 </ul>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1">
+<p>
+Lost? <a href="./solution_lists_task.R">Solutions</a> here (but don't peek).<a href="r-install.html#fnref1">↩</a>
+</p>
+</li>
+</ol>
+</div>
 </div>
 <p>Whereas data frames allow you to get all data from a column directly, this is not possible for lists. You need a function that iterates over all list elements instead. Such a function is lapply(), one of several &quot;apply&quot; functions. For example, to get all &quot;ori&quot; elements, try:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plasmidDB &lt;-<span class="st"> </span><span class="kw">list</span>()
@@ -677,6 +687,12 @@ plasmidDB[[<span class="st">&quot;pUC19&quot;</span>]] &lt;-<span class="st"> </
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>and when you click on the arrow to the left, this will take you back to where you came from<a href="r-install.html#fnref1">↩</a></p></li>
+</ol>
 </div>
             </section>
 

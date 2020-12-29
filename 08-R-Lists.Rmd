@@ -1,4 +1,4 @@
-# R "Lists" {#r-lists}
+# Lists {#r-lists}
 (R Lists)
 
 ## Overview
@@ -71,10 +71,7 @@ pUC19$ori
 pUC19$BanI[2]
 ```
 
-
-
-
-**Note** that in we stored multiple restriction enzymes in one string, separated by commas, in our data frame example. While we can take such strings apart again, by using the strsplit() function, the string itself still has to be one single element in the data frame's column. Lists have no such restriction. In our example above, we assigned a vector of restriction site positions to the element "BanI".
+**Note** that if we stored multiple restriction enzymes in one string, separated by commas, in our data frame example. While we can take such strings apart again, by using the strsplit() function, the string itself still has to be one single element in the data frame's column. Lists have no such restriction. In our example above, we assigned a vector of restriction site positions to the element "BanI".
 
 You can easily imagine that we could now create a list of lists, and that list of lists could hold an entire plasmid database in a most versatile way. Let's do this!
 
@@ -101,9 +98,12 @@ You can easily imagine that we could now create a list of lists, and that list o
       * ori: ColE1
 
   * Then: retrieve the entire pACYC184 list
-  * Retrieve all sizes from the list. Use unlist() to flatten the result. Then use min() to find the size of the smallest one. [see solution here](http://steipe.biochemistry.utoronto.ca/abc/index.php/RPR-Objects-Lists)
+  * Retrieve all sizes from the list. Use unlist() to flatten the result. Then use min() to find the size of the smallest one. ^[Lost? [Solutions](./solution_lists_task.R) here (but don't peek).
+]
 
 ```
+
+
 
 Whereas data frames allow you to get all data from a column directly, this is not possible for lists. You need a function that iterates over all list elements instead. Such a function is lapply(), one of several "apply" functions. For example, to get all "ori" elements, try:
 

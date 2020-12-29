@@ -279,7 +279,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>8.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> R &quot;Lists&quot;</a><ul>
+<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> Lists</a><ul>
 <li class="chapter" data-level="9.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
 <li class="chapter" data-level="9.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
@@ -629,7 +629,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 ##     return(x * phi)
 ##   }
 ## }
-## &lt;bytecode: 0x7ff95efa5bc0&gt;</code></pre>
+## &lt;bytecode: 0x7f831a932b70&gt;</code></pre>
 <p>But that strictly only works for functions which have been written in basic R code.</p>
 </div>
 <div id="s3-methods" class="section level3">
@@ -638,7 +638,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seq</code></pre></div>
 <pre><code>## function (...) 
 ## UseMethod(&quot;seq&quot;)
-## &lt;bytecode: 0x7ff962103a88&gt;
+## &lt;bytecode: 0x7f831eac8a88&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">methods</span>(seq)</code></pre></div>
 <pre><code>## [1] seq.Date    seq.default seq.POSIXt 
@@ -803,7 +803,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 ##     }
 ##     else stop(&quot;too many arguments&quot;)
 ## }
-## &lt;bytecode: 0x7ff9621067a8&gt;
+## &lt;bytecode: 0x7f831eac7860&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -813,7 +813,7 @@ Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the argum
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">runif</code></pre></div>
 <pre><code>## function (n, min = 0, max = 1) 
 ## .Call(C_runif, n, min, max)
-## &lt;bytecode: 0x7ff95b8c72c8&gt;
+## &lt;bytecode: 0x7f83169bbda8&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:</p>
 <p>This search finds runif.c (have a look).<a href="https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;rlz=1C5CHFA_enCA740CA742&amp;oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;aqs=chrome..69i57j69i58.3647j0j4&amp;sourceid=chrome&amp;ie=UTF-8">site:https://svn.r-project.org/R/trunk/src runif</a></p>
