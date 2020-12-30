@@ -35,30 +35,37 @@ After working through this unit you:
  
 ## Functions
 
-**R** is considered an (impure) functional programming language and thus the focus of R programs is on functions. The key advantage is that this encourages programming without side-effects and this makes it easier to write error free code and maintain it. Function parameters^[The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.] are instantiated for use inside a function as the function's arguments, and a single result is returned[However a function may have side-effects, such as writing something to console, plotting graphics, saving data to a file, or changing the value of variables outside the function scope. But changing values outside the scope is poor practice, always to be avoided.]. The return values can either be assigned to a variable, or used directly as the argument of another function. This means functions can be nested, and intermediate assignment is not required.
+**R** is considered an (impure) functional programming language and thus the focus of **R** programs is on functions. The key advantage is that this encourages programming without side-effects and this makes it easier to write error free code and maintain it. Function parameters^[The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.] are instantiated for use inside a function as the function's arguments, and a single result is returned[However a function may have side-effects, such as writing something to console, plotting graphics, saving data to a file, or changing the value of variables outside the function scope. But changing values outside the scope is poor practice, always to be avoided.]. The return values can either be assigned to a variable, or used directly as the argument of another function. This means functions can be nested, and intermediate assignment is not required.
 
 Functions are either built-in (i.e. available in the basic **R** installation), loaded via specific packages, or they can be easily defined by you (see below). In general a function is invoked through its name, followed by one or more arguments in parentheses, separated by commas. Whenever I refer to a function, I write the parentheses to identify it as such and not a constant or other keyword eg. log(). Here are some examples for you to try and play with:
 
 ```{r}
 cos(pi) #"pi" is a predefined constant.
 ```
+
+Note the rounding error. This number is not really different from zero.
 ```{r}
-sin(pi) # Note the rounding error. This number is not really different from zero.
+sin(pi)
 ```
+Trigonometric functions use radians as their argument - this conversion calculates sin(30 degrees).
 ```{r}
-sin(30 * pi/180) # Trigonometric functions use radians as their argument - this conversion calculates sin(30 degrees)
+sin(30 * pi/180) 
 ```
+"e" is not predefined, but easy to calculate.
 ```{r}
-exp(1) # "e" is not predefined, but easy to calculate.
+exp(1)  
 ```
+functions can be arguments to functions - nested functions are evaluated from the inside out.
 ```{r}
-log(exp(1)) # functions can be arguments to functions - nested functions are evaluated from the inside out.
+log(exp(1)) #
 ```
+log() calculates natural logarithms; convert to any base by dividing by the log of the base. Here: log to base 10.
 ```{r}
-log(10000) / log(10) # log() calculates natural logarithms; convert to any base by dividing by the log of the base. Here: log to base 10.
+log(10000) / log(10) 
 ```
+Euler's identity
 ```{r}
-exp(complex(r=0, i=pi)) #Euler's identity
+exp(complex(r=0, i=pi)) 
 ```
 
 There are several ways to populate the argument list for a function and **R** makes a reasonable guess what you want to do. Arguments can either be used in their predefined order, or assigned via an argument name. Let's look at the complex() function to illustrate this. Consider the specification of a complex number in Euler's identity above. The function complex() can work with a number of arguments that are explained in the documentation (see: ?complex). Its signature includes length.out, real, imaginary, and some more.
@@ -72,40 +79,52 @@ The length.out argument creates a vector with one or more complex numbers. If no
 
 Consider the following to illustrate this:
 ```{r}
-complex(1)    # parameter is in the first slot -> length.out
+complex(1)  
 ```
 
+parameter is in the first slot -> length.out
 ```{r}
 complex(4)
 ```
+imaginary part missing
 ```{r}
-complex(1, 2) # imaginary part missing
-```
-```{r}
-complex(1, 2, 3) # one complex number with real and imaginary parts defined
-```
-```{r}
-complex(4, 2, 3) # four complex numbers
+complex(1, 2) 
 ```
 
+one complex number with real and imaginary parts defined
 ```{r}
-complex(real = 0, imaginary = pi) # defining values via named parameters
+complex(1, 2, 3)  
 ```
+
+four complex numbers
 ```{r}
-complex(imaginary = pi, real = 0) # same thing - if names are used, order is not important
+complex(4, 2, 3) 
 ```
+
+defining values via named parameters
 ```{r}
-complex(re = 0, im = pi) # names can be abbreviated ...
+complex(real = 0, imaginary = pi)  
 ```
+same thing - if names are used, order is not important
 ```{r}
-complex(r = 0, i = pi)   # ... to the shortest string that is unique among the named parameters,
-                         # but this is _poor_ practice, strongly advises against.
+complex(imaginary = pi, real = 0)  
 ```
+names can be abbreviated ...
 ```{r}
-complex(i = pi, 1, 0) # Think: what have I done here? Why does this work?
+complex(re = 0, im = pi) 
 ```
+... to the shortest string that is unique among the named parameters, but this is _poor_ practice, strongly advises against.
 ```{r}
-exp(complex(i = pi, 1, 0)) # (The complex number above is the same as in Euler's identity.)
+complex(r = 0, i = pi)  
+```
+Think: what have I done here? Why does this work?
+```{r}
+complex(i = pi, 1, 0) 
+```
+
+# (The complex number above is the same as in Euler's identity.)
+```{r}
+exp(complex(i = pi, 1, 0)) 
 ```
 
 `r task_counter <- task_counter + 1`
@@ -235,9 +254,9 @@ This search finds runif.c (have a look).[site:https://svn.r-project.org/R/trunk/
  
 ## Writing your own functions
 
-**R** is a "functional programming language" and working with **R** will involve writing your own functions. This is easy and gives you access to flexible, powerful and reusable solutions. You have to understand the "anatomy" of an R function however.
+**R** is a "functional programming language" and working with **R** will involve writing your own functions. This is easy and gives you access to flexible, powerful and reusable solutions. You have to understand the "anatomy" of an **R** function however.
 
-Functions are assigned to function names. They are treated like any other R object and you can have vectors of functions, and functions that return functions etc.
+Functions are assigned to function names. They are treated like any other **R** object and you can have vectors of functions, and functions that return functions etc.
 Data gets into the function via the function's parameters.
 
 Data is returned from a function via the return() statement[Actually the return() statement is optional, if missing, the result of the last expression is returned. You will find this frequently in other people's code, somthing to be aware of. However, you'll surely understand that it is really poor practice to omit return(), it makes the code harder to read and can give rise to misunderstandings. Never use implicit behaviour where you can be explicit instead]. One and only one object is returned. However the object can be a list, and thus contain values of arbitrary complexity. This is called the "value" of the function. 

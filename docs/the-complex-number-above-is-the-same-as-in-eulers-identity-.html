@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>BCB420 - Computational System Biology</title>
+  <title>Chapter 13 (The complex number above is the same as in Euler's identity.) | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="BCB420 - Computational System Biology" />
+  <meta property="og:title" content="Chapter 13 (The complex number above is the same as in Euler's identity.) | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bcb420-2021/R_basics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="BCB420 - Computational System Biology" />
+  <meta name="twitter:title" content="Chapter 13 (The complex number above is the same as in Euler's identity.) | BCB420 - Computational System Biology" />
   
   <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="r-install.html"/>
+<link rel="prev" href="r-functions.html"/>
+<link rel="next" href="r-plots.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -463,32 +463,413 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">BCB420 - Computational System Biology</h1>
-<h2 class="subtitle"><em>R - Basics</em></h2>
-<p class="author"><em>Main author: Boris Steipe; Modified: Ruth Isserlin</em></p>
-<p class="date"><em>last modified 2020-12-30</em></p>
+<div id="the-complex-number-above-is-the-same-as-in-eulers-identity." class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> (The complex number above is the same as in Euler's identity.)</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">complex</span>(<span class="dt">i =</span> pi, <span class="dv">1</span>, <span class="dv">0</span>)) </code></pre></div>
+<pre><code>## [1] -1+0i</code></pre>
+<div id="task-24" class="section level2">
+<h2><span class="header-section-number">13.1</span> Task 24</h2>
+<div class="rmd-task">
+<p>
+A frequently used function is seq().
+</p>
+<ol style="list-style-type: decimal">
+<li>
+Read the help page about seq()
+</li>
+<li>
+Use seq() to generate a sequence of integers from -5 to 3. Pass arguments in default order, don't use argument names.
+</li>
+<li>
+Use seq() to generate a sequence of numbers from -2 to 2 in intervals of 1/3. This time, use argument names.
+</li>
+<li>
+Use seq() to generate a sequence of 30 numbers between 1 and 100. Pass the arguments in the following order: length.out, to, from.
+</li>
+</ol>
 </div>
-<div id="about" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> About</h1>
-<p>Original content for this book was created by <a href="http://biochemistry.utoronto.ca/person/boris-steipe/">Boris Steipe</a> from <a href="http://steipe.biochemistry.utoronto.ca/abc/index.php/Computational_Systems_Biology_Main_Page">Boris Steipe BCB420 wiki resources</a> licensed under <img src="images/cc_icon.png" /> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
-<div id="attributions" class="section level2">
-<h2><span class="header-section-number">1.1</span> Attributions:</h2>
-<p>This book was created using The <strong>bookdown</strong> package and can be installed from CRAN or Github:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)
-<span class="co"># or the development version</span>
-<span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></code></pre></div>
-<p>Icons are from the <a href="https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop">“Very Basic. Android L Lollipop” set by Ivan Boyko</a> licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+</div>
+<div id="on-missing-parameters" class="section level2">
+<h2><span class="header-section-number">13.2</span> On missing parameters</h2>
+<p>If a parameter is missing several things can happen. Let's illustrate wih a little function that returns the golden-ratio pair to a number, either the smaller, or the larger one.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio &lt;-<span class="st"> </span><span class="cf">function</span>(x, smaller) {
+  phi &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+  <span class="cf">if</span> (smaller <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    <span class="kw">return</span>(x <span class="op">/</span><span class="st"> </span>phi)
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(x <span class="op">*</span><span class="st"> </span>phi)
+  }
+}</code></pre></div>
+<p>If there's no way to recover, executing the function will throw an error:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>)</code></pre></div>
+<p>Error in goldenRatio(1) : argument &quot;smaller&quot; is missing, with no default</p>
+<p>If the function has a default parameter defined, it is used :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">smaller =</span> <span class="ot">TRUE</span>) {
+  phi &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+  <span class="cf">if</span> (smaller <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    <span class="kw">return</span>(x <span class="op">/</span><span class="st"> </span>phi)
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(x <span class="op">*</span><span class="st"> </span>phi)
+  }
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 0.618034</code></pre>
+<p>Alternatively, the function body can check whether a parameter is missing with the missing() function, and then react accordingly:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio &lt;-<span class="st"> </span><span class="cf">function</span>(x, smaller) {
+  <span class="cf">if</span> (<span class="kw">missing</span>(smaller)) {
+    smaller &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+  }
+  phi &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+  <span class="cf">if</span> (smaller <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {
+    <span class="kw">return</span>(x <span class="op">/</span><span class="st"> </span>phi)
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(x <span class="op">*</span><span class="st"> </span>phi)
+  }
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 0.618034</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">goldenRatio</span>(<span class="dv">1</span>, <span class="dt">smaller =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] 1.618034</code></pre>
+<p>Why is this useful, if you could just define a default? Because the parameter can then be the result of a (complex) computation, based on other parameters.</p>
+</div>
+<div id="reading-functions" class="section level2">
+<h2><span class="header-section-number">13.3</span> Reading functions</h2>
+<div id="basic-r" class="section level3">
+<h3><span class="header-section-number">13.3.1</span> Basic R</h3>
+<p>If the function is a normal R function, like the ones we have defined above, you can read the function code when type its name without parantheses:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">goldenRatio</code></pre></div>
+<pre><code>## function(x, smaller) {
+##   if (missing(smaller)) {
+##     smaller &lt;- TRUE
+##   }
+##   phi &lt;- (1 + sqrt(5)) / 2
+##   if (smaller == TRUE) {
+##     return(x / phi)
+##   } else {
+##     return(x * phi)
+##   }
+## }
+## &lt;bytecode: 0x7fea37115aa0&gt;</code></pre>
+<p>But that strictly only works for functions which have been written in basic R code.</p>
+</div>
+<div id="s3-methods" class="section level3">
+<h3><span class="header-section-number">13.3.2</span> S3 methods</h3>
+<p>You might also get a line saying UseMethod(<function name>). Then you are looking at a &quot;method&quot; from R's S3 object oriented system - such a function is also called a &quot;generic&quot;, because it dispatches to more specific code, depending on the type of the parameter it is being given. Use methods() to see which specific methods are defined, and then use getAnywhere(&lt;function.class&gt;) to get the code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seq</code></pre></div>
+<pre><code>## function (...) 
+## UseMethod(&quot;seq&quot;)
+## &lt;bytecode: 0x7fea2bea0e88&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">methods</span>(seq)</code></pre></div>
+<pre><code>## [1] seq.Date    seq.default seq.POSIXt 
+## see &#39;?methods&#39; for accessing help and source code</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getAnywhere</span>(seq.default)</code></pre></div>
+<pre><code>## A single object matching &#39;seq.default&#39; was found
+## It was found in the following places
+##   package:base
+##   registered S3 method for seq from namespace base
+##   namespace:base
+## with value
+## 
+## function (from = 1, to = 1, by = ((to - from)/(length.out - 1)), 
+##     length.out = NULL, along.with = NULL, ...) 
+## {
+##     is.logint &lt;- function(.) (is.integer(.) || is.logical(.)) &amp;&amp; 
+##         !is.object(.)
+##     if ((One &lt;- nargs() == 1L) &amp;&amp; !missing(from)) {
+##         lf &lt;- length(from)
+##         return(if (mode(from) == &quot;numeric&quot; &amp;&amp; lf == 1L) {
+##             if (!is.finite(from)) stop(&quot;&#39;from&#39; must be a finite number&quot;)
+##             1L:from
+##         } else if (lf) 1L:lf else integer())
+##     }
+##     if (!missing(along.with)) {
+##         length.out &lt;- length(along.with)
+##         if (One) 
+##             return(if (length.out) seq_len(length.out) else integer())
+##         intn1 &lt;- is.integer(length.out)
+##     }
+##     else if (!missing(length.out)) {
+##         len &lt;- length(length.out)
+##         if (!len) 
+##             stop(&quot;argument &#39;length.out&#39; must be of length 1&quot;)
+##         if (len &gt; 1L) {
+##             warning(&quot;first element used of &#39;length.out&#39; argument&quot;)
+##             length.out &lt;- length.out[1L]
+##         }
+##         if (!(intn1 &lt;- is.logint(length.out))) 
+##             length.out &lt;- as.numeric(ceiling(length.out))
+##     }
+##     chkDots(...)
+##     if (!missing(from) &amp;&amp; length(from) != 1L) 
+##         stop(&quot;&#39;from&#39; must be of length 1&quot;)
+##     if (!missing(to) &amp;&amp; length(to) != 1L) 
+##         stop(&quot;&#39;to&#39; must be of length 1&quot;)
+##     if (!missing(from) &amp;&amp; !is.finite(if (is.character(from)) from &lt;- as.numeric(from) else from)) 
+##         stop(&quot;&#39;from&#39; must be a finite number&quot;)
+##     if (!missing(to) &amp;&amp; !is.finite(if (is.character(to)) to &lt;- as.numeric(to) else to)) 
+##         stop(&quot;&#39;to&#39; must be a finite number&quot;)
+##     if (is.null(length.out)) 
+##         if (missing(by)) 
+##             from:to
+##         else {
+##             int &lt;- is.logint(from) &amp;&amp; is.logint(to)
+##             del &lt;- to - if (int) 
+##                 as.double(from)
+##             else from
+##             if (del == 0 &amp;&amp; to == 0) 
+##                 return(to)
+##             if (length(by) != 1L) 
+##                 stop(&quot;&#39;by&#39; must be of length 1&quot;)
+##             if (!is.logint(by)) 
+##                 int &lt;- FALSE
+##             else if (!int) 
+##                 storage.mode(by) &lt;- &quot;double&quot;
+##             n &lt;- del/by
+##             if (!is.finite(n)) {
+##                 if (!is.na(by) &amp;&amp; by == 0 &amp;&amp; del == 0) 
+##                   return(from)
+##                 stop(&quot;invalid &#39;(to - from)/by&#39;&quot;)
+##             }
+##             if (n &lt; 0L) 
+##                 stop(&quot;wrong sign in &#39;by&#39; argument&quot;)
+##             if (n &gt; .Machine$integer.max) 
+##                 stop(&quot;&#39;by&#39; argument is much too small&quot;)
+##             dd &lt;- abs(del)/max(abs(to), abs(from))
+##             if (dd &lt; 100 * .Machine$double.eps) 
+##                 return(from)
+##             if (int) {
+##                 n &lt;- as.integer(n)
+##                 if (n &gt;= 2L) 
+##                   cumsum(rep.int(c(from, by), c(1L, n)))
+##                 else from + (0L:n) * by
+##             }
+##             else {
+##                 n &lt;- as.integer(n + 1e-10)
+##                 x &lt;- from + (0L:n) * by
+##                 if (by &gt; 0) 
+##                   pmin(x, to)
+##                 else pmax(x, to)
+##             }
+##         }
+##     else if (!is.finite(length.out) || length.out &lt; 0L) 
+##         stop(&quot;&#39;length.out&#39; must be a non-negative number&quot;)
+##     else if (length.out == 0L) 
+##         integer()
+##     else if (One) 
+##         seq_len(length.out)
+##     else if (missing(by)) {
+##         if (missing(to)) {
+##             to &lt;- from + (length.out - 1)
+##             intdel &lt;- intn1 &amp;&amp; is.logint(from) &amp;&amp; to &lt;= .Machine$integer.max
+##             if (intdel) 
+##                 storage.mode(to) &lt;- &quot;integer&quot;
+##         }
+##         else intdel &lt;- is.logint(to)
+##         if (missing(from)) {
+##             from &lt;- to - (length.out - 1)
+##             if (intdel) {
+##                 intdel &lt;- intn1 &amp;&amp; from &gt;= -.Machine$integer.max
+##                 if (intdel) 
+##                   storage.mode(from) &lt;- &quot;integer&quot;
+##             }
+##         }
+##         else if (intdel) 
+##             intdel &lt;- is.logint(from)
+##         if (length.out &gt; 2L) 
+##             if (from == to) 
+##                 rep.int(from, length.out)
+##             else {
+##                 n1 &lt;- length.out - 1L
+##                 if (intdel &amp;&amp; intn1 &amp;&amp; from%%n1 == to%%n1) {
+##                   by &lt;- to%/%n1 - from%/%n1
+##                   cumsum(rep.int(c(from, by), c(1L, n1)))
+##                 }
+##                 else {
+##                   if (intdel) 
+##                     storage.mode(from) &lt;- &quot;double&quot;
+##                   by &lt;- (to - from)/n1
+##                   as.vector(c(from, from + seq_len(length.out - 
+##                     2L) * by, to))
+##                 }
+##             }
+##         else as.vector(c(from, to))[seq_len(length.out)]
+##     }
+##     else if (missing(to)) {
+##         int &lt;- (intby &lt;- is.logint(by)) &amp;&amp; is.logint(from) &amp;&amp; 
+##             (!(nby &lt;- length(by)) || (naby &lt;- is.na(by)) || ((to &lt;- from + 
+##                 (length.out - 1) * by) &lt;= .Machine$integer.max &amp;&amp; 
+##                 to &gt;= -.Machine$integer.max))
+##         if (int &amp;&amp; length.out &gt; 2L &amp;&amp; nby == 1L &amp;&amp; !naby) 
+##             cumsum(rep.int(c(from, by), c(1L, length.out - 1L)))
+##         else {
+##             if (intby &amp;&amp; !(int || is.object(from))) 
+##                 storage.mode(by) &lt;- &quot;double&quot;
+##             from + (0L:(length.out - 1L)) * by
+##         }
+##     }
+##     else if (missing(from)) {
+##         int &lt;- (intby &lt;- is.logint(by)) &amp;&amp; is.logint(to) &amp;&amp; (!(nby &lt;- length(by)) || 
+##             (naby &lt;- is.na(by)) || ((from &lt;- to - (length.out - 
+##             1) * by) &gt;= -.Machine$integer.max &amp;&amp; from &lt;= .Machine$integer.max))
+##         if (int &amp;&amp; length.out &gt; 2L &amp;&amp; nby == 1L &amp;&amp; !naby) 
+##             cumsum(rep.int(c(as.integer(from), by), c(1L, length.out - 
+##                 1L)))
+##         else {
+##             if (intby &amp;&amp; !(int || is.object(to))) 
+##                 storage.mode(by) &lt;- &quot;double&quot;
+##             to - ((length.out - 1L):0L) * by
+##         }
+##     }
+##     else stop(&quot;too many arguments&quot;)
+## }
+## &lt;bytecode: 0x7fea2be9ffe0&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+</div>
+</div>
+<div id="primitives" class="section level2">
+<h2><span class="header-section-number">13.4</span> Primitives</h2>
+<p>You might also get a line saying .Call(C_<function name> <arguments>). Then you are looking at a primitive - a function that has been compiled in the C programming language, for efficiency.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">runif</code></pre></div>
+<pre><code>## function (n, min = 0, max = 1) 
+## .Call(C_runif, n, min, max)
+## &lt;bytecode: 0x7fea3009e590&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<p>To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:</p>
+<p>This search finds runif.c (have a look).<a href="https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;rlz=1C5CHFA_enCA740CA742&amp;oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;aqs=chrome..69i57j69i58.3647j0j4&amp;sourceid=chrome&amp;ie=UTF-8">site:https://svn.r-project.org/R/trunk/src runif</a></p>
+</div>
+<div id="writing-your-own-functions" class="section level2">
+<h2><span class="header-section-number">13.5</span> Writing your own functions</h2>
+<p><strong>R</strong> is a &quot;functional programming language&quot; and working with <strong>R</strong> will involve writing your own functions. This is easy and gives you access to flexible, powerful and reusable solutions. You have to understand the &quot;anatomy&quot; of an <strong>R</strong> function however.</p>
+<p>Functions are assigned to function names. They are treated like any other <strong>R</strong> object and you can have vectors of functions, and functions that return functions etc. Data gets into the function via the function's parameters.</p>
+<p>Data is returned from a function via the return() statement[Actually the return() statement is optional, if missing, the result of the last expression is returned. You will find this frequently in other people's code, somthing to be aware of. However, you'll surely understand that it is really poor practice to omit return(), it makes the code harder to read and can give rise to misunderstandings. Never use implicit behaviour where you can be explicit instead]. One and only one object is returned. However the object can be a list, and thus contain values of arbitrary complexity. This is called the &quot;value&quot; of the function. Well-written functions have no side-effects like changing global variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the function definition pattern:</span>
+ 
+<span class="op">&lt;</span>myName<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> </span><span class="cf">function</span>(<span class="op">&lt;</span>myArguments<span class="op">&gt;</span>) {
+  <span class="co"># &lt;documentation!&gt;</span>
+    result &lt;-<span class="st"> </span><span class="er">&lt;</span>do something with the parameters<span class="op">&gt;</span>
+<span class="st">    </span><span class="kw">return</span>(result)
+}</code></pre></div>
+<p>In this pattern, the function is assigned to the name - any valid name in <strong>R</strong>. Once it is assigned, it the function can be invoked with myName(). The parameter list (the values we write into the parentheses following the function name) can be empty, or hold a list of variable names. If variable names are present, you need to enter the corresponding parameters when you execute the function. These assigned variables are available inside the function, and can be used for computations. This is called &quot;passing variables into the function&quot;.</p>
+</div>
+<div id="task-25" class="section level2">
+<h2><span class="header-section-number">13.6</span> Task 25</h2>
+<div class="rmd-task">
+<p>
+This exercise is similar to the while loop exercise. The only difference is to put the code into a function. Write a function countDown() so that you can start the countdown call from any number. For example calling countDown(5) should give:
+</p>
+<p>
+[1] &quot;5&quot; &quot;4&quot; &quot;3&quot; &quot;2&quot; &quot;1&quot; &quot;0&quot; &quot;Lift Off!&quot;
+</p>
+</div>
+<p>Answer<a href="r-intro.html#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a></p>
+<p>The scope of functions is local: this means all variables within a function are lost upon return, and global variables are not overwritten by a definition within a function. However variables that are defined outside the function are also available inside.</p>
+<p>We can use loops and control structures inside functions. For example the following creates a vector containing n Fibonacci numbers.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fibSeq &lt;-<span class="st"> </span><span class="cf">function</span>(n) {
+   <span class="cf">if</span> (n <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) { <span class="kw">return</span>( <span class="dv">0</span> ) }
+   <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) { <span class="kw">return</span>( <span class="dv">1</span> ) }
+   <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) { <span class="kw">return</span>( <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>) ) }
+   <span class="cf">else</span> {
+      v &lt;-<span class="st"> </span><span class="kw">numeric</span>(n)
+      v[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">1</span>
+      v[<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">1</span>
+      <span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">3</span><span class="op">:</span>n ) {
+         v[n] &lt;-<span class="st"> </span>v[n<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span><span class="st"> </span>v[n<span class="op">-</span><span class="dv">1</span>]
+      }
+      <span class="kw">return</span>( v )
+   }
+}</code></pre></div>
+<p>Here is another example to play with: a function that calculates how old you are. In days. This is neat - you can celebrate your 10,000 birthday - or so.</p>
+</div>
+<div id="task-26" class="section level2">
+<h2><span class="header-section-number">13.7</span> Task 26</h2>
+<div class="rmd-task">
+<p>
+Copy, explore and run the below code
+</p>
+</div>
+<p>Define the function ...</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A lifedays calculator function</span>
+ 
+myLifeDays &lt;-<span class="st"> </span><span class="cf">function</span>(birthday) {
+  <span class="cf">if</span> (<span class="kw">missing</span>(birthday)) {
+    <span class="kw">print</span> (<span class="st">&quot;Enter your birthday as a string in </span><span class="ch">\&quot;</span><span class="st">YYYY-MM-DD</span><span class="ch">\&quot;</span><span class="st"> format.&quot;</span>)
+    <span class="kw">return</span>()
+  }
+  bd &lt;-<span class="st"> </span><span class="kw">strptime</span>(birthday, <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert string to time</span>
+  now &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">Sys.time</span>(), <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert &quot;now&quot; to time</span>
+  diff &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">as.numeric</span>(<span class="kw">difftime</span>(now, bd, <span class="dt">unit=</span><span class="st">&quot;days&quot;</span>)))
+  <span class="kw">print</span>(<span class="kw">sprintf</span>(<span class="st">&quot;This date was %d days ago.&quot;</span>, diff))
+}</code></pre></div>
+<p>Use the function (example)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">   <span class="kw">myLifeDays</span>(<span class="st">&quot;1932-09-25&quot;</span>)  <span class="co"># Glenn Gould&#39;s birthday</span></code></pre></div>
+<pre><code>## [1] &quot;This date was 32238 days ago.&quot;</code></pre>
+<p>Here is a good opportunity to practice programming: modify this function to accept a second argument. When a second argument is present (e.g. 10000) the function should print the calendar date on which the input date will be the required number of days ago. Then you could use it to know when to celebrate your 10,000th life-day, or your 777th anniversary or whatever.</p>
+</div>
+<div id="self-evaluation" class="section level2">
+<h2><span class="header-section-number">13.8</span> Self-evaluation</h2>
+</div>
+<div id="further-reading-links-and-resources" class="section level2">
+<h2><span class="header-section-number">13.9</span> Further reading, links and resources</h2>
+<p><a href="https://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function">&quot;How can I view the source code for a function?&quot; (On Stack Overflow)</a></p>
+<p><strong>If in doubt, ask!</strong><br> If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
+
+<div class="rmd-original-history">
+<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca">boris.steipe@utoronto.ca</a> <br> <strong>Created</strong>: 2017-08-05<br> <strong>Modified</strong>: 2019-01-07<br> Version: 1.0.1<br> <strong>Version history</strong>:<br> 1.0.1 Maintenance<br> 1.0 Completed to first live version<br> 0.1 Material collected from previous tutorial<br>
+</div>
+
+<div id="updated-revision-history" class="section level3">
+<h3><span class="header-section-number">13.9.1</span> Updated Revision history</h3>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="11%" />
+<col width="9%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Revision</th>
+<th align="left">Author</th>
+<th align="left">Date</th>
+<th align="left">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">5152496</td>
+<td align="left">Ruth Isserlin</td>
+<td align="left">2019-12-25</td>
+<td align="left">Fixed issue with task numbering because of a remove all elements call in the 2nd chapter</td>
+</tr>
+<tr class="even">
+<td align="left">fab47ae</td>
+<td align="left">Ruth Isserlin</td>
+<td align="left">2019-12-24</td>
+<td align="left">initial check in of R basics book</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="footnotes" class="section level3">
+<h3><span class="header-section-number">13.9.2</span> Footnotes:</h3>
 
 </div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="18">
+<li id="fn18"><p>countDown &lt;- function(n) {<br>start &lt;- n<br> countdown &lt;- start<br> txt &lt;- as.character(start)<br> <br> while (countdown &gt; 0) {<br> countdown &lt;- countdown - 1<br> txt &lt;- c(txt, countdown)<br> }<br> txt &lt;- c(txt,&quot;Lift Off!&quot;)<br> return(txt)<br>}<br> <br>countDown(7)<br><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#fnref18">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="r-install.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -523,11 +904,11 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": "https://github.com/bcb420-2020/R_basics/commit/master/index.Rmd",
+"link": "https://github.com/bcb420-2020/R_basics/commit/master/11-R-Functions.Rmd",
 "text": null
 },
 "view": {
-"link": "https://github.com/bcb420-2020/R_basics/blob/master/index.Rmd",
+"link": "https://github.com/bcb420-2020/R_basics/blob/master/11-R-Functions.Rmd",
 "text": null
 },
 "download": ["BCB420_Computational_Systems_Biology_Unit2_R_Basics.epub"],

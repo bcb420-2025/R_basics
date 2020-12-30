@@ -75,62 +75,55 @@ plasmidData[1, ]
 ```{r}
 plasmidData[2, ]
 ```
-
- 
+we can extract more than one row by specifying the rows we want in a vector ...
 ```{r}
-# we can extract more than one row by specifying
-# the rows we want in a vector ...
 plasmidData[c(1, 2), ]
 ```
 
+... this works in any order ...
 ```{r}
-# ... this works in any order ...
 plasmidData[c(3, 1), ]
 ```
+... and for any number of rows ...
 ```{r}
-# ... and for any number of rows ...
 plasmidData[c(1, 2, 1, 2, 1, 2), ]
 ```
+Same for columns
 ```{r}
-# Same for columns
 plasmidData[ , 2 ]
 ```
  
- 
+ We can select rows and columns by name if a name has been defined... 
 ```{r}
-# We can select rows and columns by name if a name has been defined...
 plasmidData[, "Name"]
 plasmidData$Name      # different syntax, same thing. This is the syntax I use most frequently.
 ```
 
- 
+Watch this! 
 ```{r}
-# Watch this!
+
 plasmidData$Name[plasmidData$Ori != "ColE1"]
-# What happened here?
-# plasmidData$Ori != "ColE1" is a logical expression, it gives a vector of TRUE/FALSE values
+```
+What happened here?
+plasmidData$Ori != "ColE1" is a logical expression, it gives a vector of TRUE/FALSE values
+```{r}
 plasmidData$Ori != "ColE1"
 ```
 
+We insert this vector into the square brackets. R then returns all rows for which the vector is TRUE. In this way we can "filter" for values
 ```{r}
-# We insert this vector into the square brackets. R then returns all rows for
-# which the vector is TRUE.
- 
-# In this way we can "filter" for values
 plasmidData$Size > 3000
 plasmidData$Name[plasmidData$Size > 3000]
 ```
- 
+
+This principle is what we use when we want to "sort" an object by some value. The function order() is used to return values that are sorted. Remember this: not sort() but order(). 
 ```{r}
-# This principle is what we use when we want to "sort" an object
-# by some value. The function order() is used to return values
-# that are sorted. Remember this: not sort() but order().
 order(plasmidData$Size)
 plasmidData[order(plasmidData$Size), ]
 ```
- 
+
+grep() matches substrings in strings and returns a vector of indices 
 ```{r}
-# grep() matches substrings in strings and returns a vector of indices
 grep("Tet", plasmidData$Marker)
 plasmidData[grep("Tet", plasmidData$Marker), ]
 plasmidData[grep("Tet", plasmidData$Marker), "Ori"]

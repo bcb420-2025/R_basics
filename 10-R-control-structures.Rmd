@@ -29,16 +29,9 @@ After working through this unit you:
 ### Prerequisites 
 [RPR-Subsetting (Subsetting and filtering R objects)](#r-subsetting)
 
-
-```{block type="rmd-caution"}
-This page is tagged for revision; expect changes and proceed with caution.
-``` 
-
 ## Control structures
 
 "Control structures" are parts of the syntax that execute code according to whether some condition is met. Let's look at this with some simple examples:
-
-
  
 ### if and else
 
@@ -73,7 +66,9 @@ if (<conditional expression evaluates to TRUE>) {
     * is.character - is the object of type character
     * is.factor - is the object of type factor
     * is.integer - is the object of type integer
-    * is.null - - is the object null
+    * is.null - is the object null
+    * is.na - is the object NA
+    * is.nan - is the object infinite.
     * is.numeric - is the object of type numeric
     * is.unsorted - is the object sorted
     * is.vector - is the object of type vector
@@ -120,23 +115,26 @@ We need to talk about conditional expressions that test for more than one condit
 x <- c(1, 3, 5, 7, 11, 13, 17)
 x > 3 &  x < 17 # FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE: all comparisons
 x [x > 3 &  x < 17]  #  5  7 11 13
- 
-x > 3 && x < 17 # FALSE: stop at the first FALSE
+```
+
+whereas this stop at the first FALSE
+```{r}
+x > 3 && x < 17 # FALSE:
 ```
 
 The vectorized version is usually what you want, e.g. for subsetting, as above. But it is usually not the right way in control structures: there, you usually want never to evaluate unnecessary expressions. Chained "OR" expressions can be aborted after the first TRUE is encountered, and chained "AND" expressions can be aborted after the first FALSE. Which is what the double operators do.
 
+no error: length test is TRUE so is.na() never gets evaluated
 ```{r}
 x <- numeric()
 
-if (length(x) == 0 || is.na(x)) { print("zero") }  # no error: length test is TRUE so is.na()
-                                                   # never gets evaluated.
+if (length(x) == 0 || is.na(x)) { print("zero") }  # .
 ```
 
+whereas this throws an error, because is.na() is evaluated even though x has length zero.
 ```{r, eval = FALSE}
  
-if (length(x) == 0 |  is.na(x)) { print("zero") }  # throws an error, because is.na() is
-                                                   # evaluated even though x has length zero.
+if (length(x) == 0 |  is.na(x)) { print("zero") }  
 ```
 
 **Bottom line: always use || and && in control structures.**
@@ -220,9 +218,9 @@ Note that there is nothing special about the expression for (i in 1:N) { ... . A
 Loops in **R** can be slow if you are not careful how you write them. The reason is usually related to dynamically managing memory. If you can, you should always pre-define objects of sufficient size to hold your results. Even better, use a vectorized approach.
 
 ### Compare excution times: one million square roots from a vector of random numbers ...
- 
+
+Version 1: Naive for-loop: grow result object as required 
 ```{r}
-# Version 1: Naive for-loop: grow result object as required
 N <- 1000000                 # Set N to a large number
 x <- runif(N)                # get N uniformily distributed random numbers
 y <- numeric()               # create a variable to assign to
@@ -234,9 +232,8 @@ Sys.time() - startTime       # time it took
 rm(x)                        # clean up
 rm(y)
 ```
-
+Version 2: Define result object to be large enough
 ```{r}
-# Version 2: Define result object to be large enough
 N <- 1000000                 # Set N to a large number
 x <- runif(N)                # get N uniformily distributed random numbers
 y <- numeric(N)              # create a variable with N slots
@@ -248,9 +245,8 @@ Sys.time() - startTime       # time it took
 rm(x)                        # clean up
 rm(y)
 ```
- 
+Version 3: vectorized
 ```{r}
-# Version 3: vectorized
 N <- 1000000                 # Set N to a large number
 x <- runif(N)                # get N uniformily distributed random numbers
 startTime <- Sys.time()      # save start time
@@ -272,9 +268,11 @@ Assume we write a loop to iterate over vectors of variable length for example go
 ```{r}
 ( v5 <- seq(exp(1), pi, length.out = 5) )
 ```
+
 ```{r}
 ( v2 <- seq(exp(1), pi, length.out = 2) )
 ```
+
 ```{r}
 ( v1 <- seq(exp(1), pi, length.out = 1) )
 ```
@@ -367,7 +365,7 @@ Now we get the expected behaviour: no output if the vector is empty.
  
 ### loops vs. vectorized expressions
 
-If you can achieve your result with an R vector expression, it will be faster than using a loop. But sometimes you need to do things explicitly, for example if you need to access intermediate results.
+If you can achieve your result with an **R** vector expression, it will be faster than using a loop. But sometimes you need to do things explicitly, for example if you need to access intermediate results.
 
 Here is an example to play some more with loops: a password generator. 
 

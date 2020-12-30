@@ -34,10 +34,10 @@ After working through this unit you:
 ## Task `r task_counter`
 
 ```{block, type="rmd-task"}
-Read the introductory notes on [graphics in R](boris_docs/RPR-Plotting.pdf), and some concepts of graphics for descriptive statistics.
-Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open.
-Type init() as instructed after the project has loaded.
-Work through the plottingIntro.R script.
+  * Read the introductory notes on [graphics in R](boris_docs/RPR-Plotting.pdf), and some concepts of graphics for descriptive statistics.
+  * Load the R-Exercise_BasicSetup project in RStudio if you don't already have it open.
+  * Type init() as instructed after the project has loaded.
+  * Work through the plottingIntro.R script.
 ```
 
 ## Types of plots
@@ -249,7 +249,7 @@ CC <- c("#011640", "#024059", "#F2F0D0", "#BE6C5C", "#8C3037" )
 hist(rnorm(1000), breaks=20 , col=CC)
 ```
 
-R colours are actually specified as quartets: the fourth value the "Alpha channel" defines the transparency. Setting this to values other than "FF" (the default) can be useful for very crowded plots, or for creating overlays.
+**R** colours are actually specified as quartets: the fourth value the "Alpha channel" defines the transparency. Setting this to values other than "FF" (the default) can be useful for very crowded plots, or for creating overlays.
 
 ```{r}
 x <- rnorm(2000)
@@ -314,7 +314,7 @@ barplot(sq, col=heat.colors(n),    axes=F, main="heat.colors(n)")
 par <- opar
 ```
 
-Useful palettes have also been described specifically for cartography. http://colorbrewer2.org/ has palettes for seqential and qualitative diferences, and options for colourblind-safe and photocopy friendly palettes. You can use them via an R package:
+Useful palettes have also been described specifically for cartography. [Colorbrewer2](http://colorbrewer2.org/) has palettes for seqential and qualitative diferences, and options for colourblind-safe and photocopy friendly palettes. You can use them via an **R** package:
 
 ```{r}
 if (!require(RColorBrewer, quietly=TRUE)) {
