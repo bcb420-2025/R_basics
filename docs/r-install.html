@@ -13,7 +13,7 @@
   
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2021/R_basics" />
+  <meta name="github-repo" content="bcb420-2022/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 Installing R and RStudio | BCB420 - Computational System Biology" />
@@ -686,7 +686,7 @@ This prints out the path of the current working directory. Make a (mental) note 
 <li>test modifications to the pipeline without disrupting your current set up.</li>
 <li>Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.</li>
 </ul>
-<p><strong>All assignments for this course are expected to compile and run. We will be using the <a href="https://hub.docker.com/repository/docker/risserlin/bcb420-base-image">bcb420-base-image:winter2021</a> docker image to run all or your submitted notebooks. If your notebook runs with no errors and renders your html notebook you will recieve full marks for compilation. It is recommended that you do all your work and assignments using this docker image.</strong></p>
+<p><strong>All assignments for this course are expected to compile and run. We will be using the <a href="https://hub.docker.com/repository/docker/risserlin/bcb420-base-image">bcb420-base-image:winter2022</a> docker image to run all or your submitted notebooks. If your notebook runs with no errors and renders your html notebook you will recieve full marks for compilation. It is recommended that you do all your work and assignments using this docker image.</strong></p>
 <div id="what-is-docker" class="section level3">
 <h3><span class="header-section-number">2.6.1</span> What is docker?</h3>
 <ul>
@@ -733,7 +733,7 @@ This prints out the path of the current working directory. Make a (mental) note 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">docker run <span class="op">-</span>e PASSWORD=changeit <span class="op">--</span>rm \
   <span class="op">-</span>v <span class="op">/</span>Users<span class="op">/</span>risserlin<span class="op">/</span>bcb420_code<span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>projects \
   <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> \
-  risserlin<span class="op">/</span>bcb420<span class="op">-</span>base<span class="op">-</span>image<span class="op">:</span>winter2021</code></pre></div>
+  risserlin<span class="op">/</span>bcb420<span class="op">-</span>base<span class="op">-</span>image<span class="op">:</span>winter2022</code></pre></div>
 <ul>
 <li>I create a notebook called task3_bcb420.Rmd and save it in /home/rstudio/projects.
 <div class="rmd-caution">
@@ -768,7 +768,7 @@ Follow slightly different instructions for Windows or MacOS/Linux
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">docker run <span class="op">-</span>e PASSWORD=changeit <span class="op">--</span>rm \
   <span class="op">-</span>v <span class="op">$</span>{PWD}<span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>projects <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> \
-  risserlin<span class="op">/</span>bcb420<span class="op">-</span>base<span class="op">-</span>image<span class="op">:</span>winter2021</code></pre></div>
+  risserlin<span class="op">/</span>bcb420<span class="op">-</span>base<span class="op">-</span>image<span class="op">:</span>winter2022</code></pre></div>
 <p align="center">
 <img src="images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
 </p>
@@ -789,7 +789,7 @@ Follow slightly different instructions for Windows or MacOS/Linux
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">docker run <span class="op">-</span>e PASSWORD=changeit <span class="op">--</span>rm \
   <span class="op">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="op">:</span><span class="er">/</span>home<span class="op">/</span>rstudio<span class="op">/</span>projects <span class="op">-</span>p <span class="dv">8787</span><span class="op">:</span><span class="dv">8787</span> \
-  risserlin<span class="op">/</span>bcb420<span class="op">-</span>base<span class="op">-</span>image<span class="op">:</span>winter2021</code></pre></div>
+  risserlin<span class="op">/</span>bcb420<span class="op">-</span>base<span class="op">-</span>image<span class="op">:</span>winter2022</code></pre></div>
 <p align="center">
 <img src="images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
 </p>
