@@ -650,9 +650,11 @@ Packages that can be downloaded  from BioConductor
    * prada:
 ```{r}
 if (!requireNamespace("prada", quietly = TRUE)){
-     install.packages("BiocManager")
+     #install.packages("BiocManager")
+    BiocManager::install("prada",ask = FALSE,
+                         force=TRUE)  
    }
-     BiocManager::install("prada")
+     
 ```
 
 

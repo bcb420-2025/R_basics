@@ -399,6 +399,9 @@ search()
 install.packages("seqinr",repos="https://cran.rstudio.com/")   
 ```
 
+
+
+
   * this will launch a new window with the seqinr package info
 ```{r help_pkg}
 library(help="seqinr") 
@@ -577,9 +580,8 @@ if (! requireNamespace("seqinr", quietly = TRUE)) {
 ```
 
 Why not just use:
-```{r eval=FALSE}
- install.packages("seqinr")
-```
+  install.packages("seqinr")
+
 
 **Answer**:
 This code idiom is useful in scripts, to ensure a package is installed before we try to use its functions. If we would simply use install.packages("seqinr"), the package would be downloaded from CRAN every time the script is run. That would make our script slow, and require available internet access for the script to run.
@@ -619,6 +621,9 @@ Version: 1.1<br>
 ### Updated Revision history
 ```{r echo=FALSE}
 source("./bcb420_books_helper_functions.R")
+if (! requireNamespace("git2r", quietly=TRUE)) {
+  install.packages("git2r")
+}
 knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
 
 ```

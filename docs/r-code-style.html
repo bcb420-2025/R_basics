@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 R Coding Style | BCB420 - Computational System Biology</title>
+  <title>Chapter 13 R Coding Style | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 R Coding Style | BCB420 - Computational System Biology" />
+  <meta property="og:title" content="Chapter 13 R Coding Style | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
-  
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2021/R_basics" />
+  <meta name="github-repo" content="bcb420-2023/R_basics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 R Coding Style | BCB420 - Computational System Biology" />
+  <meta name="twitter:title" content="Chapter 13 R Coding Style | BCB420 - Computational System Biology" />
   
   <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
   
@@ -31,8 +30,9 @@
   
   
 <link rel="prev" href="r-plots.html"/>
-<link rel="next" href="r-intro.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,45 +48,97 @@
 
 
 
-
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -105,342 +157,383 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Unit 2 - R Basics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.2</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#objectives"><i class="fa fa-check"></i><b>1.2.1</b> Objectives:</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#outcomes"><i class="fa fa-check"></i><b>1.2.2</b> Outcomes:</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#deliverables"><i class="fa fa-check"></i><b>1.2.3</b> Deliverables:</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.2.4</b> Prerequisites:</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-install.html"><a href="r-install.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>2.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="2.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>2.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="2.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>2.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="2.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>2.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="2.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>2.1.5</b> Prerequisites:</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#r"><i class="fa fa-check"></i><b>1.3</b> R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#before-you-begin-notation-and-formatting"><i class="fa fa-check"></i><b>1.3.2</b> Before you begin: Notation and Formatting</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#task---example"><i class="fa fa-check"></i><b>1.3.3</b> Task - example</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#metasyntactic-variables"><i class="fa fa-check"></i><b>1.3.4</b> “Metasyntactic variables”</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#characters"><i class="fa fa-check"></i><b>1.3.5</b> Characters</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="r-install.html"><a href="r-install.html#r"><i class="fa fa-check"></i><b>2.2</b> R</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="r-install.html"><a href="r-install.html#introduction"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2.2" data-path="r-install.html"><a href="r-install.html#before-you-begin-notation-and-formatting"><i class="fa fa-check"></i><b>2.2.2</b> Before you begin: Notation and Formatting</a></li>
-<li class="chapter" data-level="2.2.3" data-path="r-install.html"><a href="r-install.html#task---example"><i class="fa fa-check"></i><b>2.2.3</b> Task - example</a></li>
-<li class="chapter" data-level="2.2.4" data-path="r-install.html"><a href="r-install.html#metasyntactic-variables"><i class="fa fa-check"></i><b>2.2.4</b> &quot;Metasyntactic variables&quot;</a></li>
-<li class="chapter" data-level="2.2.5" data-path="r-install.html"><a href="r-install.html#characters"><i class="fa fa-check"></i><b>2.2.5</b> Characters</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#the-environment"><i class="fa fa-check"></i><b>1.4</b> The environment</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#task-1---install-r"><i class="fa fa-check"></i><b>1.5</b> Task 1 - Install R</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#task-2---install-rstudio"><i class="fa fa-check"></i><b>1.6</b> Task 2 - Install RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#docker"><i class="fa fa-check"></i><b>1.7</b> Docker</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="index.html"><a href="index.html#what-is-docker"><i class="fa fa-check"></i><b>1.7.1</b> What is docker?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="r-install.html"><a href="r-install.html#the-environment"><i class="fa fa-check"></i><b>2.3</b> The environment</a></li>
-<li class="chapter" data-level="2.4" data-path="r-install.html"><a href="r-install.html#task-1---install-r"><i class="fa fa-check"></i><b>2.4</b> Task 1 - Install R</a></li>
-<li class="chapter" data-level="2.5" data-path="r-install.html"><a href="r-install.html#task-2---install-rstudio"><i class="fa fa-check"></i><b>2.5</b> Task 2 - Install RStudio</a></li>
-<li class="chapter" data-level="2.6" data-path="r-install.html"><a href="r-install.html#docker"><i class="fa fa-check"></i><b>2.6</b> Docker</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="r-install.html"><a href="r-install.html#what-is-docker"><i class="fa fa-check"></i><b>2.6.1</b> What is docker?</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#docker---basic-term-definition"><i class="fa fa-check"></i><b>1.8</b> Docker - Basic term definition</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#container"><i class="fa fa-check"></i><b>1.8.1</b> Container</a></li>
+<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#image"><i class="fa fa-check"></i><b>1.8.2</b> Image</a></li>
+<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#docker-volumes"><i class="fa fa-check"></i><b>1.8.3</b> Docker Volumes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="r-install.html"><a href="r-install.html#docker---basic-term-definition"><i class="fa fa-check"></i><b>2.7</b> Docker - Basic term definition</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="r-install.html"><a href="r-install.html#container"><i class="fa fa-check"></i><b>2.7.1</b> Container</a></li>
-<li class="chapter" data-level="2.7.2" data-path="r-install.html"><a href="r-install.html#image"><i class="fa fa-check"></i><b>2.7.2</b> Image</a></li>
-<li class="chapter" data-level="2.7.3" data-path="r-install.html"><a href="r-install.html#docker-volumes"><i class="fa fa-check"></i><b>2.7.3</b> Docker Volumes</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#r_docker"><i class="fa fa-check"></i><b>1.9</b> Task 3 - Install Docker</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="index.html"><a href="index.html#windows"><i class="fa fa-check"></i><b>1.9.1</b> Windows</a></li>
+<li class="chapter" data-level="1.9.2" data-path="index.html"><a href="index.html#macos-linux"><i class="fa fa-check"></i><b>1.9.2</b> MacOS / Linux</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="r-install.html"><a href="r-install.html#r_docker"><i class="fa fa-check"></i><b>2.8</b> Task 3 - Install Docker</a><ul>
-<li class="chapter" data-level="2.8.1" data-path="r-install.html"><a href="r-install.html#windows"><i class="fa fa-check"></i><b>2.8.1</b> Windows</a></li>
-<li class="chapter" data-level="2.8.2" data-path="r-install.html"><a href="r-install.html#macos-linux"><i class="fa fa-check"></i><b>2.8.2</b> MacOS / Linux</a></li>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#task-4---create-your-first-notebook-using-docker"><i class="fa fa-check"></i><b>1.10</b> Task 4 - Create your first notebook using Docker</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="index.html"><a href="index.html#start-coding"><i class="fa fa-check"></i><b>1.10.1</b> Start coding!</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="r-install.html"><a href="r-install.html#task-4---create-your-first-notebook-using-docker"><i class="fa fa-check"></i><b>2.9</b> Task 4 - Create your first notebook using Docker</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="r-install.html"><a href="r-install.html#start-coding"><i class="fa fa-check"></i><b>2.9.1</b> Start coding!</a></li>
+<li class="chapter" data-level="1.11" data-path="index.html"><a href="index.html#packages"><i class="fa fa-check"></i><b>1.11</b> Packages</a></li>
+<li class="chapter" data-level="1.12" data-path="index.html"><a href="index.html#task-5---experiment-with-rstudio-and-packages"><i class="fa fa-check"></i><b>1.12</b> Task 5 - Experiment with RStudio and packages</a>
+<ul>
+<li class="chapter" data-level="1.12.1" data-path="index.html"><a href="index.html#exercise"><i class="fa fa-check"></i><b>1.12.1</b> Exercise</a></li>
+<li class="chapter" data-level="1.12.2" data-path="index.html"><a href="index.html#finding-packages"><i class="fa fa-check"></i><b>1.12.2</b> Finding packages</a></li>
+<li class="chapter" data-level="1.12.3" data-path="index.html"><a href="index.html#self-evaluation"><i class="fa fa-check"></i><b>1.12.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="1.12.4" data-path="index.html"><a href="index.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>1.12.4</b> Further reading, links and resources</a></li>
+<li class="chapter" data-level="1.12.5" data-path="index.html"><a href="index.html#updated-revision-history"><i class="fa fa-check"></i><b>1.12.5</b> Updated Revision history</a></li>
+<li class="chapter" data-level="1.12.6" data-path="index.html"><a href="index.html#footnotes"><i class="fa fa-check"></i><b>1.12.6</b> Footnotes:</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="r-install.html"><a href="r-install.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a></li>
-<li class="chapter" data-level="2.11" data-path="r-install.html"><a href="r-install.html#task-5---experiment-with-rstudio-and-packages"><i class="fa fa-check"></i><b>2.11</b> Task 5 - Experiment with RStudio and packages</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="r-install.html"><a href="r-install.html#exercise"><i class="fa fa-check"></i><b>2.11.1</b> Exercise</a></li>
-<li class="chapter" data-level="2.11.2" data-path="r-install.html"><a href="r-install.html#finding-packages"><i class="fa fa-check"></i><b>2.11.2</b> Finding packages</a></li>
-<li class="chapter" data-level="2.11.3" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>2.11.3</b> Self-evaluation</a></li>
-<li class="chapter" data-level="2.11.4" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>2.11.4</b> Further reading, links and resources</a></li>
-<li class="chapter" data-level="2.11.5" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>2.11.5</b> Updated Revision history</a></li>
-<li class="chapter" data-level="2.11.6" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>2.11.6</b> Footnotes:</a></li>
+<li class="chapter" data-level="1.13" data-path="index.html"><a href="index.html#overview-1"><i class="fa fa-check"></i><b>1.13</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.13.1" data-path="index.html"><a href="index.html#objectives-1"><i class="fa fa-check"></i><b>1.13.1</b> Objectives:</a></li>
+<li class="chapter" data-level="1.13.2" data-path="index.html"><a href="index.html#outcomes-1"><i class="fa fa-check"></i><b>1.13.2</b> Outcomes:</a></li>
+<li class="chapter" data-level="1.13.3" data-path="index.html"><a href="index.html#deliverables-1"><i class="fa fa-check"></i><b>1.13.3</b> Deliverables:</a></li>
+<li class="chapter" data-level="1.13.4" data-path="index.html"><a href="index.html#prerequisites-1"><i class="fa fa-check"></i><b>1.13.4</b> Prerequisites</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="r-setup.html"><a href="r-setup.html"><i class="fa fa-check"></i><b>3</b> Setup R to work with it</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="3.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="3.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="3.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="3.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="r-setup.html"><a href="r-setup.html#your-course-folder"><i class="fa fa-check"></i><b>3.2</b> Your Course Folder</a></li>
-<li class="chapter" data-level="3.3" data-path="r-setup.html"><a href="r-setup.html#projects"><i class="fa fa-check"></i><b>3.3</b> &quot;Projects&quot;</a></li>
-<li class="chapter" data-level="3.4" data-path="r-setup.html"><a href="r-setup.html#git-version-control"><i class="fa fa-check"></i><b>3.4</b> Git Version control</a></li>
-<li class="chapter" data-level="3.5" data-path="r-setup.html"><a href="r-setup.html#task-6---git"><i class="fa fa-check"></i><b>3.5</b> Task 6 - Git</a></li>
-<li class="chapter" data-level="3.6" data-path="r-setup.html"><a href="r-setup.html#working-directory"><i class="fa fa-check"></i><b>3.6</b> Working directory</a></li>
-<li class="chapter" data-level="3.7" data-path="r-setup.html"><a href="r-setup.html#task-7--working-directory"><i class="fa fa-check"></i><b>3.7</b> Task 7- Working directory</a></li>
-<li class="chapter" data-level="3.8" data-path="r-setup.html"><a href="r-setup.html#rprofile---startup-commands"><i class="fa fa-check"></i><b>3.8</b> .Rprofile - startup commands</a></li>
-<li class="chapter" data-level="3.9" data-path="r-setup.html"><a href="r-setup.html#task-8---.rprofile"><i class="fa fa-check"></i><b>3.9</b> Task 8 - .Rprofile</a></li>
-<li class="chapter" data-level="3.10" data-path="r-setup.html"><a href="r-setup.html#the-workspace"><i class="fa fa-check"></i><b>3.10</b> The &quot;Workspace&quot;</a></li>
-<li class="chapter" data-level="3.11" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>3.11</b> Self-evaluation</a></li>
-<li class="chapter" data-level="3.12" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>3.12</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="3.12.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>3.12.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="3.12.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>3.12.2</b> Footnotes:</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console, Scripts and Notebooks</a><ul>
-<li class="chapter" data-level="4.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="4.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="4.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="4.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="4.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="r-console.html"><a href="r-console.html#rnotebooks"><i class="fa fa-check"></i><b>4.2.1</b> RNotebooks</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>4.3</b> User interface</a></li>
-<li class="chapter" data-level="4.4" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>4.4</b> Self-evaluation</a></li>
-<li class="chapter" data-level="4.5" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>4.5.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="4.5.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>4.5.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="1.14" data-path="index.html"><a href="index.html#your-course-folder"><i class="fa fa-check"></i><b>1.14</b> Your Course Folder</a></li>
+<li class="chapter" data-level="1.15" data-path="index.html"><a href="index.html#projects"><i class="fa fa-check"></i><b>1.15</b> “Projects”</a></li>
+<li class="chapter" data-level="1.16" data-path="index.html"><a href="index.html#git-version-control"><i class="fa fa-check"></i><b>1.16</b> Git Version control</a></li>
+<li class="chapter" data-level="1.17" data-path="index.html"><a href="index.html#task-6---git"><i class="fa fa-check"></i><b>1.17</b> Task 6 - Git</a></li>
+<li class="chapter" data-level="1.18" data-path="index.html"><a href="index.html#working-directory"><i class="fa fa-check"></i><b>1.18</b> Working directory</a></li>
+<li class="chapter" data-level="1.19" data-path="index.html"><a href="index.html#task-7--working-directory"><i class="fa fa-check"></i><b>1.19</b> Task 7- Working directory</a></li>
+<li class="chapter" data-level="1.20" data-path="index.html"><a href="index.html#rprofile---startup-commands"><i class="fa fa-check"></i><b>1.20</b> .Rprofile - startup commands</a></li>
+<li class="chapter" data-level="1.21" data-path="index.html"><a href="index.html#task-8---.rprofile"><i class="fa fa-check"></i><b>1.21</b> Task 8 - .Rprofile</a></li>
+<li class="chapter" data-level="1.22" data-path="index.html"><a href="index.html#the-workspace"><i class="fa fa-check"></i><b>1.22</b> The “Workspace”</a></li>
+<li class="chapter" data-level="1.23" data-path="index.html"><a href="index.html#self-evaluation-1"><i class="fa fa-check"></i><b>1.23</b> Self-evaluation</a>
+<ul>
+<li class="chapter" data-level="1.23.1" data-path="index.html"><a href="index.html#updated-revision-history-1"><i class="fa fa-check"></i><b>1.23.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="1.23.2" data-path="index.html"><a href="index.html#footnotes-1"><i class="fa fa-check"></i><b>1.23.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="r-help.html"><a href="r-help.html"><i class="fa fa-check"></i><b>5</b> Getting help for R</a><ul>
-<li class="chapter" data-level="5.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="5.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="5.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="5.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="5.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>2</b> Console, Scripts and Notebooks</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-console.html"><a href="r-console.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-console.html"><a href="r-console.html#abstract"><i class="fa fa-check"></i><b>2.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-console.html"><a href="r-console.html#objectives-2"><i class="fa fa-check"></i><b>2.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-console.html"><a href="r-console.html#outcomes-2"><i class="fa fa-check"></i><b>2.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="2.1.4" data-path="r-console.html"><a href="r-console.html#deliverables-2"><i class="fa fa-check"></i><b>2.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="2.1.5" data-path="r-console.html"><a href="r-console.html#prerequisites-2"><i class="fa fa-check"></i><b>2.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>5.2</b> The Help system</a></li>
-<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9---r-help"><i class="fa fa-check"></i><b>5.3</b> Task 9 - R help</a></li>
-<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10---reproducible-example"><i class="fa fa-check"></i><b>5.4</b> Task 10 - reproducible example</a></li>
-<li class="chapter" data-level="5.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>5.5</b> Self-evaluation</a></li>
-<li class="chapter" data-level="5.6" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>5.6</b> Notes</a></li>
-<li class="chapter" data-level="5.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>5.7</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>5.7.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="5.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>5.7.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="2.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>2.2</b> Typing code or executing it?</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-console.html"><a href="r-console.html#rnotebooks"><i class="fa fa-check"></i><b>2.2.1</b> RNotebooks</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="r-snytax.html"><a href="r-snytax.html"><i class="fa fa-check"></i><b>6</b> Basics of R syntax</a><ul>
-<li class="chapter" data-level="6.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
-<li class="chapter" data-level="6.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="6.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="6.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="6.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="6.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="r-snytax.html"><a href="r-snytax.html#simple-commands"><i class="fa fa-check"></i><b>6.2</b> Simple commands</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="r-snytax.html"><a href="r-snytax.html#operators"><i class="fa fa-check"></i><b>6.2.1</b> Operators</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="r-snytax.html"><a href="r-snytax.html#task-11"><i class="fa fa-check"></i><b>6.3</b> Task 11</a></li>
-<li class="chapter" data-level="6.4" data-path="r-snytax.html"><a href="r-snytax.html#task-12"><i class="fa fa-check"></i><b>6.4</b> Task 12</a></li>
-<li class="chapter" data-level="6.5" data-path="r-snytax.html"><a href="r-snytax.html#variables"><i class="fa fa-check"></i><b>6.5</b> Variables</a></li>
-<li class="chapter" data-level="6.6" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>6.6</b> Self-evaluation</a></li>
-<li class="chapter" data-level="6.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>6.7</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>6.7.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="6.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>6.7.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="2.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>2.3</b> User interface</a></li>
+<li class="chapter" data-level="2.4" data-path="r-console.html"><a href="r-console.html#self-evaluation-2"><i class="fa fa-check"></i><b>2.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="2.5" data-path="r-console.html"><a href="r-console.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>2.5</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="r-console.html"><a href="r-console.html#updated-revision-history-2"><i class="fa fa-check"></i><b>2.5.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="2.5.2" data-path="r-console.html"><a href="r-console.html#footnotes-2"><i class="fa fa-check"></i><b>2.5.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="r-scalars.html"><a href="r-scalars.html"><i class="fa fa-check"></i><b>7</b> R scalars and vectors</a><ul>
-<li class="chapter" data-level="7.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>7.1</b> Overview</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="7.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="7.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="7.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="7.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="3" data-path="r-help.html"><a href="r-help.html"><i class="fa fa-check"></i><b>3</b> Getting help for R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-help.html"><a href="r-help.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="r-help.html"><a href="r-help.html#abstract-1"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-help.html"><a href="r-help.html#objectives-3"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-help.html"><a href="r-help.html#outcomes-3"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="r-help.html"><a href="r-help.html#deliverables-3"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="r-help.html"><a href="r-help.html#prerequisites-3"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="r-scalars.html"><a href="r-scalars.html#r-data-types"><i class="fa fa-check"></i><b>7.2</b> R Data types</a></li>
-<li class="chapter" data-level="7.3" data-path="r-scalars.html"><a href="r-scalars.html#scalar-data"><i class="fa fa-check"></i><b>7.3</b> Scalar data</a></li>
-<li class="chapter" data-level="7.4" data-path="r-scalars.html"><a href="r-scalars.html#task-13---scalars"><i class="fa fa-check"></i><b>7.4</b> Task 13 - scalars</a></li>
-<li class="chapter" data-level="7.5" data-path="r-scalars.html"><a href="r-scalars.html#vectors"><i class="fa fa-check"></i><b>7.5</b> Vectors</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="r-scalars.html"><a href="r-scalars.html#coercion"><i class="fa fa-check"></i><b>7.5.1</b> Coercion:</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-index"><i class="fa fa-check"></i><b>7.6</b> Subsetting by index</a></li>
-<li class="chapter" data-level="7.7" data-path="r-scalars.html"><a href="r-scalars.html#excluding-items-through-negative-indexes"><i class="fa fa-check"></i><b>7.7</b> Excluding items through negative indexes</a></li>
-<li class="chapter" data-level="7.8" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-boolean-vectors"><i class="fa fa-check"></i><b>7.8</b> Subsetting by boolean vectors</a></li>
-<li class="chapter" data-level="7.9" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name"><i class="fa fa-check"></i><b>7.9</b> Subsetting by name</a></li>
-<li class="chapter" data-level="7.10" data-path="r-scalars.html"><a href="r-scalars.html#is-an-operator"><i class="fa fa-check"></i><b>7.10</b> &quot;[&quot; is an operator</a></li>
-<li class="chapter" data-level="7.11" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name-1"><i class="fa fa-check"></i><b>7.11</b> Subsetting by name:</a></li>
-<li class="chapter" data-level="7.12" data-path="r-scalars.html"><a href="r-scalars.html#task-14---vectors"><i class="fa fa-check"></i><b>7.12</b> Task 14 - vectors</a></li>
-<li class="chapter" data-level="7.13" data-path="r-scalars.html"><a href="r-scalars.html#vectorized-operations"><i class="fa fa-check"></i><b>7.13</b> Vectorized operations</a></li>
-<li class="chapter" data-level="7.14" data-path="r-scalars.html"><a href="r-scalars.html#computing-with-two-vectors-of-same-length"><i class="fa fa-check"></i><b>7.14</b> computing with two vectors of same length</a></li>
-<li class="chapter" data-level="7.15" data-path="r-scalars.html"><a href="r-scalars.html#matrices-and-higher-dimensional-objects"><i class="fa fa-check"></i><b>7.15</b> Matrices and higher-dimensional objects</a></li>
-<li class="chapter" data-level="7.16" data-path="r-scalars.html"><a href="r-scalars.html#task-15---matrices"><i class="fa fa-check"></i><b>7.16</b> Task 15 - matrices</a></li>
-<li class="chapter" data-level="7.17" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>7.17</b> Self-evaluation</a></li>
-<li class="chapter" data-level="7.18" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>7.18</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="7.18.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>7.18.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="7.18.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>7.18.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="3.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>3.2</b> The Help system</a></li>
+<li class="chapter" data-level="3.3" data-path="r-help.html"><a href="r-help.html#task-9---r-help"><i class="fa fa-check"></i><b>3.3</b> Task 9 - R help</a></li>
+<li class="chapter" data-level="3.4" data-path="r-help.html"><a href="r-help.html#task-10---reproducible-example"><i class="fa fa-check"></i><b>3.4</b> Task 10 - reproducible example</a></li>
+<li class="chapter" data-level="3.5" data-path="r-help.html"><a href="r-help.html#self-evaluation-3"><i class="fa fa-check"></i><b>3.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="3.6" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>3.6</b> Notes</a></li>
+<li class="chapter" data-level="3.7" data-path="r-help.html"><a href="r-help.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>3.7</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="r-help.html"><a href="r-help.html#updated-revision-history-3"><i class="fa fa-check"></i><b>3.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-help.html"><a href="r-help.html#footnotes-3"><i class="fa fa-check"></i><b>3.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> Data frames</a><ul>
-<li class="chapter" data-level="8.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="8.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="8.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="8.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="8.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="4" data-path="r-snytax.html"><a href="r-snytax.html"><i class="fa fa-check"></i><b>4</b> Basics of R syntax</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-snytax.html"><a href="r-snytax.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="r-snytax.html"><a href="r-snytax.html#abstract-2"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-snytax.html"><a href="r-snytax.html#objectives-4"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-snytax.html"><a href="r-snytax.html#outcomes-4"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-snytax.html"><a href="r-snytax.html#deliverables-4"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="r-snytax.html"><a href="r-snytax.html#prerequisites-4"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="r-data-frames.html"><a href="r-data-frames.html#data-frames"><i class="fa fa-check"></i><b>8.2</b> Data frames</a></li>
-<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#task-16---basic-operations"><i class="fa fa-check"></i><b>8.3</b> Task 16 - Basic operations</a></li>
-<li class="chapter" data-level="8.4" data-path="r-data-frames.html"><a href="r-data-frames.html#basic-operations"><i class="fa fa-check"></i><b>8.4</b> Basic operations</a></li>
-<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#task-17---modify-data-frame"><i class="fa fa-check"></i><b>8.5</b> Task 17 - modify data frame</a></li>
-<li class="chapter" data-level="8.6" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>8.6</b> Self-evaluation</a></li>
-<li class="chapter" data-level="8.7" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>8.7</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>8.7.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="8.7.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>8.7.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="4.2" data-path="r-snytax.html"><a href="r-snytax.html#simple-commands"><i class="fa fa-check"></i><b>4.2</b> Simple commands</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="r-snytax.html"><a href="r-snytax.html#operators"><i class="fa fa-check"></i><b>4.2.1</b> Operators</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> Lists</a><ul>
-<li class="chapter" data-level="9.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="9.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="9.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="9.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="9.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="r-lists.html"><a href="r-lists.html#lists"><i class="fa fa-check"></i><b>9.2</b> Lists</a></li>
-<li class="chapter" data-level="9.3" data-path="r-lists.html"><a href="r-lists.html#task-18"><i class="fa fa-check"></i><b>9.3</b> Task 18</a></li>
-<li class="chapter" data-level="9.4" data-path="r-lists.html"><a href="r-lists.html#task-19"><i class="fa fa-check"></i><b>9.4</b> Task 19</a></li>
-<li class="chapter" data-level="9.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>9.5</b> Self-evaluation</a></li>
-<li class="chapter" data-level="9.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>9.6</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>9.6.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="9.6.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>9.6.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="4.3" data-path="r-snytax.html"><a href="r-snytax.html#task-11"><i class="fa fa-check"></i><b>4.3</b> Task 11</a></li>
+<li class="chapter" data-level="4.4" data-path="r-snytax.html"><a href="r-snytax.html#task-12"><i class="fa fa-check"></i><b>4.4</b> Task 12</a></li>
+<li class="chapter" data-level="4.5" data-path="r-snytax.html"><a href="r-snytax.html#variables"><i class="fa fa-check"></i><b>4.5</b> Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="r-snytax.html"><a href="r-snytax.html#self-evaluation-4"><i class="fa fa-check"></i><b>4.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="4.7" data-path="r-snytax.html"><a href="r-snytax.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>4.7</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="r-snytax.html"><a href="r-snytax.html#updated-revision-history-4"><i class="fa fa-check"></i><b>4.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="4.7.2" data-path="r-snytax.html"><a href="r-snytax.html#footnotes-4"><i class="fa fa-check"></i><b>4.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="r-subsetting.html"><a href="r-subsetting.html"><i class="fa fa-check"></i><b>10</b> Subsetting and filtering R objects</a><ul>
-<li class="chapter" data-level="10.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="10.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="10.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="10.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="10.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="5" data-path="r-scalars.html"><a href="r-scalars.html"><i class="fa fa-check"></i><b>5</b> R scalars and vectors</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="r-scalars.html"><a href="r-scalars.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="r-scalars.html"><a href="r-scalars.html#abstract-3"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-scalars.html"><a href="r-scalars.html#objectives-5"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-scalars.html"><a href="r-scalars.html#outcomes-5"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-scalars.html"><a href="r-scalars.html#deliverables-5"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-scalars.html"><a href="r-scalars.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="r-subsetting.html"><a href="r-subsetting.html#subsetting"><i class="fa fa-check"></i><b>10.2</b> Subsetting</a></li>
-<li class="chapter" data-level="10.3" data-path="r-subsetting.html"><a href="r-subsetting.html#task-20"><i class="fa fa-check"></i><b>10.3</b> Task 20</a></li>
-<li class="chapter" data-level="10.4" data-path="r-subsetting.html"><a href="r-subsetting.html#task-21"><i class="fa fa-check"></i><b>10.4</b> Task 21</a></li>
-<li class="chapter" data-level="10.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>10.5</b> Self-evaluation</a></li>
-<li class="chapter" data-level="10.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>10.6</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="10.6.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>10.6.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="10.6.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>10.6.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="5.2" data-path="r-scalars.html"><a href="r-scalars.html#r-data-types"><i class="fa fa-check"></i><b>5.2</b> R Data types</a></li>
+<li class="chapter" data-level="5.3" data-path="r-scalars.html"><a href="r-scalars.html#scalar-data"><i class="fa fa-check"></i><b>5.3</b> Scalar data</a></li>
+<li class="chapter" data-level="5.4" data-path="r-scalars.html"><a href="r-scalars.html#task-13---scalars"><i class="fa fa-check"></i><b>5.4</b> Task 13 - scalars</a></li>
+<li class="chapter" data-level="5.5" data-path="r-scalars.html"><a href="r-scalars.html#vectors"><i class="fa fa-check"></i><b>5.5</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="r-scalars.html"><a href="r-scalars.html#coercion"><i class="fa fa-check"></i><b>5.5.1</b> Coercion:</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="r-control-structures.html"><a href="r-control-structures.html"><i class="fa fa-check"></i><b>11</b> Control structures of R</a><ul>
-<li class="chapter" data-level="11.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="11.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="11.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="11.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="11.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="r-control-structures.html"><a href="r-control-structures.html#control-structures"><i class="fa fa-check"></i><b>11.2</b> Control structures</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="r-control-structures.html"><a href="r-control-structures.html#if-and-else"><i class="fa fa-check"></i><b>11.2.1</b> if and else</a></li>
-<li class="chapter" data-level="11.2.2" data-path="r-control-structures.html"><a href="r-control-structures.html#conditional-expressions"><i class="fa fa-check"></i><b>11.2.2</b> conditional expressions</a></li>
-<li class="chapter" data-level="11.2.3" data-path="r-control-structures.html"><a href="r-control-structures.html#if-else-if-and-else"><i class="fa fa-check"></i><b>11.2.3</b> &quot;if&quot;, &quot;else if&quot;, and &quot;else&quot;</a></li>
-<li class="chapter" data-level="11.2.4" data-path="r-control-structures.html"><a href="r-control-structures.html#ifelse"><i class="fa fa-check"></i><b>11.2.4</b> ifelse</a></li>
-<li class="chapter" data-level="11.2.5" data-path="r-control-structures.html"><a href="r-control-structures.html#for"><i class="fa fa-check"></i><b>11.2.5</b> for</a></li>
-<li class="chapter" data-level="11.2.6" data-path="r-control-structures.html"><a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers-..."><i class="fa fa-check"></i><b>11.2.6</b> Compare excution times: one million square roots from a vector of random numbers ...</a></li>
-<li class="chapter" data-level="11.2.7" data-path="r-control-structures.html"><a href="r-control-structures.html#seq_along-vs.-range"><i class="fa fa-check"></i><b>11.2.7</b> seq_along() vs. range</a></li>
-<li class="chapter" data-level="11.2.8" data-path="r-control-structures.html"><a href="r-control-structures.html#loops-vs.-vectorized-expressions"><i class="fa fa-check"></i><b>11.2.8</b> loops vs. vectorized expressions</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="r-control-structures.html"><a href="r-control-structures.html#task-22"><i class="fa fa-check"></i><b>11.3</b> Task 22</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="r-control-structures.html"><a href="r-control-structures.html#while"><i class="fa fa-check"></i><b>11.3.1</b> while</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="r-control-structures.html"><a href="r-control-structures.html#task-23"><i class="fa fa-check"></i><b>11.4</b> Task 23</a></li>
-<li class="chapter" data-level="11.5" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>11.5</b> Self-evaluation</a></li>
-<li class="chapter" data-level="11.6" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>11.6</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="11.6.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>11.6.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="11.6.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>11.6.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="5.6" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-index"><i class="fa fa-check"></i><b>5.6</b> Subsetting by index</a></li>
+<li class="chapter" data-level="5.7" data-path="r-scalars.html"><a href="r-scalars.html#excluding-items-through-negative-indexes"><i class="fa fa-check"></i><b>5.7</b> Excluding items through negative indexes</a></li>
+<li class="chapter" data-level="5.8" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-boolean-vectors"><i class="fa fa-check"></i><b>5.8</b> Subsetting by boolean vectors</a></li>
+<li class="chapter" data-level="5.9" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name"><i class="fa fa-check"></i><b>5.9</b> Subsetting by name</a></li>
+<li class="chapter" data-level="5.10" data-path="r-scalars.html"><a href="r-scalars.html#is-an-operator"><i class="fa fa-check"></i><b>5.10</b> “[” is an operator</a></li>
+<li class="chapter" data-level="5.11" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name-1"><i class="fa fa-check"></i><b>5.11</b> Subsetting by name:</a></li>
+<li class="chapter" data-level="5.12" data-path="r-scalars.html"><a href="r-scalars.html#task-14---vectors"><i class="fa fa-check"></i><b>5.12</b> Task 14 - vectors</a></li>
+<li class="chapter" data-level="5.13" data-path="r-scalars.html"><a href="r-scalars.html#vectorized-operations"><i class="fa fa-check"></i><b>5.13</b> Vectorized operations</a></li>
+<li class="chapter" data-level="5.14" data-path="r-scalars.html"><a href="r-scalars.html#computing-with-two-vectors-of-same-length"><i class="fa fa-check"></i><b>5.14</b> computing with two vectors of same length</a></li>
+<li class="chapter" data-level="5.15" data-path="r-scalars.html"><a href="r-scalars.html#matrices-and-higher-dimensional-objects"><i class="fa fa-check"></i><b>5.15</b> Matrices and higher-dimensional objects</a></li>
+<li class="chapter" data-level="5.16" data-path="r-scalars.html"><a href="r-scalars.html#task-15---matrices"><i class="fa fa-check"></i><b>5.16</b> Task 15 - matrices</a></li>
+<li class="chapter" data-level="5.17" data-path="r-scalars.html"><a href="r-scalars.html#self-evaluation-5"><i class="fa fa-check"></i><b>5.17</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.18" data-path="r-scalars.html"><a href="r-scalars.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>5.18</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="5.18.1" data-path="r-scalars.html"><a href="r-scalars.html#updated-revision-history-5"><i class="fa fa-check"></i><b>5.18.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="5.18.2" data-path="r-scalars.html"><a href="r-scalars.html#footnotes-5"><i class="fa fa-check"></i><b>5.18.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>12</b> R Functions</a><ul>
-<li class="chapter" data-level="12.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
-<li class="chapter" data-level="12.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="12.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="12.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="12.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="12.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="6" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>6</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="r-data-frames.html"><a href="r-data-frames.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="r-data-frames.html"><a href="r-data-frames.html#abstract-4"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="r-data-frames.html"><a href="r-data-frames.html#objectives-6"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="r-data-frames.html"><a href="r-data-frames.html#outcomes-6"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="r-data-frames.html"><a href="r-data-frames.html#deliverables-6"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="r-data-frames.html"><a href="r-data-frames.html#prerequisites-6"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>12.2</b> Functions</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><i class="fa fa-check"></i><b>13</b> (The complex number above is the same as in Euler's identity.)</a><ul>
-<li class="chapter" data-level="13.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#task-24"><i class="fa fa-check"></i><b>13.1</b> Task 24</a></li>
-<li class="chapter" data-level="13.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#on-missing-parameters"><i class="fa fa-check"></i><b>13.2</b> On missing parameters</a></li>
-<li class="chapter" data-level="13.3" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#reading-functions"><i class="fa fa-check"></i><b>13.3</b> Reading functions</a><ul>
-<li class="chapter" data-level="13.3.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#basic-r"><i class="fa fa-check"></i><b>13.3.1</b> Basic R</a></li>
-<li class="chapter" data-level="13.3.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#s3-methods"><i class="fa fa-check"></i><b>13.3.2</b> S3 methods</a></li>
-</ul></li>
-<li class="chapter" data-level="13.4" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#primitives"><i class="fa fa-check"></i><b>13.4</b> Primitives</a></li>
-<li class="chapter" data-level="13.5" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#writing-your-own-functions"><i class="fa fa-check"></i><b>13.5</b> Writing your own functions</a></li>
-<li class="chapter" data-level="13.6" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#task-25"><i class="fa fa-check"></i><b>13.6</b> Task 25</a></li>
-<li class="chapter" data-level="13.7" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity-.html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity-.html#task-26"><i class="fa fa-check"></i><b>13.7</b> Task 26</a></li>
-<li class="chapter" data-level="13.8" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>13.8</b> Self-evaluation</a></li>
-<li class="chapter" data-level="13.9" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>13.9</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>13.9.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="13.9.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>13.9.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="6.2" data-path="r-data-frames.html"><a href="r-data-frames.html#data-frames"><i class="fa fa-check"></i><b>6.2</b> Data frames</a></li>
+<li class="chapter" data-level="6.3" data-path="r-data-frames.html"><a href="r-data-frames.html#task-16---basic-operations"><i class="fa fa-check"></i><b>6.3</b> Task 16 - Basic operations</a></li>
+<li class="chapter" data-level="6.4" data-path="r-data-frames.html"><a href="r-data-frames.html#basic-operations"><i class="fa fa-check"></i><b>6.4</b> Basic operations</a></li>
+<li class="chapter" data-level="6.5" data-path="r-data-frames.html"><a href="r-data-frames.html#task-17---modify-data-frame"><i class="fa fa-check"></i><b>6.5</b> Task 17 - modify data frame</a></li>
+<li class="chapter" data-level="6.6" data-path="r-data-frames.html"><a href="r-data-frames.html#self-evaluation-6"><i class="fa fa-check"></i><b>6.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="6.7" data-path="r-data-frames.html"><a href="r-data-frames.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>6.7</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="r-data-frames.html"><a href="r-data-frames.html#updated-revision-history-6"><i class="fa fa-check"></i><b>6.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="6.7.2" data-path="r-data-frames.html"><a href="r-data-frames.html#footnotes-6"><i class="fa fa-check"></i><b>6.7.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="r-plots.html"><a href="r-plots.html"><i class="fa fa-check"></i><b>14</b> Introduction to R Plots</a><ul>
-<li class="chapter" data-level="14.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>14.1</b> Overview</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>14.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="14.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>14.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="14.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>14.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="14.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>14.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="14.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>14.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="7" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>7</b> Lists</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="r-lists.html"><a href="r-lists.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="r-lists.html"><a href="r-lists.html#abstract-5"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="7.1.2" data-path="r-lists.html"><a href="r-lists.html#objectives-7"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="7.1.3" data-path="r-lists.html"><a href="r-lists.html#outcomes-7"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="7.1.4" data-path="r-lists.html"><a href="r-lists.html#deliverables-7"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="7.1.5" data-path="r-lists.html"><a href="r-lists.html#prerequisites-7"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="r-plots.html"><a href="r-plots.html#task-27"><i class="fa fa-check"></i><b>14.2</b> Task 27</a></li>
-<li class="chapter" data-level="14.3" data-path="r-plots.html"><a href="r-plots.html#types-of-plots"><i class="fa fa-check"></i><b>14.3</b> Types of plots</a><ul>
-<li class="chapter" data-level="14.3.1" data-path="r-plots.html"><a href="r-plots.html#plot"><i class="fa fa-check"></i><b>14.3.1</b> plot()</a></li>
-<li class="chapter" data-level="14.3.2" data-path="r-plots.html"><a href="r-plots.html#barplot"><i class="fa fa-check"></i><b>14.3.2</b> barplot()</a></li>
-<li class="chapter" data-level="14.3.3" data-path="r-plots.html"><a href="r-plots.html#hist"><i class="fa fa-check"></i><b>14.3.3</b> hist()</a></li>
-<li class="chapter" data-level="14.3.4" data-path="r-plots.html"><a href="r-plots.html#boxplot"><i class="fa fa-check"></i><b>14.3.4</b> boxplot</a></li>
-<li class="chapter" data-level="14.3.5" data-path="r-plots.html"><a href="r-plots.html#colour"><i class="fa fa-check"></i><b>14.3.5</b> Colour</a></li>
-<li class="chapter" data-level="14.3.6" data-path="r-plots.html"><a href="r-plots.html#colour-palettes"><i class="fa fa-check"></i><b>14.3.6</b> Colour palettes</a></li>
-</ul></li>
-<li class="chapter" data-level="14.4" data-path="r-plots.html"><a href="r-plots.html#lines"><i class="fa fa-check"></i><b>14.4</b> Lines</a></li>
-<li class="chapter" data-level="14.5" data-path="r-plots.html"><a href="r-plots.html#axes"><i class="fa fa-check"></i><b>14.5</b> Axes</a></li>
-<li class="chapter" data-level="14.6" data-path="r-plots.html"><a href="r-plots.html#layout"><i class="fa fa-check"></i><b>14.6</b> Layout</a><ul>
-<li class="chapter" data-level="14.6.1" data-path="r-plots.html"><a href="r-plots.html#par-lattice-constant-aspect-ratio"><i class="fa fa-check"></i><b>14.6.1</b> par, lattice, constant aspect ratio</a></li>
-</ul></li>
-<li class="chapter" data-level="14.7" data-path="r-plots.html"><a href="r-plots.html#plot-symbols-and-text"><i class="fa fa-check"></i><b>14.7</b> Plot symbols and text</a></li>
-<li class="chapter" data-level="14.8" data-path="r-plots.html"><a href="r-plots.html#drawing-on-plots"><i class="fa fa-check"></i><b>14.8</b> Drawing on plots</a></li>
-<li class="chapter" data-level="14.9" data-path="r-plots.html"><a href="r-plots.html#special-packages"><i class="fa fa-check"></i><b>14.9</b> Special packages</a></li>
-<li class="chapter" data-level="14.10" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>14.10</b> Self-evaluation</a></li>
-<li class="chapter" data-level="14.11" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>14.11</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="14.11.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>14.11.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="14.11.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>14.11.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="7.2" data-path="r-lists.html"><a href="r-lists.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
+<li class="chapter" data-level="7.3" data-path="r-lists.html"><a href="r-lists.html#task-18"><i class="fa fa-check"></i><b>7.3</b> Task 18</a></li>
+<li class="chapter" data-level="7.4" data-path="r-lists.html"><a href="r-lists.html#task-19"><i class="fa fa-check"></i><b>7.4</b> Task 19</a></li>
+<li class="chapter" data-level="7.5" data-path="r-lists.html"><a href="r-lists.html#self-evaluation-7"><i class="fa fa-check"></i><b>7.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.6" data-path="r-lists.html"><a href="r-lists.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>7.6</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="r-lists.html"><a href="r-lists.html#updated-revision-history-7"><i class="fa fa-check"></i><b>7.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="7.6.2" data-path="r-lists.html"><a href="r-lists.html#footnotes-7"><i class="fa fa-check"></i><b>7.6.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="r-code-style.html"><a href="r-code-style.html"><i class="fa fa-check"></i><b>15</b> R Coding Style</a><ul>
-<li class="chapter" data-level="15.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>15.1</b> Overview</a><ul>
-<li class="chapter" data-level="15.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>15.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="15.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>15.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="15.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>15.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="15.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>15.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="15.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>15.1.5</b> Prerequisites</a></li>
+<li class="chapter" data-level="8" data-path="r-subsetting.html"><a href="r-subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting and filtering R objects</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="r-subsetting.html"><a href="r-subsetting.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="r-subsetting.html"><a href="r-subsetting.html#abstract-6"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="r-subsetting.html"><a href="r-subsetting.html#objectives-8"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="r-subsetting.html"><a href="r-subsetting.html#outcomes-8"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="r-subsetting.html"><a href="r-subsetting.html#deliverables-8"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="r-subsetting.html"><a href="r-subsetting.html#prerequisites-8"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="r-code-style.html"><a href="r-code-style.html#general"><i class="fa fa-check"></i><b>15.2</b> General</a></li>
-<li class="chapter" data-level="15.3" data-path="r-plots.html"><a href="r-plots.html#layout"><i class="fa fa-check"></i><b>15.3</b> Layout</a></li>
-<li class="chapter" data-level="15.4" data-path="r-code-style.html"><a href="r-code-style.html#design-and-granularity"><i class="fa fa-check"></i><b>15.4</b> Design and granularity</a></li>
-<li class="chapter" data-level="15.5" data-path="r-code-style.html"><a href="r-code-style.html#headers"><i class="fa fa-check"></i><b>15.5</b> Headers</a></li>
-<li class="chapter" data-level="15.6" data-path="r-code-style.html"><a href="r-code-style.html#parentheses-and-braces"><i class="fa fa-check"></i><b>15.6</b> Parentheses and Braces</a></li>
-<li class="chapter" data-level="15.7" data-path="r-code-style.html"><a href="r-code-style.html#spaces"><i class="fa fa-check"></i><b>15.7</b> Spaces</a></li>
-<li class="chapter" data-level="15.8" data-path="r-code-style.html"><a href="r-code-style.html#names"><i class="fa fa-check"></i><b>15.8</b> Names</a></li>
-<li class="chapter" data-level="15.9" data-path="r-code-style.html"><a href="r-code-style.html#conditionals"><i class="fa fa-check"></i><b>15.9</b> Conditionals</a></li>
-<li class="chapter" data-level="15.10" data-path="r-code-style.html"><a href="r-code-style.html#indent-style"><i class="fa fa-check"></i><b>15.10</b> Indent Style</a></li>
-<li class="chapter" data-level="15.11" data-path="r-code-style.html"><a href="r-code-style.html#indentation-of-long-function-declarations"><i class="fa fa-check"></i><b>15.11</b> Indentation of long function declarations</a></li>
-<li class="chapter" data-level="15.12" data-path="r-code-style.html"><a href="r-code-style.html#loops"><i class="fa fa-check"></i><b>15.12</b> Loops</a></li>
-<li class="chapter" data-level="15.13" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>15.13</b> Functions</a></li>
-<li class="chapter" data-level="15.14" data-path="r-code-style.html"><a href="r-code-style.html#efficiency"><i class="fa fa-check"></i><b>15.14</b> Efficiency</a></li>
-<li class="chapter" data-level="15.15" data-path="r-code-style.html"><a href="r-code-style.html#end"><i class="fa fa-check"></i><b>15.15</b> [END]</a></li>
-<li class="chapter" data-level="15.16" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>15.16</b> Self-evaluation</a></li>
-<li class="chapter" data-level="15.17" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>15.17</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="15.17.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>15.17.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="15.17.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>15.17.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="8.2" data-path="r-subsetting.html"><a href="r-subsetting.html#subsetting"><i class="fa fa-check"></i><b>8.2</b> Subsetting</a></li>
+<li class="chapter" data-level="8.3" data-path="r-subsetting.html"><a href="r-subsetting.html#task-20"><i class="fa fa-check"></i><b>8.3</b> Task 20</a></li>
+<li class="chapter" data-level="8.4" data-path="r-subsetting.html"><a href="r-subsetting.html#task-21"><i class="fa fa-check"></i><b>8.4</b> Task 21</a></li>
+<li class="chapter" data-level="8.5" data-path="r-subsetting.html"><a href="r-subsetting.html#self-evaluation-8"><i class="fa fa-check"></i><b>8.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="8.6" data-path="r-subsetting.html"><a href="r-subsetting.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>8.6</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="r-subsetting.html"><a href="r-subsetting.html#updated-revision-history-8"><i class="fa fa-check"></i><b>8.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="8.6.2" data-path="r-subsetting.html"><a href="r-subsetting.html#footnotes-8"><i class="fa fa-check"></i><b>8.6.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="r-intro.html"><a href="r-intro.html"><i class="fa fa-check"></i><b>16</b> Introduction to R</a><ul>
-<li class="chapter" data-level="16.1" data-path="r-install.html"><a href="r-install.html#overview"><i class="fa fa-check"></i><b>16.1</b> Overview</a><ul>
-<li class="chapter" data-level="16.1.1" data-path="r-install.html"><a href="r-install.html#abstract"><i class="fa fa-check"></i><b>16.1.1</b> Abstract:</a></li>
-<li class="chapter" data-level="16.1.2" data-path="r-install.html"><a href="r-install.html#objectives"><i class="fa fa-check"></i><b>16.1.2</b> Objectives:</a></li>
-<li class="chapter" data-level="16.1.3" data-path="r-install.html"><a href="r-install.html#outcomes"><i class="fa fa-check"></i><b>16.1.3</b> Outcomes:</a></li>
-<li class="chapter" data-level="16.1.4" data-path="r-install.html"><a href="r-install.html#deliverables"><i class="fa fa-check"></i><b>16.1.4</b> Deliverables:</a></li>
-<li class="chapter" data-level="16.1.5" data-path="r-install.html"><a href="r-install.html#prerequisites"><i class="fa fa-check"></i><b>16.1.5</b> Prerequisites:</a></li>
+<li class="chapter" data-level="9" data-path="r-control-structures.html"><a href="r-control-structures.html"><i class="fa fa-check"></i><b>9</b> Control structures of R</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="r-control-structures.html"><a href="r-control-structures.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="r-control-structures.html"><a href="r-control-structures.html#abstract-7"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="r-control-structures.html"><a href="r-control-structures.html#objectives-9"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="r-control-structures.html"><a href="r-control-structures.html#outcomes-9"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="r-control-structures.html"><a href="r-control-structures.html#deliverables-9"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="r-control-structures.html"><a href="r-control-structures.html#prerequisites-9"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="r-intro.html"><a href="r-intro.html#the-abc-rstudio-project"><i class="fa fa-check"></i><b>16.2</b> The ABC RStudio Project</a></li>
-<li class="chapter" data-level="16.3" data-path="r-intro.html"><a href="r-intro.html#task-28"><i class="fa fa-check"></i><b>16.3</b> Task 28</a></li>
-<li class="chapter" data-level="16.4" data-path="r-install.html"><a href="r-install.html#self-evaluation"><i class="fa fa-check"></i><b>16.4</b> Self-evaluation</a></li>
-<li class="chapter" data-level="16.5" data-path="r-install.html"><a href="r-install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>16.5</b> Further reading, links and resources</a><ul>
-<li class="chapter" data-level="16.5.1" data-path="r-install.html"><a href="r-install.html#updated-revision-history"><i class="fa fa-check"></i><b>16.5.1</b> Updated Revision history</a></li>
-<li class="chapter" data-level="16.5.2" data-path="r-install.html"><a href="r-install.html#footnotes"><i class="fa fa-check"></i><b>16.5.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="9.2" data-path="r-control-structures.html"><a href="r-control-structures.html#control-structures"><i class="fa fa-check"></i><b>9.2</b> Control structures</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="r-control-structures.html"><a href="r-control-structures.html#if-and-else"><i class="fa fa-check"></i><b>9.2.1</b> if and else</a></li>
+<li class="chapter" data-level="9.2.2" data-path="r-control-structures.html"><a href="r-control-structures.html#conditional-expressions"><i class="fa fa-check"></i><b>9.2.2</b> conditional expressions</a></li>
+<li class="chapter" data-level="9.2.3" data-path="r-control-structures.html"><a href="r-control-structures.html#if-else-if-and-else"><i class="fa fa-check"></i><b>9.2.3</b> “if”, “else if”, and “else”</a></li>
+<li class="chapter" data-level="9.2.4" data-path="r-control-structures.html"><a href="r-control-structures.html#ifelse"><i class="fa fa-check"></i><b>9.2.4</b> ifelse</a></li>
+<li class="chapter" data-level="9.2.5" data-path="r-control-structures.html"><a href="r-control-structures.html#for"><i class="fa fa-check"></i><b>9.2.5</b> for</a></li>
+<li class="chapter" data-level="9.2.6" data-path="r-control-structures.html"><a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers"><i class="fa fa-check"></i><b>9.2.6</b> Compare excution times: one million square roots from a vector of random numbers …</a></li>
+<li class="chapter" data-level="9.2.7" data-path="r-control-structures.html"><a href="r-control-structures.html#seq_along-vs.-range"><i class="fa fa-check"></i><b>9.2.7</b> seq_along() vs. range</a></li>
+<li class="chapter" data-level="9.2.8" data-path="r-control-structures.html"><a href="r-control-structures.html#loops-vs.-vectorized-expressions"><i class="fa fa-check"></i><b>9.2.8</b> loops vs. vectorized expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="r-control-structures.html"><a href="r-control-structures.html#task-22"><i class="fa fa-check"></i><b>9.3</b> Task 22</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="r-control-structures.html"><a href="r-control-structures.html#while"><i class="fa fa-check"></i><b>9.3.1</b> while</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="r-control-structures.html"><a href="r-control-structures.html#task-23"><i class="fa fa-check"></i><b>9.4</b> Task 23</a></li>
+<li class="chapter" data-level="9.5" data-path="r-control-structures.html"><a href="r-control-structures.html#self-evaluation-9"><i class="fa fa-check"></i><b>9.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="9.6" data-path="r-control-structures.html"><a href="r-control-structures.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>9.6</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="r-control-structures.html"><a href="r-control-structures.html#updated-revision-history-9"><i class="fa fa-check"></i><b>9.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="9.6.2" data-path="r-control-structures.html"><a href="r-control-structures.html#footnotes-9"><i class="fa fa-check"></i><b>9.6.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>10</b> R Functions</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="r-functions.html"><a href="r-functions.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="r-functions.html"><a href="r-functions.html#abstract-8"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="r-functions.html"><a href="r-functions.html#objectives-10"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="r-functions.html"><a href="r-functions.html#outcomes-10"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="r-functions.html"><a href="r-functions.html#deliverables-10"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="r-functions.html"><a href="r-functions.html#prerequisites-10"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>10.2</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><i class="fa fa-check"></i><b>11</b> (The complex number above is the same as in Euler’s identity.)</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#task-24"><i class="fa fa-check"></i><b>11.1</b> Task 24</a></li>
+<li class="chapter" data-level="11.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#on-missing-parameters"><i class="fa fa-check"></i><b>11.2</b> On missing parameters</a></li>
+<li class="chapter" data-level="11.3" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#reading-functions"><i class="fa fa-check"></i><b>11.3</b> Reading functions</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#basic-r"><i class="fa fa-check"></i><b>11.3.1</b> Basic R</a></li>
+<li class="chapter" data-level="11.3.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#s3-methods"><i class="fa fa-check"></i><b>11.3.2</b> S3 methods</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#primitives"><i class="fa fa-check"></i><b>11.4</b> Primitives</a></li>
+<li class="chapter" data-level="11.5" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#writing-your-own-functions"><i class="fa fa-check"></i><b>11.5</b> Writing your own functions</a></li>
+<li class="chapter" data-level="11.6" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#task-25"><i class="fa fa-check"></i><b>11.6</b> Task 25</a></li>
+<li class="chapter" data-level="11.7" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#task-26"><i class="fa fa-check"></i><b>11.7</b> Task 26</a></li>
+<li class="chapter" data-level="11.8" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#self-evaluation-10"><i class="fa fa-check"></i><b>11.8</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.9" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#further-reading-links-and-resources-9"><i class="fa fa-check"></i><b>11.9</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="11.9.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#updated-revision-history-10"><i class="fa fa-check"></i><b>11.9.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="11.9.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#footnotes-10"><i class="fa fa-check"></i><b>11.9.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="r-plots.html"><a href="r-plots.html"><i class="fa fa-check"></i><b>12</b> Introduction to R Plots</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="r-plots.html"><a href="r-plots.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="r-plots.html"><a href="r-plots.html#abstract-9"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="r-plots.html"><a href="r-plots.html#objectives-11"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="r-plots.html"><a href="r-plots.html#outcomes-11"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="12.1.4" data-path="r-plots.html"><a href="r-plots.html#deliverables-11"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="r-plots.html"><a href="r-plots.html#prerequisites-11"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="r-plots.html"><a href="r-plots.html#task-27"><i class="fa fa-check"></i><b>12.2</b> Task 27</a></li>
+<li class="chapter" data-level="12.3" data-path="r-plots.html"><a href="r-plots.html#types-of-plots"><i class="fa fa-check"></i><b>12.3</b> Types of plots</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="r-plots.html"><a href="r-plots.html#plot"><i class="fa fa-check"></i><b>12.3.1</b> plot()</a></li>
+<li class="chapter" data-level="12.3.2" data-path="r-plots.html"><a href="r-plots.html#barplot"><i class="fa fa-check"></i><b>12.3.2</b> barplot()</a></li>
+<li class="chapter" data-level="12.3.3" data-path="r-plots.html"><a href="r-plots.html#hist"><i class="fa fa-check"></i><b>12.3.3</b> hist()</a></li>
+<li class="chapter" data-level="12.3.4" data-path="r-plots.html"><a href="r-plots.html#boxplot"><i class="fa fa-check"></i><b>12.3.4</b> boxplot</a></li>
+<li class="chapter" data-level="12.3.5" data-path="r-plots.html"><a href="r-plots.html#colour"><i class="fa fa-check"></i><b>12.3.5</b> Colour</a></li>
+<li class="chapter" data-level="12.3.6" data-path="r-plots.html"><a href="r-plots.html#colour-palettes"><i class="fa fa-check"></i><b>12.3.6</b> Colour palettes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="r-plots.html"><a href="r-plots.html#lines"><i class="fa fa-check"></i><b>12.4</b> Lines</a></li>
+<li class="chapter" data-level="12.5" data-path="r-plots.html"><a href="r-plots.html#axes"><i class="fa fa-check"></i><b>12.5</b> Axes</a></li>
+<li class="chapter" data-level="12.6" data-path="r-plots.html"><a href="r-plots.html#layout"><i class="fa fa-check"></i><b>12.6</b> Layout</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="r-plots.html"><a href="r-plots.html#par-lattice-constant-aspect-ratio"><i class="fa fa-check"></i><b>12.6.1</b> par, lattice, constant aspect ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="r-plots.html"><a href="r-plots.html#plot-symbols-and-text"><i class="fa fa-check"></i><b>12.7</b> Plot symbols and text</a></li>
+<li class="chapter" data-level="12.8" data-path="r-plots.html"><a href="r-plots.html#drawing-on-plots"><i class="fa fa-check"></i><b>12.8</b> Drawing on plots</a></li>
+<li class="chapter" data-level="12.9" data-path="r-plots.html"><a href="r-plots.html#special-packages"><i class="fa fa-check"></i><b>12.9</b> Special packages</a></li>
+<li class="chapter" data-level="12.10" data-path="r-plots.html"><a href="r-plots.html#self-evaluation-11"><i class="fa fa-check"></i><b>12.10</b> Self-evaluation</a></li>
+<li class="chapter" data-level="12.11" data-path="r-plots.html"><a href="r-plots.html#further-reading-links-and-resources-10"><i class="fa fa-check"></i><b>12.11</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="12.11.1" data-path="r-plots.html"><a href="r-plots.html#updated-revision-history-11"><i class="fa fa-check"></i><b>12.11.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="12.11.2" data-path="r-plots.html"><a href="r-plots.html#footnotes-11"><i class="fa fa-check"></i><b>12.11.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="r-code-style.html"><a href="r-code-style.html"><i class="fa fa-check"></i><b>13</b> R Coding Style</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="r-code-style.html"><a href="r-code-style.html#overview-12"><i class="fa fa-check"></i><b>13.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="r-code-style.html"><a href="r-code-style.html#abstract-10"><i class="fa fa-check"></i><b>13.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="13.1.2" data-path="r-code-style.html"><a href="r-code-style.html#objectives-12"><i class="fa fa-check"></i><b>13.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="13.1.3" data-path="r-code-style.html"><a href="r-code-style.html#outcomes-12"><i class="fa fa-check"></i><b>13.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="13.1.4" data-path="r-code-style.html"><a href="r-code-style.html#deliverables-12"><i class="fa fa-check"></i><b>13.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="13.1.5" data-path="r-code-style.html"><a href="r-code-style.html#prerequisites-12"><i class="fa fa-check"></i><b>13.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="r-code-style.html"><a href="r-code-style.html#general"><i class="fa fa-check"></i><b>13.2</b> General</a></li>
+<li class="chapter" data-level="13.3" data-path="r-code-style.html"><a href="r-code-style.html#layout-1"><i class="fa fa-check"></i><b>13.3</b> Layout</a></li>
+<li class="chapter" data-level="13.4" data-path="r-code-style.html"><a href="r-code-style.html#design-and-granularity"><i class="fa fa-check"></i><b>13.4</b> Design and granularity</a></li>
+<li class="chapter" data-level="13.5" data-path="r-code-style.html"><a href="r-code-style.html#headers"><i class="fa fa-check"></i><b>13.5</b> Headers</a></li>
+<li class="chapter" data-level="13.6" data-path="r-code-style.html"><a href="r-code-style.html#parentheses-and-braces"><i class="fa fa-check"></i><b>13.6</b> Parentheses and Braces</a></li>
+<li class="chapter" data-level="13.7" data-path="r-code-style.html"><a href="r-code-style.html#spaces"><i class="fa fa-check"></i><b>13.7</b> Spaces</a></li>
+<li class="chapter" data-level="13.8" data-path="r-code-style.html"><a href="r-code-style.html#names"><i class="fa fa-check"></i><b>13.8</b> Names</a></li>
+<li class="chapter" data-level="13.9" data-path="r-code-style.html"><a href="r-code-style.html#conditionals"><i class="fa fa-check"></i><b>13.9</b> Conditionals</a></li>
+<li class="chapter" data-level="13.10" data-path="r-code-style.html"><a href="r-code-style.html#indent-style"><i class="fa fa-check"></i><b>13.10</b> Indent Style</a></li>
+<li class="chapter" data-level="13.11" data-path="r-code-style.html"><a href="r-code-style.html#indentation-of-long-function-declarations"><i class="fa fa-check"></i><b>13.11</b> Indentation of long function declarations</a></li>
+<li class="chapter" data-level="13.12" data-path="r-code-style.html"><a href="r-code-style.html#loops"><i class="fa fa-check"></i><b>13.12</b> Loops</a></li>
+<li class="chapter" data-level="13.13" data-path="r-code-style.html"><a href="r-code-style.html#functions-1"><i class="fa fa-check"></i><b>13.13</b> Functions</a></li>
+<li class="chapter" data-level="13.14" data-path="r-code-style.html"><a href="r-code-style.html#efficiency"><i class="fa fa-check"></i><b>13.14</b> Efficiency</a></li>
+<li class="chapter" data-level="13.15" data-path="r-code-style.html"><a href="r-code-style.html#end"><i class="fa fa-check"></i><b>13.15</b> [END]</a></li>
+<li class="chapter" data-level="13.16" data-path="r-code-style.html"><a href="r-code-style.html#self-evaluation-12"><i class="fa fa-check"></i><b>13.16</b> Self-evaluation</a></li>
+<li class="chapter" data-level="13.17" data-path="r-code-style.html"><a href="r-code-style.html#further-reading-links-and-resources-11"><i class="fa fa-check"></i><b>13.17</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="13.17.1" data-path="r-code-style.html"><a href="r-code-style.html#updated-revision-history-12"><i class="fa fa-check"></i><b>13.17.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="13.17.2" data-path="r-code-style.html"><a href="r-code-style.html#footnotes-12"><i class="fa fa-check"></i><b>13.17.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="13.17.3" data-path="r-code-style.html"><a href="r-code-style.html#objectives-13"><i class="fa fa-check"></i><b>13.17.3</b> Objectives:</a></li>
+<li class="chapter" data-level="13.17.4" data-path="r-code-style.html"><a href="r-code-style.html#outcomes-13"><i class="fa fa-check"></i><b>13.17.4</b> Outcomes:</a></li>
+<li class="chapter" data-level="13.17.5" data-path="r-code-style.html"><a href="r-code-style.html#deliverables-13"><i class="fa fa-check"></i><b>13.17.5</b> Deliverables:</a></li>
+<li class="chapter" data-level="13.17.6" data-path="r-code-style.html"><a href="r-code-style.html#prerequisites-13"><i class="fa fa-check"></i><b>13.17.6</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="13.18" data-path="r-code-style.html"><a href="r-code-style.html#the-abc-rstudio-project"><i class="fa fa-check"></i><b>13.18</b> The ABC RStudio Project</a></li>
+<li class="chapter" data-level="13.19" data-path="r-code-style.html"><a href="r-code-style.html#task-28"><i class="fa fa-check"></i><b>13.19</b> Task 28</a></li>
+<li class="chapter" data-level="13.20" data-path="r-code-style.html"><a href="r-code-style.html#self-evaluation-13"><i class="fa fa-check"></i><b>13.20</b> Self-evaluation</a></li>
+<li class="chapter" data-level="13.21" data-path="r-code-style.html"><a href="r-code-style.html#further-reading-links-and-resources-12"><i class="fa fa-check"></i><b>13.21</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="13.21.1" data-path="r-code-style.html"><a href="r-code-style.html#updated-revision-history-13"><i class="fa fa-check"></i><b>13.21.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="13.21.2" data-path="r-code-style.html"><a href="r-code-style.html#footnotes-13"><i class="fa fa-check"></i><b>13.21.2</b> Footnotes:</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -463,24 +556,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-code-style" class="section level1">
-<h1><span class="header-section-number">Chapter 15</span> R Coding Style</h1>
+<div id="r-code-style" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> R Coding Style<a href="r-code-style.html#r-code-style" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>(R coding style; software development)</p>
-<div id="overview" class="section level2">
-<h2><span class="header-section-number">15.1</span> Overview</h2>
-<div id="abstract" class="section level3">
-<h3><span class="header-section-number">15.1.1</span> Abstract:</h3>
+<div id="overview-12" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Overview<a href="r-code-style.html#overview-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="abstract-10" class="section level3 hasAnchor" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Abstract:<a href="r-code-style.html#abstract-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now that you have encountered some concepts of R programming, how do you write good R code?</p>
 </div>
-<div id="objectives" class="section level3">
-<h3><span class="header-section-number">15.1.2</span> Objectives:</h3>
+<div id="objectives-12" class="section level3 hasAnchor" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Objectives:<a href="r-code-style.html#objectives-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This unit will:</p>
 <ul>
 <li>introduce tried and proven principles of writing expressive and maintainable R code.</li>
 </ul>
 </div>
-<div id="outcomes" class="section level3">
-<h3><span class="header-section-number">15.1.3</span> Outcomes:</h3>
+<div id="outcomes-12" class="section level3 hasAnchor" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Outcomes:<a href="r-code-style.html#outcomes-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>After working through this unit you:</p>
 <ul>
 <li>can identify poor practice in formatting R code;</li>
@@ -488,86 +581,92 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>begin incorporating these principles into your own practice.</li>
 </ul>
 </div>
-<div id="deliverables" class="section level3">
-<h3><span class="header-section-number">15.1.4</span> Deliverables:</h3>
+<div id="deliverables-12" class="section level3 hasAnchor" number="13.1.4">
+<h3><span class="header-section-number">13.1.4</span> Deliverables:<a href="r-code-style.html#deliverables-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Time management</strong>: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.</p>
-<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.</p>
+<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don’t overlook these.</p>
 <p><strong>Insights</strong>: If you find something particularly noteworthy about this unit, make a note in your insights! page.</p>
 </div>
-<div id="prerequisites" class="section level3">
-<h3><span class="header-section-number">15.1.5</span> Prerequisites</h3>
+<div id="prerequisites-12" class="section level3 hasAnchor" number="13.1.5">
+<h3><span class="header-section-number">13.1.5</span> Prerequisites<a href="r-code-style.html#prerequisites-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="r-plots.html#r-plots">RPR-Plotting (Introduction to R Plots)</a></p>
-<p>What do we even mean by &quot;good&quot; <strong>R</strong> code? ...</p>
+<p>What do we even mean by “good” <strong>R</strong> code? …</p>
 <div class="rmd-caution">
 <p>
-Warning: Coding style is a volatile topic. Friendships have been renounced, eternal vows of marriage have been dissolved, stock-options have been lost, all over a disagreement about the One True Brace Style, or whether fetchSequenceFromPDB()is a good function name or not. I am laying out coding rules below that reflect a few years of experience. They work for me, they may not work for you.
+Warning: Coding style is a volatile topic. Friendships have been
+renounced, eternal vows of marriage have been dissolved, stock-options
+have been lost, all over a disagreement about the One True Brace Style,
+or whether fetchSequenceFromPDB()is a good function name or not. I am
+laying out coding rules below that reflect a few years of experience.
+They work for me, they may not work for you.
 </p>
 </div>
 <p>However:</p>
 <ul>
 <li>If you are taking one of my workshops, I recommend you to follow these rules: I write this way, and we will find it easier to communicate if you do too.</li>
-<li>If you are collaborating on a software project, these rules embody the standard across the project, and I will not check-in code that deviates. Here, consistency is key; but if you think you have a better approach, you only need to convince me and we will change the rule and apply it throughout the codebase<a href="r-intro.html#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>. *If you are taking one of my courses, you may lose marks if you do not adhere to these standards. Of course, following rules must not be done blindly – we are training future collaborators, not parrots – but you need to write in the spirit of the one rule we all agree on:</li>
+<li>If you are collaborating on a software project, these rules embody the standard across the project, and I will not check-in code that deviates. Here, consistency is key; but if you think you have a better approach, you only need to convince me and we will change the rule and apply it throughout the codebase<a href="r-code-style.html#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>.
+*If you are taking one of my courses, you may lose marks if you do not adhere to these standards. Of course, following rules must not be done blindly – we are training future collaborators, not parrots – but you need to write in the spirit of the one rule we all agree on:</li>
 </ul>
 <p>Well written code helps the reader to understand the intent.</p>
 </div>
 </div>
-<div id="general" class="section level2">
-<h2><span class="header-section-number">15.2</span> General</h2>
+<div id="general" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> General<a href="r-code-style.html#general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the goals of the coding style expressed below is that it should be easy to read for people for whom <strong>R</strong> is not the first language, or even the language of choice. There are many things that R-purists might do differently, however those probably are not well suited for a research collaboration in which people speak python, C++, javascript and R all at the same time.</p>
 <p>It should always be your goal to code as clearly and explicitly as possible. <strong>R</strong> has many complex idioms, and since it is a functional language that can generally insert functions anywhere into expressions, it is possible to write very terse, expressive code. Use this with discretion. Pace yourself, and make sure your reader can follow your flow of thought. You should aim for a generic coding style that can easily be translated to other languages if necessary, and easily understood by others whose background is in another language. And resist being crafty: more often than not the poor soul who will be confused by a particularly witty use of the language will be you, yourself, half a year later. There is an astute observation by Brian Kernighan that applies completely:</p>
-<p>&quot;Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.&quot;</p>
+<p>“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.”</p>
 <ul>
 <li>Never sacrifice being explicit for saving on keystrokes. Code is read much more often than it is written!</li>
-<li>Use lots of comments. Don't describe what the code does, but explain why you wrote it that way.</li>
-<li>Indent comment &quot;#&quot;-characters to align with the expressions in a block.</li>
+<li>Use lots of comments. Don’t describe what the code does, but explain why you wrote it that way.</li>
+<li>Indent comment “#”-characters to align with the expressions in a block.</li>
 <li>Use only &lt;- for assignment, not =</li>
-<li>...but do use = when passing values into the arguments of functions.</li>
-<li>Define global variables at the beginning of the code, use all caps variable names (MAXWIDTH) for such parameters. Never have &quot;magic numbers&quot; appear in your code.</li>
+<li>…but do use = when passing values into the arguments of functions.</li>
+<li>Define global variables at the beginning of the code, use all caps variable names (MAXWIDTH) for such parameters. Never have “magic numbers” appear in your code.</li>
 <li>If such variables are meant to be truly global use options() to set them.</li>
-<li>Always use for (i in seq(along=x)) {...} rather than for (i in 1:length(x)) {...} because if x == NULL the loop is executed once, with an undefined variable.</li>
-<li>Don't use attach().</li>
-<li>Avoid importing functions wholesale from packages with library(). Rather use the <package>::<function>() syntax to make it clear which function you mean<a href="r-intro.html#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>. That's what package namespaces are for in the first place.</li>
+<li>Always use for (i in seq(along=x)) {…} rather than for (i in 1:length(x)) {…} because if x == NULL the loop is executed once, with an undefined variable.</li>
+<li>Don’t use attach().</li>
+<li>Avoid importing functions wholesale from packages with library(). Rather use the <package>::<function>() syntax to make it clear which function you mean<a href="r-code-style.html#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>. That’s what package namespaces are for in the first place.</li>
 </ul>
 <p><strong>Bad:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(igraph)
- 
-...
- 
-...
- 
-clu &lt;-<span class="st"> </span><span class="kw">components</span>(g)</code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="r-code-style.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb574-2"><a href="r-code-style.html#cb574-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb574-3"><a href="r-code-style.html#cb574-3" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb574-4"><a href="r-code-style.html#cb574-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb574-5"><a href="r-code-style.html#cb574-5" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb574-6"><a href="r-code-style.html#cb574-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb574-7"><a href="r-code-style.html#cb574-7" aria-hidden="true" tabindex="-1"></a>clu <span class="ot">&lt;-</span> <span class="fu">components</span>(g)</span></code></pre></div>
 <p><strong>Good:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clu &lt;-<span class="st"> </span>igraph<span class="op">::</span><span class="kw">components</span>(g)</code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="r-code-style.html#cb575-1" aria-hidden="true" tabindex="-1"></a>clu <span class="ot">&lt;-</span> igraph<span class="sc">::</span><span class="fu">components</span>(g)</span></code></pre></div>
 <ul>
-<li>Don't change the global state
+<li>Don’t change the global state
 <ul>
 <li>We do understand why our functions should not have side-effects (other than the explicit intended effects of printing, plotting, or writing files). But there are subtle ways to change the global state that we need to remember - and avoid.</li>
-<li>Here's an obvious one: Don't use &lt;&lt;- (global assignment) except in very unusual cases. Actually never.</li>
-<li>Less obvious is: Don't use set.seed() in functions.</li>
+<li>Here’s an obvious one: Don’t use &lt;&lt;- (global assignment) except in very unusual cases. Actually never.</li>
+<li>Less obvious is: Don’t use set.seed() in functions.</li>
 <li>set.seed() changes the state of the Random Number Generator (RNG), which is part of Rs global state. If this state is changed inside a function, it might result in vastly smaller space of random numbers than you would expect. Even resetting the RNG is not a good idea: a repeatable script might require the RNG to be in a defined state and if your function does set.seed(NULL), your enclosing script is no longer repeatable. But of course, we need to be able to compute simulations repeatably. The only acceptable idiom is something like:</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mySim &lt;-<span class="st"> </span><span class="cf">function</span>(N) { ...
-  <span class="co"># do something random N times</span>
-  <span class="kw">return</span>(result)
-}
- 
-<span class="kw">set.seed</span>(<span class="dv">112358</span>)                       <span class="co"># set RNG seed for repeatable randomness</span>
-x &lt;-<span class="st"> </span><span class="kw">mySim</span>(N)
-<span class="kw">set.seed</span>(<span class="ot">NULL</span>)                         <span class="co"># reset the RNG</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="r-code-style.html#cb576-1" aria-hidden="true" tabindex="-1"></a>mySim <span class="ot">&lt;-</span> <span class="cf">function</span>(N) { ...</span>
+<span id="cb576-2"><a href="r-code-style.html#cb576-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># do something random N times</span></span>
+<span id="cb576-3"><a href="r-code-style.html#cb576-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb576-4"><a href="r-code-style.html#cb576-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb576-5"><a href="r-code-style.html#cb576-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb576-6"><a href="r-code-style.html#cb576-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">112358</span>)                       <span class="co"># set RNG seed for repeatable randomness</span></span>
+<span id="cb576-7"><a href="r-code-style.html#cb576-7" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">mySim</span>(N)</span>
+<span id="cb576-8"><a href="r-code-style.html#cb576-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="cn">NULL</span>)                         <span class="co"># reset the RNG</span></span></code></pre></div>
 <p>Then you can comment out the lines, or change them to a different seed, or reset the RNG with set.seed(NULL) - everything is explicit.</p>
 </div>
-<div id="layout" class="section level2">
-<h2><span class="header-section-number">15.3</span> Layout</h2>
+<div id="layout-1" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Layout<a href="r-code-style.html#layout-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Limit yourself to 80 characters per line.</p>
-<p>Don't use semicolons to write more than one expression on a line.</p>
+<p>Don’t use semicolons to write more than one expression on a line.</p>
 </div>
-<div id="design-and-granularity" class="section level2">
-<h2><span class="header-section-number">15.4</span> Design and granularity</h2>
+<div id="design-and-granularity" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Design and granularity<a href="r-code-style.html#design-and-granularity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Don't repeat code. Use functions instead.</li>
-<li>Don't repeat code. If you feel the urge to type code more than once, that's how you know you should break up the code into functions.</li>
-<li>Don't repeat code. I'm repeating this for emphasis.</li>
+<li>Don’t repeat code. Use functions instead.</li>
+<li>Don’t repeat code. If you feel the urge to type code more than once, that’s how you know you should break up the code into functions.</li>
+<li>Don’t repeat code. I’m repeating this for emphasis.</li>
 </ul>
 <p>One of the general principles of writing clear, maintainable code is collocation. This means that information items that can affect each other should be viewable on the same screen. Spolski makes a great argument for this, together with a few excellent examples; he also makes a case for a special kind of prefix notation for variable and function names that has a lot of merit.</p>
 <ul>
@@ -575,217 +674,231 @@ x &lt;-<span class="st"> </span><span class="kw">mySim</span>(N)
 <li><p>if your loops or conditionals are nested more than three levels deep, you should rethink the logic. Actually three is already a lot. Unless you are working on 3D-objects.</p></li>
 </ul>
 </div>
-<div id="headers" class="section level2">
-<h2><span class="header-section-number">15.5</span> Headers</h2>
+<div id="headers" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Headers<a href="r-code-style.html#headers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Give your script files headers that state purpose, author, date and version information, and note bugs and issues.</p></li>
 <li><p>Give your functions headers that describe purpose, parameters (including required datatypes), and return values. Callers should be able to work with the function without having to read the code.</p></li>
-<li><p>In RNotebooks make use of &quot;#&quot; to define heading and sub-headings</p></li>
+<li><p>In RNotebooks make use of “#” to define heading and sub-headings</p></li>
 </ul>
 </div>
-<div id="parentheses-and-braces" class="section level2">
-<h2><span class="header-section-number">15.6</span> Parentheses and Braces</h2>
+<div id="parentheses-and-braces" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Parentheses and Braces<a href="r-code-style.html#parentheses-and-braces" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>In mathematical expressions, always use parentheses to define priority explicitly. Never rely on implicit operator priority. (( 1 + 2 ) / 3 ) * 4</p></li>
 <li><p>Always use braces {}, even if you write single-line if statements and loops.</p></li>
 </ul>
 </div>
-<div id="spaces" class="section level2">
-<h2><span class="header-section-number">15.7</span> Spaces</h2>
+<div id="spaces" class="section level2 hasAnchor" number="13.7">
+<h2><span class="header-section-number">13.7</span> Spaces<a href="r-code-style.html#spaces" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>if and for are language keywords, not functions. Separate the following parenthesis from the keyword with a space.</p>
 <p><strong>Good:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (silent) { ...</code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="r-code-style.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (silent) { ...</span></code></pre></div>
 <p><strong>Bad:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(silent) { ...</code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="r-code-style.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(silent) { ...</span></code></pre></div>
 <ul>
-<li><p>Always separate operators and arguments with spaces.<sup>[Separating operators with spaces is especially important for the assignment operator &lt;-. Consider this: myPreciousData &lt; -2 returns a vector of TRUE and FALSE, depending on whether the values in myPreciousData are less than -2. But myPreciousData&lt;-2 overwrites every single element with the number 2! I'm not even making this up - happened to a student in a workshop I taught.]</sup>[The = sign is a bit of a special case. When I write e.g. a plot statement, or construct a dataframe, I prefer not to use spaces if the expression ends up all on one line, but to use spaces when the arguments are on separate lines.]</p></li>
+<li><p>Always separate operators and arguments with spaces.<sup>[Separating operators with spaces is especially important for the assignment operator &lt;-. Consider this: myPreciousData &lt; -2 returns a vector of TRUE and FALSE, depending on whether the values in myPreciousData are less than -2. But myPreciousData&lt;-2 overwrites every single element with the number 2! I’m not even making this up - happened to a student in a workshop I taught.]</sup>[The = sign is a bit of a special case. When I write e.g. a plot statement, or construct a dataframe, I prefer not to use spaces if the expression ends up all on one line, but to use spaces when the arguments are on separate lines.]</p></li>
 <li><p>Never separate function names and their following parentheses with spaces.</p></li>
-<li><p>Always use a space after a comma, and never before a comma. Except in subsetting expressions, where we don't want the comma to hide against the bracket.</p></li>
+<li><p>Always use a space after a comma, and never before a comma. Except in subsetting expressions, where we don’t want the comma to hide against the bracket.</p></li>
 </ul>
 <p><strong>Good:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span>, <span class="dt">digits =</span> <span class="dv">10</span>)
-<span class="cf">if</span> (<span class="op">!</span><span class="st"> </span>id <span class="op">%in%</span><span class="st"> </span>IDs) { ...<span class="st">&#39;</span>
-<span class="st">expressionProfiles[ , 1:3]</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="r-code-style.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">10</span>)</span>
+<span id="cb579-2"><a href="r-code-style.html#cb579-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> id <span class="sc">%in%</span> IDs) { ...<span class="st">&#39;</span></span>
+<span id="cb579-3"><a href="r-code-style.html#cb579-3" aria-hidden="true" tabindex="-1"></a><span class="st">expressionProfiles[ , 1:3]</span></span></code></pre></div>
 <p><strong>Bad:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span> (<span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span> ,<span class="dt">digits=</span><span class="dv">10</span>)
-<span class="cf">if</span> (<span class="op">!</span>id <span class="op">%in%</span><span class="st"> </span>IDs) { ...
-expressionProfiles[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="r-code-style.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span> ,<span class="at">digits=</span><span class="dv">10</span>)</span>
+<span id="cb580-2"><a href="r-code-style.html#cb580-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>id <span class="sc">%in%</span> IDs) { ...</span>
+<span id="cb580-3"><a href="r-code-style.html#cb580-3" aria-hidden="true" tabindex="-1"></a>expressionProfiles[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 </div>
-<div id="names" class="section level2">
-<h2><span class="header-section-number">15.8</span> Names</h2>
+<div id="names" class="section level2 hasAnchor" number="13.8">
+<h2><span class="header-section-number">13.8</span> Names<a href="r-code-style.html#names" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
 <ul>
-<li><p>Phil Karlton<a href="r-intro.html#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a></p></li>
+<li><p>Phil Karlton<a href="r-code-style.html#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a></p>
+<ul>
 <li>Use informative and specific filenames for code sources; give them the extension .R</li>
-<li>Periods have a syntactic meaning in object-oriented classes. I consider their use in normal variables names wrong, even though this is not a syntax error and many R library functions have such names (e.g. Sys.time() and other system calls.)</li>
+<li>Periods have a syntactic meaning in object-oriented classes. I consider their use in normal variables names wrong, even though this is not a syntax error and many R library functions have such names (e.g. Sys.time() and other system calls.)</li>
 <li>Create names so that related variables or functions are alphabetically sorted together, code autocomplete will be more useful.</li>
-<li>Use the concise camelCaseStyle for variable names, don't use the confusing.dot.style or the rambling pothole_style<sup>[But nevert hesitate to make exceptions if this makes your code more legible.]</sup>[This is not a random opinion but based on that it's easier to keep within the 80-character line limit. Also see the <a href="http://citeseerx.ist.psu.edu/viewdoc/similar?doi=10.1.1.158.9499&amp;type=ab">linked article</a>].</li>
-<li>Don't abbreviate argument names when calling functions. You can, but you shouldn't.</li>
-<li>Never reassign reserved words<a href="r-intro.html#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>.</li>
-<li>Don't use c as a variable name since c() is a function.</li>
-<li>Don't call your data frames df since df() is a function.<a href="r-intro.html#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a></li>
+<li>Use the concise camelCaseStyle for variable names, don’t use the confusing.dot.style or the rambling pothole_style<sup>[But nevert hesitate to make exceptions if this makes your code more legible.]</sup>[This is not a random opinion but based on that it’s easier to keep within the 80-character line limit. Also see the <a href="http://citeseerx.ist.psu.edu/viewdoc/similar?doi=10.1.1.158.9499&amp;type=ab">linked article</a>].</li>
+<li>Don’t abbreviate argument names when calling functions. You can, but you shouldn’t.</li>
+<li>Never reassign reserved words<a href="r-code-style.html#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>.</li>
+<li>Don’t use c as a variable name since c() is a function.</li>
+<li>Don’t call your data frames df since df() is a function.<a href="r-code-style.html#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a></li>
 <li>Name length should be commensurate with the scope of a variable. Short names for local scope. More explicit names for global scope. I often write global parameters in ALL CAPS: MAXWIDTH if they are defined at the top of a code module.</li>
 <li>Specific naming conventions I like:
 <ul>
-<li>isValid, hasNeighbour ... Boolean variables</li>
-<li>findRange(), getLimits() ... simple function names (verbs!)</li>
-<li>initializeTable() ... not initTab()</li>
-<li>Use plurals to good advantage. node ... for one element; nodes ... for more elements - you can then write code like:</li>
-<li>for (node in nodes) { ...</li>
-<li>nPoints ... for number-of</li>
-<li>iPoints ... for indices-of-points</li>
-<li>isError ... don't use isNotError: avoid double negation</li>
+<li>isValid, hasNeighbour … Boolean variables</li>
+<li>findRange(), getLimits() … simple function names (verbs!)</li>
+<li>initializeTable() … not initTab()</li>
+<li>Use plurals to good advantage. node … for one element; nodes … for more elements - you can then write code like:
+<ul>
+<li>for (node in nodes) { …</li>
+<li>nPoints … for number-of</li>
+<li>iPoints … for indices-of-points</li>
+<li>isError … don’t use isNotError: avoid double negation</li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
-<div id="conditionals" class="section level2">
-<h2><span class="header-section-number">15.9</span> Conditionals</h2>
-<p>This may be controversial. The code block in an if (<condition>) {...} statement is evaluated if <condition> is TRUE. But what if we use a boolean variable in the condition?</p>
+<div id="conditionals" class="section level2 hasAnchor" number="13.9">
+<h2><span class="header-section-number">13.9</span> Conditionals<a href="r-code-style.html#conditionals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This may be controversial. The code block in an if (<condition>) {…} statement is evaluated if <condition> is TRUE. But what if we use a boolean variable in the condition?</p>
 <p>Should we write:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">&lt;</span>boolean variable<span class="op">&gt;</span>) { ...</code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="r-code-style.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">&lt;</span>boolean variable<span class="sc">&gt;</span>) { ...</span></code></pre></div>
 <p>or</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">&lt;</span>boolean variable<span class="op">&gt;</span><span class="st"> </span><span class="er">==</span><span class="st"> </span><span class="ot">TRUE</span>) { ...</code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="r-code-style.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">&lt;</span>boolean variable<span class="sc">&gt;</span> <span class="er">==</span> <span class="cn">TRUE</span>) { ...</span></code></pre></div>
 <ul>
 <li>It depends. Remember - the goal is to make your code as explicit and readable as possible.</li>
-<li>If our variable is e.g. a, then ...</li>
+<li>If our variable is e.g. a, then …</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (a) { ...</code></pre></div>
-<p>... is not good. Better write ...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (a <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) { ...</code></pre></div>
-<p>... and treat this as any other condition that needs to be evaluated. However - if you have given this a meaningful variable name in the first place, something like ...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (recordIsValid) { ...</code></pre></div>
-<p>... is great, whereas ...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (recordIsValid <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) { ...</code></pre></div>
-<p>... is something that feels oddly self-contradictory. So best practice here depends on context. Myself, I more often than not end up write if (something-something-that-is-boolean == TRUE) ..., (and that's not because I don't understand how conditionals work).</p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="r-code-style.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a) { ...</span></code></pre></div>
+<p>… is not good. Better write …</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="r-code-style.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="sc">==</span> <span class="cn">TRUE</span>) { ...</span></code></pre></div>
+<p>… and treat this as any other condition that needs to be evaluated. However - if you have given this a meaningful variable name in the first place, something like …</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="r-code-style.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (recordIsValid) { ...</span></code></pre></div>
+<p>… is great, whereas …</p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="r-code-style.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (recordIsValid <span class="sc">==</span> <span class="cn">TRUE</span>) { ...</span></code></pre></div>
+<p>… is something that feels oddly self-contradictory. So best practice here depends on context. Myself, I more often than not end up write if (something-something-that-is-boolean == TRUE) …, (and that’s not because I don’t understand how conditionals work).</p>
 <p>Make the FALSE behaviour explicit. Always use an else at the end of a conditional to define what your code does if the condition is not TRUE. Otherwise your reader will wonder whether your code covers all cases. What if your code should do nothing in the FALSE case? Make that explicit:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (a <span class="op">&gt;</span><span class="st"> </span>b) {
-  tmp &lt;-<span class="st"> </span>b
-  b &lt;-<span class="st"> </span>a
-  a &lt;-<span class="st"> </span>tmp
-} <span class="cf">else</span> {
-  ;
-}</code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="r-code-style.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="sc">&gt;</span> b) {</span>
+<span id="cb587-2"><a href="r-code-style.html#cb587-2" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> b</span>
+<span id="cb587-3"><a href="r-code-style.html#cb587-3" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> a</span>
+<span id="cb587-4"><a href="r-code-style.html#cb587-4" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> tmp</span>
+<span id="cb587-5"><a href="r-code-style.html#cb587-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb587-6"><a href="r-code-style.html#cb587-6" aria-hidden="true" tabindex="-1"></a>  ;</span>
+<span id="cb587-7"><a href="r-code-style.html#cb587-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Instead of the lone semicolon you could also write NULL, or invisible(NULL).</p>
 </div>
-<div id="indent-style" class="section level2">
-<h2><span class="header-section-number">15.10</span> Indent Style</h2>
-<p>No need for much discussion. Follow the One True Bracing Style and we will all be happy. If you don't immediately see why: read about indent style <a href="https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)">here</a>.</p>
+<div id="indent-style" class="section level2 hasAnchor" number="13.10">
+<h2><span class="header-section-number">13.10</span> Indent Style<a href="r-code-style.html#indent-style" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>No need for much discussion. Follow the One True Bracing Style and we will all be happy. If you don’t immediately see why: read about indent style <a href="https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)">here</a>.</p>
 <ol style="list-style-type: decimal">
 <li>Opening brace on the same line as the function or control declaration;</li>
 <li>closing brace aligned with the declaration;</li>
 <li>braces mandatory even if there is only one statement to execute.</li>
 </ol>
 <p><strong>Sample:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>) {
-  perm &lt;-<span class="st"> </span><span class="kw">sample</span>(x)
-} <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {
-  perm &lt;-<span class="st"> </span>x
-} <span class="cf">else</span>  {
-  perm &lt;-<span class="st"> </span><span class="ot">NULL</span>
-}</code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="r-code-style.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb588-2"><a href="r-code-style.html#cb588-2" aria-hidden="true" tabindex="-1"></a>  perm <span class="ot">&lt;-</span> <span class="fu">sample</span>(x)</span>
+<span id="cb588-3"><a href="r-code-style.html#cb588-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb588-4"><a href="r-code-style.html#cb588-4" aria-hidden="true" tabindex="-1"></a>  perm <span class="ot">&lt;-</span> x</span>
+<span id="cb588-5"><a href="r-code-style.html#cb588-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span>  {</span>
+<span id="cb588-6"><a href="r-code-style.html#cb588-6" aria-hidden="true" tabindex="-1"></a>  perm <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb588-7"><a href="r-code-style.html#cb588-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="indentation-of-long-function-declarations" class="section level2">
-<h2><span class="header-section-number">15.11</span> Indentation of long function declarations</h2>
+<div id="indentation-of-long-function-declarations" class="section level2 hasAnchor" number="13.11">
+<h2><span class="header-section-number">13.11</span> Indentation of long function declarations<a href="r-code-style.html#indentation-of-long-function-declarations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Use spaces to align repeating parts of code, so errors become easier to spot.</p>
 </div>
-<div id="loops" class="section level2">
-<h2><span class="header-section-number">15.12</span> Loops</h2>
+<div id="loops" class="section level2 hasAnchor" number="13.12">
+<h2><span class="header-section-number">13.12</span> Loops<a href="r-code-style.html#loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Pre-allocate your result objects to have the correct size if at all possible. Growing objects dynamically with c(), cbind(), or rbind() is much, much slower.</p>
-<p>Use seq_along(), not length() to compute the range of index variables. If the object you are iterating over has length zero (i.e. it is NULL, like e.g. the result of a grep() operation if the pattern was not found) then using ...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (idx <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myVector)) { ...</code></pre></div>
-<p>... will result in an iteration range of 1:0 since length(NULL) is zero, and the loop will be executed twice even though it should not have been. The correct and safe way to iterate is ...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (idx <span class="cf">in</span> <span class="kw">seq_along</span>(myVector)) { ...</code></pre></div>
-<p>... which will not execute since seq_along(NULL) is NULL.</p>
+<p>Use seq_along(), not length() to compute the range of index variables. If the object you are iterating over has length zero (i.e. it is NULL, like e.g. the result of a grep() operation if the pattern was not found) then using …</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="r-code-style.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (idx <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(myVector)) { ...</span></code></pre></div>
+<p>… will result in an iteration range of 1:0 since length(NULL) is zero, and the loop will be executed twice even though it should not have been. The correct and safe way to iterate is …</p>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="r-code-style.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (idx <span class="cf">in</span> <span class="fu">seq_along</span>(myVector)) { ...</span></code></pre></div>
+<p>… which will not execute since seq_along(NULL) is NULL.</p>
 </div>
-<div id="functions" class="section level2">
-<h2><span class="header-section-number">15.13</span> Functions</h2>
-<p>Explicitly assign values to crucial function arguments, even if you think you know that that value is the language default. For example ...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(x)</code></pre></div>
-<p>... sorts in increasing order, smallest first. But even though ...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p>... does the same thing, the expression explicitly tells the reader what it is going to do. And that's good.</p>
+<div id="functions-1" class="section level2 hasAnchor" number="13.13">
+<h2><span class="header-section-number">13.13</span> Functions<a href="r-code-style.html#functions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Explicitly assign values to crucial function arguments, even if you think you know that that value is the language default. For example …</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="r-code-style.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x)</span></code></pre></div>
+<p>… sorts in increasing order, smallest first. But even though …</p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="r-code-style.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x, <span class="at">decreasing =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>… does the same thing, the expression explicitly tells the reader what it is going to do. And that’s good.</p>
 <p>Always explicitly return values from functions, never rely on the implicit behaviour that returns the last expression. This is not superfluous, it is explicit.</p>
-<p>If there is nothing to return because the function is invoked for its side effects of writing a file or plotting a graph, write it into your code that nothing will be returned. This prevents you from accidentally returning the result of last expression anyway (as the language does by default), or the reader might think you forgot something. The idiom is: return(invisible(NULL))</p>
+<p>If there is nothing to return because the function is invoked for its side effects of writing a file or plotting a graph, write it into your code that nothing will be returned. This prevents you from accidentally returning the result of last expression anyway (as the language does by default), or the reader might think you forgot something. The idiom is:
+return(invisible(NULL))</p>
 <p>In general, return only from the end of the function, not from multiple places.</p>
 </div>
-<div id="efficiency" class="section level2">
-<h2><span class="header-section-number">15.14</span> Efficiency</h2>
-<p>If possible, do not grow data structures dynamically, but create the whole structure with &quot;empty&quot; values, then assign values to its elements. This is much faster.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This is really bad:</span>
- <span class="kw">system.time</span>({
-   N &lt;-<span class="st"> </span><span class="dv">100000</span>
-   v &lt;-<span class="st"> </span><span class="kw">numeric</span>()
-   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {
-       v &lt;-<span class="st"> </span><span class="kw">c</span>(v, <span class="kw">sqrt</span>(i))
-   }
- })</code></pre></div>
+<div id="efficiency" class="section level2 hasAnchor" number="13.14">
+<h2><span class="header-section-number">13.14</span> Efficiency<a href="r-code-style.html#efficiency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If possible, do not grow data structures dynamically, but create the whole structure with “empty” values, then assign values to its elements. This is much faster.</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="r-code-style.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is really bad:</span></span>
+<span id="cb593-2"><a href="r-code-style.html#cb593-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">system.time</span>({</span>
+<span id="cb593-3"><a href="r-code-style.html#cb593-3" aria-hidden="true" tabindex="-1"></a>   N <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb593-4"><a href="r-code-style.html#cb593-4" aria-hidden="true" tabindex="-1"></a>   v <span class="ot">&lt;-</span> <span class="fu">numeric</span>()</span>
+<span id="cb593-5"><a href="r-code-style.html#cb593-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {</span>
+<span id="cb593-6"><a href="r-code-style.html#cb593-6" aria-hidden="true" tabindex="-1"></a>       v <span class="ot">&lt;-</span> <span class="fu">c</span>(v, <span class="fu">sqrt</span>(i))</span>
+<span id="cb593-7"><a href="r-code-style.html#cb593-7" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb593-8"><a href="r-code-style.html#cb593-8" aria-hidden="true" tabindex="-1"></a> })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  21.120  11.108  32.529</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># Even only writing directly to new elements is much, much better:</span>
- <span class="kw">system.time</span>({
-   N &lt;-<span class="st"> </span><span class="dv">100000</span>
-   v &lt;-<span class="st"> </span><span class="kw">numeric</span>()
-   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N) {
-       v[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(i)
-   }
- })</code></pre></div>
+##  15.078   0.000  15.054</code></pre>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="r-code-style.html#cb595-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Even only writing directly to new elements is much, much better:</span></span>
+<span id="cb595-2"><a href="r-code-style.html#cb595-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">system.time</span>({</span>
+<span id="cb595-3"><a href="r-code-style.html#cb595-3" aria-hidden="true" tabindex="-1"></a>   N <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb595-4"><a href="r-code-style.html#cb595-4" aria-hidden="true" tabindex="-1"></a>   v <span class="ot">&lt;-</span> <span class="fu">numeric</span>()</span>
+<span id="cb595-5"><a href="r-code-style.html#cb595-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {</span>
+<span id="cb595-6"><a href="r-code-style.html#cb595-6" aria-hidden="true" tabindex="-1"></a>       v[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(i)</span>
+<span id="cb595-7"><a href="r-code-style.html#cb595-7" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb595-8"><a href="r-code-style.html#cb595-8" aria-hidden="true" tabindex="-1"></a> })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.025   0.003   0.027</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># That&#39;s abaout as fast as doing the same thing with a vapply() function.</span>
- 
- <span class="co"># The fastest way is to preallocate memory, it actually comes close to the</span>
- <span class="co"># vectorized operation:</span>
- 
- <span class="kw">system.time</span>({
-   N &lt;-<span class="st"> </span><span class="dv">100000</span>
-   v &lt;-<span class="st"> </span><span class="kw">numeric</span>(N)
-   <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(v)) {
-       v[i] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(i)
-   }
- })</code></pre></div>
+##   0.039   0.000   0.039</code></pre>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="r-code-style.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="co"># That&#39;s abaout as fast as doing the same thing with a vapply() function.</span></span>
+<span id="cb597-2"><a href="r-code-style.html#cb597-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb597-3"><a href="r-code-style.html#cb597-3" aria-hidden="true" tabindex="-1"></a> <span class="co"># The fastest way is to preallocate memory, it actually comes close to the</span></span>
+<span id="cb597-4"><a href="r-code-style.html#cb597-4" aria-hidden="true" tabindex="-1"></a> <span class="co"># vectorized operation:</span></span>
+<span id="cb597-5"><a href="r-code-style.html#cb597-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb597-6"><a href="r-code-style.html#cb597-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">system.time</span>({</span>
+<span id="cb597-7"><a href="r-code-style.html#cb597-7" aria-hidden="true" tabindex="-1"></a>   N <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb597-8"><a href="r-code-style.html#cb597-8" aria-hidden="true" tabindex="-1"></a>   v <span class="ot">&lt;-</span> <span class="fu">numeric</span>(N)</span>
+<span id="cb597-9"><a href="r-code-style.html#cb597-9" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v)) {</span>
+<span id="cb597-10"><a href="r-code-style.html#cb597-10" aria-hidden="true" tabindex="-1"></a>       v[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(i)</span>
+<span id="cb597-11"><a href="r-code-style.html#cb597-11" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb597-12"><a href="r-code-style.html#cb597-12" aria-hidden="true" tabindex="-1"></a> })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.006   0.000   0.007</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using a vectorized operation is the fastest approach overall and the</span>
-<span class="co"># method of choice:</span>
- 
-<span class="kw">system.time</span>({ v &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>) })</code></pre></div>
+##   0.016   0.000   0.016</code></pre>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="r-code-style.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a vectorized operation is the fastest approach overall and the</span></span>
+<span id="cb599-2"><a href="r-code-style.html#cb599-2" aria-hidden="true" tabindex="-1"></a><span class="co"># method of choice:</span></span>
+<span id="cb599-3"><a href="r-code-style.html#cb599-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb599-4"><a href="r-code-style.html#cb599-4" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({ v <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100000</span>) })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.000   0.000   0.001</code></pre>
+##   0.001   0.000   0.000</code></pre>
 <ul>
-<li>Don't buy into the &quot;apply good, for-loop bad&quot; nonsense. Especially not if you need speed: a well-written for-loop will outperform an apply() statement, which internally uses a for-loop anyway. The reason we often use apply() is because we are following a functional programming idiom, not because there is something magical and exalted about the apply() function. It's usually a bit subtle which idiom is &quot;better&quot; at any given time.</li>
+<li>Don’t buy into the “apply good, for-loop bad” nonsense. Especially not if you need speed: a well-written for-loop will outperform an apply() statement, which internally uses a for-loop anyway. The reason we often use apply() is because we are following a functional programming idiom, not because there is something magical and exalted about the apply() function. It’s usually a bit subtle which idiom is “better” at any given time.</li>
 </ul>
 </div>
-<div id="end" class="section level2">
-<h2><span class="header-section-number">15.15</span> [END]</h2>
+<div id="end" class="section level2 hasAnchor" number="13.15">
+<h2><span class="header-section-number">13.15</span> [END]<a href="r-code-style.html#end" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Always end your code with an # [END] comment. This way you can be sure it was copied or saved completely and nothig has been inadvertently omitted. This is important in teamwork. If even ONE team member does not adhere to this, it invalidates the efforts of EVERYONE.</p>
 </div>
-<div id="self-evaluation" class="section level2">
-<h2><span class="header-section-number">15.16</span> Self-evaluation</h2>
+<div id="self-evaluation-12" class="section level2 hasAnchor" number="13.16">
+<h2><span class="header-section-number">13.16</span> Self-evaluation<a href="r-code-style.html#self-evaluation-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="further-reading-links-and-resources" class="section level2">
-<h2><span class="header-section-number">15.17</span> Further reading, links and resources</h2>
+<div id="further-reading-links-and-resources-11" class="section level2 hasAnchor" number="13.17">
+<h2><span class="header-section-number">13.17</span> Further reading, links and resources<a href="r-code-style.html#further-reading-links-and-resources-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><a href="https://google.github.io/styleguide/Rguide.html">Google's R Style Guide</a></li>
+<li><a href="https://google.github.io/styleguide/Rguide.html">Google’s R Style Guide</a></li>
 <li><a href="https://www.stat.ubc.ca/~jenny/STAT545A/block19_codeFormattingOrganization.html">Jenny Bryan has very useful comments on how style supports coding</a></li>
 <li><a href="https://xkcd.com/1513/">XKCD on Code Quality</a></li>
 <li>R source code itself is largely based on the <a href="https://www.gnu.org/prep/standards/standards.html">GNU coding standards</a></li>
 <li><a href="http://agileinaflash.blogspot.com/2009/02/meaningful-names.html">Tim Ottinger on Naming</a></li>
 <li><a href="https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/">Joel Spolski on collocation</a></li>
 </ul>
-<p><strong>If in doubt, ask!</strong><br> If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
+<p><strong>If in doubt, ask!</strong><br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
 
 <div class="rmd-original-history">
-<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca">boris.steipe@utoronto.ca</a> <br> <strong>Created</strong>: 2017-08-05<br> <strong>Modified</strong>: 2019-04-12<br> Version: 1.1.1<br> <strong>Version history</strong>:<br> 1.1.1 Maintenance<br> 1.1 Add: Dont change the global state; Avoid library()<br> 1.0.1 Maintenance<br> 1.0 Completed to first live version<br> 0.1 Material collected from previous tutorial<br>
+<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca" class="email">boris.steipe@utoronto.ca</a> <br>
+<strong>Created</strong>: 2017-08-05<br>
+<strong>Modified</strong>: 2019-04-12<br>
+Version: 1.1.1<br>
+<strong>Version history</strong>:<br>
+1.1.1 Maintenance<br>
+1.1 Add: Dont change the global state; Avoid library()<br>
+1.0.1 Maintenance<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
 </div>
-
-<div id="updated-revision-history" class="section level3">
-<h3><span class="header-section-number">15.17.1</span> Updated Revision history</h3>
+<div id="updated-revision-history-12" class="section level3 hasAnchor" number="13.17.1">
+<h3><span class="header-section-number">13.17.1</span> Updated Revision history<a href="r-code-style.html#updated-revision-history-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="7%" />
 <col width="11%" />
-<col width="9%" />
-<col width="70%" />
+<col width="8%" />
+<col width="72%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -811,20 +924,171 @@ expressionProfiles[, <span class="dv">1</span><span class="op">:</span><span cla
 </tbody>
 </table>
 </div>
-<div id="footnotes" class="section level3">
-<h3><span class="header-section-number">15.17.2</span> Footnotes:</h3>
+<div id="footnotes-12" class="section level3 hasAnchor" number="13.17.2">
+<h3><span class="header-section-number">13.17.2</span> Footnotes:<a href="r-code-style.html#footnotes-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
+<p>#Introduction to R {#r-intro}
+(Introduction to R)</p>
+<p>##Overview
+### Abstract:
+This page collects the learning units for an introduction to R.</p>
+</div>
+<div id="objectives-13" class="section level3 hasAnchor" number="13.17.3">
+<h3><span class="header-section-number">13.17.3</span> Objectives:<a href="r-code-style.html#objectives-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>…</p>
+</div>
+<div id="outcomes-13" class="section level3 hasAnchor" number="13.17.4">
+<h3><span class="header-section-number">13.17.4</span> Outcomes:<a href="r-code-style.html#outcomes-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>…</p>
+</div>
+<div id="deliverables-13" class="section level3 hasAnchor" number="13.17.5">
+<h3><span class="header-section-number">13.17.5</span> Deliverables:<a href="r-code-style.html#deliverables-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>No separate deliverables: This unit collects other units and has no deliverables on its own.</p>
+</div>
+<div id="prerequisites-13" class="section level3 hasAnchor" number="13.17.6">
+<h3><span class="header-section-number">13.17.6</span> Prerequisites:<a href="r-code-style.html#prerequisites-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This unit builds on material covered in the following prerequisite units:</p>
+<p><a href="r-code-style.html#r-code-style">RPR-Coding_style (R Coding Style)</a></p>
+<p>This is a “milestone unit”. Its purpose is merely to collect a number of preparatory units into a single, common prerequisite. It has no contents of its own; you are expected to be familiar and competent with all preparatory material at this point.</p>
 </div>
 </div>
+<div id="the-abc-rstudio-project" class="section level2 hasAnchor" number="13.18">
+<h2><span class="header-section-number">13.18</span> The ABC RStudio Project<a href="r-code-style.html#the-abc-rstudio-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>R</strong>-scripts and other resources for the learning units of this course are collected in an RStudio project. This makes it easy to update and distribute code. I push update material to the GitHub repository of the project for any unit, all you need to do is to pull the updated project to receive all updates and new files on your computer. Version control is really useful for this. However, there is an issue that you need to be aware of. If you create your own, local files and then commit them, git will complain that it would be overwriting such local material. As long as you don’t commit your files then all should be fine. This means you’ll need to do your own “versioning” by saving your own scripts under a different name from time to time. Once again: in this context:</p>
+<ul>
+<li>saving your own files is fine;</li>
+<li>committing your own files to version control will cause problems;</li>
+<li>changes you make to course material files and save under the same filename (like adding comments and notes) will not persist, these changes will be overwritten with the next update. You need to “Save As…” with a new filename (for example, prefix the original name with “my”).</li>
+</ul>
+</div>
+<div id="task-28" class="section level2 hasAnchor" number="13.19">
+<h2><span class="header-section-number">13.19</span> Task 28<a href="r-code-style.html#task-28" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-task">
+<ul>
+<li>
+Open RStudio and create a New Project… cloned from a git version
+control directory. The repository URL is
+<a href="https://github.com/hyginn/ABC-units" class="uri">https://github.com/hyginn/ABC-units</a>. Create this in the same way as you
+did for the R-tutorial.
+</li>
+<li>
+As requested on the console, type init(). This will create a file
+called .myProfile.R and ask you for your UofT eMail address and Student
+ID. You need to enter the correct values because other scripts will
+assume that these variables exist and are valid.
+</li>
+<li>
+Work through the task: “Local script” in the RPR-Introduction.R
+script.
+</li>
+</ul>
+</div>
+</div>
+<div id="self-evaluation-13" class="section level2 hasAnchor" number="13.20">
+<h2><span class="header-section-number">13.20</span> Self-evaluation<a href="r-code-style.html#self-evaluation-13" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Understanding the setup
+<ul>
+<li>Imagine you made a typo when you entered your eMail address and now the file .myProfile.R contains a mistake. How do you fix this?<a href="r-code-style.html#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="further-reading-links-and-resources-12" class="section level2 hasAnchor" number="13.21">
+<h2><span class="header-section-number">13.21</span> Further reading, links and resources<a href="r-code-style.html#further-reading-links-and-resources-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>If in doubt, ask!</strong><br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
+
+<div class="rmd-original-history">
+<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca" class="email">boris.steipe@utoronto.ca</a> <br>
+<strong>Created</strong>: 2017-08-05<br>
+<strong>Modified</strong>: 2017-08-05<br>
+Version: 1.0<br>
+<strong>Version history</strong>:<br>
+1.0 Completed to first live version.<br>
+0.1 First stub<br>
+</div>
+<div id="updated-revision-history-13" class="section level3 hasAnchor" number="13.21.1">
+<h3><span class="header-section-number">13.21.1</span> Updated Revision history<a href="r-code-style.html#updated-revision-history-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="11%" />
+<col width="8%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Revision</th>
+<th align="left">Author</th>
+<th align="left">Date</th>
+<th align="left">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">5152496</td>
+<td align="left">Ruth Isserlin</td>
+<td align="left">2019-12-25</td>
+<td align="left">Fixed issue with task numbering because of a remove all elements call in the 2nd chapter</td>
+</tr>
+<tr class="even">
+<td align="left">fab47ae</td>
+<td align="left">Ruth Isserlin</td>
+<td align="left">2019-12-24</td>
+<td align="left">initial check in of R basics book</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="footnotes-13" class="section level3 hasAnchor" number="13.21.2">
+<h3><span class="header-section-number">13.21.2</span> Footnotes:<a href="r-code-style.html#footnotes-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+<span>“What Is a Container?”</span> n.d. <em>Docker</em>. <a href="https://www.docker.com/resources/what-container" class="uri">https://www.docker.com/resources/what-container</a>.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>and when you click on the arrow to the left, this will take you back to where you came from<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Proportional fonts are for elegant document layout. Monospaced fonts are needed to properly align characters in columns. For code and sequences, we always use monospaced font.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>[1] means: the following is the first (often only) element of a vector.<a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>A “wrapper” program uses another program’s functionality in its own context. RStudio is a wrapper for <strong>R</strong> since it does not duplicate <strong>R</strong>’s functions, it runs the actual R in the background.<a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>For example C:Documentswould be interpreted as C:Documents<linebreak>ew because is the linebreak character. Even though that’s actually the path name on Windows, in an R command you have to write C:Documents/new<a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Projects that I create for teaching are configured to use this option by default, thus once the project is loaded, the Working Directory should already be correctly set.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Actually, the first script that runs is Rprofile.site which is found on Linux and Windows machines in the C:\Program Files\R\R-{version}\etc directory. But not on Macs.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Operating systems commonly hide files whose name starts with a period “.” from normal directory listings. All files however are displayed in RStudio’s File pane. Nevertheless, it is useful to know how to view such files by default. On Macs, you can configure the Finder to show you such “hidden files” by default. To do this: (i) Open a terminal window; (ii) Type: $defaults write com.apple.Finder AppleShowAllFiles YES (iii) Restart the Finder by accessing Force quit (under the Apple menu), selecting the Finder and clicking Relaunch. (iV) If you ever want to revert this, just do the same thing but set the default to NO instead.<a href="index.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p> We use a predictive mental contents-model when we type - something like an inbuilt autocorrect-suggestion mechanism; thus if you type something unfamiliar or surprising (e.g. a subtle detail of syntax), you will notice and be able to figure out the issue. Pasting code is a merely mechanical activity.<a href="r-console.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>A GUI is a Graphical User Interface, it has windows and menu items, as opposed to a “command line interface”.<a href="r-console.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>lastNum &lt; 6 | lastNum &gt; 10<a href="r-snytax.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>lastNum &gt;= 10 &amp; lastNum &lt; 20<a href="r-snytax.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>((((9/7) - ((((9/7) * 10) %/% 1 )/10)) * 100) %/% 1 )^(1/3) == 2<a href="r-snytax.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>We call these “variables” because of what function they perform in our code, they actually are <strong>R</strong> “objects”.<a href="r-snytax.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>and this means [<rows>, &lt;columns&lt;, <slices>] is correct.<a href="r-scalars.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>That’s assuming the worst case in that the attacker needs to know the pattern with which the password is formed, i.e. the number of characters and the alphabet that we chose from. But note that there is an even worse case: if the attacker had access to our code and the seed to our random number generator. If you start the random number generator e.g. with a new seed that is generated from Sys.time(), the possible space of seeds can be devastatingly small. But even if a seed is set explicitly with the set.seed(<number>) function, the <number> seed is a 32-bit integer (check this with .Machine$integer.max) and thus can take only a bit more than 4 X 10^9 values, six orders of magnitude less than the 10^15 password complexity we thought we had! It turns out that the code may be a much greater vulnerability than the password itself. Keep that in mind. Keep it secret. Keep it safe.<a href="r-control-structures.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>The terms parameter and argument have similar but distinct meanings. A parameter is an item that appears in the function definition, an argument is the actual value that is passed into the function.<a href="r-functions.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>countDown &lt;- function(n) {<br>start &lt;- n<br> countdown &lt;- start<br> txt &lt;- as.character(start)<br> <br> while (countdown &gt; 0) {<br> countdown &lt;- countdown - 1<br> txt &lt;- c(txt, countdown)<br> }<br> txt &lt;- c(txt,“Lift Off!”)<br> return(txt)<br>}<br> <br>countDown(7)<br><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>I’m serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.<a href="r-code-style.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>It is happening more and more frequently that functions in different packages we load have the same name. Then our code’s behaviour will depend on the order in which the libraries were loaded. Evil.<a href="r-code-style.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>For a complementary perspective, <a href="http://thecodelesscode.com/case/220">see here</a>.<a href="r-code-style.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>In my opinion, base R uses far too many function names that would be useful for variables. But we’re not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.<a href="r-code-style.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p>Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I’m sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.<a href="r-code-style.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p>.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(“.myProfile.R”) into the console to overwrite the old (wrong) definition with the corrected one.<a href="r-code-style.html#fnref24" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="19">
-<li id="fn19"><p>I'm serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.<a href="r-code-style.html#fnref19">↩</a></p></li>
-<li id="fn20"><p>It is happening more and more frequently that functions in different packages we load have the same name. Then our code's behaviour will depend on the order in which the libraries were loaded. Evil.<a href="r-code-style.html#fnref20">↩</a></p></li>
-<li id="fn21"><p>For a complementary perspective, <a href="http://thecodelesscode.com/case/220">see here</a>.<a href="r-code-style.html#fnref21">↩</a></p></li>
-<li id="fn22"><p>In my opinion, base R uses far too many function names that would be useful for variables. But we're not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.<a href="r-code-style.html#fnref22">↩</a></p></li>
-<li id="fn23"><p>Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I'm sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.<a href="r-code-style.html#fnref23">↩</a></p></li>
+<li id="fn19"><p>I’m serious: I have reformatted major pieces of code more than once after learning of a better approach, and if that creates better code it is very satisfying.<a href="r-code-style.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>It is happening more and more frequently that functions in different packages we load have the same name. Then our code’s behaviour will depend on the order in which the libraries were loaded. Evil.<a href="r-code-style.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>For a complementary perspective, <a href="http://thecodelesscode.com/case/220">see here</a>.<a href="r-code-style.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>In my opinion, base R uses far too many function names that would be useful for variables. But we’re not going to change that. So I often just prefix my variable names with my- or this-, eg myDf, thisLength etc.<a href="r-code-style.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p>Here are more names that may seem attractive as variable names but that are in fact functions in the base R package and thus may cause confusion: all(), args(), attr(), beta(), body(), col(), date(), det(), diag(), diff(), dim(), dir(), dump(), eigen(), file(), files(), gamma(), kappa(), length(), list(), load(), log(), max(), mean(), min(), open(), q(), raw(), row(), sample(), seq(), sub(), summary(), table(), type(), url(), vector(), and version(). I’m sure you get the idea - composite names of the type proposed above in CamelCase are usually safe.<a href="r-code-style.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p>.myProfile.R is itself a file in the local working directory. Simply open it with the RStudio editor, fix the error, and save. Then type source(“.myProfile.R”) into the console to overwrite the old (wrong) definition with the corrected one.<a href="r-code-style.html#fnref24" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -832,12 +1096,11 @@ expressionProfiles[, <span class="dv">1</span><span class="op">:</span><span cla
           </div>
         </div>
       </div>
-<a href="r-plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-plots.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -856,6 +1119,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -876,6 +1140,10 @@ gitbook.start({
 "text": null
 },
 "download": ["BCB420_Computational_Systems_Biology_Unit2_R_Basics.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true

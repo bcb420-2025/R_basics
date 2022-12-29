@@ -9,12 +9,12 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: bcb420-2021/R_basics
+github-repo: bcb420-2023/R_basics
 description: "Prerequisite work for U of T course BCB420 - Computational System Biology"
 download: ["epub"]
-edit : https://github.com/bcb420-2021/R_basics/edit/master/%s
-history: https://github.com/bcb420-2021/R_basics/commits/master/%s
-view:  https://github.com/bcb420-2021/R_basics/blob/master/%s
+edit : https://github.com/bcb420-2023/R_basics/edit/master/%s
+history: https://github.com/bcb420-2023/R_basics/commits/master/%s
+view:  https://github.com/bcb420-2023/R_basics/blob/master/%s
 ---
 
 # About

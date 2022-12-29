@@ -140,13 +140,13 @@ getwd()
 Relative path: home directory, up one level, then down into baderlab's home directory)
 
 ```{r message=FALSE, warning=FALSE}
-setwd("~/../baderlab")
+setwd("~/../")
 getwd()
 ```
 
 Absolute path: specify the entire string)
 ```{r}
-setwd("/Users/ruthisserlin/Documents")
+setwd("/home/rstudio/projects")
 getwd()
 ```
 
