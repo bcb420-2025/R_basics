@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2023/R_basics" />
+  <meta name="github-repo" content="bcb420-2024/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="BCB420 - Computational System Biology" />
@@ -118,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -560,7 +564,7 @@ div.csl-indent {
 <h1 class="title">BCB420 - Computational System Biology</h1>
 <h2 class="subtitle"><em>R - Basics</em></h2>
 <p class="author"><em>Main author: Boris Steipe; Modified: Ruth Isserlin</em></p>
-<p class="date"><em>last modified 2022-12-29</em></p>
+<p class="date"><em>last modified 2023-12-27</em></p>
 </div>
 <div id="about" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -568,9 +572,9 @@ div.csl-indent {
 <div id="attributions" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Attributions:<a href="index.html#attributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This book was created using The <strong>bookdown</strong> package and can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or the development version</span></span>
-<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
+<span id="cb1-2"><a href="index.html#cb1-2" tabindex="-1"></a><span class="co"># or the development version</span></span>
+<span id="cb1-3"><a href="index.html#cb1-3" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
 <p>Icons are from the <a href="https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop">“Very Basic. Android L Lollipop” set by Ivan Boyko</a> licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
 
 <p>#Installing R and RStudio {#r_install}
@@ -625,9 +629,9 @@ This unit works through the installation of R and RStudio on your machine as wel
 <li>This is normal text for explanations. It is written in a proportionally spaced font.</li>
 </ul>
 <p>Code formatting is for code examples, file- and function names, directory paths etc. Code is written in a monospaced font<a href="r-code-style.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
-<span id="cb2-2"><a href="index.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#example code block</span></span>
-<span id="cb2-3"><a href="index.html#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb2-2"><a href="index.html#cb2-2" tabindex="-1"></a>  <span class="co">#example code block</span></span>
+<span id="cb2-3"><a href="index.html#cb2-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><strong>Bold emphasis</strong> and <u>underlining</u> are to mark words as particularly important.</li>
 <li>Examples of the right way to do something are <span style="background-color: #a9f08d">highlighted green</span>.</li>
@@ -658,14 +662,14 @@ avoid problems in the first place.
 <div id="metasyntactic-variables" class="section level3 hasAnchor" number="1.3.4">
 <h3><span class="header-section-number">1.3.4</span> “Metasyntactic variables”<a href="index.html#metasyntactic-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When I use notation like &lt;Year&gt; in instructions, you type the year, the whole year and nothing but the year (e.g the four digits 2017). You never type the angle brackets! I use the angle brackets only to indicate that you should not type Year literally, but substitute the correct value. You might encounter this notation as &lt;path&gt;, &lt;filename&gt;, &lt;firstname lastname&gt; and similar. To repeat: if I specify</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>your name<span class="sc">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" tabindex="-1"></a><span class="sc">&lt;</span>your name<span class="sc">&gt;</span></span></code></pre></div>
 <p>… and your name is Elcid Barrett, You type</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1" aria-hidden="true" tabindex="-1"></a>Elcid Barrett</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1" tabindex="-1"></a>Elcid Barrett</span></code></pre></div>
 <p>… and not <span style="background-color: #f0948d">your name</span> or <span style="background-color: #f0948d">&lt;Elcid Barret&gt;</span> or similar. (Oh the troubles I’ve seen …)</p>
 <p>The sample code on this page sometimes copies text from the console, and sometimes shows the actual commands only. The &gt; character at the beginning of the line is always just <strong>R</strong>’s input prompt, it tells you that you can type something now - you never actually type &gt; at the beginning of a line. If you read:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span></code></pre></div>
 <p>you need to type:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <p>If a line starts with [1] or similar, this is <strong>R</strong>’s output on the console.<a href="r-code-style.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The # character marks the following text as a comment which is not executed by <strong>R</strong>. These are lines that you do not type. They are program output, or comments, not commands.</p>
 </div>
@@ -676,7 +680,7 @@ avoid problems in the first place.
 <li>/ ◁ this is a forward-slash. It leans forward in the reading direction.</li>
 <li>\ ◁ this is a backslash. It leans backward in the reading direction.</li>
 <li>( ) ◁ these are parentheses.</li>
-<li><input type="checkbox" disabled="" />◁ these are (square) brackets.</li>
+<li><input type="checkbox" />◁ these are (square) brackets.</li>
 <li>&lt; &gt; ◁ these are angle brackets.</li>
 <li>{ } ◁ these are (curly) braces.</li>
 <li>” ◁ this, and only this is a quotation mark or double quote. All of these are not: <span style="background-color: #f0948d">“”„«» </span>. They will break your code. Especially the first two are often automatically inserted by MSWord and hard to distinguish.<strong>Never, ever edit code in MS Word. Use R or RStudio. Actually, don’t use notepad or TextEdit either.</strong></li>
@@ -806,7 +810,7 @@ This prints out the path of the current working directory. Make a
 <li><a href="https://www.docker.com/">Docker</a>.</li>
 <li><a href="https://sylabs.io/">Singularity</a></li>
 </ul>
-<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<a href="#ref-docker" role="doc-biblioref"><span>“What Is a Container?”</span> n.d.</a>)</span></p>
+<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<a href="#ref-docker"><span>“What Is a Container?”</span> n.d.</a>)</span></p>
 <p><strong>Why are containers great for Bioiformatics?</strong></p>
 <ul>
 <li>allows you to create environments to run bioinformatis pipelines.</li>
@@ -814,7 +818,7 @@ This prints out the path of the current working directory. Make a
 <li>test modifications to the pipeline without disrupting your current set up.</li>
 <li>Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.</li>
 </ul>
-<p><strong>All assignments for this course are expected to compile and run. We will be using the <a href="https://hub.docker.com/repository/docker/risserlin/bcb420-base-image">bcb420-base-image:winter2023</a> docker image to run all or your submitted notebooks. If your notebook runs with no errors and renders your html notebook you will recieve full marks for compilation. It is recommended that you do all your work and assignments using this docker image.</strong></p>
+<p><strong>All assignments for this course are expected to compile and run. We will be using the <a href="https://hub.docker.com/repository/docker/risserlin/bcb420-base-image">bcb420-base-image:winter2024</a> docker image to run all or your submitted notebooks. If your notebook runs with no errors and renders your html notebook you will recieve full marks for compilation. It is recommended that you do all your work and assignments using this docker image.</strong></p>
 <div id="what-is-docker" class="section level3 hasAnchor" number="1.7.1">
 <h3><span class="header-section-number">1.7.1</span> What is docker?<a href="index.html#what-is-docker" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -850,7 +854,7 @@ This prints out the path of the current working directory. Make a
 <li>A <a href="https://docs.docker.com/storage/volumes/">volume</a> is a way to assocaited data with a container that will persist even after the container. * maps a drive on the host system to a drive on the container.</li>
 <li>In the above docker run command (that creates our container) the statement:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1" tabindex="-1"></a><span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects</span></code></pre></div>
 <ul>
 <li>maps the directory ${PWD} to the directory /home/rstudio/projects on the container. Anything saved in /home/rstudio/projects will actually be saved in ${PWD}</li>
 <li>An example:
@@ -858,10 +862,10 @@ This prints out the path of the current working directory. Make a
 <li>I use the following commmand to create my docker container:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="index.html#cb8-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
-<span id="cb8-2"><a href="index.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>risserlin<span class="sc">/</span>bcb420_code<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects \</span>
-<span id="cb8-3"><a href="index.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
-<span id="cb8-4"><a href="index.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2023</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="index.html#cb8-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb8-2"><a href="index.html#cb8-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>risserlin<span class="sc">/</span>bcb420_code<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects \</span>
+<span id="cb8-3"><a href="index.html#cb8-3" tabindex="-1"></a>  <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb8-4"><a href="index.html#cb8-4" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2024</span></code></pre></div>
 <ul>
 <li>I create a notebook called task3_bcb420.Rmd and save it in /home/rstudio/projects.
 <div class="rmd-caution">
@@ -898,9 +902,9 @@ MacOS/Linux
 <li>navigate to directory on your system where you plan on keeping all your code. For example: C:\USERS\risserlin\bcb420_code</li>
 <li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
-<span id="cb9-2"><a href="index.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
-<span id="cb9-3"><a href="index.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2023</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb9-2"><a href="index.html#cb9-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb9-3"><a href="index.html#cb9-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2024</span></code></pre></div>
 <p align="center">
 <img src="images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
 </p>
@@ -919,9 +923,9 @@ MacOS/Linux
 <li>navigate to directory on your system where you plan on keeping all your code. For example: /Users/risserlin/bcb420_code</li>
 <li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="index.html#cb10-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
-<span id="cb10-2"><a href="index.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
-<span id="cb10-3"><a href="index.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2023</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="index.html#cb10-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb10-2"><a href="index.html#cb10-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb10-3"><a href="index.html#cb10-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2024</span></code></pre></div>
 <p align="center">
 <img src="images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
 </p>
@@ -998,11 +1002,11 @@ directory.
 <p>A package is a collection of code, documentation and (often) sample data.
 * To use packages, you need to install the package (once).
 * You can then use all of the package’s functions by prefixing them with the package name and a double colon (eg. package::function()); that’s the preferred way.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1" aria-hidden="true" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">bma</span>(<span class="fu">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;a&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">bma</span>(<span class="fu">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;a&quot;</span>))</span></code></pre></div>
 <ul>
 <li>Or you can load all of the package’s functions with a library(package) command, and then use the functions without a prefix. That’s less typing, but it’s also less explicit and you may end up constantly wondering where exactly a particular function came from. In the teaching code for this course, I use the package::function() idiom wherever reasonable.</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="index.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="index.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span></code></pre></div>
 You can get an overview of installed and loaded packages by opening the Package Manager window from the Packages &amp; Data Menu item. It gives a list of available packages you currently have installed, and identifies those that have been loaded at startup, or interactively. But note, a package does not have to be loaded to be used.
 <p align="center">
 <img src="images/Rstudio_packages.png" alt="R packages" width="75%" align="center" />
@@ -1043,42 +1047,40 @@ Follow the exercise below
 <li><p>Add this new notebook to your github repo and link to it in your journal.</p></li>
 <li><p>library() opens a window that lists the packages that are installed on your computer;</p></li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1" tabindex="-1"></a><span class="fu">library</span>()</span></code></pre></div>
 <ul>
 <li>search() - shows which ones are currently loaded.</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="index.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;tools:rstudio&quot;     &quot;package:stats&quot;    
-##  [4] &quot;package:graphics&quot;  &quot;package:grDevices&quot; &quot;package:utils&quot;    
-##  [7] &quot;package:datasets&quot;  &quot;package:methods&quot;   &quot;Autoloads&quot;        
-## [10] &quot;package:base&quot;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="index.html#cb14-1" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;package:seqinr&quot;    &quot;package:bookdown&quot; 
+##  [4] &quot;tools:rstudio&quot;     &quot;package:stats&quot;     &quot;package:graphics&quot; 
+##  [7] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
+## [10] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
 <ul>
 <li>In the <strong>Packages tab</strong> of the lower-right pane in RStudio, confirm that seqinr is not yet installed.</li>
 <li>Follow the link to <a href="https://cran.r-project.org/web/packages/seqinr/index.html">seqinr</a> to see what standard information is available with a package. Then follow the link to the <a href="http://cran.r-project.org/web/packages/seqinr/seqinr.pdf">Reference manual</a> to access the documentation pdf. This is also sometimes referred to as a “vignette” and contains usage hints and sample code.</li>
 <li>Read the help for vignette. Note that there is a command to extract R sample code from a vignette, to experiment with it.</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="index.html#cb16-1" aria-hidden="true" tabindex="-1"></a>?vignette</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="index.html#cb16-1" tabindex="-1"></a>?vignette</span></code></pre></div>
 <ul>
 <li>Install seqinr from the closest CRAN mirror and load it for this session. Explore some functions.</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to get help on using install.packages</span></span>
-<span id="cb17-2"><a href="index.html#cb17-2" aria-hidden="true" tabindex="-1"></a>?install.packages</span>
-<span id="cb17-3"><a href="index.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="index.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: the parameter is a quoted string!</span></span>
-<span id="cb17-5"><a href="index.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>,<span class="at">repos=</span><span class="st">&quot;https://cran.rstudio.com/&quot;</span>)   </span></code></pre></div>
-<pre><code>## Installing package into &#39;/usr/local/lib/R/site-library&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## also installing the dependencies &#39;pixmap&#39;, &#39;ade4&#39;, &#39;segmented&#39;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1" tabindex="-1"></a><span class="co"># to get help on using install.packages</span></span>
+<span id="cb17-2"><a href="index.html#cb17-2" tabindex="-1"></a>?install.packages</span>
+<span id="cb17-3"><a href="index.html#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="index.html#cb17-4" tabindex="-1"></a><span class="co"># Note: the parameter is a quoted string!</span></span>
+<span id="cb17-5"><a href="index.html#cb17-5" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>,<span class="at">repos=</span><span class="st">&quot;https://cran.rstudio.com/&quot;</span>)   </span></code></pre></div>
+<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
 <ul>
 <li>this will launch a new window with the seqinr package info</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="index.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help=</span><span class="st">&quot;seqinr&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="index.html#cb19-1" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help=</span><span class="st">&quot;seqinr&quot;</span>) </span></code></pre></div>
 <ul>
 <li>list all the functions available in the seqinr package.</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="index.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Note: the file must be attached in order for the below function to work </span></span>
-<span id="cb21-2"><a href="index.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span>
-<span id="cb21-3"><a href="index.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:seqinr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="index.html#cb20-1" tabindex="-1"></a><span class="co">#Note: the file must be attached in order for the below function to work </span></span>
+<span id="cb20-2"><a href="index.html#cb20-2" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span>
+<span id="cb20-3"><a href="index.html#cb20-3" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:seqinr&quot;</span>)</span></code></pre></div>
 <pre><code>##   [1] &quot;a&quot;                       &quot;aaa&quot;                    
 ##   [3] &quot;AAstat&quot;                  &quot;acnucclose&quot;             
 ##   [5] &quot;acnucopen&quot;               &quot;al2bp&quot;                  
@@ -1184,16 +1186,16 @@ Follow the exercise below
 <ul>
 <li>In Rstudio this will open the method description for the method a in the Help pane.</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="index.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?seqinr<span class="sc">::</span>a </span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="index.html#cb22-1" tabindex="-1"></a>?seqinr<span class="sc">::</span>a </span></code></pre></div>
 <ul>
 <li>Run the fiction to see the output</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="index.html#cb24-1" aria-hidden="true" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">a</span>(<span class="st">&quot;Tyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="index.html#cb23-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">a</span>(<span class="st">&quot;Tyr&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Y&quot;</code></pre>
 <ul>
 <li>What does function below do? <strong>enter your results in your journal</strong></li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="index.html#cb26-1" aria-hidden="true" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">words</span>(<span class="dv">3</span>, <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;U&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="index.html#cb25-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">words</span>(<span class="dv">3</span>, <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;U&quot;</span>))</span></code></pre></div>
 <div class="rmd-troubleshooting">
 <p>
 <strong>The installation fails.</strong>
@@ -1253,23 +1255,23 @@ libraries can be the source of strange misbehaviour.
 <ul>
 <li>What does this function do?</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="index.html#cb27-1" aria-hidden="true" tabindex="-1"></a>?data</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="index.html#cb26-1" tabindex="-1"></a>?data</span></code></pre></div>
 <ul>
 <li>What is an example of data that is available for the seqinr package?</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="index.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">&quot;seqinr&quot;</span>)            <span class="co"># list the available data</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="index.html#cb27-1" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">&quot;seqinr&quot;</span>)            <span class="co"># list the available data</span></span></code></pre></div>
 <ul>
 <li>load ‘’aaindex’’. Describe this data. See <a href="https://rdrr.io/cran/seqinr/man/aaindex.html">here</a> for more information.</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="index.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(aaindex, <span class="at">package=</span><span class="st">&quot;seqinr&quot;</span>)   </span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="index.html#cb28-1" tabindex="-1"></a><span class="fu">data</span>(aaindex, <span class="at">package=</span><span class="st">&quot;seqinr&quot;</span>)   </span></code></pre></div>
 <ul>
 <li>what is this?</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="index.html#cb30-1" aria-hidden="true" tabindex="-1"></a>?aaindex                          </span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="index.html#cb29-1" tabindex="-1"></a>?aaindex                          </span></code></pre></div>
 <ul>
 <li>two of the indices …</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="index.html#cb31-1" aria-hidden="true" tabindex="-1"></a>aaindex<span class="sc">$</span>FASG890101 </span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="index.html#cb30-1" tabindex="-1"></a>aaindex<span class="sc">$</span>FASG890101 </span></code></pre></div>
 <pre><code>## $H
 ## [1] &quot;FASG890101&quot;
 ## 
@@ -1292,11 +1294,11 @@ libraries can be the source of strange misbehaviour.
 ## [1] &quot;MIYS990105    0.959  MIYS990103    0.957  MEIH800102    0.951MIYS990104    0.949  RACS770102    0.935  GUYH850101    0.934MIYS990102    0.929  MIYS990101    0.926  MEIH800101    0.919KRIW790101    0.914  GUYH850102    0.909  VINM940101    0.904KRIW790102    0.882  GUYH850104    0.872  RACS770101    0.872GRAR740102    0.872  CORJ870108    0.872  KARP850102    0.871OOBM770103    0.869  VINM940103    0.868  OOBM770101    0.868KRIW710101    0.865  KIDA850101    0.861  GUYH850103    0.860PUNT030102    0.853  PUNT030101    0.845  FUKS010104    0.844RACS770103    0.842  ROSM880102    0.839  JANJ780103    0.838VINM940102    0.836  PARJ860101    0.825  KUHL950101    0.821JANJ780101    0.813  FUKS010103    0.812  GUOD860101   -0.801DESM900101   -0.808  CORJ870105   -0.821  ROSM880105   -0.822PONP800106   -0.823  NADH010101   -0.838  CORJ870106   -0.841KYTJ820101   -0.844  CIDH920103   -0.846  CHOC760103   -0.849BASU050101   -0.856  JURD980101   -0.857  PLIV810101   -0.858BAEK050101   -0.859  CIDH920105   -0.860  ROBB790101   -0.860EISD860103   -0.863  CORJ870104   -0.865  CORJ870107   -0.871JANJ790102   -0.875  CORJ870103   -0.876  NADH010105   -0.877DESM900102   -0.879  BASU050102   -0.881  JANJ790101   -0.885CIDH920104   -0.903  JANJ780102   -0.903  MANP780101   -0.904PONP930101   -0.907  ZHOH040103   -0.910  FAUJ830101   -0.911PONP800108   -0.913  BASU050103   -0.915  CORJ870101   -0.921NISK800101   -0.923  MEIH800103   -0.924  CASG920101   -0.924WERD780101   -0.926  BIOV880102   -0.928  NADH010102   -0.929PONP800101   -0.932  PONP800103   -0.936  MIYS850101   -0.938PONP800102   -0.944  NADH010104   -0.944  NADH010103   -0.945NISK860101   -0.949  ROSG850102   -0.976  RADA880108   -0.977BIOV880101   -0.982&quot;
 ## 
 ## $I
-##   Ala   Arg   Asn   Asp   Cys   Gln   Glu   Gly   His   Ile   Leu   Lys 
-## -0.21  2.11  0.96  1.36 -6.04  1.52  2.30  0.00 -1.23 -4.81 -4.68  3.88 
-##   Met   Phe   Pro   Ser   Thr   Trp   Tyr   Val 
-## -3.66 -4.65  0.75  1.74  0.78 -3.32 -1.01 -3.50</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="index.html#cb33-1" aria-hidden="true" tabindex="-1"></a>aaindex<span class="sc">$</span>PONJ960101 </span></code></pre></div>
+##   Ala   Arg   Asn   Asp   Cys   Gln   Glu   Gly   His   Ile   Leu   Lys   Met 
+## -0.21  2.11  0.96  1.36 -6.04  1.52  2.30  0.00 -1.23 -4.81 -4.68  3.88 -3.66 
+##   Phe   Pro   Ser   Thr   Trp   Tyr   Val 
+## -4.65  0.75  1.74  0.78 -3.32 -1.01 -3.50</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="index.html#cb32-1" tabindex="-1"></a>aaindex<span class="sc">$</span>PONJ960101 </span></code></pre></div>
 <pre><code>## $H
 ## [1] &quot;PONJ960101&quot;
 ## 
@@ -1319,10 +1321,10 @@ libraries can be the source of strange misbehaviour.
 ## [1] &quot;HARY940101    0.989  CHOC750101    0.966  FAUJ880103    0.963TSAJ990102    0.962  CHOC760101    0.961  TSAJ990101    0.960BIGC670101    0.950  GOLD730102    0.947  FASG760101    0.945KRIW790103    0.943  CHAM820101    0.938  GRAR740103    0.937LEVM760102    0.930  LEVM760105    0.928  CHAM830106    0.917FAUJ880106    0.913  DAWD720101    0.873  ROSG850101    0.862RADA880106    0.860  LEVM760107    0.827  ZHOH040102    0.823RADA880103   -0.873&quot;
 ## 
 ## $I
-##   Ala   Arg   Asn   Asp   Cys   Gln   Glu   Gly   His   Ile   Leu   Lys 
-##  91.5 196.1 138.3 135.2 114.4 156.4 154.6  67.5 163.2 162.6 163.4 162.5 
-##   Met   Phe   Pro   Ser   Thr   Trp   Tyr   Val 
-## 165.9 198.8 123.4 102.0 126.0 209.8 237.2 138.4</code></pre>
+##   Ala   Arg   Asn   Asp   Cys   Gln   Glu   Gly   His   Ile   Leu   Lys   Met 
+##  91.5 196.1 138.3 135.2 114.4 156.4 154.6  67.5 163.2 162.6 163.4 162.5 165.9 
+##   Phe   Pro   Ser   Thr   Trp   Tyr   Val 
+## 198.8 123.4 102.0 126.0 209.8 237.2 138.4</code></pre>
 <ul>
 <li>Let’s use the data:
 <ul>
@@ -1331,41 +1333,41 @@ libraries can be the source of strange misbehaviour.
 <li>Copy and paste the commands.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="index.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I,</span>
-<span id="cb35-2"><a href="index.html#cb35-2" aria-hidden="true" tabindex="-1"></a>     aaindex<span class="sc">$</span>PONJ960101<span class="sc">$</span>I,</span>
-<span id="cb35-3"><a href="index.html#cb35-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;hydrophobicity&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;volume&quot;</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>)</span>
-<span id="cb35-4"><a href="index.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I,</span>
-<span id="cb35-5"><a href="index.html#cb35-5" aria-hidden="true" tabindex="-1"></a>     aaindex<span class="sc">$</span>PONJ960101<span class="sc">$</span>I,</span>
-<span id="cb35-6"><a href="index.html#cb35-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels=</span><span class="fu">a</span>(<span class="fu">names</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I)))</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="index.html#cb34-1" tabindex="-1"></a><span class="fu">plot</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I,</span>
+<span id="cb34-2"><a href="index.html#cb34-2" tabindex="-1"></a>     aaindex<span class="sc">$</span>PONJ960101<span class="sc">$</span>I,</span>
+<span id="cb34-3"><a href="index.html#cb34-3" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;hydrophobicity&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;volume&quot;</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>)</span>
+<span id="cb34-4"><a href="index.html#cb34-4" tabindex="-1"></a><span class="fu">text</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I,</span>
+<span id="cb34-5"><a href="index.html#cb34-5" tabindex="-1"></a>     aaindex<span class="sc">$</span>PONJ960101<span class="sc">$</span>I,</span>
+<span id="cb34-6"><a href="index.html#cb34-6" tabindex="-1"></a>     <span class="at">labels=</span><span class="fu">a</span>(<span class="fu">names</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I)))</span></code></pre></div>
 <p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/plot_hydrophobicity-1.png" width="672" /></p>
 <ul>
 <li>Now, just for fun, let’s use seqinr package functions to download a sequence and calculate some statistics (however, not to digress too far, without further explanation at this point).</li>
 <li>Copy the code below and paste it into the R-console.</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="index.html#cb36-1" aria-hidden="true" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">choosebank</span>(<span class="st">&quot;swissprot&quot;</span>)</span>
-<span id="cb36-2"><a href="index.html#cb36-2" aria-hidden="true" tabindex="-1"></a>mySeq <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">query</span>(<span class="st">&quot;mySeq&quot;</span>, <span class="st">&quot;N=MBP1_YEAST&quot;</span>)</span>
-<span id="cb36-3"><a href="index.html#cb36-3" aria-hidden="true" tabindex="-1"></a>mbp1 <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">getSequence</span>(mySeq)</span>
-<span id="cb36-4"><a href="index.html#cb36-4" aria-hidden="true" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">closebank</span>()</span>
-<span id="cb36-5"><a href="index.html#cb36-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">AAstat</span>(mbp1[[<span class="dv">1</span>]])</span>
-<span id="cb36-6"><a href="index.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(x<span class="sc">$</span>Compo), <span class="at">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="index.html#cb35-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">choosebank</span>(<span class="st">&quot;swissprot&quot;</span>)</span>
+<span id="cb35-2"><a href="index.html#cb35-2" tabindex="-1"></a>mySeq <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">query</span>(<span class="st">&quot;mySeq&quot;</span>, <span class="st">&quot;N=MBP1_YEAST&quot;</span>)</span>
+<span id="cb35-3"><a href="index.html#cb35-3" tabindex="-1"></a>mbp1 <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">getSequence</span>(mySeq)</span>
+<span id="cb35-4"><a href="index.html#cb35-4" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">closebank</span>()</span>
+<span id="cb35-5"><a href="index.html#cb35-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">AAstat</span>(mbp1[[<span class="dv">1</span>]])</span>
+<span id="cb35-6"><a href="index.html#cb35-6" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(x<span class="sc">$</span>Compo), <span class="at">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
 <p>We could have “loaded” the package with library(), and then used the functions without prefix. Less typing, but also less explicit.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="index.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span>
-<span id="cb37-2"><a href="index.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">choosebank</span>(<span class="st">&quot;swissprot&quot;</span>)</span>
-<span id="cb37-3"><a href="index.html#cb37-3" aria-hidden="true" tabindex="-1"></a>mySeq <span class="ot">&lt;-</span> <span class="fu">query</span>(<span class="st">&quot;mySeq&quot;</span>, <span class="st">&quot;N=MBP1_YEAST&quot;</span>)</span>
-<span id="cb37-4"><a href="index.html#cb37-4" aria-hidden="true" tabindex="-1"></a>mbp1 <span class="ot">&lt;-</span> <span class="fu">getSequence</span>(mySeq)</span>
-<span id="cb37-5"><a href="index.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">closebank</span>()</span>
-<span id="cb37-6"><a href="index.html#cb37-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">AAstat</span>(mbp1[[<span class="dv">1</span>]])</span>
-<span id="cb37-7"><a href="index.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(x<span class="sc">$</span>Compo), <span class="at">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="index.html#cb36-1" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span>
+<span id="cb36-2"><a href="index.html#cb36-2" tabindex="-1"></a><span class="fu">choosebank</span>(<span class="st">&quot;swissprot&quot;</span>)</span>
+<span id="cb36-3"><a href="index.html#cb36-3" tabindex="-1"></a>mySeq <span class="ot">&lt;-</span> <span class="fu">query</span>(<span class="st">&quot;mySeq&quot;</span>, <span class="st">&quot;N=MBP1_YEAST&quot;</span>)</span>
+<span id="cb36-4"><a href="index.html#cb36-4" tabindex="-1"></a>mbp1 <span class="ot">&lt;-</span> <span class="fu">getSequence</span>(mySeq)</span>
+<span id="cb36-5"><a href="index.html#cb36-5" tabindex="-1"></a><span class="fu">closebank</span>()</span>
+<span id="cb36-6"><a href="index.html#cb36-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">AAstat</span>(mbp1[[<span class="dv">1</span>]])</span>
+<span id="cb36-7"><a href="index.html#cb36-7" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(x<span class="sc">$</span>Compo), <span class="at">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
 <p>In general we will be using the idiom with the package prefix throughout the course.</p>
 <p>The function <strong>requireNamespace()</strong> is useful because it does not produce an error when a package has not been installed. It simply returns TRUE if successful or FALSE if not. Therefore one can use the following code idiom in R scripts to avoid downloading the package every time the script is called.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="index.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;seqinr&quot;</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
-<span id="cb38-2"><a href="index.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>)</span>
-<span id="cb38-3"><a href="index.html#cb38-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="index.html#cb37-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;seqinr&quot;</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
+<span id="cb37-2"><a href="index.html#cb37-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>)</span>
+<span id="cb37-3"><a href="index.html#cb37-3" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>You can get package information with the following commands:</strong></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="index.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help =</span> seqinr)       <span class="co"># basic information</span></span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="index.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;seqinr&quot;</span>)    <span class="co"># available vignettes</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="index.html#cb38-1" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help =</span> seqinr)       <span class="co"># basic information</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="index.html#cb39-1" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;seqinr&quot;</span>)    <span class="co"># available vignettes</span></span></code></pre></div>
 <pre><code>## No vignettes found by browseVignettes(&quot;seqinr&quot;)</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="index.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">&quot;seqinr&quot;</span>)     <span class="co"># available datasets</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="index.html#cb41-1" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">&quot;seqinr&quot;</span>)     <span class="co"># available datasets</span></span></code></pre></div>
 <ul>
 <li><strong>Note</strong> that install.packages() takes a (quoted) string as its argument, but library() takes a variable name (without quotes). New users usually get this wrong :-)</li>
 <li><strong>Note</strong> that the Bioconductor project has its own installation system, the Biocmanager::install() function. It is explained <a href="https://bioconductor.org/install/">here</a>.</li>
@@ -1375,13 +1377,13 @@ libraries can be the source of strange misbehaviour.
 <div id="finding-packages" class="section level3 hasAnchor" number="1.12.2">
 <h3><span class="header-section-number">1.12.2</span> Finding packages<a href="index.html#finding-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One of the challenges of working with R is the overabundance of options. CRAN has over 10,000 packages and Bioconductor has over 1,300 more. How can you find ones that are useful to your work? There’s actually a package to help you do that, the sos package on CRAN. Try this:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="index.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;sos&quot;</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
-<span id="cb43-2"><a href="index.html#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;sos&quot;</span>)</span>
-<span id="cb43-3"><a href="index.html#cb43-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb43-4"><a href="index.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help =</span> sos)       <span class="co"># basic information</span></span>
-<span id="cb43-5"><a href="index.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;sos&quot;</span>)    <span class="co"># available vignettes</span></span>
-<span id="cb43-6"><a href="index.html#cb43-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb43-7"><a href="index.html#cb43-7" aria-hidden="true" tabindex="-1"></a>sos<span class="sc">::</span><span class="fu">findFn</span>(<span class="st">&quot;moving average&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="index.html#cb42-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;sos&quot;</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
+<span id="cb42-2"><a href="index.html#cb42-2" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;sos&quot;</span>)</span>
+<span id="cb42-3"><a href="index.html#cb42-3" tabindex="-1"></a>}</span>
+<span id="cb42-4"><a href="index.html#cb42-4" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help =</span> sos)       <span class="co"># basic information</span></span>
+<span id="cb42-5"><a href="index.html#cb42-5" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;sos&quot;</span>)    <span class="co"># available vignettes</span></span>
+<span id="cb42-6"><a href="index.html#cb42-6" tabindex="-1"></a> </span>
+<span id="cb42-7"><a href="index.html#cb42-7" tabindex="-1"></a>sos<span class="sc">::</span><span class="fu">findFn</span>(<span class="st">&quot;moving average&quot;</span>)</span></code></pre></div>
 <p><strong>Or: </strong></p>
 <ul>
 <li>Read a CRAN <a href="https://cran.r-project.org/web/views/">Task View</a> for your area of interest</li>
@@ -1396,9 +1398,9 @@ libraries can be the source of strange misbehaviour.
 <ol style="list-style-type: decimal">
 <li>Question 1 - What is the purpose of this code?</li>
 </ol>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="index.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;seqinr&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb44-2"><a href="index.html#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>)</span>
-<span id="cb44-3"><a href="index.html#cb44-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="index.html#cb43-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;seqinr&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb43-2"><a href="index.html#cb43-2" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>)</span>
+<span id="cb43-3"><a href="index.html#cb43-3" tabindex="-1"></a>}</span></code></pre></div>
 <p>Why not just use:
 install.packages(“seqinr”)</p>
 <p><strong>Answer</strong>:
@@ -1437,8 +1439,6 @@ Version: 1.1<br>
 </div>
 <div id="updated-revision-history" class="section level3 hasAnchor" number="1.12.5">
 <h3><span class="header-section-number">1.12.5</span> Updated Revision history<a href="index.html#updated-revision-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>## Installing package into &#39;/usr/local/lib/R/site-library&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
 <table>
 <colgroup>
 <col width="7%" />
@@ -1672,7 +1672,7 @@ control options to reappear.
 <div id="working-directory" class="section level2 hasAnchor" number="1.18">
 <h2><span class="header-section-number">1.18</span> Working directory<a href="index.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To locate a file in a computer, one has to specify the filename and the directory in which the file is stored; this is also called the path of the file. However R uses a default <em>working directory</em>, which is assumed if no path is specified. This <em>working directory</em> for <strong>R</strong> is either the directory in which the <strong>R</strong>-program has been installed, or some other directory, that has been defined in a startup script, or specifically defined with the command setwd(“<working Directory>”) at any time. You can execute the command getwd() to list what the Working Directory is currently set to:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="index.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="index.html#cb44-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/rstudio/projects/R_basics&quot;</code></pre>
 <p>In RStudio, the contents of the working directory is listed in the Files Pane (lower-right).</p>
 <p align="center">
@@ -1681,20 +1681,20 @@ control options to reappear.
 <p>It is convenient to put all your <strong>R</strong>-input and output files into a project specific directory and then define this to be the “Working Directory”. Use the setwd() command for this. setwd() requires an argument that you type between the parentheses: a string with the directory path, or a variable containing such a string. Strings in <strong>R</strong> are delimited with ” or ’ characters. If the directory does not exist, an Error will be reported. Make sure you have created the directory. On Mac and Unix systems, the usual shorthand notation for relative paths can be used: ~ for the home directory, . for the current directory, .. for the parent of the current directory.</p>
 <p>If you use a Windows system, you need to know that backslashes – “\” – have a special meaning for <strong>R</strong>, they work as escape characters. For example the string “\n” means newline, and “\t” means tab. Thus <strong>R</strong> gets confused when you put backslashes into string literals, such as Windows path names. <strong>R</strong> has a simple solution: you simply use forward slashes instead of backslashes when you specify paths, and <strong>R</strong> will translate them correctly when it talks to your operating system. Instead of C:\documents\projectfiles you write C:/documents/projectfiles. <strong>Also note that on Windows the ~ tilde is a shorthand for the directory in which R is installed, not the user’s home directory</strong>.</p>
 <p>My home directory…</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" aria-hidden="true" tabindex="-1"></a>original_dir <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
-<span id="cb48-2"><a href="index.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~&quot;</span>) <span class="co"># Note: ~ is the &quot;tilde&quot; - the squiggly line - not the straight hyphen</span></span>
-<span id="cb48-3"><a href="index.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="index.html#cb46-1" tabindex="-1"></a>original_dir <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
+<span id="cb46-2"><a href="index.html#cb46-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~&quot;</span>) <span class="co"># Note: ~ is the &quot;tilde&quot; - the squiggly line - not the straight hyphen</span></span>
+<span id="cb46-3"><a href="index.html#cb46-3" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/rstudio&quot;</code></pre>
 <p>Relative path: home directory, up one level, then down into baderlab’s home directory)</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="index.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/../&quot;</span>)</span>
-<span id="cb50-2"><a href="index.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/../&quot;</span>)</span>
+<span id="cb48-2"><a href="index.html#cb48-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home&quot;</code></pre>
 <p>Absolute path: specify the entire string)</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="index.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/home/rstudio/projects&quot;</span>)</span>
-<span id="cb52-2"><a href="index.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="index.html#cb50-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/home/rstudio/projects&quot;</span>)</span>
+<span id="cb50-2"><a href="index.html#cb50-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/rstudio/projects&quot;</code></pre>
 <p>Reset the directory to the original directory</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="index.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(original_dir) </span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="index.html#cb52-1" tabindex="-1"></a><span class="fu">setwd</span>(original_dir) </span></code></pre></div>
 <p>In RStudio you can use the Session → Set Working Directory menu:</p>
 <p align="center">
 <img src="images/set_session.png" alt="set wd" width="75%" align="center" />
@@ -1744,7 +1744,7 @@ Menu, under Misc.
 <li>functions that you would like to preload.</li>
 </ul>
 <p>For more details, use R’s help function:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="index.html#cb55-1" aria-hidden="true" tabindex="-1"></a>?Startup</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="index.html#cb53-1" tabindex="-1"></a>?Startup</span></code></pre></div>
 </div>
 <div id="task-8---.rprofile" class="section level2 hasAnchor" number="1.21">
 <h2><span class="header-section-number">1.21</span> Task 8 - .Rprofile<a href="index.html#task-8---.rprofile" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1779,34 +1779,68 @@ that now but Close the file again.
 <li>Explicit beats implicit.</li>
 </ul>
 <p>List the current workspace contents: initially it only contains the init() function that was loaded from the .Rprofile script on startup.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="index.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;aaindex&quot;          &quot;githistory2table&quot; &quot;original_dir&quot;    
-## [4] &quot;task_counter&quot;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="index.html#cb54-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
+##  [4] &quot;bet&quot;              &quot;c&quot;                &quot;col&quot;             
+##  [7] &quot;f&quot;                &quot;funds&quot;            &quot;githistory2table&quot;
+## [10] &quot;i&quot;                &quot;m&quot;                &quot;m1&quot;              
+## [13] &quot;m2&quot;               &quot;MAXPLAYS&quot;         &quot;mixed_type&quot;      
+## [16] &quot;myVec&quot;            &quot;N&quot;                &quot;nPlays&quot;          
+## [19] &quot;objectInfo&quot;       &quot;original_dir&quot;     &quot;outcomes&quot;        
+## [22] &quot;plasmidData&quot;      &quot;plasmidDB&quot;        &quot;pUC19&quot;           
+## [25] &quot;result&quot;           &quot;startTime&quot;        &quot;stripes&quot;         
+## [28] &quot;task_counter&quot;     &quot;v0&quot;               &quot;v1&quot;              
+## [31] &quot;v2&quot;               &quot;v5&quot;</code></pre>
 <p>Initialize three variables</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb58-2"><a href="index.html#cb58-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb58-3"><a href="index.html#cb58-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(a<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span>b<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb58-4"><a href="index.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
-## [4] &quot;c&quot;                &quot;githistory2table&quot; &quot;original_dir&quot;    
-## [7] &quot;task_counter&quot;</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="index.html#cb56-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb56-2"><a href="index.html#cb56-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb56-3"><a href="index.html#cb56-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(a<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span>b<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb56-4"><a href="index.html#cb56-4" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
+##  [4] &quot;bet&quot;              &quot;c&quot;                &quot;col&quot;             
+##  [7] &quot;f&quot;                &quot;funds&quot;            &quot;githistory2table&quot;
+## [10] &quot;i&quot;                &quot;m&quot;                &quot;m1&quot;              
+## [13] &quot;m2&quot;               &quot;MAXPLAYS&quot;         &quot;mixed_type&quot;      
+## [16] &quot;myVec&quot;            &quot;N&quot;                &quot;nPlays&quot;          
+## [19] &quot;objectInfo&quot;       &quot;original_dir&quot;     &quot;outcomes&quot;        
+## [22] &quot;plasmidData&quot;      &quot;plasmidDB&quot;        &quot;pUC19&quot;           
+## [25] &quot;result&quot;           &quot;startTime&quot;        &quot;stripes&quot;         
+## [28] &quot;task_counter&quot;     &quot;v0&quot;               &quot;v1&quot;              
+## [31] &quot;v2&quot;               &quot;v5&quot;</code></pre>
 <p>Save one item in an .RData file.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(a, <span class="at">file =</span> <span class="st">&quot;tmp.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" tabindex="-1"></a><span class="fu">save</span>(a, <span class="at">file =</span> <span class="st">&quot;tmp.RData&quot;</span>)</span></code></pre></div>
 <p>Remove one item from the Workspace. (Note: the argument for rm() is not the string “a”, but the variable name a. No quotation marks!)</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="index.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(a)</span>
-<span id="cb61-2"><a href="index.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;aaindex&quot;          &quot;b&quot;                &quot;c&quot;               
-## [4] &quot;githistory2table&quot; &quot;original_dir&quot;     &quot;task_counter&quot;</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="index.html#cb59-1" tabindex="-1"></a><span class="fu">rm</span>(a)</span>
+<span id="cb59-2"><a href="index.html#cb59-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;aaindex&quot;          &quot;b&quot;                &quot;bet&quot;             
+##  [4] &quot;c&quot;                &quot;col&quot;              &quot;f&quot;               
+##  [7] &quot;funds&quot;            &quot;githistory2table&quot; &quot;i&quot;               
+## [10] &quot;m&quot;                &quot;m1&quot;               &quot;m2&quot;              
+## [13] &quot;MAXPLAYS&quot;         &quot;mixed_type&quot;       &quot;myVec&quot;           
+## [16] &quot;N&quot;                &quot;nPlays&quot;           &quot;objectInfo&quot;      
+## [19] &quot;original_dir&quot;     &quot;outcomes&quot;         &quot;plasmidData&quot;     
+## [22] &quot;plasmidDB&quot;        &quot;pUC19&quot;            &quot;result&quot;          
+## [25] &quot;startTime&quot;        &quot;stripes&quot;          &quot;task_counter&quot;    
+## [28] &quot;v0&quot;               &quot;v1&quot;               &quot;v2&quot;              
+## [31] &quot;v5&quot;</code></pre>
 <p>Load what you previously saved.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="index.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;tmp.RData&quot;</span>)</span>
-<span id="cb63-2"><a href="index.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
-## [4] &quot;c&quot;                &quot;githistory2table&quot; &quot;original_dir&quot;    
-## [7] &quot;task_counter&quot;</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="index.html#cb61-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;tmp.RData&quot;</span>)</span>
+<span id="cb61-2"><a href="index.html#cb61-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
+##  [4] &quot;bet&quot;              &quot;c&quot;                &quot;col&quot;             
+##  [7] &quot;f&quot;                &quot;funds&quot;            &quot;githistory2table&quot;
+## [10] &quot;i&quot;                &quot;m&quot;                &quot;m1&quot;              
+## [13] &quot;m2&quot;               &quot;MAXPLAYS&quot;         &quot;mixed_type&quot;      
+## [16] &quot;myVec&quot;            &quot;N&quot;                &quot;nPlays&quot;          
+## [19] &quot;objectInfo&quot;       &quot;original_dir&quot;     &quot;outcomes&quot;        
+## [22] &quot;plasmidData&quot;      &quot;plasmidDB&quot;        &quot;pUC19&quot;           
+## [25] &quot;result&quot;           &quot;startTime&quot;        &quot;stripes&quot;         
+## [28] &quot;task_counter&quot;     &quot;v0&quot;               &quot;v1&quot;              
+## [31] &quot;v2&quot;               &quot;v5&quot;</code></pre>
 <p>Note: you can save() more than one item in an .RData file. When you then load() the file, all of the objects it contains are loaded. You don’t assign these objects - they are being restored.</p>
 <p>We can use the output of ls() as input to rm() to remove all items from the workspace. (cf. ?rm for details)</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="index.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;task_counter&quot;</span>))</span>
-<span id="cb65-2"><a href="index.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="index.html#cb63-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;task_counter&quot;</span>))</span>
+<span id="cb63-2"><a href="index.html#cb63-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;task_counter&quot;</code></pre>
 <p>The contents of the workspace is displayed in RStudio’s Environment Pane (top-right).</p>
 <p align="center">

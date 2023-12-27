@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Introduction to R Plots | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Introduction to R Plots | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2023/R_basics" />
+  <meta name="github-repo" content="bcb420-2024/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 12 Introduction to R Plots | BCB420 - Computational System Biology" />
@@ -118,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -628,44 +632,44 @@ Work through the plottingIntro.R script.
 </ul>
 <div id="plot" class="section level3 hasAnchor" number="12.3.1">
 <h3><span class="header-section-number">12.3.1</span> plot()<a href="r-plots.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="r-plots.html#cb488-1" aria-hidden="true" tabindex="-1"></a>?plot</span></code></pre></div>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="r-plots.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate some data to plot</span></span>
-<span id="cb489-2"><a href="r-plots.html#cb489-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>)</span>
-<span id="cb489-3"><a href="r-plots.html#cb489-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">0</span>, <span class="fl">0.75</span>)</span>
-<span id="cb489-4"><a href="r-plots.html#cb489-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb489-5"><a href="r-plots.html#cb489-5" aria-hidden="true" tabindex="-1"></a>?plot</span>
-<span id="cb489-6"><a href="r-plots.html#cb489-6" aria-hidden="true" tabindex="-1"></a><span class="co"># standard scatterplot</span></span>
-<span id="cb489-7"><a href="r-plots.html#cb489-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="r-plots.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
-<span id="cb490-2"><a href="r-plots.html#cb490-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb490-3"><a href="r-plots.html#cb490-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a rug representation:</span></span>
-<span id="cb490-4"><a href="r-plots.html#cb490-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rug</span>(x)</span>
-<span id="cb490-5"><a href="r-plots.html#cb490-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rug</span>(y, <span class="at">side=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-261-1.png" width="672" /></p>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="r-plots.html#cb485-1" tabindex="-1"></a>?plot</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="r-plots.html#cb486-1" tabindex="-1"></a><span class="co"># generate some data to plot</span></span>
+<span id="cb486-2"><a href="r-plots.html#cb486-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>)</span>
+<span id="cb486-3"><a href="r-plots.html#cb486-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">0</span>, <span class="fl">0.75</span>)</span>
+<span id="cb486-4"><a href="r-plots.html#cb486-4" tabindex="-1"></a></span>
+<span id="cb486-5"><a href="r-plots.html#cb486-5" tabindex="-1"></a>?plot</span>
+<span id="cb486-6"><a href="r-plots.html#cb486-6" tabindex="-1"></a><span class="co"># standard scatterplot</span></span>
+<span id="cb486-7"><a href="r-plots.html#cb486-7" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-310-1.png" width="672" /></p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="r-plots.html#cb487-1" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
+<span id="cb487-2"><a href="r-plots.html#cb487-2" tabindex="-1"></a></span>
+<span id="cb487-3"><a href="r-plots.html#cb487-3" tabindex="-1"></a><span class="co"># Add a rug representation:</span></span>
+<span id="cb487-4"><a href="r-plots.html#cb487-4" tabindex="-1"></a><span class="fu">rug</span>(x)</span>
+<span id="cb487-5"><a href="r-plots.html#cb487-5" tabindex="-1"></a><span class="fu">rug</span>(y, <span class="at">side=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-1.png" width="672" /></p>
 </div>
 <div id="barplot" class="section level3 hasAnchor" number="12.3.2">
 <h3><span class="header-section-number">12.3.2</span> barplot()<a href="r-plots.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="r-plots.html#cb491-1" aria-hidden="true" tabindex="-1"></a>?barplot</span>
-<span id="cb491-2"><a href="r-plots.html#cb491-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">round</span>(y)))</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="r-plots.html#cb488-1" tabindex="-1"></a>?barplot</span>
+<span id="cb488-2"><a href="r-plots.html#cb488-2" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">round</span>(y)))</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-312-1.png" width="672" /></p>
 </div>
 <div id="hist" class="section level3 hasAnchor" number="12.3.3">
 <h3><span class="header-section-number">12.3.3</span> hist()<a href="r-plots.html#hist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="r-plots.html#cb492-1" aria-hidden="true" tabindex="-1"></a>?hist</span>
-<span id="cb492-2"><a href="r-plots.html#cb492-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12357</span>)</span>
-<span id="cb492-3"><a href="r-plots.html#cb492-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
-<span id="cb492-4"><a href="r-plots.html#cb492-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="r-plots.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span>
-<span id="cb493-2"><a href="r-plots.html#cb493-2" aria-hidden="true" tabindex="-1"></a><span class="co"># add a stripchart() of the actual values</span></span>
-<span id="cb493-3"><a href="r-plots.html#cb493-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(x, <span class="at">pch=</span><span class="st">&quot;|&quot;</span>, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">col=</span><span class="st">&quot;red3&quot;</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">at=</span><span class="sc">-</span><span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="r-plots.html#cb489-1" tabindex="-1"></a>?hist</span>
+<span id="cb489-2"><a href="r-plots.html#cb489-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12357</span>)</span>
+<span id="cb489-3"><a href="r-plots.html#cb489-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb489-4"><a href="r-plots.html#cb489-4" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-313-1.png" width="672" /></p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="r-plots.html#cb490-1" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span>
+<span id="cb490-2"><a href="r-plots.html#cb490-2" tabindex="-1"></a><span class="co"># add a stripchart() of the actual values</span></span>
+<span id="cb490-3"><a href="r-plots.html#cb490-3" tabindex="-1"></a><span class="fu">stripchart</span>(x, <span class="at">pch=</span><span class="st">&quot;|&quot;</span>, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">col=</span><span class="st">&quot;red3&quot;</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">at=</span><span class="sc">-</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-314-1.png" width="672" /></p>
 <p><strong>Note:</strong> a similar plot for bivarite data is achieved with the rug() function.</p>
 <p>assigning the output of hist() makes the values used in constructing the histogram accessible:</p>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="r-plots.html#cb494-1" aria-hidden="true" tabindex="-1"></a>info <span class="ot">&lt;-</span> <span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="r-plots.html#cb495-1" aria-hidden="true" tabindex="-1"></a>info</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="r-plots.html#cb491-1" tabindex="-1"></a>info <span class="ot">&lt;-</span> <span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="dv">5</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-315-1.png" width="672" /></p>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="r-plots.html#cb492-1" tabindex="-1"></a>info</span></code></pre></div>
 <pre><code>## $breaks
 ## [1] -3 -2 -1  0  1  2  3
 ## 
@@ -688,39 +692,39 @@ Work through the plottingIntro.R script.
 ## [1] &quot;histogram&quot;</code></pre>
 <p>we can explicitly set breakpoints in a vector:
 * here we set them at 0.5 sigma intervals from -3 to 3</p>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="r-plots.html#cb497-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fl">1.0</span></span>
-<span id="cb497-2"><a href="r-plots.html#cb497-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span>s, <span class="dv">3</span><span class="sc">*</span>s, <span class="at">by=</span><span class="fl">0.5</span><span class="sc">*</span>s))</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="r-plots.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can colour the bars individually...</span></span>
-<span id="cb498-2"><a href="r-plots.html#cb498-2" aria-hidden="true" tabindex="-1"></a>hcol <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#4F47FD&quot;</span>, <span class="st">&quot;#6982FC&quot;</span>, <span class="st">&quot;#8AA6EF&quot;</span>, <span class="st">&quot;#AFBBDB&quot;</span>, <span class="st">&quot;#BEBEBE&quot;</span>, <span class="st">&quot;#A9A9A9&quot;</span>,</span>
-<span id="cb498-3"><a href="r-plots.html#cb498-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;#A9A9A9&quot;</span>, <span class="st">&quot;#BEBEBE&quot;</span>, <span class="st">&quot;#DBBBAF&quot;</span>, <span class="st">&quot;#EFA68A&quot;</span>, <span class="st">&quot;#FC8269&quot;</span>, <span class="st">&quot;#FD474F&quot;</span>)</span>
-<span id="cb498-4"><a href="r-plots.html#cb498-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb498-5"><a href="r-plots.html#cb498-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Most parameters of a generic plot apply.</span></span>
-<span id="cb498-6"><a href="r-plots.html#cb498-6" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span>s, <span class="dv">3</span><span class="sc">*</span>s, <span class="at">by=</span><span class="fl">0.5</span><span class="sc">*</span>s),</span>
-<span id="cb498-7"><a href="r-plots.html#cb498-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">col=</span>hcol,</span>
-<span id="cb498-8"><a href="r-plots.html#cb498-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;&quot;</span>,</span>
-<span id="cb498-9"><a href="r-plots.html#cb498-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab=</span><span class="fu">expression</span>(sigma),</span>
-<span id="cb498-10"><a href="r-plots.html#cb498-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;Counts&quot;</span>)</span>
-<span id="cb498-11"><a href="r-plots.html#cb498-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb498-12"><a href="r-plots.html#cb498-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ... and we can add the individual counts to the plot.</span></span>
-<span id="cb498-13"><a href="r-plots.html#cb498-13" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(h<span class="sc">$</span>mids, h<span class="sc">$</span>counts, h<span class="sc">$</span>counts, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.5</span>), <span class="at">col =</span> hcol)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="r-plots.html#cb494-1" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fl">1.0</span></span>
+<span id="cb494-2"><a href="r-plots.html#cb494-2" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span>s, <span class="dv">3</span><span class="sc">*</span>s, <span class="at">by=</span><span class="fl">0.5</span><span class="sc">*</span>s))</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-316-1.png" width="672" /></p>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="r-plots.html#cb495-1" tabindex="-1"></a><span class="co"># we can colour the bars individually...</span></span>
+<span id="cb495-2"><a href="r-plots.html#cb495-2" tabindex="-1"></a>hcol <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#4F47FD&quot;</span>, <span class="st">&quot;#6982FC&quot;</span>, <span class="st">&quot;#8AA6EF&quot;</span>, <span class="st">&quot;#AFBBDB&quot;</span>, <span class="st">&quot;#BEBEBE&quot;</span>, <span class="st">&quot;#A9A9A9&quot;</span>,</span>
+<span id="cb495-3"><a href="r-plots.html#cb495-3" tabindex="-1"></a>          <span class="st">&quot;#A9A9A9&quot;</span>, <span class="st">&quot;#BEBEBE&quot;</span>, <span class="st">&quot;#DBBBAF&quot;</span>, <span class="st">&quot;#EFA68A&quot;</span>, <span class="st">&quot;#FC8269&quot;</span>, <span class="st">&quot;#FD474F&quot;</span>)</span>
+<span id="cb495-4"><a href="r-plots.html#cb495-4" tabindex="-1"></a></span>
+<span id="cb495-5"><a href="r-plots.html#cb495-5" tabindex="-1"></a><span class="co"># Most parameters of a generic plot apply.</span></span>
+<span id="cb495-6"><a href="r-plots.html#cb495-6" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">hist</span>(x, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span>s, <span class="dv">3</span><span class="sc">*</span>s, <span class="at">by=</span><span class="fl">0.5</span><span class="sc">*</span>s),</span>
+<span id="cb495-7"><a href="r-plots.html#cb495-7" tabindex="-1"></a>          <span class="at">col=</span>hcol,</span>
+<span id="cb495-8"><a href="r-plots.html#cb495-8" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;&quot;</span>,</span>
+<span id="cb495-9"><a href="r-plots.html#cb495-9" tabindex="-1"></a>          <span class="at">xlab=</span><span class="fu">expression</span>(sigma),</span>
+<span id="cb495-10"><a href="r-plots.html#cb495-10" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;Counts&quot;</span>)</span>
+<span id="cb495-11"><a href="r-plots.html#cb495-11" tabindex="-1"></a></span>
+<span id="cb495-12"><a href="r-plots.html#cb495-12" tabindex="-1"></a><span class="co"># ... and we can add the individual counts to the plot.</span></span>
+<span id="cb495-13"><a href="r-plots.html#cb495-13" tabindex="-1"></a><span class="fu">text</span>(h<span class="sc">$</span>mids, h<span class="sc">$</span>counts, h<span class="sc">$</span>counts, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.5</span>), <span class="at">col =</span> hcol)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-317-1.png" width="672" /></p>
 </div>
 <div id="boxplot" class="section level3 hasAnchor" number="12.3.4">
 <h3><span class="header-section-number">12.3.4</span> boxplot<a href="r-plots.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="r-plots.html#cb499-1" aria-hidden="true" tabindex="-1"></a>?boxplot</span>
-<span id="cb499-2"><a href="r-plots.html#cb499-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>)</span>
-<span id="cb499-3"><a href="r-plots.html#cb499-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="r-plots.html#cb500-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> x</span>
-<span id="cb500-2"><a href="r-plots.html#cb500-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb500-3"><a href="r-plots.html#cb500-3" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">3</span>)</span>
-<span id="cb500-4"><a href="r-plots.html#cb500-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">4</span>)</span>
-<span id="cb500-5"><a href="r-plots.html#cb500-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">5</span>)</span>
-<span id="cb500-6"><a href="r-plots.html#cb500-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(m)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="r-plots.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">log</span>(<span class="fu">abs</span>(m)))</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="r-plots.html#cb496-1" tabindex="-1"></a>?boxplot</span>
+<span id="cb496-2"><a href="r-plots.html#cb496-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">200</span>)</span>
+<span id="cb496-3"><a href="r-plots.html#cb496-3" tabindex="-1"></a><span class="fu">boxplot</span>(x)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-318-1.png" width="672" /></p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="r-plots.html#cb497-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> x</span>
+<span id="cb497-2"><a href="r-plots.html#cb497-2" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb497-3"><a href="r-plots.html#cb497-3" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">3</span>)</span>
+<span id="cb497-4"><a href="r-plots.html#cb497-4" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb497-5"><a href="r-plots.html#cb497-5" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m, x<span class="sc">^</span><span class="dv">5</span>)</span>
+<span id="cb497-6"><a href="r-plots.html#cb497-6" tabindex="-1"></a><span class="fu">boxplot</span>(m)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-319-1.png" width="672" /></p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="r-plots.html#cb498-1" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">log</span>(<span class="fu">abs</span>(m)))</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-320-1.png" width="672" /></p>
 </div>
 <div id="colour" class="section level3 hasAnchor" number="12.3.5">
 <h3><span class="header-section-number">12.3.5</span> Colour<a href="r-plots.html#colour" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -739,14 +743,14 @@ Work through the plottingIntro.R script.
 <li>7: yellow</li>
 <li>8: grey</li>
 </ul>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="r-plots.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="at">col=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">axes=</span><span class="cn">FALSE</span>, <span class="at">names.arg=</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">8</span>))</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="r-plots.html#cb499-1" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="at">col=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">axes=</span><span class="cn">FALSE</span>, <span class="at">names.arg=</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">8</span>))</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-321-1.png" width="672" /></p>
 <p>As you can see, these primary colours are decidedly garish and offend even the most rudimentary sense of aesthetics. Fortunately there are much more sophisticated ways to define colours in R.</p>
 </div>
 <div id="colours-by-name" class="section level4 hasAnchor" number="12.3.5.2">
 <h4><span class="header-section-number">12.3.5.2</span> 2.2 Colours by name<a href="r-plots.html#colours-by-name" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You may have noticed that “red”, “green”, and “blue” work for the col=… parameter, but you probably would not have imagined that “peachpuff”, “firebrick” and “goldenrod” are valid as well. In fact, there are 657 named colours in R. Access them all by typing:</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="r-plots.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="r-plots.html#cb500-1" tabindex="-1"></a><span class="fu">colors</span>()</span></code></pre></div>
 <pre><code>##   [1] &quot;white&quot;                &quot;aliceblue&quot;            &quot;antiquewhite&quot;        
 ##   [4] &quot;antiquewhite1&quot;        &quot;antiquewhite2&quot;        &quot;antiquewhite3&quot;       
 ##   [7] &quot;antiquewhite4&quot;        &quot;aquamarine&quot;           &quot;aquamarine1&quot;         
@@ -966,218 +970,222 @@ Work through the plottingIntro.R script.
 ## [649] &quot;wheat3&quot;               &quot;wheat4&quot;               &quot;whitesmoke&quot;          
 ## [652] &quot;yellow&quot;               &quot;yellow1&quot;              &quot;yellow2&quot;             
 ## [655] &quot;yellow3&quot;              &quot;yellow4&quot;              &quot;yellowgreen&quot;</code></pre>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="r-plots.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>),</span>
-<span id="cb505-2"><a href="r-plots.html#cb505-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">col=</span><span class="fu">c</span>(</span>
-<span id="cb505-3"><a href="r-plots.html#cb505-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;firebrick2&quot;</span>,</span>
-<span id="cb505-4"><a href="r-plots.html#cb505-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;tomato&quot;</span>,</span>
-<span id="cb505-5"><a href="r-plots.html#cb505-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;goldenrod1&quot;</span>,</span>
-<span id="cb505-6"><a href="r-plots.html#cb505-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;peachpuff&quot;</span>,</span>
-<span id="cb505-7"><a href="r-plots.html#cb505-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;papayawhip&quot;</span>,</span>
-<span id="cb505-8"><a href="r-plots.html#cb505-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;seashell&quot;</span>,</span>
-<span id="cb505-9"><a href="r-plots.html#cb505-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;whitesmoke&quot;</span></span>
-<span id="cb505-10"><a href="r-plots.html#cb505-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb505-11"><a href="r-plots.html#cb505-11" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="r-plots.html#cb502-1" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>),</span>
+<span id="cb502-2"><a href="r-plots.html#cb502-2" tabindex="-1"></a>    <span class="at">col=</span><span class="fu">c</span>(</span>
+<span id="cb502-3"><a href="r-plots.html#cb502-3" tabindex="-1"></a>    <span class="st">&quot;firebrick2&quot;</span>,</span>
+<span id="cb502-4"><a href="r-plots.html#cb502-4" tabindex="-1"></a>    <span class="st">&quot;tomato&quot;</span>,</span>
+<span id="cb502-5"><a href="r-plots.html#cb502-5" tabindex="-1"></a>    <span class="st">&quot;goldenrod1&quot;</span>,</span>
+<span id="cb502-6"><a href="r-plots.html#cb502-6" tabindex="-1"></a>    <span class="st">&quot;peachpuff&quot;</span>,</span>
+<span id="cb502-7"><a href="r-plots.html#cb502-7" tabindex="-1"></a>    <span class="st">&quot;papayawhip&quot;</span>,</span>
+<span id="cb502-8"><a href="r-plots.html#cb502-8" tabindex="-1"></a>    <span class="st">&quot;seashell&quot;</span>,</span>
+<span id="cb502-9"><a href="r-plots.html#cb502-9" tabindex="-1"></a>    <span class="st">&quot;whitesmoke&quot;</span></span>
+<span id="cb502-10"><a href="r-plots.html#cb502-10" tabindex="-1"></a>    )</span>
+<span id="cb502-11"><a href="r-plots.html#cb502-11" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-323-1.png" width="672" /></p>
 <p>Read more about named colours (and related topics) <a href="http://research.stowers.org/mcm/efg/R/Color/Chart/">here</a></p>
 </div>
 <div id="colours-as-hex-triplets" class="section level4 hasAnchor" number="12.3.5.3">
 <h4><span class="header-section-number">12.3.5.3</span> Colours as hex-triplets<a href="r-plots.html#colours-as-hex-triplets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Hex triplets in <strong>R</strong> work exactly as in HTML: a triplet of RGB values in two-digit hexadecimal representation. The first two digits specify the red value, the second two are for green, then blue. R accepts a fourth pair of digits to optionally specify the transparency, the semantics of the code is thus “#RRGGBB” or “#RRGGBBAA”. Read more e.g. at <a href="http://en.wikipedia.org/wiki/Web_colors" class="uri">http://en.wikipedia.org/wiki/Web_colors</a></p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="r-plots.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The function col2rgb() converts colour names to rgb values ...</span></span>
-<span id="cb506-2"><a href="r-plots.html#cb506-2" aria-hidden="true" tabindex="-1"></a><span class="fu">col2rgb</span>(<span class="st">&quot;violetred&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="r-plots.html#cb503-1" tabindex="-1"></a><span class="co"># The function col2rgb() converts colour names to rgb values ...</span></span>
+<span id="cb503-2"><a href="r-plots.html#cb503-2" tabindex="-1"></a><span class="fu">col2rgb</span>(<span class="st">&quot;violetred&quot;</span>)</span></code></pre></div>
 <pre><code>##       [,1]
 ## red    208
 ## green   32
 ## blue   144</code></pre>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="r-plots.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ... and rgb() converts rgb values to hex-code:</span></span>
-<span id="cb508-2"><a href="r-plots.html#cb508-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rgb</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.23</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="r-plots.html#cb505-1" tabindex="-1"></a><span class="co"># ... and rgb() converts rgb values to hex-code:</span></span>
+<span id="cb505-2"><a href="r-plots.html#cb505-2" tabindex="-1"></a><span class="fu">rgb</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.23</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;#FF803B&quot;</code></pre>
 <p>Unfortunately the output of col2rgb does not quite match rgb(). col2rgb creates rows with values between 0 and 255, and rgb by default expects columns with intensities from 0 to 1, you have to transpose and divide.</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="r-plots.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rgb</span>(<span class="fu">t</span>(<span class="fu">col2rgb</span>(<span class="st">&quot;red&quot;</span>))<span class="sc">/</span><span class="dv">255</span>)        <span class="co"># &quot;#FF0000&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="r-plots.html#cb507-1" tabindex="-1"></a><span class="fu">rgb</span>(<span class="fu">t</span>(<span class="fu">col2rgb</span>(<span class="st">&quot;red&quot;</span>))<span class="sc">/</span><span class="dv">255</span>)        <span class="co"># &quot;#FF0000&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;#FF0000&quot;</code></pre>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="r-plots.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rgb</span>(<span class="fu">t</span>(<span class="fu">col2rgb</span>(<span class="st">&quot;peachpuff&quot;</span>))<span class="sc">/</span><span class="dv">255</span>)  <span class="co"># &quot;#FFDAB9&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="r-plots.html#cb509-1" tabindex="-1"></a><span class="fu">rgb</span>(<span class="fu">t</span>(<span class="fu">col2rgb</span>(<span class="st">&quot;peachpuff&quot;</span>))<span class="sc">/</span><span class="dv">255</span>)  <span class="co"># &quot;#FFDAB9&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;#FFDAB9&quot;</code></pre>
 <p>There are many tools on the Web that help to generate pleasing palettes.</p>
 <p>Here is an example -“Creative Cloud”- taken from <a href="https://kuler.adobe.com/" class="uri">https://kuler.adobe.com/</a></p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="r-plots.html#cb514-1" aria-hidden="true" tabindex="-1"></a>CC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#011640&quot;</span>, <span class="st">&quot;#024059&quot;</span>, <span class="st">&quot;#F2F0D0&quot;</span>, <span class="st">&quot;#BE6C5C&quot;</span>, <span class="st">&quot;#8C3037&quot;</span> )</span>
-<span id="cb514-2"><a href="r-plots.html#cb514-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>), <span class="at">breaks=</span><span class="dv">20</span> , <span class="at">col=</span>CC)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="r-plots.html#cb511-1" tabindex="-1"></a>CC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#011640&quot;</span>, <span class="st">&quot;#024059&quot;</span>, <span class="st">&quot;#F2F0D0&quot;</span>, <span class="st">&quot;#BE6C5C&quot;</span>, <span class="st">&quot;#8C3037&quot;</span> )</span>
+<span id="cb511-2"><a href="r-plots.html#cb511-2" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>), <span class="at">breaks=</span><span class="dv">20</span> , <span class="at">col=</span>CC)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-327-1.png" width="672" /></p>
 <p><strong>R</strong> colours are actually specified as quartets: the fourth value the “Alpha channel” defines the transparency. Setting this to values other than “FF” (the default) can be useful for very crowded plots, or for creating overlays.</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="r-plots.html#cb515-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>)</span>
-<span id="cb515-2"><a href="r-plots.html#cb515-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>, <span class="dv">0</span>, <span class="fl">0.75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="r-plots.html#cb512-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>)</span>
+<span id="cb512-2"><a href="r-plots.html#cb512-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>, <span class="dv">0</span>, <span class="fl">0.75</span>)</span></code></pre></div>
 <p>compare:</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="r-plots.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;#EE3A8C&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="r-plots.html#cb513-1" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;#EE3A8C&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-329-1.png" width="672" /></p>
 <p>And</p>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="r-plots.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;#EE3A8C12&quot;</span>) <span class="co"># Alpha at ~ 10%</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="r-plots.html#cb514-1" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;#EE3A8C12&quot;</span>) <span class="co"># Alpha at ~ 10%</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-330-1.png" width="672" /></p>
 <p>or with multiple overlays of varying size using points() …</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="r-plots.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(  x,y, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="dv">1</span>,   <span class="at">col =</span> <span class="st">&quot;#AA330009&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="r-plots.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">2</span>,   <span class="at">col =</span> <span class="st">&quot;#44558803&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="r-plots.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">0.5</span>, <span class="at">col =</span> <span class="st">&quot;#EE3A8C08&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="r-plots.html#cb515-1" tabindex="-1"></a><span class="fu">plot</span>(  x,y, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> <span class="dv">1</span>,   <span class="at">col =</span> <span class="st">&quot;#AA330009&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-331-1.png" width="672" /></p>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="r-plots.html#cb516-1" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="dv">2</span>,   <span class="at">col =</span> <span class="st">&quot;#44558803&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-332-1.png" width="672" /></p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="r-plots.html#cb517-1" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="fl">0.5</span>, <span class="at">col =</span> <span class="st">&quot;#EE3A8C08&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-333-1.png" width="672" /></p>
 <p>A similar behaviour can be obtained from “density adapted colors with the densCols() function</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="r-plots.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (x, y, <span class="at">col =</span> <span class="fu">densCols</span>(x, y), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="r-plots.html#cb518-1" tabindex="-1"></a><span class="fu">plot</span> (x, y, <span class="at">col =</span> <span class="fu">densCols</span>(x, y), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-334-1.png" width="672" /></p>
 </div>
 </div>
 <div id="colour-palettes" class="section level3 hasAnchor" number="12.3.6">
 <h3><span class="header-section-number">12.3.6</span> Colour palettes<a href="r-plots.html#colour-palettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R has several inbuilt colour palettes, or you can build your own.</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="r-plots.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inbuilt palettes</span></span>
-<span id="cb522-2"><a href="r-plots.html#cb522-2" aria-hidden="true" tabindex="-1"></a>?rainbow</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="r-plots.html#cb519-1" tabindex="-1"></a><span class="co"># Inbuilt palettes</span></span>
+<span id="cb519-2"><a href="r-plots.html#cb519-2" tabindex="-1"></a>?rainbow</span></code></pre></div>
 <ul>
 <li>view the palettes</li>
 </ul>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="r-plots.html#cb523-1" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
-<span id="cb523-2"><a href="r-plots.html#cb523-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb523-3"><a href="r-plots.html#cb523-3" aria-hidden="true" tabindex="-1"></a>sq <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, n)</span>
-<span id="cb523-4"><a href="r-plots.html#cb523-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">rainbow</span>(n),        <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;rainbow(n)&quot;</span>)</span>
-<span id="cb523-5"><a href="r-plots.html#cb523-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">cm.colors</span>(n),      <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;cm.colors(n)&quot;</span>)</span>
-<span id="cb523-6"><a href="r-plots.html#cb523-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">topo.colors</span>(n),    <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;topo.colors(n)&quot;</span>)</span>
-<span id="cb523-7"><a href="r-plots.html#cb523-7" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">terrain.colors</span>(n), <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;terrain.colors(n)&quot;</span>)</span>
-<span id="cb523-8"><a href="r-plots.html#cb523-8" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">heat.colors</span>(n),    <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;heat.colors(n)&quot;</span>)</span>
-<span id="cb523-9"><a href="r-plots.html#cb523-9" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> opar</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="r-plots.html#cb520-1" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
+<span id="cb520-2"><a href="r-plots.html#cb520-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb520-3"><a href="r-plots.html#cb520-3" tabindex="-1"></a>sq <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, n)</span>
+<span id="cb520-4"><a href="r-plots.html#cb520-4" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">rainbow</span>(n),        <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;rainbow(n)&quot;</span>)</span>
+<span id="cb520-5"><a href="r-plots.html#cb520-5" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">cm.colors</span>(n),      <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;cm.colors(n)&quot;</span>)</span>
+<span id="cb520-6"><a href="r-plots.html#cb520-6" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">topo.colors</span>(n),    <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;topo.colors(n)&quot;</span>)</span>
+<span id="cb520-7"><a href="r-plots.html#cb520-7" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">terrain.colors</span>(n), <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;terrain.colors(n)&quot;</span>)</span>
+<span id="cb520-8"><a href="r-plots.html#cb520-8" tabindex="-1"></a><span class="fu">barplot</span>(sq, <span class="at">col=</span><span class="fu">heat.colors</span>(n),    <span class="at">axes=</span>F, <span class="at">main=</span><span class="st">&quot;heat.colors(n)&quot;</span>)</span>
+<span id="cb520-9"><a href="r-plots.html#cb520-9" tabindex="-1"></a>par <span class="ot">&lt;-</span> opar</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-336-1.png" width="672" /></p>
 <p>Useful palettes have also been described specifically for cartography. <a href="http://colorbrewer2.org/">Colorbrewer2</a> has palettes for seqential and qualitative diferences, and options for colourblind-safe and photocopy friendly palettes. You can use them via an <strong>R</strong> package:</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="r-plots.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(RColorBrewer, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
-<span id="cb524-2"><a href="r-plots.html#cb524-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span>
-<span id="cb524-3"><a href="r-plots.html#cb524-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb524-4"><a href="r-plots.html#cb524-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb524-5"><a href="r-plots.html#cb524-5" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="r-plots.html#cb521-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(RColorBrewer, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
+<span id="cb521-2"><a href="r-plots.html#cb521-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span>
+<span id="cb521-3"><a href="r-plots.html#cb521-3" tabindex="-1"></a>  <span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb521-4"><a href="r-plots.html#cb521-4" tabindex="-1"></a>}</span>
+<span id="cb521-5"><a href="r-plots.html#cb521-5" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-337-1.png" width="672" /></p>
 <p>Here, we apply a Brewer palette to a Voronoi tesselation of a point set.</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="r-plots.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(deldir, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
-<span id="cb525-2"><a href="r-plots.html#cb525-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;deldir&quot;</span>)</span>
-<span id="cb525-3"><a href="r-plots.html#cb525-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(deldir)</span>
-<span id="cb525-4"><a href="r-plots.html#cb525-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## deldir 1.0-6      Nickname: &quot;Mendacious Cosmonaut&quot;</code></pre>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="r-plots.html#cb522-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(deldir, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
+<span id="cb522-2"><a href="r-plots.html#cb522-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;deldir&quot;</span>)</span>
+<span id="cb522-3"><a href="r-plots.html#cb522-3" tabindex="-1"></a>  <span class="fu">library</span>(deldir)</span>
+<span id="cb522-4"><a href="r-plots.html#cb522-4" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## Installing package into &#39;/usr/local/lib/R/site-library&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## deldir 2.0-2      Nickname: &quot;Partial Distinction&quot;</code></pre>
 <pre><code>## 
-##      The syntax of deldir() has had an important change. 
-##      The arguments have been re-ordered (the first three 
-##      are now &quot;x, y, z&quot;) and some arguments have been 
-##      eliminated.  The handling of the z (&quot;tags&quot;) 
-##      argument has been improved.
-##  
-##      The &quot;dummy points&quot; facility has been removed. 
-##      This facility was a historical artefact, was really 
-##      of no use to anyone, and had hung around much too 
-##      long.  Since there are no longer any &quot;dummy points&quot;, 
-##      the structure of the value returned by deldir() has 
-##      changed slightly.  The arguments of plot.deldir() 
-##      have been adjusted accordingly; e.g. the character 
-##      string &quot;wpoints&quot; (&quot;which points&quot;) has been 
-##      replaced by the logical scalar &quot;showpoints&quot;. 
-##      The user should consult the help files.</code></pre>
+##      The syntax of deldir() has changed since version 
+##      0.0-10.  In particular the &quot;dummy points&quot; facility 
+##      (which was a historical artifact) has been removed. 
+##      In the current version, 1.0-8, an argument &quot;id&quot; has 
+##      been added to deldir().  This new argument permits the 
+##      user to specifier identifiers for points.  The default 
+##      behaviour is to continue using the indices of the 
+##      points to identify them.  In view of the fact that 
+##      point identifiers may be user-supplied, the arguement 
+##      &quot;number&quot;, in plot.deldir() and plot.tile.list(), has 
+##      had its name changed to &quot;labelPts&quot;, and the argument 
+##      &quot;nex&quot; in plot.deldir() has had its name changed to 
+##      &quot;lex&quot;.  In addition the name of the forth component 
+##      of the &quot;cmpnt_col&quot; argument in plot.deldir() has been 
+##      changed from &quot;num&quot; to &quot;labels&quot;.  There is a new 
+##      function getNbrs(), and the function tileInfo() has 
+##      been modified to include output from getNbrs(). 
+##      Please consult the help.</code></pre>
 <p>Create a point set along a logarithmic spiral, with a bit of added noise.</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="r-plots.html#cb528-1" aria-hidden="true" tabindex="-1"></a>li <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
-<span id="cb528-2"><a href="r-plots.html#cb528-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">45</span></span>
-<span id="cb528-3"><a href="r-plots.html#cb528-3" aria-hidden="true" tabindex="-1"></a>dl <span class="ot">&lt;-</span> <span class="fl">1.06</span></span>
-<span id="cb528-4"><a href="r-plots.html#cb528-4" aria-hidden="true" tabindex="-1"></a>ncirc <span class="ot">&lt;-</span> <span class="dv">13</span></span>
-<span id="cb528-5"><a href="r-plots.html#cb528-5" aria-hidden="true" tabindex="-1"></a>da <span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>pi)<span class="sc">/</span>ncirc</span>
-<span id="cb528-6"><a href="r-plots.html#cb528-6" aria-hidden="true" tabindex="-1"></a>fnoise <span class="ot">&lt;-</span><span class="fl">0.13</span></span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="r-plots.html#cb526-1" tabindex="-1"></a>li <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb526-2"><a href="r-plots.html#cb526-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">45</span></span>
+<span id="cb526-3"><a href="r-plots.html#cb526-3" tabindex="-1"></a>dl <span class="ot">&lt;-</span> <span class="fl">1.06</span></span>
+<span id="cb526-4"><a href="r-plots.html#cb526-4" tabindex="-1"></a>ncirc <span class="ot">&lt;-</span> <span class="dv">13</span></span>
+<span id="cb526-5"><a href="r-plots.html#cb526-5" tabindex="-1"></a>da <span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>pi)<span class="sc">/</span>ncirc</span>
+<span id="cb526-6"><a href="r-plots.html#cb526-6" tabindex="-1"></a>fnoise <span class="ot">&lt;-</span><span class="fl">0.13</span></span></code></pre></div>
 <p>create a matrix of points</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="r-plots.html#cb529-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
-<span id="cb529-2"><a href="r-plots.html#cb529-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(x, <span class="fu">numeric</span>(n))</span>
-<span id="cb529-3"><a href="r-plots.html#cb529-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb529-4"><a href="r-plots.html#cb529-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">16180</span>)</span>
-<span id="cb529-5"><a href="r-plots.html#cb529-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
-<span id="cb529-6"><a href="r-plots.html#cb529-6" aria-hidden="true" tabindex="-1"></a>    l <span class="ot">&lt;-</span> li <span class="sc">*</span> (dl<span class="sc">^</span>(i<span class="dv">-1</span>))</span>
-<span id="cb529-7"><a href="r-plots.html#cb529-7" aria-hidden="true" tabindex="-1"></a>    x[i,<span class="dv">1</span>] <span class="ot">&lt;-</span> (l<span class="sc">+</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)<span class="sc">*</span>fnoise<span class="sc">*</span>l)) <span class="sc">*</span> <span class="fu">cos</span>((i<span class="dv">-1</span>)<span class="sc">*</span>da)</span>
-<span id="cb529-8"><a href="r-plots.html#cb529-8" aria-hidden="true" tabindex="-1"></a>    x[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> (l<span class="sc">+</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)<span class="sc">*</span>fnoise<span class="sc">*</span>l)) <span class="sc">*</span> <span class="fu">sin</span>((i<span class="dv">-1</span>)<span class="sc">*</span>da)</span>
-<span id="cb529-9"><a href="r-plots.html#cb529-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb529-10"><a href="r-plots.html#cb529-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x[,<span class="dv">1</span>], x[,<span class="dv">2</span>])</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="r-plots.html#cb530-1" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">deldir</span>(x[,<span class="dv">1</span>], x[,<span class="dv">2</span>])       <span class="co"># calculate the tesselation</span></span>
-<span id="cb530-2"><a href="r-plots.html#cb530-2" aria-hidden="true" tabindex="-1"></a>tl <span class="ot">&lt;-</span> <span class="fu">tile.list</span>(ts)      <span class="co"># calculate the list of tiles</span></span>
-<span id="cb530-3"><a href="r-plots.html#cb530-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.tile.list</span>(tl)       <span class="co"># plot it</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="r-plots.html#cb527-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb527-2"><a href="r-plots.html#cb527-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(x, <span class="fu">numeric</span>(n))</span>
+<span id="cb527-3"><a href="r-plots.html#cb527-3" tabindex="-1"></a></span>
+<span id="cb527-4"><a href="r-plots.html#cb527-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">16180</span>)</span>
+<span id="cb527-5"><a href="r-plots.html#cb527-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb527-6"><a href="r-plots.html#cb527-6" tabindex="-1"></a>    l <span class="ot">&lt;-</span> li <span class="sc">*</span> (dl<span class="sc">^</span>(i<span class="dv">-1</span>))</span>
+<span id="cb527-7"><a href="r-plots.html#cb527-7" tabindex="-1"></a>    x[i,<span class="dv">1</span>] <span class="ot">&lt;-</span> (l<span class="sc">+</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)<span class="sc">*</span>fnoise<span class="sc">*</span>l)) <span class="sc">*</span> <span class="fu">cos</span>((i<span class="dv">-1</span>)<span class="sc">*</span>da)</span>
+<span id="cb527-8"><a href="r-plots.html#cb527-8" tabindex="-1"></a>    x[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> (l<span class="sc">+</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)<span class="sc">*</span>fnoise<span class="sc">*</span>l)) <span class="sc">*</span> <span class="fu">sin</span>((i<span class="dv">-1</span>)<span class="sc">*</span>da)</span>
+<span id="cb527-9"><a href="r-plots.html#cb527-9" tabindex="-1"></a>}</span>
+<span id="cb527-10"><a href="r-plots.html#cb527-10" tabindex="-1"></a><span class="fu">plot</span>(x[,<span class="dv">1</span>], x[,<span class="dv">2</span>])</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-340-1.png" width="672" /></p>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="r-plots.html#cb528-1" tabindex="-1"></a>ts <span class="ot">&lt;-</span> <span class="fu">deldir</span>(x[,<span class="dv">1</span>], x[,<span class="dv">2</span>])       <span class="co"># calculate the tesselation</span></span>
+<span id="cb528-2"><a href="r-plots.html#cb528-2" tabindex="-1"></a>tl <span class="ot">&lt;-</span> <span class="fu">tile.list</span>(ts)      <span class="co"># calculate the list of tiles</span></span>
+<span id="cb528-3"><a href="r-plots.html#cb528-3" tabindex="-1"></a><span class="fu">plot.tile.list</span>(tl)       <span class="co"># plot it</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
 <p>Let’s colour the cells by distance from a defined point using a Brewer palette</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="r-plots.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.tile.list</span>(tl)       <span class="co"># plot it</span></span>
-<span id="cb531-2"><a href="r-plots.html#cb531-2" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x[<span class="dv">25</span>,<span class="dv">1</span>], x[<span class="dv">25</span>,<span class="dv">2</span>], <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)   <span class="co"># pick a point</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="r-plots.html#cb532-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(x[<span class="dv">25</span>,<span class="dv">1</span>], x[<span class="dv">25</span>,<span class="dv">2</span>]) <span class="co"># define a point</span></span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="r-plots.html#cb529-1" tabindex="-1"></a><span class="fu">plot.tile.list</span>(tl)       <span class="co"># plot it</span></span>
+<span id="cb529-2"><a href="r-plots.html#cb529-2" tabindex="-1"></a><span class="fu">points</span>(x[<span class="dv">25</span>,<span class="dv">1</span>], x[<span class="dv">25</span>,<span class="dv">2</span>], <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)   <span class="co"># pick a point</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-342-1.png" width="672" /></p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="r-plots.html#cb530-1" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(x[<span class="dv">25</span>,<span class="dv">1</span>], x[<span class="dv">25</span>,<span class="dv">2</span>]) <span class="co"># define a point</span></span></code></pre></div>
 <p>define a function for Euclidian distance</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="r-plots.html#cb533-1" aria-hidden="true" tabindex="-1"></a>vDist <span class="ot">&lt;-</span> <span class="cf">function</span>(x,v) { <span class="fu">sqrt</span>(<span class="fu">sum</span>((x<span class="sc">-</span>v)<span class="sc">^</span><span class="dv">2</span>)) }  <span class="co"># calculates Euclidian distance</span></span>
-<span id="cb533-2"><a href="r-plots.html#cb533-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">1</span> , vDist, <span class="at">v=</span>vec)                <span class="co"># apply this to the point set</span></span>
-<span id="cb533-3"><a href="r-plots.html#cb533-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-4"><a href="r-plots.html#cb533-4" aria-hidden="true" tabindex="-1"></a>dCol <span class="ot">&lt;-</span> <span class="fu">floor</span>(((d<span class="sc">-</span><span class="fu">min</span>(d))<span class="sc">/</span>(<span class="fu">max</span>(d)<span class="sc">-</span><span class="fu">min</span>(d)) <span class="sc">*</span> <span class="dv">10</span>)) <span class="sc">+</span> <span class="dv">1</span> <span class="co"># map d into 10 intervals</span></span>
-<span id="cb533-5"><a href="r-plots.html#cb533-5" aria-hidden="true" tabindex="-1"></a>dCol[<span class="fu">which</span>(dCol<span class="sc">&gt;</span><span class="dv">10</span>)] <span class="ot">&lt;-</span> <span class="dv">10</span>                           <span class="co"># demote the largest one</span></span>
-<span id="cb533-6"><a href="r-plots.html#cb533-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-7"><a href="r-plots.html#cb533-7" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;RdGy&quot;</span>)   <span class="co"># create the palette</span></span>
-<span id="cb533-8"><a href="r-plots.html#cb533-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-9"><a href="r-plots.html#cb533-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the tesselation, colour by palette</span></span>
-<span id="cb533-10"><a href="r-plots.html#cb533-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.tile.list</span>(tl, <span class="at">fillcol =</span> pal[dCol], <span class="at">cex=</span><span class="fl">0.8</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col.pts=</span><span class="st">&quot;slategrey&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="r-plots.html#cb531-1" tabindex="-1"></a>vDist <span class="ot">&lt;-</span> <span class="cf">function</span>(x,v) { <span class="fu">sqrt</span>(<span class="fu">sum</span>((x<span class="sc">-</span>v)<span class="sc">^</span><span class="dv">2</span>)) }  <span class="co"># calculates Euclidian distance</span></span>
+<span id="cb531-2"><a href="r-plots.html#cb531-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">1</span> , vDist, <span class="at">v=</span>vec)                <span class="co"># apply this to the point set</span></span>
+<span id="cb531-3"><a href="r-plots.html#cb531-3" tabindex="-1"></a></span>
+<span id="cb531-4"><a href="r-plots.html#cb531-4" tabindex="-1"></a>dCol <span class="ot">&lt;-</span> <span class="fu">floor</span>(((d<span class="sc">-</span><span class="fu">min</span>(d))<span class="sc">/</span>(<span class="fu">max</span>(d)<span class="sc">-</span><span class="fu">min</span>(d)) <span class="sc">*</span> <span class="dv">10</span>)) <span class="sc">+</span> <span class="dv">1</span> <span class="co"># map d into 10 intervals</span></span>
+<span id="cb531-5"><a href="r-plots.html#cb531-5" tabindex="-1"></a>dCol[<span class="fu">which</span>(dCol<span class="sc">&gt;</span><span class="dv">10</span>)] <span class="ot">&lt;-</span> <span class="dv">10</span>                           <span class="co"># demote the largest one</span></span>
+<span id="cb531-6"><a href="r-plots.html#cb531-6" tabindex="-1"></a></span>
+<span id="cb531-7"><a href="r-plots.html#cb531-7" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;RdGy&quot;</span>)   <span class="co"># create the palette</span></span>
+<span id="cb531-8"><a href="r-plots.html#cb531-8" tabindex="-1"></a></span>
+<span id="cb531-9"><a href="r-plots.html#cb531-9" tabindex="-1"></a><span class="co"># plot the tesselation, colour by palette</span></span>
+<span id="cb531-10"><a href="r-plots.html#cb531-10" tabindex="-1"></a><span class="fu">plot.tile.list</span>(tl, <span class="at">fillcol =</span> pal[dCol], <span class="at">cex=</span><span class="fl">0.8</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col.pts=</span><span class="st">&quot;slategrey&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-343-1.png" width="672" /></p>
 </div>
 </div>
 <div id="lines" class="section level2 hasAnchor" number="12.4">
 <h2><span class="header-section-number">12.4</span> Lines<a href="r-plots.html#lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Basically all plots take arguments lty to define the line type, and lwd to define line width</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="r-plots.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="co"># empty plot ...</span></span>
-<span id="cb534-2"><a href="r-plots.html#cb534-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb534-3"><a href="r-plots.html#cb534-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb534-4"><a href="r-plots.html#cb534-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Line type</span></span>
-<span id="cb534-5"><a href="r-plots.html#cb534-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) {</span>
-<span id="cb534-6"><a href="r-plots.html#cb534-6" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fl">10.5</span><span class="sc">-</span>(i<span class="sc">/</span><span class="dv">2</span>)</span>
-<span id="cb534-7"><a href="r-plots.html#cb534-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">segments</span>(<span class="dv">1</span>,y,<span class="dv">5</span>,y, <span class="at">lty=</span>i)</span>
-<span id="cb534-8"><a href="r-plots.html#cb534-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">text</span>(<span class="dv">6</span>, y, <span class="fu">paste</span>(<span class="st">&quot;lty = &quot;</span>, i), <span class="at">col=</span><span class="st">&quot;grey60&quot;</span>, <span class="at">adj=</span><span class="dv">0</span>, <span class="at">cex=</span><span class="fl">0.75</span>)</span>
-<span id="cb534-9"><a href="r-plots.html#cb534-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb534-10"><a href="r-plots.html#cb534-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb534-11"><a href="r-plots.html#cb534-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Line width</span></span>
-<span id="cb534-12"><a href="r-plots.html#cb534-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb534-13"><a href="r-plots.html#cb534-13" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fl">5.5</span><span class="sc">-</span>(i<span class="sc">/</span><span class="dv">2</span>)</span>
-<span id="cb534-14"><a href="r-plots.html#cb534-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">segments</span>(<span class="dv">1</span>,y,<span class="dv">5</span>,y, <span class="at">lwd=</span>(<span class="fl">0.3</span><span class="sc">*</span>i)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb534-15"><a href="r-plots.html#cb534-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">text</span>(<span class="dv">6</span>, y, <span class="fu">paste</span>(<span class="st">&quot;lwd = &quot;</span>, (<span class="fl">0.3</span><span class="sc">*</span>i)<span class="sc">^</span><span class="dv">2</span>), <span class="at">col=</span><span class="st">&quot;grey60&quot;</span>, <span class="at">adj=</span><span class="dv">0</span>, <span class="at">cex=</span><span class="fl">0.75</span>)</span>
-<span id="cb534-16"><a href="r-plots.html#cb534-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="r-plots.html#cb532-1" tabindex="-1"></a><span class="co"># empty plot ...</span></span>
+<span id="cb532-2"><a href="r-plots.html#cb532-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb532-3"><a href="r-plots.html#cb532-3" tabindex="-1"></a></span>
+<span id="cb532-4"><a href="r-plots.html#cb532-4" tabindex="-1"></a><span class="co"># Line type</span></span>
+<span id="cb532-5"><a href="r-plots.html#cb532-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) {</span>
+<span id="cb532-6"><a href="r-plots.html#cb532-6" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fl">10.5</span><span class="sc">-</span>(i<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb532-7"><a href="r-plots.html#cb532-7" tabindex="-1"></a>    <span class="fu">segments</span>(<span class="dv">1</span>,y,<span class="dv">5</span>,y, <span class="at">lty=</span>i)</span>
+<span id="cb532-8"><a href="r-plots.html#cb532-8" tabindex="-1"></a>    <span class="fu">text</span>(<span class="dv">6</span>, y, <span class="fu">paste</span>(<span class="st">&quot;lty = &quot;</span>, i), <span class="at">col=</span><span class="st">&quot;grey60&quot;</span>, <span class="at">adj=</span><span class="dv">0</span>, <span class="at">cex=</span><span class="fl">0.75</span>)</span>
+<span id="cb532-9"><a href="r-plots.html#cb532-9" tabindex="-1"></a>}</span>
+<span id="cb532-10"><a href="r-plots.html#cb532-10" tabindex="-1"></a></span>
+<span id="cb532-11"><a href="r-plots.html#cb532-11" tabindex="-1"></a><span class="co"># Line width</span></span>
+<span id="cb532-12"><a href="r-plots.html#cb532-12" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb532-13"><a href="r-plots.html#cb532-13" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fl">5.5</span><span class="sc">-</span>(i<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb532-14"><a href="r-plots.html#cb532-14" tabindex="-1"></a>    <span class="fu">segments</span>(<span class="dv">1</span>,y,<span class="dv">5</span>,y, <span class="at">lwd=</span>(<span class="fl">0.3</span><span class="sc">*</span>i)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb532-15"><a href="r-plots.html#cb532-15" tabindex="-1"></a>    <span class="fu">text</span>(<span class="dv">6</span>, y, <span class="fu">paste</span>(<span class="st">&quot;lwd = &quot;</span>, (<span class="fl">0.3</span><span class="sc">*</span>i)<span class="sc">^</span><span class="dv">2</span>), <span class="at">col=</span><span class="st">&quot;grey60&quot;</span>, <span class="at">adj=</span><span class="dv">0</span>, <span class="at">cex=</span><span class="fl">0.75</span>)</span>
+<span id="cb532-16"><a href="r-plots.html#cb532-16" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
 </div>
 <div id="axes" class="section level2 hasAnchor" number="12.5">
 <h2><span class="header-section-number">12.5</span> Axes<a href="r-plots.html#axes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="r-plots.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For Details, see:</span></span>
-<span id="cb535-2"><a href="r-plots.html#cb535-2" aria-hidden="true" tabindex="-1"></a>?plot.default</span></code></pre></div>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="r-plots.html#cb536-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb536-2"><a href="r-plots.html#cb536-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb536-3"><a href="r-plots.html#cb536-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd=</span><span class="fl">0.75</span>)</span>
-<span id="cb536-4"><a href="r-plots.html#cb536-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb536-5"><a href="r-plots.html#cb536-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)  <span class="co"># Default</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-296-1.png" width="672" /></p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="r-plots.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="co"># fixed limits</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="r-plots.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">10</span>)) <span class="co"># reverse is possible</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-298-1.png" width="672" /></p>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="r-plots.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">log=</span><span class="st">&quot;xy&quot;</span>) <span class="co"># log axes</span></span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="r-plots.html#cb533-1" tabindex="-1"></a><span class="co"># For Details, see:</span></span>
+<span id="cb533-2"><a href="r-plots.html#cb533-2" tabindex="-1"></a>?plot.default</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="r-plots.html#cb534-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb534-2"><a href="r-plots.html#cb534-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb534-3"><a href="r-plots.html#cb534-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd=</span><span class="fl">0.75</span>)</span>
+<span id="cb534-4"><a href="r-plots.html#cb534-4" tabindex="-1"></a></span>
+<span id="cb534-5"><a href="r-plots.html#cb534-5" tabindex="-1"></a><span class="fu">plot</span>(x,y)  <span class="co"># Default</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-346-1.png" width="672" /></p>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="r-plots.html#cb535-1" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="co"># fixed limits</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-347-1.png" width="672" /></p>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="r-plots.html#cb536-1" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">10</span>)) <span class="co"># reverse is possible</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-348-1.png" width="672" /></p>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="r-plots.html#cb537-1" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">log=</span><span class="st">&quot;xy&quot;</span>) <span class="co"># log axes</span></span></code></pre></div>
 <pre><code>## Warning in xy.coords(x, y, xlabel, ylabel, log): 498 x values &lt;= 0 omitted
 ## from logarithmic plot</code></pre>
 <pre><code>## Warning in xy.coords(x, y, xlabel, ylabel, log): 484 y values &lt;= 0 omitted
 ## from logarithmic plot</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-299-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-349-1.png" width="672" /></p>
 <p>The axis parameters in the default plot are limited. If you want more control, suppress the printing of an axis in the plot and use the axis() function instead.</p>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="r-plots.html#cb542-1" aria-hidden="true" tabindex="-1"></a>?axis</span></code></pre></div>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="r-plots.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Axis-labels and title are straightforward parameters of plot</span></span>
-<span id="cb543-2"><a href="r-plots.html#cb543-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlab=</span><span class="st">&quot;rnorm(n)&quot;</span>,</span>
-<span id="cb543-3"><a href="r-plots.html#cb543-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;x^3 * 0.25 + rnorm(n, sd=0.75)&quot;</span>,</span>
-<span id="cb543-4"><a href="r-plots.html#cb543-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex.main=</span><span class="fl">1.3</span>,</span>
-<span id="cb543-5"><a href="r-plots.html#cb543-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Sample</span><span class="sc">\n</span><span class="st">Plot&quot;</span>,</span>
-<span id="cb543-6"><a href="r-plots.html#cb543-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex.sub=</span><span class="fl">0.75</span>,</span>
-<span id="cb543-7"><a href="r-plots.html#cb543-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.sub=</span><span class="st">&quot;grey&quot;</span>,</span>
-<span id="cb543-8"><a href="r-plots.html#cb543-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">sub=</span><span class="st">&quot;Scatterplot of noisy 3d-degree polynomial&quot;</span></span>
-<span id="cb543-9"><a href="r-plots.html#cb543-9" aria-hidden="true" tabindex="-1"></a>          )</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-301-1.png" width="672" /></p>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="r-plots.html#cb540-1" tabindex="-1"></a>?axis</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="r-plots.html#cb541-1" tabindex="-1"></a><span class="co"># Axis-labels and title are straightforward parameters of plot</span></span>
+<span id="cb541-2"><a href="r-plots.html#cb541-2" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlab=</span><span class="st">&quot;rnorm(n)&quot;</span>,</span>
+<span id="cb541-3"><a href="r-plots.html#cb541-3" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;x^3 * 0.25 + rnorm(n, sd=0.75)&quot;</span>,</span>
+<span id="cb541-4"><a href="r-plots.html#cb541-4" tabindex="-1"></a>          <span class="at">cex.main=</span><span class="fl">1.3</span>,</span>
+<span id="cb541-5"><a href="r-plots.html#cb541-5" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Sample</span><span class="sc">\n</span><span class="st">Plot&quot;</span>,</span>
+<span id="cb541-6"><a href="r-plots.html#cb541-6" tabindex="-1"></a>          <span class="at">cex.sub=</span><span class="fl">0.75</span>,</span>
+<span id="cb541-7"><a href="r-plots.html#cb541-7" tabindex="-1"></a>          <span class="at">col.sub=</span><span class="st">&quot;grey&quot;</span>,</span>
+<span id="cb541-8"><a href="r-plots.html#cb541-8" tabindex="-1"></a>          <span class="at">sub=</span><span class="st">&quot;Scatterplot of noisy 3d-degree polynomial&quot;</span></span>
+<span id="cb541-9"><a href="r-plots.html#cb541-9" tabindex="-1"></a>          )</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-351-1.png" width="672" /></p>
 <p>Add gridlines</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="r-plots.html#cb544-1" aria-hidden="true" tabindex="-1"></a>?grid</span>
-<span id="cb544-2"><a href="r-plots.html#cb544-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlab=</span><span class="st">&quot;rnorm(n)&quot;</span>,</span>
-<span id="cb544-3"><a href="r-plots.html#cb544-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;x^3 * 0.25 + rnorm(n, sd=0.75)&quot;</span>,</span>
-<span id="cb544-4"><a href="r-plots.html#cb544-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex.main=</span><span class="fl">1.3</span>,</span>
-<span id="cb544-5"><a href="r-plots.html#cb544-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Sample</span><span class="sc">\n</span><span class="st">Plot&quot;</span>,</span>
-<span id="cb544-6"><a href="r-plots.html#cb544-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex.sub=</span><span class="fl">0.75</span>,</span>
-<span id="cb544-7"><a href="r-plots.html#cb544-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.sub=</span><span class="st">&quot;grey&quot;</span>,</span>
-<span id="cb544-8"><a href="r-plots.html#cb544-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">sub=</span><span class="st">&quot;Scatterplot of noisy 3d-degree polynomial&quot;</span></span>
-<span id="cb544-9"><a href="r-plots.html#cb544-9" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb544-10"><a href="r-plots.html#cb544-10" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-302-1.png" width="672" /></p>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="r-plots.html#cb542-1" tabindex="-1"></a>?grid</span>
+<span id="cb542-2"><a href="r-plots.html#cb542-2" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">xlab=</span><span class="st">&quot;rnorm(n)&quot;</span>,</span>
+<span id="cb542-3"><a href="r-plots.html#cb542-3" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;x^3 * 0.25 + rnorm(n, sd=0.75)&quot;</span>,</span>
+<span id="cb542-4"><a href="r-plots.html#cb542-4" tabindex="-1"></a>          <span class="at">cex.main=</span><span class="fl">1.3</span>,</span>
+<span id="cb542-5"><a href="r-plots.html#cb542-5" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Sample</span><span class="sc">\n</span><span class="st">Plot&quot;</span>,</span>
+<span id="cb542-6"><a href="r-plots.html#cb542-6" tabindex="-1"></a>          <span class="at">cex.sub=</span><span class="fl">0.75</span>,</span>
+<span id="cb542-7"><a href="r-plots.html#cb542-7" tabindex="-1"></a>          <span class="at">col.sub=</span><span class="st">&quot;grey&quot;</span>,</span>
+<span id="cb542-8"><a href="r-plots.html#cb542-8" tabindex="-1"></a>          <span class="at">sub=</span><span class="st">&quot;Scatterplot of noisy 3d-degree polynomial&quot;</span></span>
+<span id="cb542-9"><a href="r-plots.html#cb542-9" tabindex="-1"></a>          )</span>
+<span id="cb542-10"><a href="r-plots.html#cb542-10" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
 </div>
 <div id="layout" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Layout<a href="r-plots.html#layout" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1191,71 +1199,71 @@ Work through the plottingIntro.R script.
 <li>controlling position and size of a plot in the figure (fig, plt, ps, pty)</li>
 <li>see ?par for details.</li>
 </ul>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="r-plots.html#cb545-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb545-2"><a href="r-plots.html#cb545-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb545-3"><a href="r-plots.html#cb545-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd=</span><span class="fl">0.75</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="r-plots.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set window background and plotting axes via par</span></span>
-<span id="cb546-2"><a href="r-plots.html#cb546-2" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">bg=</span><span class="st">&quot;steelblue&quot;</span>, <span class="at">fg=</span><span class="st">&quot;lightyellow&quot;</span>)</span>
-<span id="cb546-3"><a href="r-plots.html#cb546-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set axis lables and titles via plot parameters</span></span>
-<span id="cb546-4"><a href="r-plots.html#cb546-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">col.axis=</span><span class="st">&quot;lightyellow&quot;</span>, <span class="at">col.lab=</span><span class="st">&quot;lightyellow&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-304-1.png" width="672" /></p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="r-plots.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(opar)  <span class="co"># rest to old values</span></span>
-<span id="cb547-2"><a href="r-plots.html#cb547-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-3"><a href="r-plots.html#cb547-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y) <span class="co"># confirm reset</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-304-2.png" width="672" /></p>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="r-plots.html#cb543-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb543-2"><a href="r-plots.html#cb543-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb543-3"><a href="r-plots.html#cb543-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd=</span><span class="fl">0.75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="r-plots.html#cb544-1" tabindex="-1"></a><span class="co"># set window background and plotting axes via par</span></span>
+<span id="cb544-2"><a href="r-plots.html#cb544-2" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">bg=</span><span class="st">&quot;steelblue&quot;</span>, <span class="at">fg=</span><span class="st">&quot;lightyellow&quot;</span>)</span>
+<span id="cb544-3"><a href="r-plots.html#cb544-3" tabindex="-1"></a><span class="co"># set axis lables and titles via plot parameters</span></span>
+<span id="cb544-4"><a href="r-plots.html#cb544-4" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">col.axis=</span><span class="st">&quot;lightyellow&quot;</span>, <span class="at">col.lab=</span><span class="st">&quot;lightyellow&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-354-1.png" width="672" /></p>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="r-plots.html#cb545-1" tabindex="-1"></a><span class="fu">par</span>(opar)  <span class="co"># rest to old values</span></span>
+<span id="cb545-2"><a href="r-plots.html#cb545-2" tabindex="-1"></a></span>
+<span id="cb545-3"><a href="r-plots.html#cb545-3" tabindex="-1"></a><span class="fu">plot</span>(x,y) <span class="co"># confirm reset</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-354-2.png" width="672" /></p>
 </div>
 </div>
 <div id="plot-symbols-and-text" class="section level2 hasAnchor" number="12.7">
 <h2><span class="header-section-number">12.7</span> Plot symbols and text<a href="r-plots.html#plot-symbols-and-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Plot symbols are defined in the pch argument to plot(). id 1:20 are regular symbols</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="r-plots.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
-<span id="cb548-2"><a href="r-plots.html#cb548-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb548-3"><a href="r-plots.html#cb548-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb548-4"><a href="r-plots.html#cb548-4" aria-hidden="true" tabindex="-1"></a><span class="co"># coordinates for first 25 symbols</span></span>
-<span id="cb548-5"><a href="r-plots.html#cb548-5" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">0.5</span><span class="sc">:</span><span class="fl">9.5</span>, <span class="dv">2</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span>
-<span id="cb548-6"><a href="r-plots.html#cb548-6" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fl">9.5</span><span class="sc">:</span><span class="fl">8.5</span>, <span class="dv">10</span>), <span class="at">dec=</span><span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span>
-<span id="cb548-7"><a href="r-plots.html#cb548-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x1, y1, <span class="at">pch=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-305-1.png" width="672" /></p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="r-plots.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
-<span id="cb549-2"><a href="r-plots.html#cb549-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb549-3"><a href="r-plots.html#cb549-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb549-4"><a href="r-plots.html#cb549-4" aria-hidden="true" tabindex="-1"></a><span class="co"># id 21:25 can have different border and fill colours</span></span>
-<span id="cb549-5"><a href="r-plots.html#cb549-5" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">:</span><span class="fl">4.5</span></span>
-<span id="cb549-6"><a href="r-plots.html#cb549-6" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">7.5</span>,<span class="dv">5</span>)</span>
-<span id="cb549-7"><a href="r-plots.html#cb549-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x2, y2, <span class="at">pch=</span><span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">col=</span><span class="st">&quot;slategrey&quot;</span>, <span class="at">bg=</span><span class="fu">rainbow</span>(<span class="dv">5</span>))</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="r-plots.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
-<span id="cb550-2"><a href="r-plots.html#cb550-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb550-3"><a href="r-plots.html#cb550-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb550-4"><a href="r-plots.html#cb550-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ten extra symbols are defined as characters</span></span>
-<span id="cb550-5"><a href="r-plots.html#cb550-5" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">:</span><span class="fl">9.5</span></span>
-<span id="cb550-6"><a href="r-plots.html#cb550-6" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">6.5</span>,<span class="dv">10</span>)</span>
-<span id="cb550-7"><a href="r-plots.html#cb550-7" aria-hidden="true" tabindex="-1"></a>extra <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;O&quot;</span>, <span class="st">&quot;0&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;A&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>,<span class="st">&quot;|&quot;</span>)</span>
-<span id="cb550-8"><a href="r-plots.html#cb550-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x3, y3, <span class="at">pch=</span>extra) <span class="co"># note: ext is a character vector</span></span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-307-1.png" width="672" /></p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="r-plots.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
-<span id="cb551-2"><a href="r-plots.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb551-3"><a href="r-plots.html#cb551-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb551-4"><a href="r-plots.html#cb551-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The ASCII codes for characters 32 to 126 can also be used as plotting symbols</span></span>
-<span id="cb551-5"><a href="r-plots.html#cb551-5" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="fl">0.5</span>,<span class="fl">9.5</span>,<span class="fl">0.5</span>), <span class="dv">5</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">96</span>]</span>
-<span id="cb551-6"><a href="r-plots.html#cb551-6" aria-hidden="true" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fl">5.5</span><span class="sc">:</span><span class="fl">0.5</span>, <span class="dv">19</span>), <span class="at">dec=</span><span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">96</span>]</span>
-<span id="cb551-7"><a href="r-plots.html#cb551-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x4, y4, <span class="at">pch=</span><span class="dv">32</span><span class="sc">:</span><span class="dv">126</span>, <span class="at">col=</span><span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-308-1.png" width="672" /></p>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="r-plots.html#cb546-1" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
+<span id="cb546-2"><a href="r-plots.html#cb546-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb546-3"><a href="r-plots.html#cb546-3" tabindex="-1"></a></span>
+<span id="cb546-4"><a href="r-plots.html#cb546-4" tabindex="-1"></a><span class="co"># coordinates for first 25 symbols</span></span>
+<span id="cb546-5"><a href="r-plots.html#cb546-5" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">0.5</span><span class="sc">:</span><span class="fl">9.5</span>, <span class="dv">2</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span>
+<span id="cb546-6"><a href="r-plots.html#cb546-6" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fl">9.5</span><span class="sc">:</span><span class="fl">8.5</span>, <span class="dv">10</span>), <span class="at">dec=</span><span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span>
+<span id="cb546-7"><a href="r-plots.html#cb546-7" tabindex="-1"></a><span class="fu">points</span>(x1, y1, <span class="at">pch=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-355-1.png" width="672" /></p>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="r-plots.html#cb547-1" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
+<span id="cb547-2"><a href="r-plots.html#cb547-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb547-3"><a href="r-plots.html#cb547-3" tabindex="-1"></a></span>
+<span id="cb547-4"><a href="r-plots.html#cb547-4" tabindex="-1"></a><span class="co"># id 21:25 can have different border and fill colours</span></span>
+<span id="cb547-5"><a href="r-plots.html#cb547-5" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">:</span><span class="fl">4.5</span></span>
+<span id="cb547-6"><a href="r-plots.html#cb547-6" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">7.5</span>,<span class="dv">5</span>)</span>
+<span id="cb547-7"><a href="r-plots.html#cb547-7" tabindex="-1"></a><span class="fu">points</span>(x2, y2, <span class="at">pch=</span><span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">col=</span><span class="st">&quot;slategrey&quot;</span>, <span class="at">bg=</span><span class="fu">rainbow</span>(<span class="dv">5</span>))</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-356-1.png" width="672" /></p>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="r-plots.html#cb548-1" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
+<span id="cb548-2"><a href="r-plots.html#cb548-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb548-3"><a href="r-plots.html#cb548-3" tabindex="-1"></a></span>
+<span id="cb548-4"><a href="r-plots.html#cb548-4" tabindex="-1"></a><span class="co"># ten extra symbols are defined as characters</span></span>
+<span id="cb548-5"><a href="r-plots.html#cb548-5" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">:</span><span class="fl">9.5</span></span>
+<span id="cb548-6"><a href="r-plots.html#cb548-6" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">6.5</span>,<span class="dv">10</span>)</span>
+<span id="cb548-7"><a href="r-plots.html#cb548-7" tabindex="-1"></a>extra <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;O&quot;</span>, <span class="st">&quot;0&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;A&quot;</span>, <span class="st">&quot;*&quot;</span>, <span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>,<span class="st">&quot;|&quot;</span>)</span>
+<span id="cb548-8"><a href="r-plots.html#cb548-8" tabindex="-1"></a><span class="fu">points</span>(x3, y3, <span class="at">pch=</span>extra) <span class="co"># note: ext is a character vector</span></span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-357-1.png" width="672" /></p>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="r-plots.html#cb549-1" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
+<span id="cb549-2"><a href="r-plots.html#cb549-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb549-3"><a href="r-plots.html#cb549-3" tabindex="-1"></a></span>
+<span id="cb549-4"><a href="r-plots.html#cb549-4" tabindex="-1"></a><span class="co"># The ASCII codes for characters 32 to 126 can also be used as plotting symbols</span></span>
+<span id="cb549-5"><a href="r-plots.html#cb549-5" tabindex="-1"></a>x4 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="fl">0.5</span>,<span class="fl">9.5</span>,<span class="fl">0.5</span>), <span class="dv">5</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">96</span>]</span>
+<span id="cb549-6"><a href="r-plots.html#cb549-6" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fl">5.5</span><span class="sc">:</span><span class="fl">0.5</span>, <span class="dv">19</span>), <span class="at">dec=</span><span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">96</span>]</span>
+<span id="cb549-7"><a href="r-plots.html#cb549-7" tabindex="-1"></a><span class="fu">points</span>(x4, y4, <span class="at">pch=</span><span class="dv">32</span><span class="sc">:</span><span class="dv">126</span>, <span class="at">col=</span><span class="st">&quot;navyblue&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-358-1.png" width="672" /></p>
 <p>Plotting arbitrary text use the text() function to plot characters and strings to coordinates</p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="r-plots.html#cb552-1" aria-hidden="true" tabindex="-1"></a>?text</span></code></pre></div>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="r-plots.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
-<span id="cb553-2"><a href="r-plots.html#cb553-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb553-3"><a href="r-plots.html#cb553-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb553-4"><a href="r-plots.html#cb553-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: add labels to the symbols</span></span>
-<span id="cb553-5"><a href="r-plots.html#cb553-5" aria-hidden="true" tabindex="-1"></a><span class="co"># first set: plain symbols (1 to 20)</span></span>
-<span id="cb553-6"><a href="r-plots.html#cb553-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(x1<span class="fl">-0.4</span>, y1, <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>), <span class="at">cex=</span><span class="fl">0.75</span>)</span>
-<span id="cb553-7"><a href="r-plots.html#cb553-7" aria-hidden="true" tabindex="-1"></a><span class="co"># symbols with separate background (21 to 25)</span></span>
-<span id="cb553-8"><a href="r-plots.html#cb553-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(x2<span class="fl">-0.4</span>, y2, <span class="fu">paste</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>), <span class="at">cex=</span><span class="fl">0.75</span>)</span>
-<span id="cb553-9"><a href="r-plots.html#cb553-9" aria-hidden="true" tabindex="-1"></a><span class="co"># third set: special characters, change font for clarity</span></span>
-<span id="cb553-10"><a href="r-plots.html#cb553-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(x3<span class="fl">-0.4</span>, y3, extra, <span class="at">col=</span><span class="st">&quot;slateblue&quot;</span>, <span class="at">cex=</span><span class="fl">0.75</span>, <span class="at">vfont=</span><span class="fu">c</span>(<span class="st">&quot;serif&quot;</span>, <span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-310-1.png" width="672" /></p>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="r-plots.html#cb550-1" tabindex="-1"></a>?text</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="r-plots.html#cb551-1" tabindex="-1"></a><span class="co"># Empty plot frame ...</span></span>
+<span id="cb551-2"><a href="r-plots.html#cb551-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb551-3"><a href="r-plots.html#cb551-3" tabindex="-1"></a></span>
+<span id="cb551-4"><a href="r-plots.html#cb551-4" tabindex="-1"></a><span class="co"># Example: add labels to the symbols</span></span>
+<span id="cb551-5"><a href="r-plots.html#cb551-5" tabindex="-1"></a><span class="co"># first set: plain symbols (1 to 20)</span></span>
+<span id="cb551-6"><a href="r-plots.html#cb551-6" tabindex="-1"></a><span class="fu">text</span>(x1<span class="fl">-0.4</span>, y1, <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>), <span class="at">cex=</span><span class="fl">0.75</span>)</span>
+<span id="cb551-7"><a href="r-plots.html#cb551-7" tabindex="-1"></a><span class="co"># symbols with separate background (21 to 25)</span></span>
+<span id="cb551-8"><a href="r-plots.html#cb551-8" tabindex="-1"></a><span class="fu">text</span>(x2<span class="fl">-0.4</span>, y2, <span class="fu">paste</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>), <span class="at">cex=</span><span class="fl">0.75</span>)</span>
+<span id="cb551-9"><a href="r-plots.html#cb551-9" tabindex="-1"></a><span class="co"># third set: special characters, change font for clarity</span></span>
+<span id="cb551-10"><a href="r-plots.html#cb551-10" tabindex="-1"></a><span class="fu">text</span>(x3<span class="fl">-0.4</span>, y3, extra, <span class="at">col=</span><span class="st">&quot;slateblue&quot;</span>, <span class="at">cex=</span><span class="fl">0.75</span>, <span class="at">vfont=</span><span class="fu">c</span>(<span class="st">&quot;serif&quot;</span>, <span class="st">&quot;plain&quot;</span>))</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-360-1.png" width="672" /></p>
 <p>a large set of Hershey vector fonts is available which gives access to many more plotting and labeling options via text()</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="r-plots.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>(Hershey)</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="r-plots.html#cb552-1" tabindex="-1"></a><span class="fu">demo</span>(Hershey)</span></code></pre></div>
 <pre><code>## 
 ## 
 ##  demo(Hershey)
@@ -1310,7 +1318,7 @@ Work through the plottingIntro.R script.
 ## &gt; nc &lt;- 1
 ## 
 ## &gt; oldpar &lt;- make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-1.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-361-1.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -1371,7 +1379,7 @@ Work through the plottingIntro.R script.
 ## &gt; fi &lt;- &quot;plain&quot;
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-2.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-361-2.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -1808,7 +1816,7 @@ Work through the plottingIntro.R script.
 ## &gt; nc &lt;- 4
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-3.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-361-3.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -2077,7 +2085,7 @@ Work through the plottingIntro.R script.
 ## &gt; nc &lt;- 2
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-4.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-361-4.png" width="672" /></p>
 <pre><code>## 
 ## &gt; i &lt;- 0
 ## 
@@ -2208,7 +2216,7 @@ Work through the plottingIntro.R script.
 ## &gt; nc &lt;- 3
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-5.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-361-5.png" width="672" /></p>
 <pre><code>## 
 ## &gt; ## octal escape codes, as decimals
 ## &gt; code &lt;- c(300:307,310:317,320:327,330:337,340:347,350:357,360:367,370:377,
@@ -2229,7 +2237,7 @@ Work through the plottingIntro.R script.
 ## &gt; nc &lt;- 3
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-6.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-361-6.png" width="672" /></p>
 <pre><code>## 
 ## &gt; code &lt;- c(252,254,256,262:269,275,278:281,284,745,746,750:768,796:802,
 ## +           804:807,809,814:828,830:834,840:844)
@@ -2241,7 +2249,7 @@ Work through the plottingIntro.R script.
 ## +                  i-1, nr)
 ## 
 ## &gt; make.table(nr, nc)</code></pre>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-311-7.png" width="672" /></p>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-361-7.png" width="672" /></p>
 <pre><code>## 
 ## &gt; code &lt;- c(845:847,850:856,860:874,899:909,2296:2299,2318:2332,2367:2382,
 ## +           4014,4109)
@@ -2255,8 +2263,8 @@ Work through the plottingIntro.R script.
 ## &gt; par(oldpar)</code></pre>
 <p>Plotting other symbols:
 In the most general way, Unicode characters can be plotted as text. The code is passed in hexadecimal, long integer, with a negative sign. Here is a quarter note (Unicode: 266a) using plot()</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="r-plots.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>, <span class="at">pch=</span><span class="sc">-</span>0x266aL, <span class="at">cex=</span><span class="dv">5</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-312-1.png" width="672" /></p>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="r-plots.html#cb561-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>, <span class="at">pch=</span><span class="sc">-</span>0x266aL, <span class="at">cex=</span><span class="dv">5</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-362-1.png" width="672" /></p>
 <p>However, rendering varies across platforms since it depends on unicode support. It is safer to use the inbuilt Hershey vector fonts.</p>
 </div>
 <div id="drawing-on-plots" class="section level2 hasAnchor" number="12.8">
@@ -2272,19 +2280,19 @@ In the most general way, Unicode characters can be plotted as text. The code is 
 * we plot the frame a bit larger, don’t draw axes
 * draw the ablines
 * draw two arrows to symbolize the coordinate axes</p>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="r-plots.html#cb564-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>)</span>
-<span id="cb564-2"><a href="r-plots.html#cb564-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p[<span class="dv">1</span>], p[<span class="dv">2</span>],</span>
-<span id="cb564-3"><a href="r-plots.html#cb564-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">10.5</span>),</span>
-<span id="cb564-4"><a href="r-plots.html#cb564-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">10.5</span>),</span>
-<span id="cb564-5"><a href="r-plots.html#cb564-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,</span>
-<span id="cb564-6"><a href="r-plots.html#cb564-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">axes=</span><span class="cn">FALSE</span>,</span>
-<span id="cb564-7"><a href="r-plots.html#cb564-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">asp=</span><span class="fl">1.0</span>)</span>
-<span id="cb564-8"><a href="r-plots.html#cb564-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>p[<span class="dv">2</span>], <span class="at">lty=</span><span class="dv">2</span>)  <span class="co"># horizontal</span></span>
-<span id="cb564-9"><a href="r-plots.html#cb564-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(p[<span class="dv">2</span>] <span class="sc">-</span> (p[<span class="dv">1</span>]<span class="sc">*</span><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>)),  <span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>), <span class="at">lty=</span><span class="dv">2</span>)  <span class="co"># intercept, slope</span></span>
-<span id="cb564-10"><a href="r-plots.html#cb564-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(p[<span class="dv">2</span>] <span class="sc">+</span> (p[<span class="dv">1</span>]<span class="sc">*</span><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>)), <span class="sc">-</span><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>), <span class="at">lty=</span><span class="dv">2</span>)  <span class="co"># intercept, slope</span></span>
-<span id="cb564-11"><a href="r-plots.html#cb564-11" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="at">length=</span><span class="fl">0.1</span>)   <span class="co"># length of arrow</span></span>
-<span id="cb564-12"><a href="r-plots.html#cb564-12" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length=</span><span class="fl">0.1</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-313-1.png" width="672" /></p>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="r-plots.html#cb562-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb562-2"><a href="r-plots.html#cb562-2" tabindex="-1"></a><span class="fu">plot</span>(p[<span class="dv">1</span>], p[<span class="dv">2</span>],</span>
+<span id="cb562-3"><a href="r-plots.html#cb562-3" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">10.5</span>),</span>
+<span id="cb562-4"><a href="r-plots.html#cb562-4" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">10.5</span>),</span>
+<span id="cb562-5"><a href="r-plots.html#cb562-5" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,</span>
+<span id="cb562-6"><a href="r-plots.html#cb562-6" tabindex="-1"></a>     <span class="at">axes=</span><span class="cn">FALSE</span>,</span>
+<span id="cb562-7"><a href="r-plots.html#cb562-7" tabindex="-1"></a>     <span class="at">asp=</span><span class="fl">1.0</span>)</span>
+<span id="cb562-8"><a href="r-plots.html#cb562-8" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span>p[<span class="dv">2</span>], <span class="at">lty=</span><span class="dv">2</span>)  <span class="co"># horizontal</span></span>
+<span id="cb562-9"><a href="r-plots.html#cb562-9" tabindex="-1"></a><span class="fu">abline</span>(p[<span class="dv">2</span>] <span class="sc">-</span> (p[<span class="dv">1</span>]<span class="sc">*</span><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>)),  <span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>), <span class="at">lty=</span><span class="dv">2</span>)  <span class="co"># intercept, slope</span></span>
+<span id="cb562-10"><a href="r-plots.html#cb562-10" tabindex="-1"></a><span class="fu">abline</span>(p[<span class="dv">2</span>] <span class="sc">+</span> (p[<span class="dv">1</span>]<span class="sc">*</span><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>)), <span class="sc">-</span><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">3</span>), <span class="at">lty=</span><span class="dv">2</span>)  <span class="co"># intercept, slope</span></span>
+<span id="cb562-11"><a href="r-plots.html#cb562-11" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="at">length=</span><span class="fl">0.1</span>)   <span class="co"># length of arrow</span></span>
+<span id="cb562-12"><a href="r-plots.html#cb562-12" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-363-1.png" width="672" /></p>
 <ul>
 <li>curves()</li>
 <li>rect()</li>
@@ -2309,19 +2317,18 @@ In the most general way, Unicode characters can be plotted as text. The code is 
 </ul>
 <p>Packages that can be downloaded from BioConductor
 * prada:</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="r-plots.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;prada&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)){</span>
-<span id="cb565-2"><a href="r-plots.html#cb565-2" aria-hidden="true" tabindex="-1"></a>     <span class="co">#install.packages(&quot;BiocManager&quot;)</span></span>
-<span id="cb565-3"><a href="r-plots.html#cb565-3" aria-hidden="true" tabindex="-1"></a>    BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;prada&quot;</span>,<span class="at">ask =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb565-4"><a href="r-plots.html#cb565-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">force=</span><span class="cn">TRUE</span>)  </span>
-<span id="cb565-5"><a href="r-plots.html#cb565-5" aria-hidden="true" tabindex="-1"></a>   }</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="r-plots.html#cb563-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;prada&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)){</span>
+<span id="cb563-2"><a href="r-plots.html#cb563-2" tabindex="-1"></a>     <span class="co">#install.packages(&quot;BiocManager&quot;)</span></span>
+<span id="cb563-3"><a href="r-plots.html#cb563-3" tabindex="-1"></a>    BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;prada&quot;</span>,<span class="at">ask =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb563-4"><a href="r-plots.html#cb563-4" tabindex="-1"></a>                         <span class="at">force=</span><span class="cn">TRUE</span>)  </span>
+<span id="cb563-5"><a href="r-plots.html#cb563-5" tabindex="-1"></a>   }</span></code></pre></div>
 <pre><code>## &#39;getOption(&quot;repos&quot;)&#39; replaces Bioconductor standard repositories, see
-## &#39;?repositories&#39; for details
-## 
-## replacement repositories:
-##     CRAN: https://packagemanager.rstudio.com/cran/__linux__/jammy/latest</code></pre>
-<pre><code>## Bioconductor version 3.16 (BiocManager 1.30.19), R 4.2.2 (2022-10-31)</code></pre>
+## &#39;help(&quot;repositories&quot;, package = &quot;BiocManager&quot;)&#39; for details.
+## Replacement repositories:
+##     CRAN: https://packagemanager.posit.co/cran/__linux__/jammy/latest</code></pre>
+<pre><code>## Bioconductor version 3.18 (BiocManager 1.30.22), R 4.3.2 (2023-10-31)</code></pre>
 <pre><code>## Installing package(s) &#39;prada&#39;</code></pre>
-<pre><code>## Warning: package &#39;prada&#39; is not available for Bioconductor version &#39;3.16&#39;
+<pre><code>## Warning: package &#39;prada&#39; is not available for Bioconductor version &#39;3.18&#39;
 ## 
 ## A version of this package for your version of R might be available elsewhere,
 ## see the ideas at
@@ -2329,22 +2336,23 @@ In the most general way, Unicode characters can be plotted as text. The code is 
 <pre><code>## Installation paths not writeable, unable to update packages
 ##   path: /usr/local/lib/R/library
 ##   packages:
-##     boot, foreign, Matrix, nlme</code></pre>
-<pre><code>## Old packages: &#39;BiocParallel&#39;, &#39;bslib&#39;, &#39;cli&#39;, &#39;digest&#39;, &#39;evaluate&#39;,
-##   &#39;formatR&#39;, &#39;gert&#39;, &#39;highr&#39;, &#39;htmltools&#39;, &#39;htmlwidgets&#39;, &#39;httpuv&#39;,
-##   &#39;jsonlite&#39;, &#39;openssl&#39;, &#39;pkgbuild&#39;, &#39;pkgdown&#39;, &#39;pkgload&#39;, &#39;purrr&#39;,
-##   &#39;roxygen2&#39;, &#39;RSQLite&#39;, &#39;sass&#39;, &#39;shiny&#39;, &#39;stringr&#39;, &#39;testthat&#39;,
-##   &#39;tinytex&#39;, &#39;vctrs&#39;, &#39;whisker&#39;, &#39;xfun&#39;</code></pre>
+##     cluster, foreign, Matrix, mgcv, nlme, rpart</code></pre>
+<pre><code>## Old packages: &#39;BiocVersion&#39;, &#39;brew&#39;, &#39;brio&#39;, &#39;bslib&#39;, &#39;cli&#39;, &#39;curl&#39;, &#39;DBI&#39;,
+##   &#39;desc&#39;, &#39;evaluate&#39;, &#39;fansi&#39;, &#39;gert&#39;, &#39;htmltools&#39;, &#39;htmlwidgets&#39;, &#39;httpuv&#39;,
+##   &#39;httr2&#39;, &#39;jsonlite&#39;, &#39;later&#39;, &#39;lifecycle&#39;, &#39;littler&#39;, &#39;magick&#39;, &#39;maps&#39;,
+##   &#39;pkgbuild&#39;, &#39;processx&#39;, &#39;ragg&#39;, &#39;rlang&#39;, &#39;rprojroot&#39;, &#39;rsconnect&#39;, &#39;s2&#39;,
+##   &#39;sass&#39;, &#39;servr&#39;, &#39;sf&#39;, &#39;shiny&#39;, &#39;SparseArray&#39;, &#39;stringi&#39;, &#39;stringr&#39;,
+##   &#39;testthat&#39;, &#39;tinytex&#39;, &#39;vctrs&#39;, &#39;waldo&#39;, &#39;withr&#39;, &#39;xfun&#39;, &#39;xml2&#39;, &#39;yaml&#39;</code></pre>
 <p>Try:</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="r-plots.html#cb572-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb572-2"><a href="r-plots.html#cb572-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb572-3"><a href="r-plots.html#cb572-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd=</span><span class="fl">0.75</span>)</span>
-<span id="cb572-4"><a href="r-plots.html#cb572-4" aria-hidden="true" tabindex="-1"></a><span class="co"># smoothed scatterplot with outliers</span></span>
-<span id="cb572-5"><a href="r-plots.html#cb572-5" aria-hidden="true" tabindex="-1"></a><span class="fu">smoothScatter</span>(x,y, <span class="at">nrpoints=</span><span class="dv">200</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">cex=</span><span class="fl">0.5</span>, <span class="at">col=</span><span class="st">&quot;#6633BB55&quot;</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-315-1.png" width="672" /></p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="r-plots.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="co"># density adapted colours</span></span>
-<span id="cb573-2"><a href="r-plots.html#cb573-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (x, y, <span class="at">col=</span><span class="fu">densCols</span>(x,y), <span class="at">pch=</span><span class="dv">19</span>, <span class="at">cex=</span><span class="fl">1.5</span>)</span></code></pre></div>
-<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-316-1.png" width="672" /></p>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="r-plots.html#cb570-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb570-2"><a href="r-plots.html#cb570-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb570-3"><a href="r-plots.html#cb570-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span> <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">sd=</span><span class="fl">0.75</span>)</span>
+<span id="cb570-4"><a href="r-plots.html#cb570-4" tabindex="-1"></a><span class="co"># smoothed scatterplot with outliers</span></span>
+<span id="cb570-5"><a href="r-plots.html#cb570-5" tabindex="-1"></a><span class="fu">smoothScatter</span>(x,y, <span class="at">nrpoints=</span><span class="dv">200</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">cex=</span><span class="fl">0.5</span>, <span class="at">col=</span><span class="st">&quot;#6633BB55&quot;</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-365-1.png" width="672" /></p>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="r-plots.html#cb571-1" tabindex="-1"></a><span class="co"># density adapted colours</span></span>
+<span id="cb571-2"><a href="r-plots.html#cb571-2" tabindex="-1"></a><span class="fu">plot</span> (x, y, <span class="at">col=</span><span class="fu">densCols</span>(x,y), <span class="at">pch=</span><span class="dv">19</span>, <span class="at">cex=</span><span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/unnamed-chunk-366-1.png" width="672" /></p>
 </div>
 <div id="self-evaluation-11" class="section level2 hasAnchor" number="12.10">
 <h2><span class="header-section-number">12.10</span> Self-evaluation<a href="r-plots.html#self-evaluation-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>

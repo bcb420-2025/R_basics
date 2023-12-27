@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Control structures of R | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Control structures of R | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2023/R_basics" />
+  <meta name="github-repo" content="bcb420-2024/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 9 Control structures of R | BCB420 - Computational System Biology" />
@@ -118,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -597,14 +601,14 @@ div.csl-indent {
 <p>“Control structures” are parts of the syntax that execute code according to whether some condition is met. Let’s look at this with some simple examples:</p>
 <div id="if-and-else" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> if and else<a href="r-control-structures.html#if-and-else" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="r-control-structures.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code pattern</span></span>
-<span id="cb345-2"><a href="r-control-structures.html#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">&lt;</span>conditional expression evaluates to <span class="cn">TRUE</span><span class="sc">&gt;</span>) {</span>
-<span id="cb345-3"><a href="r-control-structures.html#cb345-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>execute this block<span class="sc">&gt;</span></span>
-<span id="cb345-4"><a href="r-control-structures.html#cb345-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (<span class="sc">&lt;</span>expression evaluates to <span class="cn">TRUE</span><span class="sc">&gt;</span>) {</span>
-<span id="cb345-5"><a href="r-control-structures.html#cb345-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>execute this block<span class="sc">&gt;</span></span>
-<span id="cb345-6"><a href="r-control-structures.html#cb345-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb345-7"><a href="r-control-structures.html#cb345-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>execute this block<span class="sc">&gt;</span></span>
-<span id="cb345-8"><a href="r-control-structures.html#cb345-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="r-control-structures.html#cb343-1" tabindex="-1"></a><span class="co"># Code pattern</span></span>
+<span id="cb343-2"><a href="r-control-structures.html#cb343-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">&lt;</span>conditional expression evaluates to <span class="cn">TRUE</span><span class="sc">&gt;</span>) {</span>
+<span id="cb343-3"><a href="r-control-structures.html#cb343-3" tabindex="-1"></a>    <span class="sc">&lt;</span>execute this block<span class="sc">&gt;</span></span>
+<span id="cb343-4"><a href="r-control-structures.html#cb343-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (<span class="sc">&lt;</span>expression evaluates to <span class="cn">TRUE</span><span class="sc">&gt;</span>) {</span>
+<span id="cb343-5"><a href="r-control-structures.html#cb343-5" tabindex="-1"></a>    <span class="sc">&lt;</span>execute this block<span class="sc">&gt;</span></span>
+<span id="cb343-6"><a href="r-control-structures.html#cb343-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb343-7"><a href="r-control-structures.html#cb343-7" tabindex="-1"></a>    <span class="sc">&lt;</span>execute this block<span class="sc">&gt;</span></span>
+<span id="cb343-8"><a href="r-control-structures.html#cb343-8" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="conditional-expressions" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> conditional expressions<a href="r-control-structures.html#conditional-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -639,25 +643,25 @@ div.csl-indent {
 <li>Rolling a die. If you get a “six”, you get to roll again.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="r-control-structures.html#cb347-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
-<span id="cb347-2"><a href="r-control-structures.html#cb347-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">6</span>) {</span>
-<span id="cb347-3"><a href="r-control-structures.html#cb347-3" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>))</span>
-<span id="cb347-4"><a href="r-control-structures.html#cb347-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb347-5"><a href="r-control-structures.html#cb347-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="r-control-structures.html#cb345-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
+<span id="cb345-2"><a href="r-control-structures.html#cb345-2" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">6</span>) {</span>
+<span id="cb345-3"><a href="r-control-structures.html#cb345-3" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>))</span>
+<span id="cb345-4"><a href="r-control-structures.html#cb345-4" tabindex="-1"></a>}</span>
+<span id="cb345-5"><a href="r-control-structures.html#cb345-5" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
 <div id="if-else-if-and-else" class="section level3 hasAnchor" number="9.2.3">
 <h3><span class="header-section-number">9.2.3</span> “if”, “else if”, and “else”<a href="r-control-structures.html#if-else-if-and-else" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is a popular dice game called high-low.</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="r-control-structures.html#cb349-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
-<span id="cb349-2"><a href="r-control-structures.html#cb349-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
-<span id="cb349-3"><a href="r-control-structures.html#cb349-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&gt;</span> <span class="dv">7</span>) {</span>
-<span id="cb349-4"><a href="r-control-structures.html#cb349-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;high&quot;</span>)</span>
-<span id="cb349-5"><a href="r-control-structures.html#cb349-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&lt;</span> <span class="dv">7</span>) {</span>
-<span id="cb349-6"><a href="r-control-structures.html#cb349-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;low&quot;</span>)</span>
-<span id="cb349-7"><a href="r-control-structures.html#cb349-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb349-8"><a href="r-control-structures.html#cb349-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;seven&quot;</span>)</span>
-<span id="cb349-9"><a href="r-control-structures.html#cb349-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="r-control-structures.html#cb347-1" tabindex="-1"></a>a <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
+<span id="cb347-2"><a href="r-control-structures.html#cb347-2" tabindex="-1"></a>b <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
+<span id="cb347-3"><a href="r-control-structures.html#cb347-3" tabindex="-1"></a><span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&gt;</span> <span class="dv">7</span>) {</span>
+<span id="cb347-4"><a href="r-control-structures.html#cb347-4" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;high&quot;</span>)</span>
+<span id="cb347-5"><a href="r-control-structures.html#cb347-5" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&lt;</span> <span class="dv">7</span>) {</span>
+<span id="cb347-6"><a href="r-control-structures.html#cb347-6" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;low&quot;</span>)</span>
+<span id="cb347-7"><a href="r-control-structures.html#cb347-7" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb347-8"><a href="r-control-structures.html#cb347-8" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;seven&quot;</span>)</span>
+<span id="cb347-9"><a href="r-control-structures.html#cb347-9" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;low&quot;</code></pre>
 <p>We need to talk about conditional expressions that test for more than one condition for a moment, things like: “if this is true OR that is true OR my birthday is a Sunday this year …”. To join logical expressions, R has two distinct sets of operators:</p>
 <ul>
@@ -667,44 +671,42 @@ div.csl-indent {
 <p><strong>| is for “or” and &amp; is for “and”. But what about &amp;&amp; and ||?</strong></p>
 <p>The single operators are “vectorized” whereas the doubled operators short-circuit.</p>
 <p>This means if you apply the single operators to a vector, you get a vector of results:</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="r-control-structures.html#cb351-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>)</span>
-<span id="cb351-2"><a href="r-control-structures.html#cb351-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;</span>  x <span class="sc">&lt;</span> <span class="dv">17</span> <span class="co"># FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE: all comparisons</span></span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="r-control-structures.html#cb349-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>)</span>
+<span id="cb349-2"><a href="r-control-structures.html#cb349-2" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">3</span>  <span class="sc">&amp;</span>  x <span class="sc">&lt;</span> <span class="dv">17</span> <span class="co"># FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE: all comparisons</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="r-control-structures.html#cb353-1" aria-hidden="true" tabindex="-1"></a>x [x <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;</span>  x <span class="sc">&lt;</span> <span class="dv">17</span>]  <span class="co">#  5  7 11 13</span></span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="r-control-structures.html#cb351-1" tabindex="-1"></a>x [x <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;</span>  x <span class="sc">&lt;</span> <span class="dv">17</span>]  <span class="co">#  5  7 11 13</span></span></code></pre></div>
 <pre><code>## [1]  5  7 11 13</code></pre>
 <p>whereas this stop at the first FALSE</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="r-control-structures.html#cb355-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;&amp;</span> x <span class="sc">&lt;</span> <span class="dv">17</span> <span class="co"># FALSE:</span></span></code></pre></div>
-<pre><code>## Warning in x &gt; 3 &amp;&amp; x &lt; 17: &#39;length(x) = 7 &gt; 1&#39; in coercion to
-## &#39;logical(1)&#39;</code></pre>
-<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="r-control-structures.html#cb353-1" tabindex="-1"></a><span class="fu">tryCatch</span>({x <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">&amp;&amp;</span> x <span class="sc">&lt;</span> <span class="dv">17</span> ; <span class="fu">print</span>(<span class="st">&quot;FALSE&quot;</span>)}, <span class="at">error =</span> <span class="cf">function</span>(e){<span class="fu">print</span>(e)})</span></code></pre></div>
+<pre><code>## &lt;simpleError in x &gt; 3 &amp;&amp; x &lt; 17: &#39;length = 7&#39; in coercion to &#39;logical(1)&#39;&gt;</code></pre>
 <p>The vectorized version is usually what you want, e.g. for subsetting, as above. But it is usually not the right way in control structures: there, you usually want never to evaluate unnecessary expressions. Chained “OR” expressions can be aborted after the first TRUE is encountered, and chained “AND” expressions can be aborted after the first FALSE. Which is what the double operators do.</p>
 <p>no error: length test is TRUE so is.na() never gets evaluated</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="r-control-structures.html#cb358-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">numeric</span>()</span>
-<span id="cb358-2"><a href="r-control-structures.html#cb358-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb358-3"><a href="r-control-structures.html#cb358-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> <span class="fu">is.na</span>(x)) { <span class="fu">print</span>(<span class="st">&quot;zero&quot;</span>) }  <span class="co"># .</span></span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="r-control-structures.html#cb355-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">numeric</span>()</span>
+<span id="cb355-2"><a href="r-control-structures.html#cb355-2" tabindex="-1"></a></span>
+<span id="cb355-3"><a href="r-control-structures.html#cb355-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> <span class="fu">is.na</span>(x)) { <span class="fu">print</span>(<span class="st">&quot;zero&quot;</span>) }  <span class="co"># .</span></span></code></pre></div>
 <pre><code>## [1] &quot;zero&quot;</code></pre>
 <p>whereas this throws an error, because is.na() is evaluated even though x has length zero.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="r-control-structures.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span>  <span class="fu">is.na</span>(x)) { <span class="fu">print</span>(<span class="st">&quot;zero&quot;</span>) }  </span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="r-control-structures.html#cb357-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span>  <span class="fu">is.na</span>(x)) { <span class="fu">print</span>(<span class="st">&quot;zero&quot;</span>) }  </span></code></pre></div>
 <p><strong>Bottom line: always use || and &amp;&amp; in control structures.</strong></p>
 </div>
 <div id="ifelse" class="section level3 hasAnchor" number="9.2.4">
 <h3><span class="header-section-number">9.2.4</span> ifelse<a href="r-control-structures.html#ifelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The ifelse() function deserves special mention: its arguments work like an if / else construct …</p>
 <p>ifelse(5 &gt; 7, TRUE, FALSE)</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="r-control-structures.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">&quot;pickles&quot;</span>, <span class="st">&quot;cucumbers&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="r-control-structures.html#cb358-1" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">&quot;pickles&quot;</span>, <span class="st">&quot;cucumbers&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;pickles&quot;</code></pre>
 <p>i.e. ifelse(<condition is true>, <evaluate this>, <evaluate that> )</p>
 <p>But the cool thing about ifelse() is that it’s vectorized! You can apply it to a whole vector of conditions at once:</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="r-control-structures.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">27</span>);        <span class="fu">runif</span>(<span class="dv">10</span>)</span></code></pre></div>
-<pre><code>##  [1] 0.971750231 0.083757509 0.873869923 0.329231364 0.222275513
-##  [6] 0.401648218 0.072498519 0.002450234 0.137093998 0.191909064</code></pre>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="r-control-structures.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">27</span>);        <span class="fu">runif</span>(<span class="dv">10</span>) <span class="sc">&gt;</span> <span class="fl">0.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="r-control-structures.html#cb360-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">27</span>);        <span class="fu">runif</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1] 0.971750231 0.083757509 0.873869923 0.329231364 0.222275513 0.401648218
+##  [7] 0.072498519 0.002450234 0.137093998 0.191909064</code></pre>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="r-control-structures.html#cb362-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">27</span>);        <span class="fu">runif</span>(<span class="dv">10</span>) <span class="sc">&gt;</span> <span class="fl">0.2</span></span></code></pre></div>
 <pre><code>##  [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="r-control-structures.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">27</span>); <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="dv">10</span>) <span class="sc">&gt;</span> <span class="fl">0.2</span>, <span class="st">&quot;caution&quot;</span>, <span class="st">&quot; to the wind&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="r-control-structures.html#cb364-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">27</span>); <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="dv">10</span>) <span class="sc">&gt;</span> <span class="fl">0.2</span>, <span class="st">&quot;caution&quot;</span>, <span class="st">&quot; to the wind&quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;caution&quot;      &quot; to the wind&quot; &quot;caution&quot;      &quot;caution&quot;     
 ##  [5] &quot;caution&quot;      &quot;caution&quot;      &quot; to the wind&quot; &quot; to the wind&quot;
 ##  [9] &quot; to the wind&quot; &quot; to the wind&quot;</code></pre>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="r-control-structures.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="cn">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="r-control-structures.html#cb366-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 </div>
 <div id="for" class="section level3 hasAnchor" number="9.2.5">
 <h3><span class="header-section-number">9.2.5</span> for<a href="r-control-structures.html#for" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -712,10 +714,10 @@ div.csl-indent {
 <p>for (<element> in <vector>) {
 &lt;expressions using element…&gt;
 }</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="r-control-structures.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simple for loop</span></span>
-<span id="cb370-2"><a href="r-control-structures.html#cb370-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb370-3"><a href="r-control-structures.html#cb370-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">c</span>(i, i<span class="sc">^</span><span class="dv">2</span>, i<span class="sc">^</span><span class="dv">3</span>))</span>
-<span id="cb370-4"><a href="r-control-structures.html#cb370-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="r-control-structures.html#cb367-1" tabindex="-1"></a><span class="co"># simple for loop</span></span>
+<span id="cb367-2"><a href="r-control-structures.html#cb367-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb367-3"><a href="r-control-structures.html#cb367-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">c</span>(i, i<span class="sc">^</span><span class="dv">2</span>, i<span class="sc">^</span><span class="dv">3</span>))</span>
+<span id="cb367-4"><a href="r-control-structures.html#cb367-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1 1 1
 ## [1] 2 4 8
 ## [1]  3  9 27
@@ -731,31 +733,30 @@ div.csl-indent {
 <li>What are the odds of winning?</li>
 <li>Let’s simulate some runs with a “for” loop.</li>
 </ul>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="r-control-structures.html#cb372-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">25000</span></span>
-<span id="cb372-2"><a href="r-control-structures.html#cb372-2" aria-hidden="true" tabindex="-1"></a>outcomes <span class="ot">&lt;-</span> <span class="fu">character</span>(N)  <span class="co"># initialize an empty vector</span></span>
-<span id="cb372-3"><a href="r-control-structures.html#cb372-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {          <span class="co"># repeat, assign each element of 1:N to</span></span>
-<span id="cb372-4"><a href="r-control-structures.html#cb372-4" aria-hidden="true" tabindex="-1"></a>                          <span class="co"># the variable &quot;i&quot; in turn</span></span>
-<span id="cb372-5"><a href="r-control-structures.html#cb372-5" aria-hidden="true" tabindex="-1"></a>    a <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
-<span id="cb372-6"><a href="r-control-structures.html#cb372-6" aria-hidden="true" tabindex="-1"></a>    b <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
-<span id="cb372-7"><a href="r-control-structures.html#cb372-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&gt;</span> <span class="dv">7</span>) {</span>
-<span id="cb372-8"><a href="r-control-structures.html#cb372-8" aria-hidden="true" tabindex="-1"></a>        outcomes[i] <span class="ot">&lt;-</span> <span class="st">&quot;high&quot;</span></span>
-<span id="cb372-9"><a href="r-control-structures.html#cb372-9" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span>  (a <span class="sc">+</span> b <span class="sc">&lt;</span> <span class="dv">7</span>) {</span>
-<span id="cb372-10"><a href="r-control-structures.html#cb372-10" aria-hidden="true" tabindex="-1"></a>        outcomes[i] <span class="ot">&lt;-</span> <span class="st">&quot;low&quot;</span></span>
-<span id="cb372-11"><a href="r-control-structures.html#cb372-11" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb372-12"><a href="r-control-structures.html#cb372-12" aria-hidden="true" tabindex="-1"></a>        outcomes[i] <span class="ot">&lt;-</span> <span class="st">&quot;seven&quot;</span></span>
-<span id="cb372-13"><a href="r-control-structures.html#cb372-13" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb372-14"><a href="r-control-structures.html#cb372-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb372-15"><a href="r-control-structures.html#cb372-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(outcomes, <span class="dv">36</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;high&quot;  &quot;seven&quot; &quot;seven&quot; &quot;high&quot; 
-##  [9] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;seven&quot;
-## [17] &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;high&quot; 
-## [25] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;low&quot;  
-## [33] &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;high&quot;</code></pre>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="r-control-structures.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(outcomes)  <span class="co"># the table() function tabulates the elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="r-control-structures.html#cb369-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">25000</span></span>
+<span id="cb369-2"><a href="r-control-structures.html#cb369-2" tabindex="-1"></a>outcomes <span class="ot">&lt;-</span> <span class="fu">character</span>(N)  <span class="co"># initialize an empty vector</span></span>
+<span id="cb369-3"><a href="r-control-structures.html#cb369-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {          <span class="co"># repeat, assign each element of 1:N to</span></span>
+<span id="cb369-4"><a href="r-control-structures.html#cb369-4" tabindex="-1"></a>                          <span class="co"># the variable &quot;i&quot; in turn</span></span>
+<span id="cb369-5"><a href="r-control-structures.html#cb369-5" tabindex="-1"></a>    a <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
+<span id="cb369-6"><a href="r-control-structures.html#cb369-6" tabindex="-1"></a>    b <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
+<span id="cb369-7"><a href="r-control-structures.html#cb369-7" tabindex="-1"></a>    <span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&gt;</span> <span class="dv">7</span>) {</span>
+<span id="cb369-8"><a href="r-control-structures.html#cb369-8" tabindex="-1"></a>        outcomes[i] <span class="ot">&lt;-</span> <span class="st">&quot;high&quot;</span></span>
+<span id="cb369-9"><a href="r-control-structures.html#cb369-9" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span>  (a <span class="sc">+</span> b <span class="sc">&lt;</span> <span class="dv">7</span>) {</span>
+<span id="cb369-10"><a href="r-control-structures.html#cb369-10" tabindex="-1"></a>        outcomes[i] <span class="ot">&lt;-</span> <span class="st">&quot;low&quot;</span></span>
+<span id="cb369-11"><a href="r-control-structures.html#cb369-11" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb369-12"><a href="r-control-structures.html#cb369-12" tabindex="-1"></a>        outcomes[i] <span class="ot">&lt;-</span> <span class="st">&quot;seven&quot;</span></span>
+<span id="cb369-13"><a href="r-control-structures.html#cb369-13" tabindex="-1"></a>    }</span>
+<span id="cb369-14"><a href="r-control-structures.html#cb369-14" tabindex="-1"></a>}</span>
+<span id="cb369-15"><a href="r-control-structures.html#cb369-15" tabindex="-1"></a><span class="fu">head</span>(outcomes, <span class="dv">36</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;high&quot; 
+## [10] &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;seven&quot; &quot;seven&quot; &quot;seven&quot; &quot;low&quot;   &quot;high&quot;  &quot;high&quot; 
+## [19] &quot;low&quot;   &quot;seven&quot; &quot;seven&quot; &quot;high&quot;  &quot;seven&quot; &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;high&quot; 
+## [28] &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;high&quot;</code></pre>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="r-control-structures.html#cb371-1" tabindex="-1"></a><span class="fu">table</span>(outcomes)  <span class="co"># the table() function tabulates the elements</span></span></code></pre></div>
 <pre><code>## outcomes
 ##  high   low seven 
-## 10513 10377  4110</code></pre>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="r-control-structures.html#cb376-1" aria-hidden="true" tabindex="-1"></a>                 <span class="co"># of a vector</span></span></code></pre></div>
+## 10255 10485  4260</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="r-control-structures.html#cb373-1" tabindex="-1"></a>                 <span class="co"># of a vector</span></span></code></pre></div>
 <p>round((36 * table(outcomes))/N) # Can you explain this expression?</p>
 <p>Note that there is nothing special about the expression for (i in 1:N) { … . Any expression that generates a sequence of items will do; I write a lot of code like for (fileName in dir()) { … or for (gene in data$name) {… , or for (column in colnames(expressionTable)) {… etc.</p>
 <p>Loops in <strong>R</strong> can be slow if you are not careful how you write them. The reason is usually related to dynamically managing memory. If you can, you should always pre-define objects of sufficient size to hold your results. Even better, use a vectorized approach.</p>
@@ -763,110 +764,110 @@ div.csl-indent {
 <div id="compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers" class="section level3 hasAnchor" number="9.2.6">
 <h3><span class="header-section-number">9.2.6</span> Compare excution times: one million square roots from a vector of random numbers …<a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Version 1: Naive for-loop: grow result object as required</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="r-control-structures.html#cb377-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000000</span>                 <span class="co"># Set N to a large number</span></span>
-<span id="cb377-2"><a href="r-control-structures.html#cb377-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)                <span class="co"># get N uniformily distributed random numbers</span></span>
-<span id="cb377-3"><a href="r-control-structures.html#cb377-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">numeric</span>()               <span class="co"># create a variable to assign to</span></span>
-<span id="cb377-4"><a href="r-control-structures.html#cb377-4" aria-hidden="true" tabindex="-1"></a>startTime <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()      <span class="co"># save start time</span></span>
-<span id="cb377-5"><a href="r-control-structures.html#cb377-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {             <span class="co"># loop N-times</span></span>
-<span id="cb377-6"><a href="r-control-structures.html#cb377-6" aria-hidden="true" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[i])         <span class="co"># calculate one square root, grow y to store it</span></span>
-<span id="cb377-7"><a href="r-control-structures.html#cb377-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb377-8"><a href="r-control-structures.html#cb377-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
-<pre><code>## Time difference of 0.9450054 secs</code></pre>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="r-control-structures.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
-<span id="cb379-2"><a href="r-control-structures.html#cb379-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="r-control-structures.html#cb374-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000000</span>                 <span class="co"># Set N to a large number</span></span>
+<span id="cb374-2"><a href="r-control-structures.html#cb374-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)                <span class="co"># get N uniformily distributed random numbers</span></span>
+<span id="cb374-3"><a href="r-control-structures.html#cb374-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">numeric</span>()               <span class="co"># create a variable to assign to</span></span>
+<span id="cb374-4"><a href="r-control-structures.html#cb374-4" tabindex="-1"></a>startTime <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()      <span class="co"># save start time</span></span>
+<span id="cb374-5"><a href="r-control-structures.html#cb374-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {             <span class="co"># loop N-times</span></span>
+<span id="cb374-6"><a href="r-control-structures.html#cb374-6" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[i])         <span class="co"># calculate one square root, grow y to store it</span></span>
+<span id="cb374-7"><a href="r-control-structures.html#cb374-7" tabindex="-1"></a>}</span>
+<span id="cb374-8"><a href="r-control-structures.html#cb374-8" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
+<pre><code>## Time difference of 0.7096312 secs</code></pre>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="r-control-structures.html#cb376-1" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
+<span id="cb376-2"><a href="r-control-structures.html#cb376-2" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
 <p>Version 2: Define result object to be large enough</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="r-control-structures.html#cb380-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000000</span>                 <span class="co"># Set N to a large number</span></span>
-<span id="cb380-2"><a href="r-control-structures.html#cb380-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)                <span class="co"># get N uniformily distributed random numbers</span></span>
-<span id="cb380-3"><a href="r-control-structures.html#cb380-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">numeric</span>(N)              <span class="co"># create a variable with N slots</span></span>
-<span id="cb380-4"><a href="r-control-structures.html#cb380-4" aria-hidden="true" tabindex="-1"></a>startTime <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()      <span class="co"># save start time</span></span>
-<span id="cb380-5"><a href="r-control-structures.html#cb380-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {             <span class="co"># loop N-times</span></span>
-<span id="cb380-6"><a href="r-control-structures.html#cb380-6" aria-hidden="true" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[i])         <span class="co"># calculate one square root, store in Y</span></span>
-<span id="cb380-7"><a href="r-control-structures.html#cb380-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb380-8"><a href="r-control-structures.html#cb380-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
-<pre><code>## Time difference of 0.8797345 secs</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="r-control-structures.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
-<span id="cb382-2"><a href="r-control-structures.html#cb382-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="r-control-structures.html#cb377-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000000</span>                 <span class="co"># Set N to a large number</span></span>
+<span id="cb377-2"><a href="r-control-structures.html#cb377-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)                <span class="co"># get N uniformily distributed random numbers</span></span>
+<span id="cb377-3"><a href="r-control-structures.html#cb377-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">numeric</span>(N)              <span class="co"># create a variable with N slots</span></span>
+<span id="cb377-4"><a href="r-control-structures.html#cb377-4" tabindex="-1"></a>startTime <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()      <span class="co"># save start time</span></span>
+<span id="cb377-5"><a href="r-control-structures.html#cb377-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {             <span class="co"># loop N-times</span></span>
+<span id="cb377-6"><a href="r-control-structures.html#cb377-6" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[i])         <span class="co"># calculate one square root, store in Y</span></span>
+<span id="cb377-7"><a href="r-control-structures.html#cb377-7" tabindex="-1"></a>}</span>
+<span id="cb377-8"><a href="r-control-structures.html#cb377-8" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
+<pre><code>## Time difference of 0.1666799 secs</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="r-control-structures.html#cb379-1" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
+<span id="cb379-2"><a href="r-control-structures.html#cb379-2" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
 <p>Version 3: vectorized</p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="r-control-structures.html#cb383-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000000</span>                 <span class="co"># Set N to a large number</span></span>
-<span id="cb383-2"><a href="r-control-structures.html#cb383-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)                <span class="co"># get N uniformily distributed random numbers</span></span>
-<span id="cb383-3"><a href="r-control-structures.html#cb383-3" aria-hidden="true" tabindex="-1"></a>startTime <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()      <span class="co"># save start time</span></span>
-<span id="cb383-4"><a href="r-control-structures.html#cb383-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x)                 <span class="co"># sqrt() is vectorized!</span></span>
-<span id="cb383-5"><a href="r-control-structures.html#cb383-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
-<pre><code>## Time difference of 0.04939294 secs</code></pre>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="r-control-structures.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
-<span id="cb385-2"><a href="r-control-structures.html#cb385-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="r-control-structures.html#cb380-1" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000000</span>                 <span class="co"># Set N to a large number</span></span>
+<span id="cb380-2"><a href="r-control-structures.html#cb380-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(N)                <span class="co"># get N uniformily distributed random numbers</span></span>
+<span id="cb380-3"><a href="r-control-structures.html#cb380-3" tabindex="-1"></a>startTime <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()      <span class="co"># save start time</span></span>
+<span id="cb380-4"><a href="r-control-structures.html#cb380-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x)                 <span class="co"># sqrt() is vectorized!</span></span>
+<span id="cb380-5"><a href="r-control-structures.html#cb380-5" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
+<pre><code>## Time difference of 0.006197691 secs</code></pre>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="r-control-structures.html#cb382-1" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
+<span id="cb382-2"><a href="r-control-structures.html#cb382-2" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
 <p><strong>The tiny change of pre-allocating memory for the result object y, rather than dynamically growing the vector has made a huge difference. But using the vectorized version of the sqrt() function directly is the fastest approach.</strong></p>
 </div>
 <div id="seq_along-vs.-range" class="section level3 hasAnchor" number="9.2.7">
 <h3><span class="header-section-number">9.2.7</span> seq_along() vs. range<a href="r-control-structures.html#seq_along-vs.-range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Consider the following carefully:</p>
 <p>Assume we write a loop to iterate over vectors of variable length for example going from e to pi with a given number of elements:</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="r-control-structures.html#cb386-1" aria-hidden="true" tabindex="-1"></a>( v5 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">5</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="r-control-structures.html#cb383-1" tabindex="-1"></a>( v5 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">5</span>) )</span></code></pre></div>
 <pre><code>## [1] 2.718282 2.824110 2.929937 3.035765 3.141593</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="r-control-structures.html#cb388-1" aria-hidden="true" tabindex="-1"></a>( v2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">2</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="r-control-structures.html#cb385-1" tabindex="-1"></a>( v2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">2</span>) )</span></code></pre></div>
 <pre><code>## [1] 2.718282 3.141593</code></pre>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="r-control-structures.html#cb390-1" aria-hidden="true" tabindex="-1"></a>( v1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">1</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="r-control-structures.html#cb387-1" tabindex="-1"></a>( v1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">1</span>) )</span></code></pre></div>
 <pre><code>## [1] 2.718282</code></pre>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="r-control-structures.html#cb392-1" aria-hidden="true" tabindex="-1"></a>( v0 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">0</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="r-control-structures.html#cb389-1" tabindex="-1"></a>( v0 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">exp</span>(<span class="dv">1</span>), pi, <span class="at">length.out =</span> <span class="dv">0</span>) )</span></code></pre></div>
 <pre><code>## integer(0)</code></pre>
 <p>The idiom we will probably find most commonly for this task is uses the range operator “:”</p>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="r-control-structures.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v5)</span></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="r-control-structures.html#cb391-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v5)</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="r-control-structures.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v2)</span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="r-control-structures.html#cb393-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v2)</span></code></pre></div>
 <pre><code>## [1] 1 2</code></pre>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="r-control-structures.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v5)) {</span>
-<span id="cb398-2"><a href="r-control-structures.html#cb398-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v5[i])</span>
-<span id="cb398-3"><a href="r-control-structures.html#cb398-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="r-control-structures.html#cb395-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v5)) {</span>
+<span id="cb395-2"><a href="r-control-structures.html#cb395-2" tabindex="-1"></a>  <span class="fu">print</span>(v5[i])</span>
+<span id="cb395-3"><a href="r-control-structures.html#cb395-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 2.718282
 ## [1] 2.82411
 ## [1] 2.929937
 ## [1] 3.035765
 ## [1] 3.141593</code></pre>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="r-control-structures.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v2)) {</span>
-<span id="cb400-2"><a href="r-control-structures.html#cb400-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v2[i])</span>
-<span id="cb400-3"><a href="r-control-structures.html#cb400-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="r-control-structures.html#cb397-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v2)) {</span>
+<span id="cb397-2"><a href="r-control-structures.html#cb397-2" tabindex="-1"></a>  <span class="fu">print</span>(v2[i])</span>
+<span id="cb397-3"><a href="r-control-structures.html#cb397-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 2.718282
 ## [1] 3.141593</code></pre>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="r-control-structures.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v1)) {</span>
-<span id="cb402-2"><a href="r-control-structures.html#cb402-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v1[i])</span>
-<span id="cb402-3"><a href="r-control-structures.html#cb402-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="r-control-structures.html#cb399-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v1)) {</span>
+<span id="cb399-2"><a href="r-control-structures.html#cb399-2" tabindex="-1"></a>  <span class="fu">print</span>(v1[i])</span>
+<span id="cb399-3"><a href="r-control-structures.html#cb399-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 2.718282</code></pre>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="r-control-structures.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v0)) {</span>
-<span id="cb404-2"><a href="r-control-structures.html#cb404-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v0[i])</span>
-<span id="cb404-3"><a href="r-control-structures.html#cb404-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="r-control-structures.html#cb401-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(v0)) {</span>
+<span id="cb401-2"><a href="r-control-structures.html#cb401-2" tabindex="-1"></a>  <span class="fu">print</span>(v0[i])</span>
+<span id="cb401-3"><a href="r-control-structures.html#cb401-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] NA
 ## integer(0)</code></pre>
 <p>The problem with the last iteration is: we probably didn’t want to execute the loop if the vector has length 0. But since 1:length(v0) is the same as 1:0, we get an erroneous execution.</p>
 <p>This is why we should always use the following idiom instead, when iterating over a vector: the function seq_along().</p>
 <p><strong>seq_along() builds a vector of indices over its argument.</strong></p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="r-control-structures.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_along</span>(v5)</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="r-control-structures.html#cb403-1" tabindex="-1"></a><span class="fu">seq_along</span>(v5)</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="r-control-structures.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_along</span>(v2)</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="r-control-structures.html#cb405-1" tabindex="-1"></a><span class="fu">seq_along</span>(v2)</span></code></pre></div>
 <pre><code>## [1] 1 2</code></pre>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="r-control-structures.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_along</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="r-control-structures.html#cb407-1" tabindex="-1"></a><span class="fu">seq_along</span>(v1)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="r-control-structures.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_along</span>(v0)</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="r-control-structures.html#cb409-1" tabindex="-1"></a><span class="fu">seq_along</span>(v0)</span></code></pre></div>
 <pre><code>## integer(0)</code></pre>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="r-control-structures.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v5)) {</span>
-<span id="cb414-2"><a href="r-control-structures.html#cb414-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v5[i])</span>
-<span id="cb414-3"><a href="r-control-structures.html#cb414-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="r-control-structures.html#cb411-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v5)) {</span>
+<span id="cb411-2"><a href="r-control-structures.html#cb411-2" tabindex="-1"></a>  <span class="fu">print</span>(v5[i])</span>
+<span id="cb411-3"><a href="r-control-structures.html#cb411-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 2.718282
 ## [1] 2.82411
 ## [1] 2.929937
 ## [1] 3.035765
 ## [1] 3.141593</code></pre>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="r-control-structures.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v2)) {</span>
-<span id="cb416-2"><a href="r-control-structures.html#cb416-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v2[i])</span>
-<span id="cb416-3"><a href="r-control-structures.html#cb416-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="r-control-structures.html#cb413-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v2)) {</span>
+<span id="cb413-2"><a href="r-control-structures.html#cb413-2" tabindex="-1"></a>  <span class="fu">print</span>(v2[i])</span>
+<span id="cb413-3"><a href="r-control-structures.html#cb413-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 2.718282
 ## [1] 3.141593</code></pre>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="r-control-structures.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v1)) {</span>
-<span id="cb418-2"><a href="r-control-structures.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v1[i])</span>
-<span id="cb418-3"><a href="r-control-structures.html#cb418-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="r-control-structures.html#cb415-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v1)) {</span>
+<span id="cb415-2"><a href="r-control-structures.html#cb415-2" tabindex="-1"></a>  <span class="fu">print</span>(v1[i])</span>
+<span id="cb415-3"><a href="r-control-structures.html#cb415-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 2.718282</code></pre>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="r-control-structures.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v0)) {</span>
-<span id="cb420-2"><a href="r-control-structures.html#cb420-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(v0[i])</span>
-<span id="cb420-3"><a href="r-control-structures.html#cb420-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="r-control-structures.html#cb417-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(v0)) {</span>
+<span id="cb417-2"><a href="r-control-structures.html#cb417-2" tabindex="-1"></a>  <span class="fu">print</span>(v0[i])</span>
+<span id="cb417-3"><a href="r-control-structures.html#cb417-3" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now we get the expected behaviour: no output if the vector is empty.</p>
 </div>
 <div id="loops-vs.-vectorized-expressions" class="section level3 hasAnchor" number="9.2.8">
@@ -885,67 +886,67 @@ div.csl-indent {
 Copy, study and run the below code
 </p>
 </div>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="r-control-structures.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Suggest memorizable passwords</span></span>
-<span id="cb421-2"><a href="r-control-structures.html#cb421-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Below we use the functions:</span></span>
-<span id="cb421-3"><a href="r-control-structures.html#cb421-3" aria-hidden="true" tabindex="-1"></a>?nchar</span>
-<span id="cb421-4"><a href="r-control-structures.html#cb421-4" aria-hidden="true" tabindex="-1"></a>?sample</span>
-<span id="cb421-5"><a href="r-control-structures.html#cb421-5" aria-hidden="true" tabindex="-1"></a>?substr</span>
-<span id="cb421-6"><a href="r-control-structures.html#cb421-6" aria-hidden="true" tabindex="-1"></a>?paste</span>
-<span id="cb421-7"><a href="r-control-structures.html#cb421-7" aria-hidden="true" tabindex="-1"></a>?print</span>
-<span id="cb421-8"><a href="r-control-structures.html#cb421-8" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb421-9"><a href="r-control-structures.html#cb421-9" aria-hidden="true" tabindex="-1"></a><span class="co">#define a string of  consonants ...</span></span>
-<span id="cb421-10"><a href="r-control-structures.html#cb421-10" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="st">&quot;bcdfghjklmnpqrstvwxz&quot;</span></span>
-<span id="cb421-11"><a href="r-control-structures.html#cb421-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ... and a string of of vowels</span></span>
-<span id="cb421-12"><a href="r-control-structures.html#cb421-12" aria-hidden="true" tabindex="-1"></a>vow <span class="ot">&lt;-</span> <span class="st">&quot;aeiouy&quot;</span></span>
-<span id="cb421-13"><a href="r-control-structures.html#cb421-13" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb421-14"><a href="r-control-structures.html#cb421-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {  <span class="co"># ten sample passwords to choose from ...</span></span>
-<span id="cb421-15"><a href="r-control-structures.html#cb421-15" aria-hidden="true" tabindex="-1"></a>    pass <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;&quot;</span>, <span class="dv">14</span>)  <span class="co"># make an empty character vector</span></span>
-<span id="cb421-16"><a href="r-control-structures.html#cb421-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) {    <span class="co"># seven consonant/vowel pairs to be created ...</span></span>
-<span id="cb421-17"><a href="r-control-structures.html#cb421-17" aria-hidden="true" tabindex="-1"></a>        k   <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nchar</span>(con), <span class="dv">1</span>)  <span class="co"># pick a random index for consonants ...</span></span>
-<span id="cb421-18"><a href="r-control-structures.html#cb421-18" aria-hidden="true" tabindex="-1"></a>        ch  <span class="ot">&lt;-</span> <span class="fu">substr</span>(con,k,k)          <span class="co"># ... get the corresponding character ...</span></span>
-<span id="cb421-19"><a href="r-control-structures.html#cb421-19" aria-hidden="true" tabindex="-1"></a>        idx <span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>j)<span class="sc">-</span><span class="dv">1</span>                  <span class="co"># ... compute the position (index) of where to put the consonant ...</span></span>
-<span id="cb421-20"><a href="r-control-structures.html#cb421-20" aria-hidden="true" tabindex="-1"></a>        pass[idx] <span class="ot">&lt;-</span> ch                 <span class="co"># ...  and put it in the right spot</span></span>
-<span id="cb421-21"><a href="r-control-structures.html#cb421-21" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb421-22"><a href="r-control-structures.html#cb421-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># same thing for the vowel, but coded with fewer intermediate assignments</span></span>
-<span id="cb421-23"><a href="r-control-structures.html#cb421-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># of results to variables</span></span>
-<span id="cb421-24"><a href="r-control-structures.html#cb421-24" aria-hidden="true" tabindex="-1"></a>        k <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nchar</span>(vow), <span class="dv">1</span>)</span>
-<span id="cb421-25"><a href="r-control-structures.html#cb421-25" aria-hidden="true" tabindex="-1"></a>        pass[(<span class="dv">2</span><span class="sc">*</span>j)] <span class="ot">&lt;-</span> <span class="fu">substr</span>(vow,k,k)</span>
-<span id="cb421-26"><a href="r-control-structures.html#cb421-26" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb421-27"><a href="r-control-structures.html#cb421-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>( <span class="fu">paste</span>(pass, <span class="at">collapse=</span><span class="st">&quot;&quot;</span>) )  <span class="co"># collapse the vector in to a string and print</span></span>
-<span id="cb421-28"><a href="r-control-structures.html#cb421-28" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="r-control-structures.html#cb418-1" tabindex="-1"></a><span class="co"># Suggest memorizable passwords</span></span>
+<span id="cb418-2"><a href="r-control-structures.html#cb418-2" tabindex="-1"></a><span class="co"># Below we use the functions:</span></span>
+<span id="cb418-3"><a href="r-control-structures.html#cb418-3" tabindex="-1"></a>?nchar</span>
+<span id="cb418-4"><a href="r-control-structures.html#cb418-4" tabindex="-1"></a>?sample</span>
+<span id="cb418-5"><a href="r-control-structures.html#cb418-5" tabindex="-1"></a>?substr</span>
+<span id="cb418-6"><a href="r-control-structures.html#cb418-6" tabindex="-1"></a>?paste</span>
+<span id="cb418-7"><a href="r-control-structures.html#cb418-7" tabindex="-1"></a>?print</span>
+<span id="cb418-8"><a href="r-control-structures.html#cb418-8" tabindex="-1"></a> </span>
+<span id="cb418-9"><a href="r-control-structures.html#cb418-9" tabindex="-1"></a><span class="co">#define a string of  consonants ...</span></span>
+<span id="cb418-10"><a href="r-control-structures.html#cb418-10" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="st">&quot;bcdfghjklmnpqrstvwxz&quot;</span></span>
+<span id="cb418-11"><a href="r-control-structures.html#cb418-11" tabindex="-1"></a><span class="co"># ... and a string of of vowels</span></span>
+<span id="cb418-12"><a href="r-control-structures.html#cb418-12" tabindex="-1"></a>vow <span class="ot">&lt;-</span> <span class="st">&quot;aeiouy&quot;</span></span>
+<span id="cb418-13"><a href="r-control-structures.html#cb418-13" tabindex="-1"></a> </span>
+<span id="cb418-14"><a href="r-control-structures.html#cb418-14" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {  <span class="co"># ten sample passwords to choose from ...</span></span>
+<span id="cb418-15"><a href="r-control-structures.html#cb418-15" tabindex="-1"></a>    pass <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;&quot;</span>, <span class="dv">14</span>)  <span class="co"># make an empty character vector</span></span>
+<span id="cb418-16"><a href="r-control-structures.html#cb418-16" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) {    <span class="co"># seven consonant/vowel pairs to be created ...</span></span>
+<span id="cb418-17"><a href="r-control-structures.html#cb418-17" tabindex="-1"></a>        k   <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nchar</span>(con), <span class="dv">1</span>)  <span class="co"># pick a random index for consonants ...</span></span>
+<span id="cb418-18"><a href="r-control-structures.html#cb418-18" tabindex="-1"></a>        ch  <span class="ot">&lt;-</span> <span class="fu">substr</span>(con,k,k)          <span class="co"># ... get the corresponding character ...</span></span>
+<span id="cb418-19"><a href="r-control-structures.html#cb418-19" tabindex="-1"></a>        idx <span class="ot">&lt;-</span> (<span class="dv">2</span><span class="sc">*</span>j)<span class="sc">-</span><span class="dv">1</span>                  <span class="co"># ... compute the position (index) of where to put the consonant ...</span></span>
+<span id="cb418-20"><a href="r-control-structures.html#cb418-20" tabindex="-1"></a>        pass[idx] <span class="ot">&lt;-</span> ch                 <span class="co"># ...  and put it in the right spot</span></span>
+<span id="cb418-21"><a href="r-control-structures.html#cb418-21" tabindex="-1"></a> </span>
+<span id="cb418-22"><a href="r-control-structures.html#cb418-22" tabindex="-1"></a>        <span class="co"># same thing for the vowel, but coded with fewer intermediate assignments</span></span>
+<span id="cb418-23"><a href="r-control-structures.html#cb418-23" tabindex="-1"></a>        <span class="co"># of results to variables</span></span>
+<span id="cb418-24"><a href="r-control-structures.html#cb418-24" tabindex="-1"></a>        k <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nchar</span>(vow), <span class="dv">1</span>)</span>
+<span id="cb418-25"><a href="r-control-structures.html#cb418-25" tabindex="-1"></a>        pass[(<span class="dv">2</span><span class="sc">*</span>j)] <span class="ot">&lt;-</span> <span class="fu">substr</span>(vow,k,k)</span>
+<span id="cb418-26"><a href="r-control-structures.html#cb418-26" tabindex="-1"></a>    }</span>
+<span id="cb418-27"><a href="r-control-structures.html#cb418-27" tabindex="-1"></a>    <span class="fu">print</span>( <span class="fu">paste</span>(pass, <span class="at">collapse=</span><span class="st">&quot;&quot;</span>) )  <span class="co"># collapse the vector in to a string and print</span></span>
+<span id="cb418-28"><a href="r-control-structures.html#cb418-28" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>Try this a few times.</strong></p>
 <div id="while" class="section level3 hasAnchor" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> while<a href="r-control-structures.html#while" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Whereas a for-loop runs for a fixed number of times, a “while” loop runs as long as a condition is true, possibly forever. Here is an example, again our high-low game: this time we simulate what happens when we play it more than once with a strategy that compensates us for losing.</p>
 <p>Let’s assume we are playing high-low in a casino. You can bet high or low. You get two dollars for one if you win, nothing if you lose. If you bet “high”, you lose if we roll “low” or “seven”. Thus your chances of winning are 15/36 = 42%. You play the following strategy: start with 33 dollars. Bet one dollar. If you win, good. If you loose, triple your bet. Stop the game when your funds are gone (bad), or if you have more than 100 dollars (good) - i.e. you have tripled the funds you risked. Also stop if you’ve played more than 100 rounds and start getting bored.</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="r-control-structures.html#cb422-1" aria-hidden="true" tabindex="-1"></a>funds <span class="ot">&lt;-</span> <span class="dv">33</span></span>
-<span id="cb422-2"><a href="r-control-structures.html#cb422-2" aria-hidden="true" tabindex="-1"></a>bet <span class="ot">&lt;-</span> <span class="dv">1</span>         <span class="co"># our first bet</span></span>
-<span id="cb422-3"><a href="r-control-structures.html#cb422-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb422-4"><a href="r-control-structures.html#cb422-4" aria-hidden="true" tabindex="-1"></a>nPlays <span class="ot">&lt;-</span> <span class="dv">0</span>      <span class="co"># this counts how often we&#39;ve played</span></span>
-<span id="cb422-5"><a href="r-control-structures.html#cb422-5" aria-hidden="true" tabindex="-1"></a>MAXPLAYS <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb422-6"><a href="r-control-structures.html#cb422-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb422-7"><a href="r-control-structures.html#cb422-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234567</span>)</span>
-<span id="cb422-8"><a href="r-control-structures.html#cb422-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (funds <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> funds <span class="sc">&lt;</span> <span class="dv">100</span> <span class="sc">&amp;&amp;</span> nPlays <span class="sc">&lt;</span> MAXPLAYS) {</span>
-<span id="cb422-9"><a href="r-control-structures.html#cb422-9" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb422-10"><a href="r-control-structures.html#cb422-10" aria-hidden="true" tabindex="-1"></a>    bet <span class="ot">&lt;-</span> <span class="fu">min</span>(bet, funds)  <span class="co"># can&#39;t bet more than we have.</span></span>
-<span id="cb422-11"><a href="r-control-structures.html#cb422-11" aria-hidden="true" tabindex="-1"></a>    funds <span class="ot">&lt;-</span> funds <span class="sc">-</span> bet    <span class="co"># place the bet</span></span>
-<span id="cb422-12"><a href="r-control-structures.html#cb422-12" aria-hidden="true" tabindex="-1"></a>    a <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)    <span class="co"># roll the dice</span></span>
-<span id="cb422-13"><a href="r-control-structures.html#cb422-13" aria-hidden="true" tabindex="-1"></a>    b <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
-<span id="cb422-14"><a href="r-control-structures.html#cb422-14" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb422-15"><a href="r-control-structures.html#cb422-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we always play &quot;high&quot;</span></span>
-<span id="cb422-16"><a href="r-control-structures.html#cb422-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&gt;</span> <span class="dv">7</span>) {        <span class="co"># we win :-)</span></span>
-<span id="cb422-17"><a href="r-control-structures.html#cb422-17" aria-hidden="true" tabindex="-1"></a>        result <span class="ot">&lt;-</span> <span class="st">&quot;Win!  &quot;</span></span>
-<span id="cb422-18"><a href="r-control-structures.html#cb422-18" aria-hidden="true" tabindex="-1"></a>        funds <span class="ot">&lt;-</span> funds <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> bet)</span>
-<span id="cb422-19"><a href="r-control-structures.html#cb422-19" aria-hidden="true" tabindex="-1"></a>        bet <span class="ot">&lt;-</span> <span class="dv">1</span>            <span class="co"># reset the bet to one dollar</span></span>
-<span id="cb422-20"><a href="r-control-structures.html#cb422-20" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {                <span class="co"># we lose :-(</span></span>
-<span id="cb422-21"><a href="r-control-structures.html#cb422-21" aria-hidden="true" tabindex="-1"></a>        result <span class="ot">&lt;-</span> <span class="st">&quot;Lose.&quot;</span></span>
-<span id="cb422-22"><a href="r-control-structures.html#cb422-22" aria-hidden="true" tabindex="-1"></a>        bet <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> bet      <span class="co"># increase the bet to 3 times previous</span></span>
-<span id="cb422-23"><a href="r-control-structures.html#cb422-23" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb422-24"><a href="r-control-structures.html#cb422-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Round&quot;</span>, nPlays, result,</span>
-<span id="cb422-25"><a href="r-control-structures.html#cb422-25" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Funds now:&quot;</span>, funds,</span>
-<span id="cb422-26"><a href="r-control-structures.html#cb422-26" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Next bet:&quot;</span>, bet))</span>
-<span id="cb422-27"><a href="r-control-structures.html#cb422-27" aria-hidden="true" tabindex="-1"></a>    nPlays <span class="ot">&lt;-</span> nPlays <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb422-28"><a href="r-control-structures.html#cb422-28" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="r-control-structures.html#cb419-1" tabindex="-1"></a>funds <span class="ot">&lt;-</span> <span class="dv">33</span></span>
+<span id="cb419-2"><a href="r-control-structures.html#cb419-2" tabindex="-1"></a>bet <span class="ot">&lt;-</span> <span class="dv">1</span>         <span class="co"># our first bet</span></span>
+<span id="cb419-3"><a href="r-control-structures.html#cb419-3" tabindex="-1"></a> </span>
+<span id="cb419-4"><a href="r-control-structures.html#cb419-4" tabindex="-1"></a>nPlays <span class="ot">&lt;-</span> <span class="dv">0</span>      <span class="co"># this counts how often we&#39;ve played</span></span>
+<span id="cb419-5"><a href="r-control-structures.html#cb419-5" tabindex="-1"></a>MAXPLAYS <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb419-6"><a href="r-control-structures.html#cb419-6" tabindex="-1"></a> </span>
+<span id="cb419-7"><a href="r-control-structures.html#cb419-7" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234567</span>)</span>
+<span id="cb419-8"><a href="r-control-structures.html#cb419-8" tabindex="-1"></a><span class="cf">while</span> (funds <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> funds <span class="sc">&lt;</span> <span class="dv">100</span> <span class="sc">&amp;&amp;</span> nPlays <span class="sc">&lt;</span> MAXPLAYS) {</span>
+<span id="cb419-9"><a href="r-control-structures.html#cb419-9" tabindex="-1"></a> </span>
+<span id="cb419-10"><a href="r-control-structures.html#cb419-10" tabindex="-1"></a>    bet <span class="ot">&lt;-</span> <span class="fu">min</span>(bet, funds)  <span class="co"># can&#39;t bet more than we have.</span></span>
+<span id="cb419-11"><a href="r-control-structures.html#cb419-11" tabindex="-1"></a>    funds <span class="ot">&lt;-</span> funds <span class="sc">-</span> bet    <span class="co"># place the bet</span></span>
+<span id="cb419-12"><a href="r-control-structures.html#cb419-12" tabindex="-1"></a>    a <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)    <span class="co"># roll the dice</span></span>
+<span id="cb419-13"><a href="r-control-structures.html#cb419-13" tabindex="-1"></a>    b <span class="ot">&lt;-</span>  <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span>)</span>
+<span id="cb419-14"><a href="r-control-structures.html#cb419-14" tabindex="-1"></a> </span>
+<span id="cb419-15"><a href="r-control-structures.html#cb419-15" tabindex="-1"></a>    <span class="co"># we always play &quot;high&quot;</span></span>
+<span id="cb419-16"><a href="r-control-structures.html#cb419-16" tabindex="-1"></a>    <span class="cf">if</span> (a <span class="sc">+</span> b <span class="sc">&gt;</span> <span class="dv">7</span>) {        <span class="co"># we win :-)</span></span>
+<span id="cb419-17"><a href="r-control-structures.html#cb419-17" tabindex="-1"></a>        result <span class="ot">&lt;-</span> <span class="st">&quot;Win!  &quot;</span></span>
+<span id="cb419-18"><a href="r-control-structures.html#cb419-18" tabindex="-1"></a>        funds <span class="ot">&lt;-</span> funds <span class="sc">+</span> (<span class="dv">2</span> <span class="sc">*</span> bet)</span>
+<span id="cb419-19"><a href="r-control-structures.html#cb419-19" tabindex="-1"></a>        bet <span class="ot">&lt;-</span> <span class="dv">1</span>            <span class="co"># reset the bet to one dollar</span></span>
+<span id="cb419-20"><a href="r-control-structures.html#cb419-20" tabindex="-1"></a>    } <span class="cf">else</span> {                <span class="co"># we lose :-(</span></span>
+<span id="cb419-21"><a href="r-control-structures.html#cb419-21" tabindex="-1"></a>        result <span class="ot">&lt;-</span> <span class="st">&quot;Lose.&quot;</span></span>
+<span id="cb419-22"><a href="r-control-structures.html#cb419-22" tabindex="-1"></a>        bet <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> bet      <span class="co"># increase the bet to 3 times previous</span></span>
+<span id="cb419-23"><a href="r-control-structures.html#cb419-23" tabindex="-1"></a>    }</span>
+<span id="cb419-24"><a href="r-control-structures.html#cb419-24" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Round&quot;</span>, nPlays, result,</span>
+<span id="cb419-25"><a href="r-control-structures.html#cb419-25" tabindex="-1"></a>                <span class="st">&quot;Funds now:&quot;</span>, funds,</span>
+<span id="cb419-26"><a href="r-control-structures.html#cb419-26" tabindex="-1"></a>                <span class="st">&quot;Next bet:&quot;</span>, bet))</span>
+<span id="cb419-27"><a href="r-control-structures.html#cb419-27" tabindex="-1"></a>    nPlays <span class="ot">&lt;-</span> nPlays <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb419-28"><a href="r-control-structures.html#cb419-28" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Round 0 Lose. Funds now: 32 Next bet: 3&quot;
 ## [1] &quot;Round 1 Win!   Funds now: 35 Next bet: 1&quot;
 ## [1] &quot;Round 2 Win!   Funds now: 36 Next bet: 1&quot;
@@ -953,7 +954,7 @@ Copy, study and run the below code
 ## [1] &quot;Round 4 Lose. Funds now: 32 Next bet: 9&quot;
 ## [1] &quot;Round 5 Lose. Funds now: 23 Next bet: 27&quot;
 ## [1] &quot;Round 6 Lose. Funds now: 0 Next bet: 69&quot;</code></pre>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="r-control-structures.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="cn">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="r-control-structures.html#cb421-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 <p><strong>Now before you get carried away - try this with different seeds and you’ll quickly figure out that the odds of beating the game are not all that great…</strong></p>
 </div>
 </div>

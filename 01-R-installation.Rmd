@@ -210,7 +210,7 @@ One the best solutions to reproducibility issues is containing your workflow or 
   * test modifications to the pipeline without disrupting your current set up.
   * Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.  
 
-**All assignments for this course are expected to compile and run.  We will be using the [bcb420-base-image:winter2023](https://hub.docker.com/repository/docker/risserlin/bcb420-base-image) docker image to run all or your submitted notebooks.  If your notebook runs with no errors and renders your html notebook you will recieve full marks for compilation.  It is recommended that you do all your work and assignments using this docker image.**
+**All assignments for this course are expected to compile and run.  We will be using the [bcb420-base-image:winter2024](https://hub.docker.com/repository/docker/risserlin/bcb420-base-image) docker image to run all or your submitted notebooks.  If your notebook runs with no errors and renders your html notebook you will recieve full marks for compilation.  It is recommended that you do all your work and assignments using this docker image.**
 
 ### What is docker?
 
@@ -248,7 +248,7 @@ One the best solutions to reproducibility issues is containing your workflow or 
 docker run -e PASSWORD=changeit --rm \
   -v /Users/risserlin/bcb420_code:/home/rstudio/projects \
   -p 8787:8787 \
-  risserlin/bcb420-base-image:winter2023
+  risserlin/bcb420-base-image:winter2024
 ```
 
   * I create a notebook called task3_bcb420.Rmd and save it in /home/rstudio/projects.
@@ -275,7 +275,7 @@ Note: Do not save it in /home/rstudio/ which is the default directory RStudio wi
 ```{r eval=FALSE}
 docker run -e PASSWORD=changeit --rm \
   -v ${PWD}:/home/rstudio/projects -p 8787:8787 \
-  risserlin/bcb420-base-image:winter2023
+  risserlin/bcb420-base-image:winter2024
 ```
 <p align="center"><img src="./images/docker_creation_output.png" alt="R startup" width="75%" align="center" /></p>  
   * Windows defender firewall might pop up with warning.  Click on *Allow access*.
@@ -291,7 +291,7 @@ docker run -e PASSWORD=changeit --rm \
 ```{r eval=FALSE}
 docker run -e PASSWORD=changeit --rm \
   -v "$(pwd)":/home/rstudio/projects -p 8787:8787 \
-  risserlin/bcb420-base-image:winter2023
+  risserlin/bcb420-base-image:winter2024
 ```
 <p align="center"><img src="./images/docker_creation_output.png" alt="R startup" width="75%" align="center" /></p> 
 

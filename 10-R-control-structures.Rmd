@@ -113,13 +113,14 @@ We need to talk about conditional expressions that test for more than one condit
   This means if you apply the single operators to a vector, you get a vector of results:
 ```{r}
 x <- c(1, 3, 5, 7, 11, 13, 17)
-x > 3 &  x < 17 # FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE: all comparisons
+x > 3  &  x < 17 # FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE: all comparisons
 x [x > 3 &  x < 17]  #  5  7 11 13
 ```
 
 whereas this stop at the first FALSE
-```{r}
-x > 3 && x < 17 # FALSE:
+```{r warning=TRUE}
+tryCatch({x > 3 && x < 17 ; print("FALSE")}, error = function(e){print(e)})
+
 ```
 
 The vectorized version is usually what you want, e.g. for subsetting, as above. But it is usually not the right way in control structures: there, you usually want never to evaluate unnecessary expressions. Chained "OR" expressions can be aborted after the first TRUE is encountered, and chained "AND" expressions can be aborted after the first FALSE. Which is what the double operators do.

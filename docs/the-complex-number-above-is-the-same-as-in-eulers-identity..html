@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 (The complex number above is the same as in Euler’s identity.) | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 (The complex number above is the same as in Euler’s identity.) | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2023/R_basics" />
+  <meta name="github-repo" content="bcb420-2024/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 11 (The complex number above is the same as in Euler’s identity.) | BCB420 - Computational System Biology" />
@@ -118,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -558,7 +562,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="the-complex-number-above-is-the-same-as-in-eulers-identity." class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">Chapter 11</span> (The complex number above is the same as in Euler’s identity.)<a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#the-complex-number-above-is-the-same-as-in-eulers-identity." class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">complex</span>(<span class="at">i =</span> pi, <span class="dv">1</span>, <span class="dv">0</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb458-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">complex</span>(<span class="at">i =</span> pi, <span class="dv">1</span>, <span class="dv">0</span>)) </span></code></pre></div>
 <pre><code>## [1] -1+0i</code></pre>
 <div id="task-24" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Task 24<a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#task-24" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -588,43 +592,43 @@ Pass the arguments in the following order: length.out, to, from.
 <div id="on-missing-parameters" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> On missing parameters<a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#on-missing-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If a parameter is missing several things can happen. Let’s illustrate wih a little function that returns the golden-ratio pair to a number, either the smaller, or the larger one.</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-1" aria-hidden="true" tabindex="-1"></a>goldenRatio <span class="ot">&lt;-</span> <span class="cf">function</span>(x, smaller) {</span>
-<span id="cb463-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-2" aria-hidden="true" tabindex="-1"></a>  phi <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb463-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (smaller <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb463-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">/</span> phi)</span>
-<span id="cb463-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb463-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">*</span> phi)</span>
-<span id="cb463-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb463-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-1" tabindex="-1"></a>goldenRatio <span class="ot">&lt;-</span> <span class="cf">function</span>(x, smaller) {</span>
+<span id="cb460-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-2" tabindex="-1"></a>  phi <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb460-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-3" tabindex="-1"></a>  <span class="cf">if</span> (smaller <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb460-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-4" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">/</span> phi)</span>
+<span id="cb460-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb460-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-6" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">*</span> phi)</span>
+<span id="cb460-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-7" tabindex="-1"></a>  }</span>
+<span id="cb460-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb460-8" tabindex="-1"></a>}</span></code></pre></div>
 <p>If there’s no way to recover, executing the function will throw an error:</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb461-1" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>)</span></code></pre></div>
 <p>Error in goldenRatio(1) : argument “smaller” is missing, with no default</p>
 <p>If the function has a default parameter defined, it is used :</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-1" aria-hidden="true" tabindex="-1"></a>goldenRatio <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">smaller =</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb465-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-2" aria-hidden="true" tabindex="-1"></a>  phi <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb465-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (smaller <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb465-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">/</span> phi)</span>
-<span id="cb465-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb465-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">*</span> phi)</span>
-<span id="cb465-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb465-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-1" tabindex="-1"></a>goldenRatio <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">smaller =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb462-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-2" tabindex="-1"></a>  phi <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb462-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-3" tabindex="-1"></a>  <span class="cf">if</span> (smaller <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb462-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-4" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">/</span> phi)</span>
+<span id="cb462-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb462-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-6" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">*</span> phi)</span>
+<span id="cb462-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-7" tabindex="-1"></a>  }</span>
+<span id="cb462-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb462-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb463-1" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.618034</code></pre>
 <p>Alternatively, the function body can check whether a parameter is missing with the missing() function, and then react accordingly:</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-1" aria-hidden="true" tabindex="-1"></a>goldenRatio <span class="ot">&lt;-</span> <span class="cf">function</span>(x, smaller) {</span>
-<span id="cb468-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">missing</span>(smaller)) {</span>
-<span id="cb468-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-3" aria-hidden="true" tabindex="-1"></a>    smaller <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb468-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-4" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb468-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-5" aria-hidden="true" tabindex="-1"></a>  phi <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb468-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (smaller <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb468-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">/</span> phi)</span>
-<span id="cb468-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb468-9"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">*</span> phi)</span>
-<span id="cb468-10"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb468-11"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-1" tabindex="-1"></a>goldenRatio <span class="ot">&lt;-</span> <span class="cf">function</span>(x, smaller) {</span>
+<span id="cb465-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">missing</span>(smaller)) {</span>
+<span id="cb465-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-3" tabindex="-1"></a>    smaller <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb465-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-4" tabindex="-1"></a>  }</span>
+<span id="cb465-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-5" tabindex="-1"></a>  phi <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb465-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-6" tabindex="-1"></a>  <span class="cf">if</span> (smaller <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb465-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-7" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">/</span> phi)</span>
+<span id="cb465-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-8" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb465-9"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-9" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">*</span> phi)</span>
+<span id="cb465-10"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-10" tabindex="-1"></a>  }</span>
+<span id="cb465-11"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb465-11" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb466-1" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.618034</code></pre>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>, <span class="at">smaller =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-1" tabindex="-1"></a><span class="fu">goldenRatio</span>(<span class="dv">1</span>, <span class="at">smaller =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 1.618034</code></pre>
 <p>Why is this useful, if you could just define a default? Because the parameter can then be the result of a (complex) computation, based on other parameters.</p>
 </div>
@@ -633,7 +637,7 @@ Pass the arguments in the following order: length.out, to, from.
 <div id="basic-r" class="section level3 hasAnchor" number="11.3.1">
 <h3><span class="header-section-number">11.3.1</span> Basic R<a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#basic-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If the function is a normal R function, like the ones we have defined above, you can read the function code when type its name without parantheses:</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb473-1" aria-hidden="true" tabindex="-1"></a>goldenRatio</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb470-1" tabindex="-1"></a>goldenRatio</span></code></pre></div>
 <pre><code>## function(x, smaller) {
 ##   if (missing(smaller)) {
 ##     smaller &lt;- TRUE
@@ -645,21 +649,21 @@ Pass the arguments in the following order: length.out, to, from.
 ##     return(x * phi)
 ##   }
 ## }
-## &lt;bytecode: 0x55c153507de8&gt;</code></pre>
+## &lt;bytecode: 0x557045b9c3e0&gt;</code></pre>
 <p>But that strictly only works for functions which have been written in basic R code.</p>
 </div>
 <div id="s3-methods" class="section level3 hasAnchor" number="11.3.2">
 <h3><span class="header-section-number">11.3.2</span> S3 methods<a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#s3-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You might also get a line saying UseMethod(<function name>). Then you are looking at a “method” from R’s S3 object oriented system - such a function is also called a “generic”, because it dispatches to more specific code, depending on the type of the parameter it is being given. Use methods() to see which specific methods are defined, and then use getAnywhere(&lt;function.class&gt;) to get the code.</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb475-1" aria-hidden="true" tabindex="-1"></a>seq</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb472-1" tabindex="-1"></a>seq</span></code></pre></div>
 <pre><code>## function (...) 
 ## UseMethod(&quot;seq&quot;)
-## &lt;bytecode: 0x55c153b42188&gt;
+## &lt;bytecode: 0x557040c98410&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(seq)</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb474-1" tabindex="-1"></a><span class="fu">methods</span>(seq)</span></code></pre></div>
 <pre><code>## [1] seq.Date    seq.default seq.POSIXt 
 ## see &#39;?methods&#39; for accessing help and source code</code></pre>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getAnywhere</span>(seq.default)</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb476-1" tabindex="-1"></a><span class="fu">getAnywhere</span>(seq.default)</span></code></pre></div>
 <pre><code>## A single object matching &#39;seq.default&#39; was found
 ## It was found in the following places
 ##   package:base
@@ -831,17 +835,17 @@ Pass the arguments in the following order: length.out, to, from.
 ##     }
 ##     else stop(&quot;too many arguments&quot;)
 ## }
-## &lt;bytecode: 0x55c153b430a0&gt;
+## &lt;bytecode: 0x557040ca1e98&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
 <div id="primitives" class="section level2 hasAnchor" number="11.4">
 <h2><span class="header-section-number">11.4</span> Primitives<a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#primitives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You might also get a line saying .Call(C_<function name> <arguments>). Then you are looking at a primitive - a function that has been compiled in the C programming language, for efficiency.</p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-1" aria-hidden="true" tabindex="-1"></a>runif</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb478-1" tabindex="-1"></a>runif</span></code></pre></div>
 <pre><code>## function (n, min = 0, max = 1) 
 ## .Call(C_runif, n, min, max)
-## &lt;bytecode: 0x55c159118d00&gt;
+## &lt;bytecode: 0x557045faaca0&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:</p>
 <p>This search finds runif.c (have a look).<a href="https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;rlz=1C5CHFA_enCA740CA742&amp;oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;aqs=chrome..69i57j69i58.3647j0j4&amp;sourceid=chrome&amp;ie=UTF-8">site:https://svn.r-project.org/R/trunk/src runif</a></p>
@@ -853,13 +857,13 @@ Pass the arguments in the following order: length.out, to, from.
 Data gets into the function via the function’s parameters.</p>
 <p>Data is returned from a function via the return() statement[Actually the return() statement is optional, if missing, the result of the last expression is returned. You will find this frequently in other people’s code, somthing to be aware of. However, you’ll surely understand that it is really poor practice to omit return(), it makes the code harder to read and can give rise to misunderstandings. Never use implicit behaviour where you can be explicit instead]. One and only one object is returned. However the object can be a list, and thus contain values of arbitrary complexity. This is called the “value” of the function.
 Well-written functions have no side-effects like changing global variables.</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the function definition pattern:</span></span>
-<span id="cb483-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb483-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>myName<span class="sc">&gt;</span> <span class="er">&lt;</span><span class="sc">-</span> <span class="cf">function</span>(<span class="sc">&lt;</span>myArguments<span class="sc">&gt;</span>) {</span>
-<span id="cb483-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># &lt;documentation!&gt;</span></span>
-<span id="cb483-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-5" aria-hidden="true" tabindex="-1"></a>    result <span class="ot">&lt;-</span> <span class="er">&lt;</span>do something with the parameters<span class="sc">&gt;</span></span>
-<span id="cb483-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(result)</span>
-<span id="cb483-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb480-1" tabindex="-1"></a><span class="co"># the function definition pattern:</span></span>
+<span id="cb480-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb480-2" tabindex="-1"></a> </span>
+<span id="cb480-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb480-3" tabindex="-1"></a><span class="sc">&lt;</span>myName<span class="sc">&gt;</span> <span class="er">&lt;</span><span class="sc">-</span> <span class="cf">function</span>(<span class="sc">&lt;</span>myArguments<span class="sc">&gt;</span>) {</span>
+<span id="cb480-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb480-4" tabindex="-1"></a>  <span class="co"># &lt;documentation!&gt;</span></span>
+<span id="cb480-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb480-5" tabindex="-1"></a>    result <span class="ot">&lt;-</span> <span class="er">&lt;</span>do something with the parameters<span class="sc">&gt;</span></span>
+<span id="cb480-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb480-6" tabindex="-1"></a>    <span class="fu">return</span>(result)</span>
+<span id="cb480-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb480-7" tabindex="-1"></a>}</span></code></pre></div>
 <p>In this pattern, the function is assigned to the name - any valid name in <strong>R</strong>. Once it is assigned, it the function can be invoked with myName(). The parameter list (the values we write into the parentheses following the function name) can be empty, or hold a list of variable names. If variable names are present, you need to enter the corresponding parameters when you execute the function. These assigned variables are available inside the function, and can be used for computations. This is called “passing variables into the function”.</p>
 </div>
 <div id="task-25" class="section level2 hasAnchor" number="11.6">
@@ -878,20 +882,20 @@ For example calling countDown(5) should give:
 <p>Answer<a href="r-code-style.html#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a></p>
 <p>The scope of functions is local: this means all variables within a function are lost upon return, and global variables are not overwritten by a definition within a function. However variables that are defined outside the function are also available inside.</p>
 <p>We can use loops and control structures inside functions. For example the following creates a vector containing n Fibonacci numbers.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-1" aria-hidden="true" tabindex="-1"></a>fibSeq <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb484-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> (n <span class="sc">&lt;</span> <span class="dv">1</span>) { <span class="fu">return</span>( <span class="dv">0</span> ) }</span>
-<span id="cb484-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">else</span> <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">1</span>) { <span class="fu">return</span>( <span class="dv">1</span> ) }</span>
-<span id="cb484-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-4" aria-hidden="true" tabindex="-1"></a>   <span class="cf">else</span> <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">2</span>) { <span class="fu">return</span>( <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>) ) }</span>
-<span id="cb484-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">else</span> {</span>
-<span id="cb484-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-6" aria-hidden="true" tabindex="-1"></a>      v <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
-<span id="cb484-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-7" aria-hidden="true" tabindex="-1"></a>      v[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb484-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-8" aria-hidden="true" tabindex="-1"></a>      v[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb484-9"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n ) {</span>
-<span id="cb484-10"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-10" aria-hidden="true" tabindex="-1"></a>         v[n] <span class="ot">&lt;-</span> v[n<span class="dv">-2</span>] <span class="sc">+</span> v[n<span class="dv">-1</span>]</span>
-<span id="cb484-11"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-11" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb484-12"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>( v )</span>
-<span id="cb484-13"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-13" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb484-14"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb484-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-1" tabindex="-1"></a>fibSeq <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb481-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-2" tabindex="-1"></a>   <span class="cf">if</span> (n <span class="sc">&lt;</span> <span class="dv">1</span>) { <span class="fu">return</span>( <span class="dv">0</span> ) }</span>
+<span id="cb481-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-3" tabindex="-1"></a>   <span class="cf">else</span> <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">1</span>) { <span class="fu">return</span>( <span class="dv">1</span> ) }</span>
+<span id="cb481-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-4" tabindex="-1"></a>   <span class="cf">else</span> <span class="cf">if</span> (n <span class="sc">==</span> <span class="dv">2</span>) { <span class="fu">return</span>( <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>) ) }</span>
+<span id="cb481-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-5" tabindex="-1"></a>   <span class="cf">else</span> {</span>
+<span id="cb481-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-6" tabindex="-1"></a>      v <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb481-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-7" tabindex="-1"></a>      v[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb481-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-8" tabindex="-1"></a>      v[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb481-9"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-9" tabindex="-1"></a>      <span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n ) {</span>
+<span id="cb481-10"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-10" tabindex="-1"></a>         v[n] <span class="ot">&lt;-</span> v[n<span class="dv">-2</span>] <span class="sc">+</span> v[n<span class="dv">-1</span>]</span>
+<span id="cb481-11"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-11" tabindex="-1"></a>      }</span>
+<span id="cb481-12"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-12" tabindex="-1"></a>      <span class="fu">return</span>( v )</span>
+<span id="cb481-13"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-13" tabindex="-1"></a>   }</span>
+<span id="cb481-14"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb481-14" tabindex="-1"></a>}</span></code></pre></div>
 <p>Here is another example to play with: a function that calculates how old you are. In days. This is neat - you can celebrate your 10,000 birthday - or so.</p>
 </div>
 <div id="task-26" class="section level2 hasAnchor" number="11.7">
@@ -902,21 +906,21 @@ Copy, explore and run the below code
 </p>
 </div>
 <p>Define the function …</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A lifedays calculator function</span></span>
-<span id="cb485-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb485-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-3" aria-hidden="true" tabindex="-1"></a>myLifeDays <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday) {</span>
-<span id="cb485-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">missing</span>(birthday)) {</span>
-<span id="cb485-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span> (<span class="st">&quot;Enter your birthday as a string in </span><span class="sc">\&quot;</span><span class="st">YYYY-MM-DD</span><span class="sc">\&quot;</span><span class="st"> format.&quot;</span>)</span>
-<span id="cb485-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>()</span>
-<span id="cb485-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb485-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-8" aria-hidden="true" tabindex="-1"></a>  bd <span class="ot">&lt;-</span> <span class="fu">strptime</span>(birthday, <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert string to time</span></span>
-<span id="cb485-9"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-9" aria-hidden="true" tabindex="-1"></a>  now <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert &quot;now&quot; to time</span></span>
-<span id="cb485-10"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-10" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(<span class="fu">difftime</span>(now, bd, <span class="at">unit=</span><span class="st">&quot;days&quot;</span>)))</span>
-<span id="cb485-11"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sprintf</span>(<span class="st">&quot;This date was %d days ago.&quot;</span>, diff))</span>
-<span id="cb485-12"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb485-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-1" tabindex="-1"></a><span class="co"># A lifedays calculator function</span></span>
+<span id="cb482-2"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-2" tabindex="-1"></a> </span>
+<span id="cb482-3"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-3" tabindex="-1"></a>myLifeDays <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday) {</span>
+<span id="cb482-4"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-4" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">missing</span>(birthday)) {</span>
+<span id="cb482-5"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-5" tabindex="-1"></a>    <span class="fu">print</span> (<span class="st">&quot;Enter your birthday as a string in </span><span class="sc">\&quot;</span><span class="st">YYYY-MM-DD</span><span class="sc">\&quot;</span><span class="st"> format.&quot;</span>)</span>
+<span id="cb482-6"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-6" tabindex="-1"></a>    <span class="fu">return</span>()</span>
+<span id="cb482-7"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-7" tabindex="-1"></a>  }</span>
+<span id="cb482-8"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-8" tabindex="-1"></a>  bd <span class="ot">&lt;-</span> <span class="fu">strptime</span>(birthday, <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert string to time</span></span>
+<span id="cb482-9"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-9" tabindex="-1"></a>  now <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;%Y-%m-%d&quot;</span>) <span class="co"># convert &quot;now&quot; to time</span></span>
+<span id="cb482-10"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-10" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(<span class="fu">difftime</span>(now, bd, <span class="at">unit=</span><span class="st">&quot;days&quot;</span>)))</span>
+<span id="cb482-11"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-11" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sprintf</span>(<span class="st">&quot;This date was %d days ago.&quot;</span>, diff))</span>
+<span id="cb482-12"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb482-12" tabindex="-1"></a>}</span></code></pre></div>
 <p>Use the function (example)</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb486-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">myLifeDays</span>(<span class="st">&quot;1932-09-25&quot;</span>)  <span class="co"># Glenn Gould&#39;s birthday</span></span></code></pre></div>
-<pre><code>## [1] &quot;This date was 32967 days ago.&quot;</code></pre>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb483-1" tabindex="-1"></a>   <span class="fu">myLifeDays</span>(<span class="st">&quot;1932-09-25&quot;</span>)  <span class="co"># Glenn Gould&#39;s birthday</span></span></code></pre></div>
+<pre><code>## [1] &quot;This date was 33330 days ago.&quot;</code></pre>
 <p>Here is a good opportunity to practice programming: modify this function to accept a second argument. When a second argument is present (e.g. 10000) the function should print the calendar date on which the input date will be the required number of days ago. Then you could use it to know when to celebrate your 10,000th life-day, or your 777th anniversary or whatever.</p>
 </div>
 <div id="self-evaluation-10" class="section level2 hasAnchor" number="11.8">
