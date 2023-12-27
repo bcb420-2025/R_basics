@@ -1,4 +1,4 @@
-#Installing R and RStudio {#r_install}
+# Installing R and RStudio {#r_install}
 (Notation; installing R and RStudio; packages; first experiments.)
  
  

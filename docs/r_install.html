@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Installing R and RStudio | BCB420 - Computational System Biology</title>
+  <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Installing R and RStudio | BCB420 - Computational System Biology" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="github-repo" content="bcb420-2024/R_basics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Installing R and RStudio | BCB420 - Computational System Biology" />
+  
+  <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+<meta name="author" content="Main author: Boris Steipe; Modified: Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="r-setup.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Unit 2 - R Basics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r_install.html"><a href="r_install.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r_install.html"><a href="r_install.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r_install.html"><a href="r_install.html#objectives"><i class="fa fa-check"></i><b>2.1.1</b> Objectives:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r_install.html"><a href="r_install.html#outcomes"><i class="fa fa-check"></i><b>2.1.2</b> Outcomes:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r_install.html"><a href="r_install.html#deliverables"><i class="fa fa-check"></i><b>2.1.3</b> Deliverables:</a></li>
+<li class="chapter" data-level="2.1.4" data-path="r_install.html"><a href="r_install.html#prerequisites"><i class="fa fa-check"></i><b>2.1.4</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r_install.html"><a href="r_install.html#r"><i class="fa fa-check"></i><b>2.2</b> R</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r_install.html"><a href="r_install.html#introduction"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r_install.html"><a href="r_install.html#before-you-begin-notation-and-formatting"><i class="fa fa-check"></i><b>2.2.2</b> Before you begin: Notation and Formatting</a></li>
+<li class="chapter" data-level="2.2.3" data-path="r_install.html"><a href="r_install.html#task---example"><i class="fa fa-check"></i><b>2.2.3</b> Task - example</a></li>
+<li class="chapter" data-level="2.2.4" data-path="r_install.html"><a href="r_install.html#metasyntactic-variables"><i class="fa fa-check"></i><b>2.2.4</b> “Metasyntactic variables”</a></li>
+<li class="chapter" data-level="2.2.5" data-path="r_install.html"><a href="r_install.html#characters"><i class="fa fa-check"></i><b>2.2.5</b> Characters</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r_install.html"><a href="r_install.html#the-environment"><i class="fa fa-check"></i><b>2.3</b> The environment</a></li>
+<li class="chapter" data-level="2.4" data-path="r_install.html"><a href="r_install.html#task-1---install-r"><i class="fa fa-check"></i><b>2.4</b> Task 1 - Install R</a></li>
+<li class="chapter" data-level="2.5" data-path="r_install.html"><a href="r_install.html#task-2---install-rstudio"><i class="fa fa-check"></i><b>2.5</b> Task 2 - Install RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="r_install.html"><a href="r_install.html#docker"><i class="fa fa-check"></i><b>2.6</b> Docker</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="r_install.html"><a href="r_install.html#what-is-docker"><i class="fa fa-check"></i><b>2.6.1</b> What is docker?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="r_install.html"><a href="r_install.html#docker---basic-term-definition"><i class="fa fa-check"></i><b>2.7</b> Docker - Basic term definition</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="r_install.html"><a href="r_install.html#container"><i class="fa fa-check"></i><b>2.7.1</b> Container</a></li>
+<li class="chapter" data-level="2.7.2" data-path="r_install.html"><a href="r_install.html#image"><i class="fa fa-check"></i><b>2.7.2</b> Image</a></li>
+<li class="chapter" data-level="2.7.3" data-path="r_install.html"><a href="r_install.html#docker-volumes"><i class="fa fa-check"></i><b>2.7.3</b> Docker Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="r_install.html"><a href="r_install.html#r_docker"><i class="fa fa-check"></i><b>2.8</b> Task 3 - Install Docker</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="r_install.html"><a href="r_install.html#windows"><i class="fa fa-check"></i><b>2.8.1</b> Windows</a></li>
+<li class="chapter" data-level="2.8.2" data-path="r_install.html"><a href="r_install.html#macos-linux"><i class="fa fa-check"></i><b>2.8.2</b> MacOS / Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="r_install.html"><a href="r_install.html#task-4---create-your-first-notebook-using-docker"><i class="fa fa-check"></i><b>2.9</b> Task 4 - Create your first notebook using Docker</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="r_install.html"><a href="r_install.html#start-coding"><i class="fa fa-check"></i><b>2.9.1</b> Start coding!</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="r_install.html"><a href="r_install.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a></li>
+<li class="chapter" data-level="2.11" data-path="r_install.html"><a href="r_install.html#task-5---experiment-with-rstudio-and-packages"><i class="fa fa-check"></i><b>2.11</b> Task 5 - Experiment with RStudio and packages</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="r_install.html"><a href="r_install.html#exercise"><i class="fa fa-check"></i><b>2.11.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.11.2" data-path="r_install.html"><a href="r_install.html#finding-packages"><i class="fa fa-check"></i><b>2.11.2</b> Finding packages</a></li>
+<li class="chapter" data-level="2.11.3" data-path="r_install.html"><a href="r_install.html#self-evaluation"><i class="fa fa-check"></i><b>2.11.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="2.11.4" data-path="r_install.html"><a href="r_install.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>2.11.4</b> Further reading, links and resources</a></li>
+<li class="chapter" data-level="2.11.5" data-path="r_install.html"><a href="r_install.html#updated-revision-history"><i class="fa fa-check"></i><b>2.11.5</b> Updated Revision history</a></li>
+<li class="chapter" data-level="2.11.6" data-path="r_install.html"><a href="r_install.html#footnotes"><i class="fa fa-check"></i><b>2.11.6</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-setup.html"><a href="r-setup.html"><i class="fa fa-check"></i><b>3</b> Setup R to work with it</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-setup.html"><a href="r-setup.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="r-setup.html"><a href="r-setup.html#objectives-1"><i class="fa fa-check"></i><b>3.1.1</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r-setup.html"><a href="r-setup.html#outcomes-1"><i class="fa fa-check"></i><b>3.1.2</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="r-setup.html"><a href="r-setup.html#deliverables-1"><i class="fa fa-check"></i><b>3.1.3</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="r-setup.html"><a href="r-setup.html#prerequisites-1"><i class="fa fa-check"></i><b>3.1.4</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r-setup.html"><a href="r-setup.html#your-course-folder"><i class="fa fa-check"></i><b>3.2</b> Your Course Folder</a></li>
+<li class="chapter" data-level="3.3" data-path="r-setup.html"><a href="r-setup.html#projects"><i class="fa fa-check"></i><b>3.3</b> “Projects”</a></li>
+<li class="chapter" data-level="3.4" data-path="r-setup.html"><a href="r-setup.html#git-version-control"><i class="fa fa-check"></i><b>3.4</b> Git Version control</a></li>
+<li class="chapter" data-level="3.5" data-path="r-setup.html"><a href="r-setup.html#task-6---git"><i class="fa fa-check"></i><b>3.5</b> Task 6 - Git</a></li>
+<li class="chapter" data-level="3.6" data-path="r-setup.html"><a href="r-setup.html#working-directory"><i class="fa fa-check"></i><b>3.6</b> Working directory</a></li>
+<li class="chapter" data-level="3.7" data-path="r-setup.html"><a href="r-setup.html#task-7--working-directory"><i class="fa fa-check"></i><b>3.7</b> Task 7- Working directory</a></li>
+<li class="chapter" data-level="3.8" data-path="r-setup.html"><a href="r-setup.html#rprofile---startup-commands"><i class="fa fa-check"></i><b>3.8</b> .Rprofile - startup commands</a></li>
+<li class="chapter" data-level="3.9" data-path="r-setup.html"><a href="r-setup.html#task-8---.rprofile"><i class="fa fa-check"></i><b>3.9</b> Task 8 - .Rprofile</a></li>
+<li class="chapter" data-level="3.10" data-path="r-setup.html"><a href="r-setup.html#the-workspace"><i class="fa fa-check"></i><b>3.10</b> The “Workspace”</a></li>
+<li class="chapter" data-level="3.11" data-path="r-setup.html"><a href="r-setup.html#self-evaluation-1"><i class="fa fa-check"></i><b>3.11</b> Self-evaluation</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="r-setup.html"><a href="r-setup.html#updated-revision-history-1"><i class="fa fa-check"></i><b>3.11.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="3.11.2" data-path="r-setup.html"><a href="r-setup.html#footnotes-1"><i class="fa fa-check"></i><b>3.11.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-console.html"><a href="r-console.html"><i class="fa fa-check"></i><b>4</b> Console, Scripts and Notebooks</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-console.html"><a href="r-console.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="r-console.html"><a href="r-console.html#abstract"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-console.html"><a href="r-console.html#objectives-2"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="r-console.html"><a href="r-console.html#outcomes-2"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="r-console.html"><a href="r-console.html#deliverables-2"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="r-console.html"><a href="r-console.html#prerequisites-2"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-console.html"><a href="r-console.html#typing-code-or-executing-it"><i class="fa fa-check"></i><b>4.2</b> Typing code or executing it?</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="r-console.html"><a href="r-console.html#rnotebooks"><i class="fa fa-check"></i><b>4.2.1</b> RNotebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="r-console.html"><a href="r-console.html#user-interface"><i class="fa fa-check"></i><b>4.3</b> User interface</a></li>
+<li class="chapter" data-level="4.4" data-path="r-console.html"><a href="r-console.html#self-evaluation-2"><i class="fa fa-check"></i><b>4.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="4.5" data-path="r-console.html"><a href="r-console.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>4.5</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="r-console.html"><a href="r-console.html#updated-revision-history-2"><i class="fa fa-check"></i><b>4.5.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="4.5.2" data-path="r-console.html"><a href="r-console.html#footnotes-2"><i class="fa fa-check"></i><b>4.5.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-help.html"><a href="r-help.html"><i class="fa fa-check"></i><b>5</b> Getting help for R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="r-help.html"><a href="r-help.html#overview-3"><i class="fa fa-check"></i><b>5.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="r-help.html"><a href="r-help.html#abstract-1"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-help.html"><a href="r-help.html#objectives-3"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="r-help.html"><a href="r-help.html#outcomes-3"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="r-help.html"><a href="r-help.html#deliverables-3"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="r-help.html"><a href="r-help.html#prerequisites-3"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-help.html"><a href="r-help.html#the-help-system"><i class="fa fa-check"></i><b>5.2</b> The Help system</a></li>
+<li class="chapter" data-level="5.3" data-path="r-help.html"><a href="r-help.html#task-9---r-help"><i class="fa fa-check"></i><b>5.3</b> Task 9 - R help</a></li>
+<li class="chapter" data-level="5.4" data-path="r-help.html"><a href="r-help.html#task-10---reproducible-example"><i class="fa fa-check"></i><b>5.4</b> Task 10 - reproducible example</a></li>
+<li class="chapter" data-level="5.5" data-path="r-help.html"><a href="r-help.html#self-evaluation-3"><i class="fa fa-check"></i><b>5.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.6" data-path="r-help.html"><a href="r-help.html#notes"><i class="fa fa-check"></i><b>5.6</b> Notes</a></li>
+<li class="chapter" data-level="5.7" data-path="r-help.html"><a href="r-help.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>5.7</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="r-help.html"><a href="r-help.html#updated-revision-history-3"><i class="fa fa-check"></i><b>5.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="5.7.2" data-path="r-help.html"><a href="r-help.html#footnotes-3"><i class="fa fa-check"></i><b>5.7.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-snytax.html"><a href="r-snytax.html"><i class="fa fa-check"></i><b>6</b> Basics of R syntax</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="r-snytax.html"><a href="r-snytax.html#overview-4"><i class="fa fa-check"></i><b>6.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="r-snytax.html"><a href="r-snytax.html#abstract-2"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="r-snytax.html"><a href="r-snytax.html#objectives-4"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="r-snytax.html"><a href="r-snytax.html#outcomes-4"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="r-snytax.html"><a href="r-snytax.html#deliverables-4"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="r-snytax.html"><a href="r-snytax.html#prerequisites-4"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="r-snytax.html"><a href="r-snytax.html#simple-commands"><i class="fa fa-check"></i><b>6.2</b> Simple commands</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="r-snytax.html"><a href="r-snytax.html#operators"><i class="fa fa-check"></i><b>6.2.1</b> Operators</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="r-snytax.html"><a href="r-snytax.html#task-11"><i class="fa fa-check"></i><b>6.3</b> Task 11</a></li>
+<li class="chapter" data-level="6.4" data-path="r-snytax.html"><a href="r-snytax.html#task-12"><i class="fa fa-check"></i><b>6.4</b> Task 12</a></li>
+<li class="chapter" data-level="6.5" data-path="r-snytax.html"><a href="r-snytax.html#variables"><i class="fa fa-check"></i><b>6.5</b> Variables</a></li>
+<li class="chapter" data-level="6.6" data-path="r-snytax.html"><a href="r-snytax.html#self-evaluation-4"><i class="fa fa-check"></i><b>6.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="6.7" data-path="r-snytax.html"><a href="r-snytax.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>6.7</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="r-snytax.html"><a href="r-snytax.html#updated-revision-history-4"><i class="fa fa-check"></i><b>6.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="6.7.2" data-path="r-snytax.html"><a href="r-snytax.html#footnotes-4"><i class="fa fa-check"></i><b>6.7.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r-scalars.html"><a href="r-scalars.html"><i class="fa fa-check"></i><b>7</b> R scalars and vectors</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="r-scalars.html"><a href="r-scalars.html#overview-5"><i class="fa fa-check"></i><b>7.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="r-scalars.html"><a href="r-scalars.html#abstract-3"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="7.1.2" data-path="r-scalars.html"><a href="r-scalars.html#objectives-5"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="7.1.3" data-path="r-scalars.html"><a href="r-scalars.html#outcomes-5"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="7.1.4" data-path="r-scalars.html"><a href="r-scalars.html#deliverables-5"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="7.1.5" data-path="r-scalars.html"><a href="r-scalars.html#prerequisites-5"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="r-scalars.html"><a href="r-scalars.html#r-data-types"><i class="fa fa-check"></i><b>7.2</b> R Data types</a></li>
+<li class="chapter" data-level="7.3" data-path="r-scalars.html"><a href="r-scalars.html#scalar-data"><i class="fa fa-check"></i><b>7.3</b> Scalar data</a></li>
+<li class="chapter" data-level="7.4" data-path="r-scalars.html"><a href="r-scalars.html#task-13---scalars"><i class="fa fa-check"></i><b>7.4</b> Task 13 - scalars</a></li>
+<li class="chapter" data-level="7.5" data-path="r-scalars.html"><a href="r-scalars.html#vectors"><i class="fa fa-check"></i><b>7.5</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="r-scalars.html"><a href="r-scalars.html#coercion"><i class="fa fa-check"></i><b>7.5.1</b> Coercion:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-index"><i class="fa fa-check"></i><b>7.6</b> Subsetting by index</a></li>
+<li class="chapter" data-level="7.7" data-path="r-scalars.html"><a href="r-scalars.html#excluding-items-through-negative-indexes"><i class="fa fa-check"></i><b>7.7</b> Excluding items through negative indexes</a></li>
+<li class="chapter" data-level="7.8" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-boolean-vectors"><i class="fa fa-check"></i><b>7.8</b> Subsetting by boolean vectors</a></li>
+<li class="chapter" data-level="7.9" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name"><i class="fa fa-check"></i><b>7.9</b> Subsetting by name</a></li>
+<li class="chapter" data-level="7.10" data-path="r-scalars.html"><a href="r-scalars.html#is-an-operator"><i class="fa fa-check"></i><b>7.10</b> “[” is an operator</a></li>
+<li class="chapter" data-level="7.11" data-path="r-scalars.html"><a href="r-scalars.html#subsetting-by-name-1"><i class="fa fa-check"></i><b>7.11</b> Subsetting by name:</a></li>
+<li class="chapter" data-level="7.12" data-path="r-scalars.html"><a href="r-scalars.html#task-14---vectors"><i class="fa fa-check"></i><b>7.12</b> Task 14 - vectors</a></li>
+<li class="chapter" data-level="7.13" data-path="r-scalars.html"><a href="r-scalars.html#vectorized-operations"><i class="fa fa-check"></i><b>7.13</b> Vectorized operations</a></li>
+<li class="chapter" data-level="7.14" data-path="r-scalars.html"><a href="r-scalars.html#computing-with-two-vectors-of-same-length"><i class="fa fa-check"></i><b>7.14</b> computing with two vectors of same length</a></li>
+<li class="chapter" data-level="7.15" data-path="r-scalars.html"><a href="r-scalars.html#matrices-and-higher-dimensional-objects"><i class="fa fa-check"></i><b>7.15</b> Matrices and higher-dimensional objects</a></li>
+<li class="chapter" data-level="7.16" data-path="r-scalars.html"><a href="r-scalars.html#task-15---matrices"><i class="fa fa-check"></i><b>7.16</b> Task 15 - matrices</a></li>
+<li class="chapter" data-level="7.17" data-path="r-scalars.html"><a href="r-scalars.html#self-evaluation-5"><i class="fa fa-check"></i><b>7.17</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.18" data-path="r-scalars.html"><a href="r-scalars.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>7.18</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="7.18.1" data-path="r-scalars.html"><a href="r-scalars.html#updated-revision-history-5"><i class="fa fa-check"></i><b>7.18.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="7.18.2" data-path="r-scalars.html"><a href="r-scalars.html#footnotes-5"><i class="fa fa-check"></i><b>7.18.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-data-frames.html"><a href="r-data-frames.html"><i class="fa fa-check"></i><b>8</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="r-data-frames.html"><a href="r-data-frames.html#overview-6"><i class="fa fa-check"></i><b>8.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="r-data-frames.html"><a href="r-data-frames.html#abstract-4"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="r-data-frames.html"><a href="r-data-frames.html#objectives-6"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="r-data-frames.html"><a href="r-data-frames.html#outcomes-6"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="r-data-frames.html"><a href="r-data-frames.html#deliverables-6"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="r-data-frames.html"><a href="r-data-frames.html#prerequisites-6"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="r-data-frames.html"><a href="r-data-frames.html#data-frames"><i class="fa fa-check"></i><b>8.2</b> Data frames</a></li>
+<li class="chapter" data-level="8.3" data-path="r-data-frames.html"><a href="r-data-frames.html#task-16---basic-operations"><i class="fa fa-check"></i><b>8.3</b> Task 16 - Basic operations</a></li>
+<li class="chapter" data-level="8.4" data-path="r-data-frames.html"><a href="r-data-frames.html#basic-operations"><i class="fa fa-check"></i><b>8.4</b> Basic operations</a></li>
+<li class="chapter" data-level="8.5" data-path="r-data-frames.html"><a href="r-data-frames.html#task-17---modify-data-frame"><i class="fa fa-check"></i><b>8.5</b> Task 17 - modify data frame</a></li>
+<li class="chapter" data-level="8.6" data-path="r-data-frames.html"><a href="r-data-frames.html#self-evaluation-6"><i class="fa fa-check"></i><b>8.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="8.7" data-path="r-data-frames.html"><a href="r-data-frames.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>8.7</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="r-data-frames.html"><a href="r-data-frames.html#updated-revision-history-6"><i class="fa fa-check"></i><b>8.7.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="8.7.2" data-path="r-data-frames.html"><a href="r-data-frames.html#footnotes-6"><i class="fa fa-check"></i><b>8.7.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="r-lists.html"><a href="r-lists.html"><i class="fa fa-check"></i><b>9</b> Lists</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="r-lists.html"><a href="r-lists.html#overview-7"><i class="fa fa-check"></i><b>9.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="r-lists.html"><a href="r-lists.html#abstract-5"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="r-lists.html"><a href="r-lists.html#objectives-7"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="r-lists.html"><a href="r-lists.html#outcomes-7"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="r-lists.html"><a href="r-lists.html#deliverables-7"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="r-lists.html"><a href="r-lists.html#prerequisites-7"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="r-lists.html"><a href="r-lists.html#lists"><i class="fa fa-check"></i><b>9.2</b> Lists</a></li>
+<li class="chapter" data-level="9.3" data-path="r-lists.html"><a href="r-lists.html#task-18"><i class="fa fa-check"></i><b>9.3</b> Task 18</a></li>
+<li class="chapter" data-level="9.4" data-path="r-lists.html"><a href="r-lists.html#task-19"><i class="fa fa-check"></i><b>9.4</b> Task 19</a></li>
+<li class="chapter" data-level="9.5" data-path="r-lists.html"><a href="r-lists.html#self-evaluation-7"><i class="fa fa-check"></i><b>9.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="9.6" data-path="r-lists.html"><a href="r-lists.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>9.6</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="r-lists.html"><a href="r-lists.html#updated-revision-history-7"><i class="fa fa-check"></i><b>9.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="9.6.2" data-path="r-lists.html"><a href="r-lists.html#footnotes-7"><i class="fa fa-check"></i><b>9.6.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="r-subsetting.html"><a href="r-subsetting.html"><i class="fa fa-check"></i><b>10</b> Subsetting and filtering R objects</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="r-subsetting.html"><a href="r-subsetting.html#overview-8"><i class="fa fa-check"></i><b>10.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="r-subsetting.html"><a href="r-subsetting.html#abstract-6"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="r-subsetting.html"><a href="r-subsetting.html#objectives-8"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="r-subsetting.html"><a href="r-subsetting.html#outcomes-8"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="r-subsetting.html"><a href="r-subsetting.html#deliverables-8"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="r-subsetting.html"><a href="r-subsetting.html#prerequisites-8"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="r-subsetting.html"><a href="r-subsetting.html#subsetting"><i class="fa fa-check"></i><b>10.2</b> Subsetting</a></li>
+<li class="chapter" data-level="10.3" data-path="r-subsetting.html"><a href="r-subsetting.html#task-20"><i class="fa fa-check"></i><b>10.3</b> Task 20</a></li>
+<li class="chapter" data-level="10.4" data-path="r-subsetting.html"><a href="r-subsetting.html#task-21"><i class="fa fa-check"></i><b>10.4</b> Task 21</a></li>
+<li class="chapter" data-level="10.5" data-path="r-subsetting.html"><a href="r-subsetting.html#self-evaluation-8"><i class="fa fa-check"></i><b>10.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="10.6" data-path="r-subsetting.html"><a href="r-subsetting.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>10.6</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="r-subsetting.html"><a href="r-subsetting.html#updated-revision-history-8"><i class="fa fa-check"></i><b>10.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="10.6.2" data-path="r-subsetting.html"><a href="r-subsetting.html#footnotes-8"><i class="fa fa-check"></i><b>10.6.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="r-control-structures.html"><a href="r-control-structures.html"><i class="fa fa-check"></i><b>11</b> Control structures of R</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="r-control-structures.html"><a href="r-control-structures.html#overview-9"><i class="fa fa-check"></i><b>11.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="r-control-structures.html"><a href="r-control-structures.html#abstract-7"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="11.1.2" data-path="r-control-structures.html"><a href="r-control-structures.html#objectives-9"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="11.1.3" data-path="r-control-structures.html"><a href="r-control-structures.html#outcomes-9"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="11.1.4" data-path="r-control-structures.html"><a href="r-control-structures.html#deliverables-9"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="11.1.5" data-path="r-control-structures.html"><a href="r-control-structures.html#prerequisites-9"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="r-control-structures.html"><a href="r-control-structures.html#control-structures"><i class="fa fa-check"></i><b>11.2</b> Control structures</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="r-control-structures.html"><a href="r-control-structures.html#if-and-else"><i class="fa fa-check"></i><b>11.2.1</b> if and else</a></li>
+<li class="chapter" data-level="11.2.2" data-path="r-control-structures.html"><a href="r-control-structures.html#conditional-expressions"><i class="fa fa-check"></i><b>11.2.2</b> conditional expressions</a></li>
+<li class="chapter" data-level="11.2.3" data-path="r-control-structures.html"><a href="r-control-structures.html#if-else-if-and-else"><i class="fa fa-check"></i><b>11.2.3</b> “if”, “else if”, and “else”</a></li>
+<li class="chapter" data-level="11.2.4" data-path="r-control-structures.html"><a href="r-control-structures.html#ifelse"><i class="fa fa-check"></i><b>11.2.4</b> ifelse</a></li>
+<li class="chapter" data-level="11.2.5" data-path="r-control-structures.html"><a href="r-control-structures.html#for"><i class="fa fa-check"></i><b>11.2.5</b> for</a></li>
+<li class="chapter" data-level="11.2.6" data-path="r-control-structures.html"><a href="r-control-structures.html#compare-excution-times-one-million-square-roots-from-a-vector-of-random-numbers"><i class="fa fa-check"></i><b>11.2.6</b> Compare excution times: one million square roots from a vector of random numbers …</a></li>
+<li class="chapter" data-level="11.2.7" data-path="r-control-structures.html"><a href="r-control-structures.html#seq_along-vs.-range"><i class="fa fa-check"></i><b>11.2.7</b> seq_along() vs. range</a></li>
+<li class="chapter" data-level="11.2.8" data-path="r-control-structures.html"><a href="r-control-structures.html#loops-vs.-vectorized-expressions"><i class="fa fa-check"></i><b>11.2.8</b> loops vs. vectorized expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="r-control-structures.html"><a href="r-control-structures.html#task-22"><i class="fa fa-check"></i><b>11.3</b> Task 22</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="r-control-structures.html"><a href="r-control-structures.html#while"><i class="fa fa-check"></i><b>11.3.1</b> while</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="r-control-structures.html"><a href="r-control-structures.html#task-23"><i class="fa fa-check"></i><b>11.4</b> Task 23</a></li>
+<li class="chapter" data-level="11.5" data-path="r-control-structures.html"><a href="r-control-structures.html#self-evaluation-9"><i class="fa fa-check"></i><b>11.5</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.6" data-path="r-control-structures.html"><a href="r-control-structures.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>11.6</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="r-control-structures.html"><a href="r-control-structures.html#updated-revision-history-9"><i class="fa fa-check"></i><b>11.6.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="11.6.2" data-path="r-control-structures.html"><a href="r-control-structures.html#footnotes-9"><i class="fa fa-check"></i><b>11.6.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>12</b> R Functions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="r-functions.html"><a href="r-functions.html#overview-10"><i class="fa fa-check"></i><b>12.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="r-functions.html"><a href="r-functions.html#abstract-8"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="r-functions.html"><a href="r-functions.html#objectives-10"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="r-functions.html"><a href="r-functions.html#outcomes-10"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="12.1.4" data-path="r-functions.html"><a href="r-functions.html#deliverables-10"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="r-functions.html"><a href="r-functions.html#prerequisites-10"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="r-functions.html"><a href="r-functions.html#functions"><i class="fa fa-check"></i><b>12.2</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><i class="fa fa-check"></i><b>13</b> (The complex number above is the same as in Euler’s identity.)</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#task-24"><i class="fa fa-check"></i><b>13.1</b> Task 24</a></li>
+<li class="chapter" data-level="13.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#on-missing-parameters"><i class="fa fa-check"></i><b>13.2</b> On missing parameters</a></li>
+<li class="chapter" data-level="13.3" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#reading-functions"><i class="fa fa-check"></i><b>13.3</b> Reading functions</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#basic-r"><i class="fa fa-check"></i><b>13.3.1</b> Basic R</a></li>
+<li class="chapter" data-level="13.3.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#s3-methods"><i class="fa fa-check"></i><b>13.3.2</b> S3 methods</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#primitives"><i class="fa fa-check"></i><b>13.4</b> Primitives</a></li>
+<li class="chapter" data-level="13.5" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#writing-your-own-functions"><i class="fa fa-check"></i><b>13.5</b> Writing your own functions</a></li>
+<li class="chapter" data-level="13.6" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#task-25"><i class="fa fa-check"></i><b>13.6</b> Task 25</a></li>
+<li class="chapter" data-level="13.7" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#task-26"><i class="fa fa-check"></i><b>13.7</b> Task 26</a></li>
+<li class="chapter" data-level="13.8" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#self-evaluation-10"><i class="fa fa-check"></i><b>13.8</b> Self-evaluation</a></li>
+<li class="chapter" data-level="13.9" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#further-reading-links-and-resources-9"><i class="fa fa-check"></i><b>13.9</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="13.9.1" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#updated-revision-history-10"><i class="fa fa-check"></i><b>13.9.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="13.9.2" data-path="the-complex-number-above-is-the-same-as-in-eulers-identity..html"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#footnotes-10"><i class="fa fa-check"></i><b>13.9.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="r-plots.html"><a href="r-plots.html"><i class="fa fa-check"></i><b>14</b> Introduction to R Plots</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="r-plots.html"><a href="r-plots.html#overview-11"><i class="fa fa-check"></i><b>14.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="r-plots.html"><a href="r-plots.html#abstract-9"><i class="fa fa-check"></i><b>14.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="14.1.2" data-path="r-plots.html"><a href="r-plots.html#objectives-11"><i class="fa fa-check"></i><b>14.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="14.1.3" data-path="r-plots.html"><a href="r-plots.html#outcomes-11"><i class="fa fa-check"></i><b>14.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="14.1.4" data-path="r-plots.html"><a href="r-plots.html#deliverables-11"><i class="fa fa-check"></i><b>14.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="14.1.5" data-path="r-plots.html"><a href="r-plots.html#prerequisites-11"><i class="fa fa-check"></i><b>14.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="r-plots.html"><a href="r-plots.html#task-27"><i class="fa fa-check"></i><b>14.2</b> Task 27</a></li>
+<li class="chapter" data-level="14.3" data-path="r-plots.html"><a href="r-plots.html#types-of-plots"><i class="fa fa-check"></i><b>14.3</b> Types of plots</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="r-plots.html"><a href="r-plots.html#plot"><i class="fa fa-check"></i><b>14.3.1</b> plot()</a></li>
+<li class="chapter" data-level="14.3.2" data-path="r-plots.html"><a href="r-plots.html#barplot"><i class="fa fa-check"></i><b>14.3.2</b> barplot()</a></li>
+<li class="chapter" data-level="14.3.3" data-path="r-plots.html"><a href="r-plots.html#hist"><i class="fa fa-check"></i><b>14.3.3</b> hist()</a></li>
+<li class="chapter" data-level="14.3.4" data-path="r-plots.html"><a href="r-plots.html#boxplot"><i class="fa fa-check"></i><b>14.3.4</b> boxplot</a></li>
+<li class="chapter" data-level="14.3.5" data-path="r-plots.html"><a href="r-plots.html#colour"><i class="fa fa-check"></i><b>14.3.5</b> Colour</a></li>
+<li class="chapter" data-level="14.3.6" data-path="r-plots.html"><a href="r-plots.html#colour-palettes"><i class="fa fa-check"></i><b>14.3.6</b> Colour palettes</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="r-plots.html"><a href="r-plots.html#lines"><i class="fa fa-check"></i><b>14.4</b> Lines</a></li>
+<li class="chapter" data-level="14.5" data-path="r-plots.html"><a href="r-plots.html#axes"><i class="fa fa-check"></i><b>14.5</b> Axes</a></li>
+<li class="chapter" data-level="14.6" data-path="r-plots.html"><a href="r-plots.html#layout"><i class="fa fa-check"></i><b>14.6</b> Layout</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="r-plots.html"><a href="r-plots.html#par-lattice-constant-aspect-ratio"><i class="fa fa-check"></i><b>14.6.1</b> par, lattice, constant aspect ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="r-plots.html"><a href="r-plots.html#plot-symbols-and-text"><i class="fa fa-check"></i><b>14.7</b> Plot symbols and text</a></li>
+<li class="chapter" data-level="14.8" data-path="r-plots.html"><a href="r-plots.html#drawing-on-plots"><i class="fa fa-check"></i><b>14.8</b> Drawing on plots</a></li>
+<li class="chapter" data-level="14.9" data-path="r-plots.html"><a href="r-plots.html#special-packages"><i class="fa fa-check"></i><b>14.9</b> Special packages</a></li>
+<li class="chapter" data-level="14.10" data-path="r-plots.html"><a href="r-plots.html#self-evaluation-11"><i class="fa fa-check"></i><b>14.10</b> Self-evaluation</a></li>
+<li class="chapter" data-level="14.11" data-path="r-plots.html"><a href="r-plots.html#further-reading-links-and-resources-10"><i class="fa fa-check"></i><b>14.11</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="14.11.1" data-path="r-plots.html"><a href="r-plots.html#updated-revision-history-11"><i class="fa fa-check"></i><b>14.11.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="14.11.2" data-path="r-plots.html"><a href="r-plots.html#footnotes-11"><i class="fa fa-check"></i><b>14.11.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="r-code-style.html"><a href="r-code-style.html"><i class="fa fa-check"></i><b>15</b> R Coding Style</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="r-code-style.html"><a href="r-code-style.html#overview-12"><i class="fa fa-check"></i><b>15.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="r-code-style.html"><a href="r-code-style.html#abstract-10"><i class="fa fa-check"></i><b>15.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="15.1.2" data-path="r-code-style.html"><a href="r-code-style.html#objectives-12"><i class="fa fa-check"></i><b>15.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="15.1.3" data-path="r-code-style.html"><a href="r-code-style.html#outcomes-12"><i class="fa fa-check"></i><b>15.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="15.1.4" data-path="r-code-style.html"><a href="r-code-style.html#deliverables-12"><i class="fa fa-check"></i><b>15.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="15.1.5" data-path="r-code-style.html"><a href="r-code-style.html#prerequisites-12"><i class="fa fa-check"></i><b>15.1.5</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="r-code-style.html"><a href="r-code-style.html#general"><i class="fa fa-check"></i><b>15.2</b> General</a></li>
+<li class="chapter" data-level="15.3" data-path="r-code-style.html"><a href="r-code-style.html#layout-1"><i class="fa fa-check"></i><b>15.3</b> Layout</a></li>
+<li class="chapter" data-level="15.4" data-path="r-code-style.html"><a href="r-code-style.html#design-and-granularity"><i class="fa fa-check"></i><b>15.4</b> Design and granularity</a></li>
+<li class="chapter" data-level="15.5" data-path="r-code-style.html"><a href="r-code-style.html#headers"><i class="fa fa-check"></i><b>15.5</b> Headers</a></li>
+<li class="chapter" data-level="15.6" data-path="r-code-style.html"><a href="r-code-style.html#parentheses-and-braces"><i class="fa fa-check"></i><b>15.6</b> Parentheses and Braces</a></li>
+<li class="chapter" data-level="15.7" data-path="r-code-style.html"><a href="r-code-style.html#spaces"><i class="fa fa-check"></i><b>15.7</b> Spaces</a></li>
+<li class="chapter" data-level="15.8" data-path="r-code-style.html"><a href="r-code-style.html#names"><i class="fa fa-check"></i><b>15.8</b> Names</a></li>
+<li class="chapter" data-level="15.9" data-path="r-code-style.html"><a href="r-code-style.html#conditionals"><i class="fa fa-check"></i><b>15.9</b> Conditionals</a></li>
+<li class="chapter" data-level="15.10" data-path="r-code-style.html"><a href="r-code-style.html#indent-style"><i class="fa fa-check"></i><b>15.10</b> Indent Style</a></li>
+<li class="chapter" data-level="15.11" data-path="r-code-style.html"><a href="r-code-style.html#indentation-of-long-function-declarations"><i class="fa fa-check"></i><b>15.11</b> Indentation of long function declarations</a></li>
+<li class="chapter" data-level="15.12" data-path="r-code-style.html"><a href="r-code-style.html#loops"><i class="fa fa-check"></i><b>15.12</b> Loops</a></li>
+<li class="chapter" data-level="15.13" data-path="r-code-style.html"><a href="r-code-style.html#functions-1"><i class="fa fa-check"></i><b>15.13</b> Functions</a></li>
+<li class="chapter" data-level="15.14" data-path="r-code-style.html"><a href="r-code-style.html#efficiency"><i class="fa fa-check"></i><b>15.14</b> Efficiency</a></li>
+<li class="chapter" data-level="15.15" data-path="r-code-style.html"><a href="r-code-style.html#end"><i class="fa fa-check"></i><b>15.15</b> [END]</a></li>
+<li class="chapter" data-level="15.16" data-path="r-code-style.html"><a href="r-code-style.html#self-evaluation-12"><i class="fa fa-check"></i><b>15.16</b> Self-evaluation</a></li>
+<li class="chapter" data-level="15.17" data-path="r-code-style.html"><a href="r-code-style.html#further-reading-links-and-resources-11"><i class="fa fa-check"></i><b>15.17</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="15.17.1" data-path="r-code-style.html"><a href="r-code-style.html#updated-revision-history-12"><i class="fa fa-check"></i><b>15.17.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="15.17.2" data-path="r-code-style.html"><a href="r-code-style.html#footnotes-12"><i class="fa fa-check"></i><b>15.17.2</b> Footnotes:</a></li>
+<li class="chapter" data-level="15.17.3" data-path="r-code-style.html"><a href="r-code-style.html#objectives-13"><i class="fa fa-check"></i><b>15.17.3</b> Objectives:</a></li>
+<li class="chapter" data-level="15.17.4" data-path="r-code-style.html"><a href="r-code-style.html#outcomes-13"><i class="fa fa-check"></i><b>15.17.4</b> Outcomes:</a></li>
+<li class="chapter" data-level="15.17.5" data-path="r-code-style.html"><a href="r-code-style.html#deliverables-13"><i class="fa fa-check"></i><b>15.17.5</b> Deliverables:</a></li>
+<li class="chapter" data-level="15.17.6" data-path="r-code-style.html"><a href="r-code-style.html#prerequisites-13"><i class="fa fa-check"></i><b>15.17.6</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="15.18" data-path="r-code-style.html"><a href="r-code-style.html#the-abc-rstudio-project"><i class="fa fa-check"></i><b>15.18</b> The ABC RStudio Project</a></li>
+<li class="chapter" data-level="15.19" data-path="r-code-style.html"><a href="r-code-style.html#task-28"><i class="fa fa-check"></i><b>15.19</b> Task 28</a></li>
+<li class="chapter" data-level="15.20" data-path="r-code-style.html"><a href="r-code-style.html#self-evaluation-13"><i class="fa fa-check"></i><b>15.20</b> Self-evaluation</a></li>
+<li class="chapter" data-level="15.21" data-path="r-code-style.html"><a href="r-code-style.html#further-reading-links-and-resources-12"><i class="fa fa-check"></i><b>15.21</b> Further reading, links and resources</a>
+<ul>
+<li class="chapter" data-level="15.21.1" data-path="r-code-style.html"><a href="r-code-style.html#updated-revision-history-13"><i class="fa fa-check"></i><b>15.21.1</b> Updated Revision history</a></li>
+<li class="chapter" data-level="15.21.2" data-path="r-code-style.html"><a href="r-code-style.html#footnotes-13"><i class="fa fa-check"></i><b>15.21.2</b> Footnotes:</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BCB420 - Computational System Biology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r_install" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Installing R and RStudio<a href="r_install.html#r_install" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>(Notation; installing R and RStudio; packages; first experiments.)</p>
+<div id="overview" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview<a href="r_install.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>###Abstract:
+This unit works through the installation of R and RStudio on your machine as well as through docker and introduces R’s packages of additional functions.</p>
+<div id="objectives" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Objectives:<a href="r_install.html#objectives" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This unit will:</p>
+<ul>
+<li>guide you through first steps for installing R and R Studio on your own computer; and</li>
+<li>guide you through installing and using R and R Studio through docker; and</li>
+<li>introduce the concept of “packages” to extend R’s functionality;</li>
+</ul>
+</div>
+<div id="outcomes" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Outcomes:<a href="r_install.html#outcomes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After working through this unit you:</p>
+<ul>
+<li>have a working installation of R and RStudio and know how to start RStudio;</li>
+<li>have a working knowledge of docker and how to use it with R and Rstudio.</li>
+<li>can find and install packages.</li>
+</ul>
+</div>
+<div id="deliverables" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Deliverables:<a href="r_install.html#deliverables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Time management</strong>: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.</p>
+<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don’t overlook these.</p>
+<p><strong>Insights</strong>: If you find something particularly noteworthy about this unit, make a note in your insights! page.</p>
+</div>
+<div id="prerequisites" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Prerequisites:<a href="r_install.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This unit builds on material covered in the following prerequisite units:</p>
+</div>
+</div>
+<div id="r" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> R<a href="r_install.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Introduction<a href="r_install.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R statistics environment and programming language</a> is an exceptionally well engineered, free (as in free speech) and free (as in free beer) platform for data manipulation and analysis. The number of functions that are included by default is large, there is a very large number of additional, community-generated analysis modules that can be simply imported from dedicated sites (e.g. the <a href="https://www.bioconductor.org/">Bioconductor</a> project for molecular biology data), or via the CRAN network, and whatever function is not available can be easily programmed. The ability to filter and manipulate data to prepare it for analysis is an absolute requirement in research-centric fields such as ours, where the strategies for analysis are constantly shifting and prepackaged solutions become obsolete almost faster than they can be developed. Besides numerical analysis, R has very powerful and flexible functions for plotting graphical output.</p>
+<p><strong>Note: you can’t learn a programming language in a single day.</strong></p>
+<p>Work through this material unit by unit, but when you are done, you need constant repetition to bring it into active memory. And make sure you understand every step. Taking shortcuts and/or cramming everything in a single, desperate effort is a waste of your time.</p>
+</div>
+<div id="before-you-begin-notation-and-formatting" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Before you begin: Notation and Formatting<a href="r_install.html#before-you-begin-notation-and-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this tutorial, I use specific notation and formatting to mean different things:</p>
+<ul>
+<li>If you see footnotes<a href="r-lists.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, click on the number to read more.</li>
+<li>This is normal text for explanations. It is written in a proportionally spaced font.</li>
+</ul>
+<p>Code formatting is for code examples, file- and function names, directory paths etc. Code is written in a monospaced font<a href="r-code-style.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r_install.html#cb2-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb2-2"><a href="r_install.html#cb2-2" tabindex="-1"></a>  <span class="co">#example code block</span></span>
+<span id="cb2-3"><a href="r_install.html#cb2-3" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li><strong>Bold emphasis</strong> and <u>underlining</u> are to mark words as particularly important.</li>
+<li>Examples of the right way to do something are <span style="background-color: #a9f08d">highlighted green</span>.</li>
+<li>Examples of the wrong way to do something are <span style="background-color: #f0948d">highlighted red</span>.</li>
+</ul>
+</div>
+<div id="task---example" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Task - example<a href="r_install.html#task---example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="rmd-task">
+<p>
+Tasks and exercises are described in boxes with a blue background.
+<strong>It is highly recommended that you do them.</strong> You won’t be
+graded on them but they are all content you can add to your journal. If
+you have problems, you must contact your instructor, or discuss the
+issue on the mailing list. Don’t simply continue. All material builds on
+previous material, and evaluation is cumulative.
+</p>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+These sections have information about issues I encounter more
+frequently. They are required reading when you need to troubleshoot
+problems but also give background information that may be useful to
+avoid problems in the first place.
+</p>
+</div>
+</div>
+<div id="metasyntactic-variables" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> “Metasyntactic variables”<a href="r_install.html#metasyntactic-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When I use notation like &lt;Year&gt; in instructions, you type the year, the whole year and nothing but the year (e.g the four digits 2017). You never type the angle brackets! I use the angle brackets only to indicate that you should not type Year literally, but substitute the correct value. You might encounter this notation as &lt;path&gt;, &lt;filename&gt;, &lt;firstname lastname&gt; and similar. To repeat: if I specify</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r_install.html#cb3-1" tabindex="-1"></a><span class="sc">&lt;</span>your name<span class="sc">&gt;</span></span></code></pre></div>
+<p>… and your name is Elcid Barrett, You type</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r_install.html#cb4-1" tabindex="-1"></a>Elcid Barrett</span></code></pre></div>
+<p>… and not <span style="background-color: #f0948d">your name</span> or <span style="background-color: #f0948d">&lt;Elcid Barret&gt;</span> or similar. (Oh the troubles I’ve seen …)</p>
+<p>The sample code on this page sometimes copies text from the console, and sometimes shows the actual commands only. The &gt; character at the beginning of the line is always just <strong>R</strong>’s input prompt, it tells you that you can type something now - you never actually type &gt; at the beginning of a line. If you read:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r_install.html#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span></code></pre></div>
+<p>you need to type:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r_install.html#cb6-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<p>If a line starts with [1] or similar, this is <strong>R</strong>’s output on the console.<a href="r-code-style.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>The # character marks the following text as a comment which is not executed by <strong>R</strong>. These are lines that you do not type. They are program output, or comments, not commands.</p>
+</div>
+<div id="characters" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Characters<a href="r_install.html#characters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Different characters mean different things for computers, and it is important to call them by their right name.</p>
+<ul>
+<li>/ ◁ this is a forward-slash. It leans forward in the reading direction.</li>
+<li>\ ◁ this is a backslash. It leans backward in the reading direction.</li>
+<li>( ) ◁ these are parentheses.</li>
+<li><input type="checkbox" />◁ these are (square) brackets.</li>
+<li>&lt; &gt; ◁ these are angle brackets.</li>
+<li>{ } ◁ these are (curly) braces.</li>
+<li>” ◁ this, and only this is a quotation mark or double quote. All of these are not: <span style="background-color: #f0948d">“”„«» </span>. They will break your code. Especially the first two are often automatically inserted by MSWord and hard to distinguish.<strong>Never, ever edit code in MS Word. Use R or RStudio. Actually, don’t use notepad or TextEdit either.</strong></li>
+<li>’ ◁ this, and only this is a single quote. All of these are not: <span style="background-color: #f0948d">’’‚‹› </span> . They will break your code. Especially the first two are often automatically inserted by MSWord and hard to distinguish.</li>
+</ul>
+<div class="rmd-caution">
+<p>
+<strong>MSWord is not useful as a code editor.</strong>
+</p>
+</div>
+</div>
+</div>
+<div id="the-environment" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> The environment<a href="r_install.html#the-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section we discuss how to download and install the software, how to configure an <strong>R</strong> session and how to work in the <strong>R</strong> environment.</p>
+<p>There are many different ways you can use and setup <strong>R</strong>. By simply installing <strong>R</strong> you can use it directly but it is highly recommended that you also install and use <a href="https://rstudio.com/products/rstudio/download/">RStudio</a> which is an Integrate development environment (IDE) for <strong>R</strong>. You cannot just download RStudio and use it. It requires an installation of <strong>R</strong>.</p>
+<p>You don’t need to install R and RStudio though. You can also use <strong>R</strong> and RStudio through docker. <strong>I highly recommend using docker instead</strong></p>
+<p>As with many open source projects, <strong>R</strong> is a constantly evolving language with regular updates. There is a major release once a year with patch releases through out the year. Often scripts and packages will work from one release to the next (ignoring pesky warnings that a package was compiled on a previous version of R is common) but there are exceptions. Some newer packages will only work on the latest version of <strong>R</strong> so sometimes the choice of upgrading or not using a new package might present themselves. Often, the amount of packages and work that is need to upgrade is not realized until the process has begun. This is where docker demonstrates it most valuable features. You can create a new instance based on the latest release of <strong>R</strong> and all your needed packages without having to change any of your current settings.</p>
+<p><strong>If you want you can skip over installing R and and Rstudio and go directly to <a href="r_install.html#r_docker">install docker</a>. There is no requirement to do both. I would recommend going straight to docker!</strong></p>
+</div>
+<div id="task-1---install-r" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Task 1 - Install R<a href="r_install.html#task-1---install-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-task">
+<ol style="list-style-type: decimal">
+<li>
+Navigate to <a href="https://cran.r-project.org/">CRAN (the
+Comprehensive R Archive Network)</a> and follow the link to Download
+<strong>R</strong> for your computer’s operating system. * You can also
+use one of the mirror sites, if CRAN is down - for example the mirror
+site at the University of Toronto. A choice of mirror sites is listed on
+the R-project homepage.
+</li>
+<li>
+Download a precompiled binary (or <em>build</em>) of the
+<strong>R</strong> <em>framework</em> to your computer and follow the
+instructions for installing it. Make sure that the program is the
+correct one for your version of your operating system.
+</li>
+<li>
+Launch <strong>R</strong>.
+</li>
+<li>
+Once you see that <strong>R</strong> is running correctly, you may
+quit the program for now.
+</li>
+</ol>
+</div>
+The program should open a window –this window is called the <em>R console</em> – and greets you with its input prompt, awaiting your input:
+<p align="center">
+<img src="images/R_startup.png" alt="R startup" width="75%" align="center" />
+</p>
+<div class="rmd-troubleshooting">
+<p>
+<strong>I can’t install R.</strong>
+</p>
+<ul>
+<li>
+Make sure that the version you downloaded is the right one for your
+operating system.
+</li>
+<li>
+Also make sure that you have the necessary permissions on your
+computer to install new software.
+</li>
+</ul>
+</div>
+</div>
+<div id="task-2---install-rstudio" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Task 2 - Install RStudio<a href="r_install.html#task-2---install-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://rstudio.com/">RStudio</a> is a free IDE (Integrated Development Environment) for <strong>R</strong>. RStudio is a wrapper<a href="r-code-style.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> for <strong>R</strong> and as far as basic R is concerned, all the underlying functions are the same, only the user interface is different (and there are a few additional functions that are very useful e.g. for managing projects).</p>
+<p>Here is a small list of differences between <strong>R</strong> and RStudio.</p>
+<p><strong>pros (some pretty significant ones actually):</strong></p>
+<ul>
+<li>Integrated version control.</li>
+<li>Support for “projects” that package scripts and other assets.</li>
+<li>Syntax-aware code colouring.</li>
+<li>A consistent interface across all supported platforms. (Base R GUIs are not all the same for e.g. Mac OS X and Windows.)</li>
+<li>Code autocompletion in the script editor. (Depending on your point of view this can be a help or an annoyance. I used to hate it. After using it for a while I find it useful.)</li>
+<li>“Function signaturtes” (a list of named parameters) displayed when you hover over a function name.</li>
+<li>The ability to set breakpoints for debugging in the script editor.</li>
+<li>Support for knitr, and rmarkdown; also support for R notebooks … (This supports “literate programming” and is actually a big advance in software development)</li>
+<li>Support for R notebooks.</li>
+</ul>
+<p><strong>cons (all minor actually):</strong></p>
+<ul>
+<li>The tiled interface uses more desktop space than the windows of the R GUI.</li>
+<li>There are sometimes (rarely) situations where R functions do not behave in exactly the same way in RStudio.</li>
+<li>The supported R version is not always immediately the most recent release.</li>
+</ul>
+<div class="rmd-task">
+<ul>
+<li>
+Navigate to the <a
+href="https://rstudio.com/products/rstudio/download/">RStudio
+download</a> Website.
+</li>
+<li>
+Find the right version of the RStudio Desktop installer for your
+computer, download it and install the software.
+</li>
+<li>
+Open RStudio.
+</li>
+<li>
+Focus on the bottom left pane of the window, this is the “console”
+pane.
+<p align="center">
+<img src="images/Rstudio_start.png" alt="R startup" width="75%" align="center" />
+</p>
+</li>
+<li>
+Type getwd().
+</li>
+<li>
+This prints out the path of the current working directory. Make a
+(mental) note where this is. We usually always need to change this
+“default directory” to a project directory.
+</li>
+</ul>
+</div>
+</div>
+<div id="docker" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Docker<a href="r_install.html#docker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Changing versions and environments are a continuing struggle with bioinformatics pipelines and computational pipelines in general. An analysis written and performed a year ago might not run or produce the same results when it is run today. Recording package and system versions or not updating certain packages rarely work in the long run.</p>
+<p>One the best solutions to reproducibility issues is containing your workflow or pipeline in its own coding environment where everything from the operating system, programs and packages are defined and can be built from a set of given instructions. There are many systems that offer this type of control including:</p>
+<ul>
+<li><a href="https://www.docker.com/">Docker</a>.</li>
+<li><a href="https://sylabs.io/">Singularity</a></li>
+</ul>
+<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<a href="#ref-docker"><span>“What Is a Container?”</span> n.d.</a>)</span></p>
+<p><strong>Why are containers great for Bioiformatics?</strong></p>
+<ul>
+<li>allows you to create environments to run bioinformatis pipelines.</li>
+<li>create a consistent environment to use for your pipelines.</li>
+<li>test modifications to the pipeline without disrupting your current set up.</li>
+<li>Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.</li>
+</ul>
+<p><strong>All assignments for this course are expected to compile and run. We will be using the <a href="https://hub.docker.com/repository/docker/risserlin/bcb420-base-image">bcb420-base-image:winter2024</a> docker image to run all or your submitted notebooks. If your notebook runs with no errors and renders your html notebook you will recieve full marks for compilation. It is recommended that you do all your work and assignments using this docker image.</strong></p>
+<div id="what-is-docker" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> What is docker?<a href="r_install.html#what-is-docker" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Docker is a container platform, similar to a virtual machine but better.</li>
+<li>We can run multiple <strong>containers</strong> on our docker server. A <strong>container</strong> is an instance of an <strong>image</strong>. The <strong>image</strong> is built based on a set of instructions but consists of an operating system, installed programs and packages. (When backing up your computer you might taken an image of it and restored your machine from this image. It the same concept but the image is built based on a set of elementary commands found in your Dockerfile.) - for overview see <a href="https://docs.docker.com/get-started/overview/">here</a></li>
+<li>Often images are built off of previous images with specific additions you need for you pipeline. (For example, for this course we use a base image supplied by bioconductor<a href="https://hub.docker.com/r/bioconductor/bioconductor_docker/tags?page=1&amp;ordering=last_updated">release 3.11</a> and comes by default with basic Bioconductor packages but it builds on the base R-docker images called <a href="https://www.rocker-project.org/">rocker</a>.)</li>
+</ul>
+</div>
+</div>
+<div id="docker---basic-term-definition" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Docker - Basic term definition<a href="r_install.html#docker---basic-term-definition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="container" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Container<a href="r_install.html#container" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>An instance of an image.</li>
+<li>the self-contained running system.<br />
+</li>
+<li>There can be multiple containers derived from the same image.</li>
+</ul>
+</div>
+<div id="image" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Image<a href="r_install.html#image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>An image contains the blueprint of a container.</li>
+<li>In docker, the image is built from a Dockerfile</li>
+</ul>
+</div>
+<div id="docker-volumes" class="section level3 hasAnchor" number="2.7.3">
+<h3><span class="header-section-number">2.7.3</span> Docker Volumes<a href="r_install.html#docker-volumes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Anything written on a container will be erased when the container is erased ( or crashes) but anything written on a filesystem that is separate from the contain will persist even after a container is turned off.<br />
+</li>
+<li>A <a href="https://docs.docker.com/storage/volumes/">volume</a> is a way to assocaited data with a container that will persist even after the container. * maps a drive on the host system to a drive on the container.</li>
+<li>In the above docker run command (that creates our container) the statement:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r_install.html#cb7-1" tabindex="-1"></a><span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects</span></code></pre></div>
+<ul>
+<li>maps the directory ${PWD} to the directory /home/rstudio/projects on the container. Anything saved in /home/rstudio/projects will actually be saved in ${PWD}</li>
+<li>An example:
+<ul>
+<li>I use the following commmand to create my docker container:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r_install.html#cb8-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb8-2"><a href="r_install.html#cb8-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>risserlin<span class="sc">/</span>bcb420_code<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects \</span>
+<span id="cb8-3"><a href="r_install.html#cb8-3" tabindex="-1"></a>  <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb8-4"><a href="r_install.html#cb8-4" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2024</span></code></pre></div>
+<ul>
+<li>I create a notebook called task3_bcb420.Rmd and save it in /home/rstudio/projects.
+<div class="rmd-caution">
+<p>
+Note: Do not save it in /home/rstudio/ which is the default directory
+RStudio will start in
+</p>
+</div></li>
+<li>On my host computer, if I go to /Users/risserlin/bcb420_code I will find the file task3_bcb420.Rmd</li>
+</ul>
+</div>
+</div>
+<div id="r_docker" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Task 3 - Install Docker<a href="r_install.html#r_docker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-task">
+<ol style="list-style-type: decimal">
+<li>
+Download and install <a
+href="https://www.docker.com/products/docker-desktop">docker
+desktop</a>.
+</li>
+<li>
+Follow slightly different instructions for Windows or
+MacOS/Linux
+</li>
+</ol>
+</div>
+<div id="windows" class="section level3 hasAnchor" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> Windows<a href="r_install.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>it might prompt you to install additional updates (for example - <a href="https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" class="uri">https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package</a>) and require multiple restarts of your system or docker.</li>
+<li>launch docker desktop app.</li>
+<li>Open windows Power shell</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: C:\USERS\risserlin\bcb420_code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r_install.html#cb9-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb9-2"><a href="r_install.html#cb9-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb9-3"><a href="r_install.html#cb9-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2024</span></code></pre></div>
+<p align="center">
+<img src="images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+<ul>
+<li>Windows defender firewall might pop up with warning. Click on <em>Allow access</em>.</li>
+<li>In docker desktop you see all containers you are running and easily manage them.
+<p align="center">
+<img src="images/docker_windows_desktop.png" alt="R startup" width="75%" align="center" />
+</p></li>
+</ul>
+</div>
+<div id="macos-linux" class="section level3 hasAnchor" number="2.8.2">
+<h3><span class="header-section-number">2.8.2</span> MacOS / Linux<a href="r_install.html#macos-linux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open Terminal</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: /Users/risserlin/bcb420_code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r_install.html#cb10-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb10-2"><a href="r_install.html#cb10-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb10-3"><a href="r_install.html#cb10-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>bcb420<span class="sc">-</span>base<span class="sc">-</span>image<span class="sc">:</span>winter2024</span></code></pre></div>
+<p align="center">
+<img src="images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+</div>
+</div>
+<div id="task-4---create-your-first-notebook-using-docker" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Task 4 - Create your first notebook using Docker<a href="r_install.html#task-4---create-your-first-notebook-using-docker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="start-coding" class="section level3 hasAnchor" number="2.9.1">
+<h3><span class="header-section-number">2.9.1</span> Start coding!<a href="r_install.html#start-coding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open a web browser to localhost:8787
+<p align="center">
+<img src="images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" />
+</p></li>
+<li>enter username: rstudio</li>
+<li>enter password: changeit</li>
+<li>changing the parameter <em>-e PASSWORD=changeit</em> in the above docker command will change the password you need to specify</li>
+</ul>
+<div class="rmd-troubleshooting">
+<p>
+When you go to localhost:8787 all you get is:
+</p>
+<p align="center">
+<img src="images/no_site.png" alt="no prompt" width="75%" align="center" />
+</p>
+<ul>
+<li>
+Make sure your docker container is running. (If you rebooted your
+machine you will need to restart the container on reboot.)
+</li>
+<li>
+Make sure you got the right port.
+</li>
+</ul>
+</div>
+<p>After logging in, you will see an Rstudio window just like when you install it directly on your computer. This RStudio will be running in your docker container and will be a completely separate instance from the one you have installed on your machine (with a different set of packages and potentially versions installed).</p>
+<p align="center">
+<img src="images/docker_rstudio.png" alt="R startup" width="75%" align="center" />
+</p>
+<div class="rmd-caution">
+<p>
+Make sure that you have mapped a volume on your computer to a volume
+in your container so that files you create are also saved on your
+computer. That way, turning off or deleting your container or image will
+not effect your files.
+</p>
+<ul>
+<li>
+The parameter <strong>-v ${PWD}:/home/rstudio/projects</strong> maps
+your current directory (i.e. the directory you are in when launching the
+container) to the directory /home/rstudio/projects on your
+container.
+</li>
+<li>
+You do not need to use the ${PWD} convention. You can also specify
+the exact path of the directory you want to map to your container.
+</li>
+<li>
+Make sure to save all your scripts and notebooks in the projects
+directory.
+</li>
+</ul>
+</div>
+<ol style="list-style-type: decimal">
+<li>Create your first notebook in your docker Rstudio.</li>
+<li>Save it.</li>
+<li>Find your newly created file on your computer.</li>
+</ol>
+</div>
+</div>
+<div id="packages" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Packages<a href="r_install.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R has many powerful functions built in, but one of it’s greatest features is that it is easily extensible. Extensions have been written by legions of scientists for many years, most commonly in the R programming language itself, and made available through <a href="https://cran.r-project.org/">CRAN–The Comprehensive R Archive Network</a> or through the <a href="http://www.bioconductor.org/">Bioconductor project</a>.</p>
+<p>A package is a collection of code, documentation and (often) sample data.
+* To use packages, you need to install the package (once).
+* You can then use all of the package’s functions by prefixing them with the package name and a double colon (eg. package::function()); that’s the preferred way.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r_install.html#cb11-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">bma</span>(<span class="fu">c</span>(<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;a&quot;</span>))</span></code></pre></div>
+<ul>
+<li>Or you can load all of the package’s functions with a library(package) command, and then use the functions without a prefix. That’s less typing, but it’s also less explicit and you may end up constantly wondering where exactly a particular function came from. In the teaching code for this course, I use the package::function() idiom wherever reasonable.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r_install.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span></code></pre></div>
+You can get an overview of installed and loaded packages by opening the Package Manager window from the Packages &amp; Data Menu item. It gives a list of available packages you currently have installed, and identifies those that have been loaded at startup, or interactively. But note, a package does not have to be loaded to be used.
+<p align="center">
+<img src="images/Rstudio_packages.png" alt="R packages" width="75%" align="center" />
+</p>
+</div>
+<div id="task-5---experiment-with-rstudio-and-packages" class="section level2 hasAnchor" number="2.11">
+<h2><span class="header-section-number">2.11</span> Task 5 - Experiment with RStudio and packages<a href="r_install.html#task-5---experiment-with-rstudio-and-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-task">
+<ul>
+<li>
+Navigate to <a
+href="https://cran.r-project.org/web/packages/">http://cran.r-project.org/web/packages/</a>
+and read the page.
+</li>
+<li>
+Navigate to <a
+href="http://cran.r-project.org/web/views/">http://cran.r-project.org/web/views/</a>
+(the curated CRAN task-views).
+</li>
+<li>
+Follow the link to <a
+href="https://cran.r-project.org/web/views/Genetics.html">Genetics</a>
+and read the synopsis of available packages. The library sequinr sounds
+useful, but check first whether it has been installed.
+</li>
+<li>
+Follow the exercise below
+</li>
+</ul>
+</div>
+<div id="exercise" class="section level3 hasAnchor" number="2.11.1">
+<h3><span class="header-section-number">2.11.1</span> Exercise<a href="r_install.html#exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In your RStudio window:</p>
+<ul>
+<li><p>create a new notebook.</p></li>
+<li><p>go though each of the commands below and add them to your notebook.</p></li>
+<li><p>write your observation for each of commands in the notebook.</p></li>
+<li><p>Add this new notebook to your github repo and link to it in your journal.</p></li>
+<li><p>library() opens a window that lists the packages that are installed on your computer;</p></li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r_install.html#cb13-1" tabindex="-1"></a><span class="fu">library</span>()</span></code></pre></div>
+<ul>
+<li>search() - shows which ones are currently loaded.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r_install.html#cb14-1" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;.GlobalEnv&quot;           &quot;package:deldir&quot;       &quot;package:RColorBrewer&quot;
+##  [4] &quot;package:seqinr&quot;       &quot;package:bookdown&quot;     &quot;tools:rstudio&quot;       
+##  [7] &quot;package:stats&quot;        &quot;package:graphics&quot;     &quot;package:grDevices&quot;   
+## [10] &quot;package:utils&quot;        &quot;package:datasets&quot;     &quot;package:methods&quot;     
+## [13] &quot;Autoloads&quot;            &quot;package:base&quot;</code></pre>
+<ul>
+<li>In the <strong>Packages tab</strong> of the lower-right pane in RStudio, confirm that seqinr is not yet installed.</li>
+<li>Follow the link to <a href="https://cran.r-project.org/web/packages/seqinr/index.html">seqinr</a> to see what standard information is available with a package. Then follow the link to the <a href="http://cran.r-project.org/web/packages/seqinr/seqinr.pdf">Reference manual</a> to access the documentation pdf. This is also sometimes referred to as a “vignette” and contains usage hints and sample code.</li>
+<li>Read the help for vignette. Note that there is a command to extract R sample code from a vignette, to experiment with it.</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r_install.html#cb16-1" tabindex="-1"></a>?vignette</span></code></pre></div>
+<ul>
+<li>Install seqinr from the closest CRAN mirror and load it for this session. Explore some functions.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r_install.html#cb17-1" tabindex="-1"></a><span class="co"># to get help on using install.packages</span></span>
+<span id="cb17-2"><a href="r_install.html#cb17-2" tabindex="-1"></a>?install.packages</span>
+<span id="cb17-3"><a href="r_install.html#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="r_install.html#cb17-4" tabindex="-1"></a><span class="co"># Note: the parameter is a quoted string!</span></span>
+<span id="cb17-5"><a href="r_install.html#cb17-5" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>,<span class="at">repos=</span><span class="st">&quot;https://cran.rstudio.com/&quot;</span>)   </span></code></pre></div>
+<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
+<ul>
+<li>this will launch a new window with the seqinr package info</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r_install.html#cb19-1" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help=</span><span class="st">&quot;seqinr&quot;</span>) </span></code></pre></div>
+<ul>
+<li>list all the functions available in the seqinr package.</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r_install.html#cb20-1" tabindex="-1"></a><span class="co">#Note: the file must be attached in order for the below function to work </span></span>
+<span id="cb20-2"><a href="r_install.html#cb20-2" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span>
+<span id="cb20-3"><a href="r_install.html#cb20-3" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:seqinr&quot;</span>)</span></code></pre></div>
+<pre><code>##   [1] &quot;a&quot;                       &quot;aaa&quot;                    
+##   [3] &quot;AAstat&quot;                  &quot;acnucclose&quot;             
+##   [5] &quot;acnucopen&quot;               &quot;al2bp&quot;                  
+##   [7] &quot;alllistranks&quot;            &quot;alr&quot;                    
+##   [9] &quot;amb&quot;                     &quot;as.alignment&quot;           
+##  [11] &quot;as.matrix.alignment&quot;     &quot;as.SeqAcnucWeb&quot;         
+##  [13] &quot;as.SeqFastaAA&quot;           &quot;as.SeqFastadna&quot;         
+##  [15] &quot;as.SeqFrag&quot;              &quot;autosocket&quot;             
+##  [17] &quot;baselineabif&quot;            &quot;bma&quot;                    
+##  [19] &quot;c2s&quot;                     &quot;cai&quot;                    
+##  [21] &quot;cfl&quot;                     &quot;choosebank&quot;             
+##  [23] &quot;circle&quot;                  &quot;clfcd&quot;                  
+##  [25] &quot;clientid&quot;                &quot;closebank&quot;              
+##  [27] &quot;col2alpha&quot;               &quot;comp&quot;                   
+##  [29] &quot;computePI&quot;               &quot;con&quot;                    
+##  [31] &quot;consensus&quot;               &quot;count&quot;                  
+##  [33] &quot;countfreelists&quot;          &quot;countsubseqs&quot;           
+##  [35] &quot;crelistfromclientdata&quot;   &quot;css&quot;                    
+##  [37] &quot;dia.bactgensize&quot;         &quot;dia.db.growth&quot;          
+##  [39] &quot;dist.alignment&quot;          &quot;dotchart.uco&quot;           
+##  [41] &quot;dotPlot&quot;                 &quot;draw.oriloc&quot;            
+##  [43] &quot;draw.rearranged.oriloc&quot;  &quot;draw.recstat&quot;           
+##  [45] &quot;exseq&quot;                   &quot;extract.breakpoints&quot;    
+##  [47] &quot;extractseqs&quot;             &quot;fastacc&quot;                
+##  [49] &quot;gb2fasta&quot;                &quot;gbk2g2&quot;                 
+##  [51] &quot;gbk2g2.euk&quot;              &quot;GC&quot;                     
+##  [53] &quot;GC1&quot;                     &quot;GC2&quot;                    
+##  [55] &quot;GC3&quot;                     &quot;GCpos&quot;                  
+##  [57] &quot;get.db.growth&quot;           &quot;getAnnot&quot;               
+##  [59] &quot;getAnnot.default&quot;        &quot;getAnnot.list&quot;          
+##  [61] &quot;getAnnot.logical&quot;        &quot;getAnnot.qaw&quot;           
+##  [63] &quot;getAnnot.SeqAcnucWeb&quot;    &quot;getAnnot.SeqFastaAA&quot;    
+##  [65] &quot;getAnnot.SeqFastadna&quot;    &quot;getAttributsocket&quot;      
+##  [67] &quot;getFrag&quot;                 &quot;getFrag.character&quot;      
+##  [69] &quot;getFrag.default&quot;         &quot;getFrag.list&quot;           
+##  [71] &quot;getFrag.logical&quot;         &quot;getFrag.qaw&quot;            
+##  [73] &quot;getFrag.SeqAcnucWeb&quot;     &quot;getFrag.SeqFastaAA&quot;     
+##  [75] &quot;getFrag.SeqFastadna&quot;     &quot;getFrag.SeqFrag&quot;        
+##  [77] &quot;getKeyword&quot;              &quot;getKeyword.default&quot;     
+##  [79] &quot;getKeyword.list&quot;         &quot;getKeyword.logical&quot;     
+##  [81] &quot;getKeyword.qaw&quot;          &quot;getKeyword.SeqAcnucWeb&quot; 
+##  [83] &quot;getLength&quot;               &quot;getLength.character&quot;    
+##  [85] &quot;getLength.default&quot;       &quot;getLength.list&quot;         
+##  [87] &quot;getLength.logical&quot;       &quot;getLength.qaw&quot;          
+##  [89] &quot;getLength.SeqAcnucWeb&quot;   &quot;getLength.SeqFastaAA&quot;   
+##  [91] &quot;getLength.SeqFastadna&quot;   &quot;getLength.SeqFrag&quot;      
+##  [93] &quot;getlistrank&quot;             &quot;getliststate&quot;           
+##  [95] &quot;getLocation&quot;             &quot;getLocation.default&quot;    
+##  [97] &quot;getLocation.list&quot;        &quot;getLocation.logical&quot;    
+##  [99] &quot;getLocation.qaw&quot;         &quot;getLocation.SeqAcnucWeb&quot;
+## [101] &quot;getName&quot;                 &quot;getName.default&quot;        
+## [103] &quot;getName.list&quot;            &quot;getName.logical&quot;        
+## [105] &quot;getName.qaw&quot;             &quot;getName.SeqAcnucWeb&quot;    
+## [107] &quot;getName.SeqFastaAA&quot;      &quot;getName.SeqFastadna&quot;    
+## [109] &quot;getName.SeqFrag&quot;         &quot;getNumber.socket&quot;       
+## [111] &quot;getSequence&quot;             &quot;getSequence.character&quot;  
+## [113] &quot;getSequence.default&quot;     &quot;getSequence.list&quot;       
+## [115] &quot;getSequence.logical&quot;     &quot;getSequence.qaw&quot;        
+## [117] &quot;getSequence.SeqAcnucWeb&quot; &quot;getSequence.SeqFastaAA&quot; 
+## [119] &quot;getSequence.SeqFastadna&quot; &quot;getSequence.SeqFrag&quot;    
+## [121] &quot;getTrans&quot;                &quot;getTrans.character&quot;     
+## [123] &quot;getTrans.default&quot;        &quot;getTrans.list&quot;          
+## [125] &quot;getTrans.logical&quot;        &quot;getTrans.qaw&quot;           
+## [127] &quot;getTrans.SeqAcnucWeb&quot;    &quot;getTrans.SeqFastadna&quot;   
+## [129] &quot;getTrans.SeqFrag&quot;        &quot;getType&quot;                
+## [131] &quot;gfrag&quot;                   &quot;ghelp&quot;                  
+## [133] &quot;gln&quot;                     &quot;glr&quot;                    
+## [135] &quot;gls&quot;                     &quot;is.SeqAcnucWeb&quot;         
+## [137] &quot;is.SeqFastaAA&quot;           &quot;is.SeqFastadna&quot;         
+## [139] &quot;is.SeqFrag&quot;              &quot;isenum&quot;                 
+## [141] &quot;isn&quot;                     &quot;kaks&quot;                   
+## [143] &quot;kdb&quot;                     &quot;knowndbs&quot;               
+## [145] &quot;lseqinr&quot;                 &quot;modifylist&quot;             
+## [147] &quot;move&quot;                    &quot;mv&quot;                     
+## [149] &quot;n2s&quot;                     &quot;oriloc&quot;                 
+## [151] &quot;parser.socket&quot;           &quot;peakabif&quot;               
+## [153] &quot;permutation&quot;             &quot;pga&quot;                    
+## [155] &quot;plot.SeqAcnucWeb&quot;        &quot;plotabif&quot;               
+## [157] &quot;plotladder&quot;              &quot;plotPanels&quot;             
+## [159] &quot;pmw&quot;                     &quot;prepgetannots&quot;          
+## [161] &quot;prettyseq&quot;               &quot;print.qaw&quot;              
+## [163] &quot;print.SeqAcnucWeb&quot;       &quot;query&quot;                  
+## [165] &quot;quitacnuc&quot;               &quot;read.abif&quot;              
+## [167] &quot;read.alignment&quot;          &quot;read.fasta&quot;             
+## [169] &quot;readBins&quot;                &quot;readfirstrec&quot;           
+## [171] &quot;readPanels&quot;              &quot;readsmj&quot;                
+## [173] &quot;rearranged.oriloc&quot;       &quot;recstat&quot;                
+## [175] &quot;residuecount&quot;            &quot;reverse.align&quot;          
+## [177] &quot;rho&quot;                     &quot;rot13&quot;                  
+## [179] &quot;s2c&quot;                     &quot;s2n&quot;                    
+## [181] &quot;savelist&quot;                &quot;SEQINR.UTIL&quot;            
+## [183] &quot;setlistname&quot;             &quot;splitseq&quot;               
+## [185] &quot;stresc&quot;                  &quot;stutterabif&quot;            
+## [187] &quot;summary.SeqFastaAA&quot;      &quot;summary.SeqFastadna&quot;    
+## [189] &quot;swap&quot;                    &quot;syncodons&quot;              
+## [191] &quot;synsequence&quot;             &quot;tablecode&quot;              
+## [193] &quot;test.co.recstat&quot;         &quot;test.li.recstat&quot;        
+## [195] &quot;translate&quot;               &quot;trimSpace&quot;              
+## [197] &quot;uco&quot;                     &quot;ucoweight&quot;              
+## [199] &quot;where.is.this.acc&quot;       &quot;words&quot;                  
+## [201] &quot;words.pos&quot;               &quot;write.fasta&quot;            
+## [203] &quot;zscore&quot;</code></pre>
+<ul>
+<li>In Rstudio this will open the method description for the method a in the Help pane.</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r_install.html#cb22-1" tabindex="-1"></a>?seqinr<span class="sc">::</span>a </span></code></pre></div>
+<ul>
+<li>Run the fiction to see the output</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r_install.html#cb23-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">a</span>(<span class="st">&quot;Tyr&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Y&quot;</code></pre>
+<ul>
+<li>What does function below do? <strong>enter your results in your journal</strong></li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r_install.html#cb25-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">words</span>(<span class="dv">3</span>, <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;U&quot;</span>))</span></code></pre></div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>The installation fails.</strong>
+</p>
+<ul>
+<li>
+<strong>You might see an error message such as this:</strong>
+</li>
+</ul>
+<p>
+<font color="red">Warning message:</font><br>
+<font size="3" color="red">package ‘XYZ’ is not available (for R version
+3.2.2)</font>
+</p>
+<ul>
+<li>
+<p>
+This can mean several things:
+</p>
+<ul>
+<li>
+The package is not available on CRAN. Try Bioconductor instead or
+Google for the name to find it.
+</li>
+<li>
+The package requires a newer version of R than the one you have.
+Upgrade, or see if a legacy version exists.
+</li>
+<li>
+A comprehensive set of reasons and their resolution is here on <a
+href="https://stackoverflow.com/questions/25721884/how-should-i-deal-with-package-xxx-is-not-available-for-r-version-x-y-z-wa">stackoverflow</a>.
+</li>
+</ul>
+</li>
+<li>
+<p>
+<strong>We have seen the following on Windows systems when typing
+library(help=“seqinr”)</strong> <font color="red">Error in formatDL(nm,
+txt, indent = max(nchar(nm, “w”)) + 3) :</font><br>
+<font color="red">incorrect values of ‘indent’ and
+‘width’</font><br>
+</p>
+<ul>
+<li>
+Anecdotally this was due to a previous installation problem with a
+mixup of 32-bit and 64-bit R versions, although another student told us
+that the problem simply went away when trying the command again.
+Whatever: Make sure you have the right R version installed for your
+operating system. Uninstall and reinstall when in doubt. Conflicting
+libraries can be the source of strange misbehaviour.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>The fact that these methods work, shows that the package has been downloaded, installed, its functions are now available with the package name prefix and any datasets it contains can be loaded. Just like many other packages, seqinr comes with a number of datafiles. Try:</p>
+<ul>
+<li>What does this function do?</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r_install.html#cb26-1" tabindex="-1"></a>?data</span></code></pre></div>
+<ul>
+<li>What is an example of data that is available for the seqinr package?</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r_install.html#cb27-1" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">&quot;seqinr&quot;</span>)            <span class="co"># list the available data</span></span></code></pre></div>
+<ul>
+<li>load ‘’aaindex’’. Describe this data. See <a href="https://rdrr.io/cran/seqinr/man/aaindex.html">here</a> for more information.</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r_install.html#cb28-1" tabindex="-1"></a><span class="fu">data</span>(aaindex, <span class="at">package=</span><span class="st">&quot;seqinr&quot;</span>)   </span></code></pre></div>
+<ul>
+<li>what is this?</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r_install.html#cb29-1" tabindex="-1"></a>?aaindex                          </span></code></pre></div>
+<ul>
+<li>two of the indices …</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r_install.html#cb30-1" tabindex="-1"></a>aaindex<span class="sc">$</span>FASG890101 </span></code></pre></div>
+<pre><code>## $H
+## [1] &quot;FASG890101&quot;
+## 
+## $D
+## [1] &quot;Hydrophobicity index (Fasman, 1989)&quot;
+## 
+## $R
+## [1] &quot;&quot;
+## 
+## $A
+## [1] &quot;Fasman, G.D.&quot;
+## 
+## $T
+## [1] &quot;Prediction of Protein Structure and the Principles of Protein Conformation&quot;
+## 
+## $J
+## [1] &quot;Plenum, New York 1989, page 457, Table XVII&quot;
+## 
+## $C
+## [1] &quot;MIYS990105    0.959  MIYS990103    0.957  MEIH800102    0.951MIYS990104    0.949  RACS770102    0.935  GUYH850101    0.934MIYS990102    0.929  MIYS990101    0.926  MEIH800101    0.919KRIW790101    0.914  GUYH850102    0.909  VINM940101    0.904KRIW790102    0.882  GUYH850104    0.872  RACS770101    0.872GRAR740102    0.872  CORJ870108    0.872  KARP850102    0.871OOBM770103    0.869  VINM940103    0.868  OOBM770101    0.868KRIW710101    0.865  KIDA850101    0.861  GUYH850103    0.860PUNT030102    0.853  PUNT030101    0.845  FUKS010104    0.844RACS770103    0.842  ROSM880102    0.839  JANJ780103    0.838VINM940102    0.836  PARJ860101    0.825  KUHL950101    0.821JANJ780101    0.813  FUKS010103    0.812  GUOD860101   -0.801DESM900101   -0.808  CORJ870105   -0.821  ROSM880105   -0.822PONP800106   -0.823  NADH010101   -0.838  CORJ870106   -0.841KYTJ820101   -0.844  CIDH920103   -0.846  CHOC760103   -0.849BASU050101   -0.856  JURD980101   -0.857  PLIV810101   -0.858BAEK050101   -0.859  CIDH920105   -0.860  ROBB790101   -0.860EISD860103   -0.863  CORJ870104   -0.865  CORJ870107   -0.871JANJ790102   -0.875  CORJ870103   -0.876  NADH010105   -0.877DESM900102   -0.879  BASU050102   -0.881  JANJ790101   -0.885CIDH920104   -0.903  JANJ780102   -0.903  MANP780101   -0.904PONP930101   -0.907  ZHOH040103   -0.910  FAUJ830101   -0.911PONP800108   -0.913  BASU050103   -0.915  CORJ870101   -0.921NISK800101   -0.923  MEIH800103   -0.924  CASG920101   -0.924WERD780101   -0.926  BIOV880102   -0.928  NADH010102   -0.929PONP800101   -0.932  PONP800103   -0.936  MIYS850101   -0.938PONP800102   -0.944  NADH010104   -0.944  NADH010103   -0.945NISK860101   -0.949  ROSG850102   -0.976  RADA880108   -0.977BIOV880101   -0.982&quot;
+## 
+## $I
+##   Ala   Arg   Asn   Asp   Cys   Gln   Glu   Gly   His   Ile   Leu   Lys   Met 
+## -0.21  2.11  0.96  1.36 -6.04  1.52  2.30  0.00 -1.23 -4.81 -4.68  3.88 -3.66 
+##   Phe   Pro   Ser   Thr   Trp   Tyr   Val 
+## -4.65  0.75  1.74  0.78 -3.32 -1.01 -3.50</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r_install.html#cb32-1" tabindex="-1"></a>aaindex<span class="sc">$</span>PONJ960101 </span></code></pre></div>
+<pre><code>## $H
+## [1] &quot;PONJ960101&quot;
+## 
+## $D
+## [1] &quot;Average volumes of residues (Pontius et al., 1996)&quot;
+## 
+## $R
+## [1] &quot;PMID: 8950272&quot;
+## 
+## $A
+## [1] &quot;Pontius, J., Richelle, J. and Wodak, S.J.&quot;
+## 
+## $T
+## [1] &quot;Deviations from standard atomic volumes as a quality measure for protein crystal structures&quot;
+## 
+## $J
+## [1] &quot;J. Mol. Biol 264, 121-136 (1996) (Disulfide bonded cysteine, 102.4)&quot;
+## 
+## $C
+## [1] &quot;HARY940101    0.989  CHOC750101    0.966  FAUJ880103    0.963TSAJ990102    0.962  CHOC760101    0.961  TSAJ990101    0.960BIGC670101    0.950  GOLD730102    0.947  FASG760101    0.945KRIW790103    0.943  CHAM820101    0.938  GRAR740103    0.937LEVM760102    0.930  LEVM760105    0.928  CHAM830106    0.917FAUJ880106    0.913  DAWD720101    0.873  ROSG850101    0.862RADA880106    0.860  LEVM760107    0.827  ZHOH040102    0.823RADA880103   -0.873&quot;
+## 
+## $I
+##   Ala   Arg   Asn   Asp   Cys   Gln   Glu   Gly   His   Ile   Leu   Lys   Met 
+##  91.5 196.1 138.3 135.2 114.4 156.4 154.6  67.5 163.2 162.6 163.4 162.5 165.9 
+##   Phe   Pro   Ser   Thr   Trp   Tyr   Val 
+## 198.8 123.4 102.0 126.0 209.8 237.2 138.4</code></pre>
+<ul>
+<li>Let’s use the data:
+<ul>
+<li>plot amino acid single-letter codes by hydrophobicity and volume.</li>
+<li>The values come from the dataset.</li>
+<li>Copy and paste the commands.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r_install.html#cb34-1" tabindex="-1"></a><span class="fu">plot</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I,</span>
+<span id="cb34-2"><a href="r_install.html#cb34-2" tabindex="-1"></a>     aaindex<span class="sc">$</span>PONJ960101<span class="sc">$</span>I,</span>
+<span id="cb34-3"><a href="r_install.html#cb34-3" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;hydrophobicity&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;volume&quot;</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>)</span>
+<span id="cb34-4"><a href="r_install.html#cb34-4" tabindex="-1"></a><span class="fu">text</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I,</span>
+<span id="cb34-5"><a href="r_install.html#cb34-5" tabindex="-1"></a>     aaindex<span class="sc">$</span>PONJ960101<span class="sc">$</span>I,</span>
+<span id="cb34-6"><a href="r_install.html#cb34-6" tabindex="-1"></a>     <span class="at">labels=</span><span class="fu">a</span>(<span class="fu">names</span>(aaindex<span class="sc">$</span>FASG890101<span class="sc">$</span>I)))</span></code></pre></div>
+<p><img src="BCB420_Computational_Systems_Biology_Unit2_R_Basics_files/figure-html/plot_hydrophobicity-1.png" width="672" /></p>
+<ul>
+<li>Now, just for fun, let’s use seqinr package functions to download a sequence and calculate some statistics (however, not to digress too far, without further explanation at this point).</li>
+<li>Copy the code below and paste it into the R-console.</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r_install.html#cb35-1" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">choosebank</span>(<span class="st">&quot;swissprot&quot;</span>)</span>
+<span id="cb35-2"><a href="r_install.html#cb35-2" tabindex="-1"></a>mySeq <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">query</span>(<span class="st">&quot;mySeq&quot;</span>, <span class="st">&quot;N=MBP1_YEAST&quot;</span>)</span>
+<span id="cb35-3"><a href="r_install.html#cb35-3" tabindex="-1"></a>mbp1 <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">getSequence</span>(mySeq)</span>
+<span id="cb35-4"><a href="r_install.html#cb35-4" tabindex="-1"></a>seqinr<span class="sc">::</span><span class="fu">closebank</span>()</span>
+<span id="cb35-5"><a href="r_install.html#cb35-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">AAstat</span>(mbp1[[<span class="dv">1</span>]])</span>
+<span id="cb35-6"><a href="r_install.html#cb35-6" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(x<span class="sc">$</span>Compo), <span class="at">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+<p>We could have “loaded” the package with library(), and then used the functions without prefix. Less typing, but also less explicit.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r_install.html#cb36-1" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span>
+<span id="cb36-2"><a href="r_install.html#cb36-2" tabindex="-1"></a><span class="fu">choosebank</span>(<span class="st">&quot;swissprot&quot;</span>)</span>
+<span id="cb36-3"><a href="r_install.html#cb36-3" tabindex="-1"></a>mySeq <span class="ot">&lt;-</span> <span class="fu">query</span>(<span class="st">&quot;mySeq&quot;</span>, <span class="st">&quot;N=MBP1_YEAST&quot;</span>)</span>
+<span id="cb36-4"><a href="r_install.html#cb36-4" tabindex="-1"></a>mbp1 <span class="ot">&lt;-</span> <span class="fu">getSequence</span>(mySeq)</span>
+<span id="cb36-5"><a href="r_install.html#cb36-5" tabindex="-1"></a><span class="fu">closebank</span>()</span>
+<span id="cb36-6"><a href="r_install.html#cb36-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">AAstat</span>(mbp1[[<span class="dv">1</span>]])</span>
+<span id="cb36-7"><a href="r_install.html#cb36-7" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(x<span class="sc">$</span>Compo), <span class="at">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+<p>In general we will be using the idiom with the package prefix throughout the course.</p>
+<p>The function <strong>requireNamespace()</strong> is useful because it does not produce an error when a package has not been installed. It simply returns TRUE if successful or FALSE if not. Therefore one can use the following code idiom in R scripts to avoid downloading the package every time the script is called.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r_install.html#cb37-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;seqinr&quot;</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
+<span id="cb37-2"><a href="r_install.html#cb37-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>)</span>
+<span id="cb37-3"><a href="r_install.html#cb37-3" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>You can get package information with the following commands:</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r_install.html#cb38-1" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help =</span> seqinr)       <span class="co"># basic information</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r_install.html#cb39-1" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;seqinr&quot;</span>)    <span class="co"># available vignettes</span></span></code></pre></div>
+<pre><code>## No vignettes found by browseVignettes(&quot;seqinr&quot;)</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r_install.html#cb41-1" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">&quot;seqinr&quot;</span>)     <span class="co"># available datasets</span></span></code></pre></div>
+<ul>
+<li><strong>Note</strong> that install.packages() takes a (quoted) string as its argument, but library() takes a variable name (without quotes). New users usually get this wrong :-)</li>
+<li><strong>Note</strong> that the Bioconductor project has its own installation system, the Biocmanager::install() function. It is explained <a href="https://bioconductor.org/install/">here</a>.</li>
+<li><strong>Note</strong>, just to mention it at this point: to install packages that are not on CRAN or Bioconductor, you need the <a href="https://www.r-project.org/nosvn/pandoc/devtools.html">devtools package</a>.</li>
+</ul>
+</div>
+<div id="finding-packages" class="section level3 hasAnchor" number="2.11.2">
+<h3><span class="header-section-number">2.11.2</span> Finding packages<a href="r_install.html#finding-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One of the challenges of working with R is the overabundance of options. CRAN has over 10,000 packages and Bioconductor has over 1,300 more. How can you find ones that are useful to your work? There’s actually a package to help you do that, the sos package on CRAN. Try this:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r_install.html#cb42-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;sos&quot;</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>)) {</span>
+<span id="cb42-2"><a href="r_install.html#cb42-2" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;sos&quot;</span>)</span>
+<span id="cb42-3"><a href="r_install.html#cb42-3" tabindex="-1"></a>}</span>
+<span id="cb42-4"><a href="r_install.html#cb42-4" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help =</span> sos)       <span class="co"># basic information</span></span>
+<span id="cb42-5"><a href="r_install.html#cb42-5" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">&quot;sos&quot;</span>)    <span class="co"># available vignettes</span></span>
+<span id="cb42-6"><a href="r_install.html#cb42-6" tabindex="-1"></a> </span>
+<span id="cb42-7"><a href="r_install.html#cb42-7" tabindex="-1"></a>sos<span class="sc">::</span><span class="fu">findFn</span>(<span class="st">&quot;moving average&quot;</span>)</span></code></pre></div>
+<p><strong>Or: </strong></p>
+<ul>
+<li>Read a CRAN <a href="https://cran.r-project.org/web/views/">Task View</a> for your area of interest</li>
+<li>or the <a href="https://www.bioconductor.org/packages/devel/BiocViews.html">Bioconductor Views</a>;</li>
+<li>Search on “Metacran” (<a href="https://www.r-pkg.org/search.html?q=regex">“regex” example here”</a>) …</li>
+<li>or “MRAN” (<a href="https://mran.microsoft.com/packages?search=regex">“regex” example here”</a>, not that the results are not identical);</li>
+<li>and, as always, Google.</li>
+</ul>
+</div>
+<div id="self-evaluation" class="section level3 hasAnchor" number="2.11.3">
+<h3><span class="header-section-number">2.11.3</span> Self-evaluation<a href="r_install.html#self-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Question 1 - What is the purpose of this code?</li>
+</ol>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r_install.html#cb43-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;seqinr&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb43-2"><a href="r_install.html#cb43-2" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;seqinr&quot;</span>)</span>
+<span id="cb43-3"><a href="r_install.html#cb43-3" tabindex="-1"></a>}</span></code></pre></div>
+<p>Why not just use:
+install.packages(“seqinr”)</p>
+<p><strong>Answer</strong>:
+This code idiom is useful in scripts, to ensure a package is installed before we try to use its functions. If we would simply use install.packages(“seqinr”), the package would be downloaded from CRAN every time the script is run. That would make our script slow, and require available internet access for the script to run.</p>
+<p>In the code above, the package is downloaded only when requireNamespace() returns FALSE, which presumably means the package has not yet been downloaded.</p>
+</div>
+<div id="further-reading-links-and-resources" class="section level3 hasAnchor" number="2.11.4">
+<h3><span class="header-section-number">2.11.4</span> Further reading, links and resources<a href="r_install.html#further-reading-links-and-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/R_(programming_language)">Wikipedia article</a> on the R statistics environment and programming language</li>
+<li><a href="https://www.r-project.org/">The R project homepage</a></li>
+<li><a href="https://rstudio.com/products/rstudio/">The R Studio IDE</a></li>
+<li><a href="https://cran.r-project.org/">CRAN–The Comprehensive R Archive Network</a></li>
+<li><a href="http://www.bioconductor.org/">The Bioconductor project homepage</a></li>
+<li><a href="https://www.r-bloggers.com/">R bloggers</a></li>
+<li><a href="https://blog.revolutionanalytics.com/2017/01/cran-10000.html">Package finding strategies (Revolutions Analytics Blog)</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/r-packages-guide">Intro to R packages</a> (at DataCamp).</li>
+<li><a href="https://stackoverflow.blog/2017/10/10/impressive-growth-r/">“The Impressive Growth of R” (Stackoverflow Data Analytics Team Blog)</a></li>
+<li><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005871">Ten simple rules for biologists learning to program</a> - Carey and Papin advise novice biologist programmers how to begin. Much of this paper resonates well with our Introduction to R learning units. Good context for a beginning, to get a sense of where we are going with this.</li>
+</ul>
+<p><strong>If in doubt, ask!</strong><br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
+
+<div class="rmd-original-history">
+<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca" class="email">boris.steipe@utoronto.ca</a> <br>
+<strong>Created</strong>: 2017-08-05<br>
+<strong>Modified</strong>: 2019-01-07<br>
+Version: 1.1<br>
+<strong>Version history</strong>:<br>
+1.1 Change from require() to requireNamespace() and use <package>::<function>() idiom.<br>
+1.02 Maintenance<br>
+1.0.1 Removed mention of Sweave - obsolete, and broken link. Added mention of “literate programming”.<br>
+1.0 Completed to first live version<br>
+0.1 Material collected from previous tutorial<br>
+</div>
+</div>
+<div id="updated-revision-history" class="section level3 hasAnchor" number="2.11.5">
+<h3><span class="header-section-number">2.11.5</span> Updated Revision history<a href="r_install.html#updated-revision-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="11%" />
+<col width="8%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Revision</th>
+<th align="left">Author</th>
+<th align="left">Date</th>
+<th align="left">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">5152496</td>
+<td align="left">Ruth Isserlin</td>
+<td align="left">2019-12-25</td>
+<td align="left">Fixed issue with task numbering because of a remove all elements call in the 2nd chapter</td>
+</tr>
+<tr class="even">
+<td align="left">fab47ae</td>
+<td align="left">Ruth Isserlin</td>
+<td align="left">2019-12-24</td>
+<td align="left">initial check in of R basics book</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="footnotes" class="section level3 hasAnchor" number="2.11.6">
+<h3><span class="header-section-number">2.11.6</span> Footnotes:<a href="r_install.html#footnotes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-docker" class="csl-entry">
+<span>“What Is a Container?”</span> n.d. <em>Docker</em>. <a href="https://www.docker.com/resources/what-container" class="uri">https://www.docker.com/resources/what-container</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>and when you click on the arrow to the left, this will take you back to where you came from<a href="r_install.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Proportional fonts are for elegant document layout. Monospaced fonts are needed to properly align characters in columns. For code and sequences, we always use monospaced font.<a href="r_install.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>[1] means: the following is the first (often only) element of a vector.<a href="r_install.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>A “wrapper” program uses another program’s functionality in its own context. RStudio is a wrapper for <strong>R</strong> since it does not duplicate <strong>R</strong>’s functions, it runs the actual R in the background.<a href="r_install.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": "https://github.com/bcb420-2020/R_basics/commit/master/01-R-installation.Rmd",
+"text": null
+},
+"view": {
+"link": "https://github.com/bcb420-2020/R_basics/blob/master/01-R-installation.Rmd",
+"text": null
+},
+"download": ["BCB420_Computational_Systems_Biology_Unit2_R_Basics.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

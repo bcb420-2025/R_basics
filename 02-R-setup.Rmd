@@ -1,4 +1,4 @@
-#Setup R to work with it {#r-setup}
+# Setup R to work with it {#r-setup}
 (R projects; working with git version control via RStudio; the history mechanism and why not to use it; .Rprofile to customize startup behaviour; the working directory.)
 
 ## Overview

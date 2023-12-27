@@ -1,5 +1,6 @@
 about
 attributions
+r_install
 overview
 objectives
 outcomes
@@ -33,6 +34,7 @@ self-evaluation
 further-reading-links-and-resources
 updated-revision-history
 footnotes
+r-setup
 overview-1
 objectives-1
 outcomes-1
