@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Setup R to work with it | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Setup R to work with it | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2024/R_basics" />
+  <meta name="github-repo" content="bcb420-2025/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 Setup R to work with it | BCB420 - Computational System Biology" />
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -127,6 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -161,9 +162,9 @@ div.csl-indent {
 <li><a href="./">Unit 2 - R Basics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+<li class="chapter" data-level="1.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r_install.html"><a href="r_install.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a>
 <ul>
@@ -764,7 +765,7 @@ control options to reappear.
 <div id="working-directory" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> Working directory<a href="r-setup.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To locate a file in a computer, one has to specify the filename and the directory in which the file is stored; this is also called the path of the file. However R uses a default <em>working directory</em>, which is assumed if no path is specified. This <em>working directory</em> for <strong>R</strong> is either the directory in which the <strong>R</strong>-program has been installed, or some other directory, that has been defined in a startup script, or specifically defined with the command setwd(“<working Directory>”) at any time. You can execute the command getwd() to list what the Working Directory is currently set to:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-setup.html#cb44-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-setup.html#cb43-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/rstudio/projects/R_basics&quot;</code></pre>
 <p>In RStudio, the contents of the working directory is listed in the Files Pane (lower-right).</p>
 <p align="center">
@@ -773,20 +774,17 @@ control options to reappear.
 <p>It is convenient to put all your <strong>R</strong>-input and output files into a project specific directory and then define this to be the “Working Directory”. Use the setwd() command for this. setwd() requires an argument that you type between the parentheses: a string with the directory path, or a variable containing such a string. Strings in <strong>R</strong> are delimited with ” or ’ characters. If the directory does not exist, an Error will be reported. Make sure you have created the directory. On Mac and Unix systems, the usual shorthand notation for relative paths can be used: ~ for the home directory, . for the current directory, .. for the parent of the current directory.</p>
 <p>If you use a Windows system, you need to know that backslashes – “\” – have a special meaning for <strong>R</strong>, they work as escape characters. For example the string “\n” means newline, and “\t” means tab. Thus <strong>R</strong> gets confused when you put backslashes into string literals, such as Windows path names. <strong>R</strong> has a simple solution: you simply use forward slashes instead of backslashes when you specify paths, and <strong>R</strong> will translate them correctly when it talks to your operating system. Instead of C:\documents\projectfiles you write C:/documents/projectfiles. <strong>Also note that on Windows the ~ tilde is a shorthand for the directory in which R is installed, not the user’s home directory</strong>.</p>
 <p>My home directory…</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-setup.html#cb46-1" tabindex="-1"></a>original_dir <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
-<span id="cb46-2"><a href="r-setup.html#cb46-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~&quot;</span>) <span class="co"># Note: ~ is the &quot;tilde&quot; - the squiggly line - not the straight hyphen</span></span>
-<span id="cb46-3"><a href="r-setup.html#cb46-3" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;/home/rstudio&quot;</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-setup.html#cb45-1" tabindex="-1"></a>original_dir <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
+<span id="cb45-2"><a href="r-setup.html#cb45-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~&quot;</span>) <span class="co"># Note: ~ is the &quot;tilde&quot; - the squiggly line - not the straight hyphen</span></span>
+<span id="cb45-3"><a href="r-setup.html#cb45-3" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <p>Relative path: home directory, up one level, then down into baderlab’s home directory)</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-setup.html#cb48-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/../&quot;</span>)</span>
-<span id="cb48-2"><a href="r-setup.html#cb48-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;/home&quot;</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-setup.html#cb46-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/../&quot;</span>)</span>
+<span id="cb46-2"><a href="r-setup.html#cb46-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <p>Absolute path: specify the entire string)</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-setup.html#cb50-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/home/rstudio/projects&quot;</span>)</span>
-<span id="cb50-2"><a href="r-setup.html#cb50-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;/home/rstudio/projects&quot;</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-setup.html#cb47-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/home/rstudio/projects&quot;</span>)</span>
+<span id="cb47-2"><a href="r-setup.html#cb47-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <p>Reset the directory to the original directory</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-setup.html#cb52-1" tabindex="-1"></a><span class="fu">setwd</span>(original_dir) </span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-setup.html#cb48-1" tabindex="-1"></a><span class="fu">setwd</span>(original_dir) </span></code></pre></div>
 <p>In RStudio you can use the Session → Set Working Directory menu:</p>
 <p align="center">
 <img src="images/set_session.png" alt="set wd" width="75%" align="center" />
@@ -836,7 +834,7 @@ Menu, under Misc.
 <li>functions that you would like to preload.</li>
 </ul>
 <p>For more details, use R’s help function:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-setup.html#cb53-1" tabindex="-1"></a>?Startup</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-setup.html#cb49-1" tabindex="-1"></a>?Startup</span></code></pre></div>
 </div>
 <div id="task-8---.rprofile" class="section level2 hasAnchor" number="3.9">
 <h2><span class="header-section-number">3.9</span> Task 8 - .Rprofile<a href="r-setup.html#task-8---.rprofile" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -871,136 +869,31 @@ that now but Close the file again.
 <li>Explicit beats implicit.</li>
 </ul>
 <p>List the current workspace contents: initially it only contains the init() function that was loaded from the .Rprofile script on startup.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-setup.html#cb54-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
-##  [4] &quot;bet&quot;              &quot;c&quot;                &quot;CC&quot;              
-##  [7] &quot;code&quot;             &quot;col&quot;              &quot;d&quot;               
-## [10] &quot;da&quot;               &quot;dCol&quot;             &quot;dl&quot;              
-## [13] &quot;draw.sample.cell&quot; &quot;draw.title&quot;       &quot;draw.vf.cell&quot;    
-## [16] &quot;extra&quot;            &quot;f&quot;                &quot;fi&quot;              
-## [19] &quot;fibSeq&quot;           &quot;fnoise&quot;           &quot;funds&quot;           
-## [22] &quot;get.c&quot;            &quot;get.r&quot;            &quot;githistory2table&quot;
-## [25] &quot;goldenRatio&quot;      &quot;h&quot;                &quot;hcol&quot;            
-## [28] &quot;i&quot;                &quot;info&quot;             &quot;l&quot;               
-## [31] &quot;li&quot;               &quot;m&quot;                &quot;m1&quot;              
-## [34] &quot;m2&quot;               &quot;make.table&quot;       &quot;MAXPLAYS&quot;        
-## [37] &quot;mixed_type&quot;       &quot;myLifeDays&quot;       &quot;myVec&quot;           
-## [40] &quot;n&quot;                &quot;N&quot;                &quot;nc&quot;              
-## [43] &quot;ncirc&quot;            &quot;nPlays&quot;           &quot;nr&quot;              
-## [46] &quot;objectInfo&quot;       &quot;ocode&quot;            &quot;oldpar&quot;          
-## [49] &quot;opar&quot;             &quot;original_dir&quot;     &quot;outcomes&quot;        
-## [52] &quot;p&quot;                &quot;pal&quot;              &quot;par&quot;             
-## [55] &quot;plasmidData&quot;      &quot;plasmidDB&quot;        &quot;pUC19&quot;           
-## [58] &quot;result&quot;           &quot;s&quot;                &quot;sq&quot;              
-## [61] &quot;startTime&quot;        &quot;string&quot;           &quot;stripes&quot;         
-## [64] &quot;task_counter&quot;     &quot;tf&quot;               &quot;tl&quot;              
-## [67] &quot;ts&quot;               &quot;v&quot;                &quot;v0&quot;              
-## [70] &quot;v1&quot;               &quot;v2&quot;               &quot;v5&quot;              
-## [73] &quot;vDist&quot;            &quot;vec&quot;              &quot;x&quot;               
-## [76] &quot;x1&quot;               &quot;x2&quot;               &quot;x3&quot;              
-## [79] &quot;x4&quot;               &quot;y&quot;                &quot;y1&quot;              
-## [82] &quot;y2&quot;               &quot;y3&quot;               &quot;y4&quot;</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-setup.html#cb50-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;aaindex&quot;          &quot;githistory2table&quot; &quot;task_counter&quot;</code></pre>
 <p>Initialize three variables</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-setup.html#cb56-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb56-2"><a href="r-setup.html#cb56-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb56-3"><a href="r-setup.html#cb56-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(a<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span>b<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb56-4"><a href="r-setup.html#cb56-4" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
-##  [4] &quot;bet&quot;              &quot;c&quot;                &quot;CC&quot;              
-##  [7] &quot;code&quot;             &quot;col&quot;              &quot;d&quot;               
-## [10] &quot;da&quot;               &quot;dCol&quot;             &quot;dl&quot;              
-## [13] &quot;draw.sample.cell&quot; &quot;draw.title&quot;       &quot;draw.vf.cell&quot;    
-## [16] &quot;extra&quot;            &quot;f&quot;                &quot;fi&quot;              
-## [19] &quot;fibSeq&quot;           &quot;fnoise&quot;           &quot;funds&quot;           
-## [22] &quot;get.c&quot;            &quot;get.r&quot;            &quot;githistory2table&quot;
-## [25] &quot;goldenRatio&quot;      &quot;h&quot;                &quot;hcol&quot;            
-## [28] &quot;i&quot;                &quot;info&quot;             &quot;l&quot;               
-## [31] &quot;li&quot;               &quot;m&quot;                &quot;m1&quot;              
-## [34] &quot;m2&quot;               &quot;make.table&quot;       &quot;MAXPLAYS&quot;        
-## [37] &quot;mixed_type&quot;       &quot;myLifeDays&quot;       &quot;myVec&quot;           
-## [40] &quot;n&quot;                &quot;N&quot;                &quot;nc&quot;              
-## [43] &quot;ncirc&quot;            &quot;nPlays&quot;           &quot;nr&quot;              
-## [46] &quot;objectInfo&quot;       &quot;ocode&quot;            &quot;oldpar&quot;          
-## [49] &quot;opar&quot;             &quot;original_dir&quot;     &quot;outcomes&quot;        
-## [52] &quot;p&quot;                &quot;pal&quot;              &quot;par&quot;             
-## [55] &quot;plasmidData&quot;      &quot;plasmidDB&quot;        &quot;pUC19&quot;           
-## [58] &quot;result&quot;           &quot;s&quot;                &quot;sq&quot;              
-## [61] &quot;startTime&quot;        &quot;string&quot;           &quot;stripes&quot;         
-## [64] &quot;task_counter&quot;     &quot;tf&quot;               &quot;tl&quot;              
-## [67] &quot;ts&quot;               &quot;v&quot;                &quot;v0&quot;              
-## [70] &quot;v1&quot;               &quot;v2&quot;               &quot;v5&quot;              
-## [73] &quot;vDist&quot;            &quot;vec&quot;              &quot;x&quot;               
-## [76] &quot;x1&quot;               &quot;x2&quot;               &quot;x3&quot;              
-## [79] &quot;x4&quot;               &quot;y&quot;                &quot;y1&quot;              
-## [82] &quot;y2&quot;               &quot;y3&quot;               &quot;y4&quot;</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-setup.html#cb52-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb52-2"><a href="r-setup.html#cb52-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb52-3"><a href="r-setup.html#cb52-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(a<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span>b<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb52-4"><a href="r-setup.html#cb52-4" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;                &quot;c&quot;               
+## [5] &quot;githistory2table&quot; &quot;task_counter&quot;</code></pre>
 <p>Save one item in an .RData file.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-setup.html#cb58-1" tabindex="-1"></a><span class="fu">save</span>(a, <span class="at">file =</span> <span class="st">&quot;tmp.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-setup.html#cb54-1" tabindex="-1"></a><span class="fu">save</span>(a, <span class="at">file =</span> <span class="st">&quot;tmp.RData&quot;</span>)</span></code></pre></div>
 <p>Remove one item from the Workspace. (Note: the argument for rm() is not the string “a”, but the variable name a. No quotation marks!)</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r-setup.html#cb59-1" tabindex="-1"></a><span class="fu">rm</span>(a)</span>
-<span id="cb59-2"><a href="r-setup.html#cb59-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;aaindex&quot;          &quot;b&quot;                &quot;bet&quot;             
-##  [4] &quot;c&quot;                &quot;CC&quot;               &quot;code&quot;            
-##  [7] &quot;col&quot;              &quot;d&quot;                &quot;da&quot;              
-## [10] &quot;dCol&quot;             &quot;dl&quot;               &quot;draw.sample.cell&quot;
-## [13] &quot;draw.title&quot;       &quot;draw.vf.cell&quot;     &quot;extra&quot;           
-## [16] &quot;f&quot;                &quot;fi&quot;               &quot;fibSeq&quot;          
-## [19] &quot;fnoise&quot;           &quot;funds&quot;            &quot;get.c&quot;           
-## [22] &quot;get.r&quot;            &quot;githistory2table&quot; &quot;goldenRatio&quot;     
-## [25] &quot;h&quot;                &quot;hcol&quot;             &quot;i&quot;               
-## [28] &quot;info&quot;             &quot;l&quot;                &quot;li&quot;              
-## [31] &quot;m&quot;                &quot;m1&quot;               &quot;m2&quot;              
-## [34] &quot;make.table&quot;       &quot;MAXPLAYS&quot;         &quot;mixed_type&quot;      
-## [37] &quot;myLifeDays&quot;       &quot;myVec&quot;            &quot;n&quot;               
-## [40] &quot;N&quot;                &quot;nc&quot;               &quot;ncirc&quot;           
-## [43] &quot;nPlays&quot;           &quot;nr&quot;               &quot;objectInfo&quot;      
-## [46] &quot;ocode&quot;            &quot;oldpar&quot;           &quot;opar&quot;            
-## [49] &quot;original_dir&quot;     &quot;outcomes&quot;         &quot;p&quot;               
-## [52] &quot;pal&quot;              &quot;par&quot;              &quot;plasmidData&quot;     
-## [55] &quot;plasmidDB&quot;        &quot;pUC19&quot;            &quot;result&quot;          
-## [58] &quot;s&quot;                &quot;sq&quot;               &quot;startTime&quot;       
-## [61] &quot;string&quot;           &quot;stripes&quot;          &quot;task_counter&quot;    
-## [64] &quot;tf&quot;               &quot;tl&quot;               &quot;ts&quot;              
-## [67] &quot;v&quot;                &quot;v0&quot;               &quot;v1&quot;              
-## [70] &quot;v2&quot;               &quot;v5&quot;               &quot;vDist&quot;           
-## [73] &quot;vec&quot;              &quot;x&quot;                &quot;x1&quot;              
-## [76] &quot;x2&quot;               &quot;x3&quot;               &quot;x4&quot;              
-## [79] &quot;y&quot;                &quot;y1&quot;               &quot;y2&quot;              
-## [82] &quot;y3&quot;               &quot;y4&quot;</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-setup.html#cb55-1" tabindex="-1"></a><span class="fu">rm</span>(a)</span>
+<span id="cb55-2"><a href="r-setup.html#cb55-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;aaindex&quot;          &quot;b&quot;                &quot;c&quot;                &quot;githistory2table&quot;
+## [5] &quot;task_counter&quot;</code></pre>
 <p>Load what you previously saved.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="r-setup.html#cb61-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;tmp.RData&quot;</span>)</span>
-<span id="cb61-2"><a href="r-setup.html#cb61-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;               
-##  [4] &quot;bet&quot;              &quot;c&quot;                &quot;CC&quot;              
-##  [7] &quot;code&quot;             &quot;col&quot;              &quot;d&quot;               
-## [10] &quot;da&quot;               &quot;dCol&quot;             &quot;dl&quot;              
-## [13] &quot;draw.sample.cell&quot; &quot;draw.title&quot;       &quot;draw.vf.cell&quot;    
-## [16] &quot;extra&quot;            &quot;f&quot;                &quot;fi&quot;              
-## [19] &quot;fibSeq&quot;           &quot;fnoise&quot;           &quot;funds&quot;           
-## [22] &quot;get.c&quot;            &quot;get.r&quot;            &quot;githistory2table&quot;
-## [25] &quot;goldenRatio&quot;      &quot;h&quot;                &quot;hcol&quot;            
-## [28] &quot;i&quot;                &quot;info&quot;             &quot;l&quot;               
-## [31] &quot;li&quot;               &quot;m&quot;                &quot;m1&quot;              
-## [34] &quot;m2&quot;               &quot;make.table&quot;       &quot;MAXPLAYS&quot;        
-## [37] &quot;mixed_type&quot;       &quot;myLifeDays&quot;       &quot;myVec&quot;           
-## [40] &quot;n&quot;                &quot;N&quot;                &quot;nc&quot;              
-## [43] &quot;ncirc&quot;            &quot;nPlays&quot;           &quot;nr&quot;              
-## [46] &quot;objectInfo&quot;       &quot;ocode&quot;            &quot;oldpar&quot;          
-## [49] &quot;opar&quot;             &quot;original_dir&quot;     &quot;outcomes&quot;        
-## [52] &quot;p&quot;                &quot;pal&quot;              &quot;par&quot;             
-## [55] &quot;plasmidData&quot;      &quot;plasmidDB&quot;        &quot;pUC19&quot;           
-## [58] &quot;result&quot;           &quot;s&quot;                &quot;sq&quot;              
-## [61] &quot;startTime&quot;        &quot;string&quot;           &quot;stripes&quot;         
-## [64] &quot;task_counter&quot;     &quot;tf&quot;               &quot;tl&quot;              
-## [67] &quot;ts&quot;               &quot;v&quot;                &quot;v0&quot;              
-## [70] &quot;v1&quot;               &quot;v2&quot;               &quot;v5&quot;              
-## [73] &quot;vDist&quot;            &quot;vec&quot;              &quot;x&quot;               
-## [76] &quot;x1&quot;               &quot;x2&quot;               &quot;x3&quot;              
-## [79] &quot;x4&quot;               &quot;y&quot;                &quot;y1&quot;              
-## [82] &quot;y2&quot;               &quot;y3&quot;               &quot;y4&quot;</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-setup.html#cb57-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;tmp.RData&quot;</span>)</span>
+<span id="cb57-2"><a href="r-setup.html#cb57-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot;                &quot;aaindex&quot;          &quot;b&quot;                &quot;c&quot;               
+## [5] &quot;githistory2table&quot; &quot;task_counter&quot;</code></pre>
 <p>Note: you can save() more than one item in an .RData file. When you then load() the file, all of the objects it contains are loaded. You don’t assign these objects - they are being restored.</p>
 <p>We can use the output of ls() as input to rm() to remove all items from the workspace. (cf. ?rm for details)</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="r-setup.html#cb63-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;task_counter&quot;</span>))</span>
-<span id="cb63-2"><a href="r-setup.html#cb63-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r-setup.html#cb59-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">setdiff</span>(<span class="fu">ls</span>(), <span class="st">&quot;task_counter&quot;</span>))</span>
+<span id="cb59-2"><a href="r-setup.html#cb59-2" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;task_counter&quot;</code></pre>
 <p>The contents of the workspace is displayed in RStudio’s Environment Pane (top-right).</p>
 <p align="center">

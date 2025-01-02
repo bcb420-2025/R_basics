@@ -3,9 +3,9 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
-repo: https://https://github.com/bcb420-2023/R_basics
+repo: https://https://github.com/bcb420-2025/R_basics
 output_dir: docs
-rmd_files: ["index.Rmd", "01-R-installation.Rmd", "02-R-setup.Rmd", "03-R-console.Rmd", "04-R-help.Rmd", "05-R-basic-syntax.Rmd",  "06-R-scalars.Rmd","07-R-Data-Frames.Rmd", "08-R-Lists.Rmd","09-R-Subsetting.Rmd", "10-R-control-structures.Rmd", "11-R-Functions.Rmd","12-R-plotting.Rmd","13-R-code-style.Rmd","14-R-Intro.Rmd"]
+rmd_files: ["Index.Rmd", "01-R-installation.Rmd", "02-R-setup.Rmd", "03-R-console.Rmd", "04-R-help.Rmd", "05-R-basic-syntax.Rmd",  "06-R-scalars.Rmd","07-R-Data-Frames.Rmd", "08-R-Lists.Rmd","09-R-Subsetting.Rmd", "10-R-control-structures.Rmd", "11-R-Functions.Rmd","12-R-plotting.Rmd","13-R-code-style.Rmd","14-R-Intro.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: no
 bookdown::gitbook:

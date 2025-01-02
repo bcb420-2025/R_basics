@@ -131,7 +131,7 @@ If you use a Windows system, you need to know that backslashes – "\\" – have
 
 My home directory...
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 original_dir <- getwd()
 setwd("~") # Note: ~ is the "tilde" - the squiggly line - not the straight hyphen
 getwd()
@@ -139,19 +139,19 @@ getwd()
 
 Relative path: home directory, up one level, then down into baderlab's home directory)
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 setwd("~/../")
 getwd()
 ```
 
 Absolute path: specify the entire string)
-```{r}
+```{r, eval=FALSE}
 setwd("/home/rstudio/projects")
 getwd()
 ```
 
 Reset the directory to the original directory
-```{r}
+```{r, eval=FALSE}
 setwd(original_dir) 
 ```
 

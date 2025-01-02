@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Getting help for R | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Getting help for R | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2024/R_basics" />
+  <meta name="github-repo" content="bcb420-2025/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 Getting help for R | BCB420 - Computational System Biology" />
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -127,6 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -161,9 +162,9 @@ div.csl-indent {
 <li><a href="./">Unit 2 - R Basics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+<li class="chapter" data-level="1.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r_install.html"><a href="r_install.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a>
 <ul>
@@ -625,41 +626,32 @@ sections below, type the commands and explore what they do.
 <p>If you are wondering about the parameters of a function, just hover the cursor over the function name in the script pane or the command line in the console and wait a moment: a little window with the function signature will pop up.</p>
 <p>But for more detailed information, help is available for all commands as well as for the R syntax. As well, help is available to find the names of commands when you are not sure of them. You can get help through the command line, or from a search field in the Help tab of the lower-right pane.</p>
 <p>(help() is a function in R, arguments to a function are passed in parentheses “()”)</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-help.html#cb65-1" tabindex="-1"></a><span class="fu">help</span>(rnorm)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="r-help.html#cb61-1" tabindex="-1"></a><span class="fu">help</span>(rnorm)</span></code></pre></div>
 <p>(shorthand for the same thing)</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-help.html#cb66-1" tabindex="-1"></a>?rnorm</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-help.html#cb62-1" tabindex="-1"></a>?rnorm</span></code></pre></div>
 <p>(what was the name of that again … ?)</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-help.html#cb67-1" tabindex="-1"></a>?binom</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="r-help.html#cb63-1" tabindex="-1"></a>?binom</span></code></pre></div>
 <pre><code>## No documentation for &#39;binom&#39; in specified packages and libraries:
 ## you could try &#39;??binom&#39;</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-help.html#cb69-1" tabindex="-1"></a>??binom</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-help.html#cb65-1" tabindex="-1"></a>??binom</span></code></pre></div>
 <p>(I see “Binomial” in the list of keywords…)</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="r-help.html#cb70-1" tabindex="-1"></a>?Binomial</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-help.html#cb66-1" tabindex="-1"></a>?Binomial</span></code></pre></div>
 <p>(Alternatively: use the apropos() function.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-help.html#cb71-1" tabindex="-1"></a>?apropos</span>
-<span id="cb71-2"><a href="r-help.html#cb71-2" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;med&quot;</span>)   <span class="co"># all functions that contain the string &quot;med&quot;</span></span></code></pre></div>
-<pre><code>##  [1] &quot;.rs.emptyNamedList&quot;                        
-##  [2] &quot;.rs.getDataTableNamedArgumentCompletions&quot;  
-##  [3] &quot;.rs.getDataTableUnnamedArgumentCompletions&quot;
-##  [4] &quot;.rs.getThemeDirFromUrl&quot;                    
-##  [5] &quot;.rs.namedVectorAsList&quot;                     
-##  [6] &quot;elNamed&quot;                                   
-##  [7] &quot;elNamed&lt;-&quot;                                 
-##  [8] &quot;median&quot;                                    
-##  [9] &quot;median.default&quot;                            
-## [10] &quot;medpolish&quot;                                 
-## [11] &quot;runmed&quot;</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="r-help.html#cb73-1" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;^med&quot;</span>)  <span class="co"># all functions that begin with the string</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-help.html#cb67-1" tabindex="-1"></a>?apropos</span>
+<span id="cb67-2"><a href="r-help.html#cb67-2" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;med&quot;</span>)   <span class="co"># all functions that contain the string &quot;med&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;elNamed&quot;        &quot;elNamed&lt;-&quot;      &quot;median&quot;         &quot;median.default&quot;
+## [5] &quot;medpolish&quot;      &quot;runmed&quot;</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-help.html#cb69-1" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;^med&quot;</span>)  <span class="co"># all functions that begin with the string</span></span></code></pre></div>
 <pre><code>## [1] &quot;median&quot;         &quot;median.default&quot; &quot;medpolish&quot;</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="r-help.html#cb75-1" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;med$&quot;</span>)  <span class="co"># all functions that end with the string</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-help.html#cb71-1" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;med$&quot;</span>)  <span class="co"># all functions that end with the string</span></span></code></pre></div>
 <pre><code>## [1] &quot;elNamed&quot; &quot;runmed&quot;</code></pre>
 <p>If you need help on operators, place them in quotation marks. Try:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="r-help.html#cb77-1" tabindex="-1"></a>?<span class="st">&quot;+&quot;</span></span>
-<span id="cb77-2"><a href="r-help.html#cb77-2" tabindex="-1"></a>?<span class="st">&quot;~&quot;</span></span>
-<span id="cb77-3"><a href="r-help.html#cb77-3" tabindex="-1"></a>?<span class="st">&quot;[&quot;</span></span>
-<span id="cb77-4"><a href="r-help.html#cb77-4" tabindex="-1"></a>?<span class="st">&quot;%in%&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="r-help.html#cb73-1" tabindex="-1"></a>?<span class="st">&quot;+&quot;</span></span>
+<span id="cb73-2"><a href="r-help.html#cb73-2" tabindex="-1"></a>?<span class="st">&quot;~&quot;</span></span>
+<span id="cb73-3"><a href="r-help.html#cb73-3" tabindex="-1"></a>?<span class="st">&quot;[&quot;</span></span>
+<span id="cb73-4"><a href="r-help.html#cb73-4" tabindex="-1"></a>?<span class="st">&quot;%in%&quot;</span></span></code></pre></div>
 <p>That’s all fine, but you will soon notice that <strong>R</strong>’s help documentation is very technical and precise but not all that helpful for newcomers (who need the most help). To illustrate, open the help window for the function var().</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="r-help.html#cb78-1" tabindex="-1"></a>?var</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="r-help.html#cb74-1" tabindex="-1"></a>?var</span></code></pre></div>
 <p>Here’s what you might look for:</p>
 <ul>
 <li>The <strong>Description</strong> section describes the function in general technical terms.</li>

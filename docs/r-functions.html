@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 R Functions | BCB420 - Computational System Biology</title>
   <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 R Functions | BCB420 - Computational System Biology" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
-  <meta name="github-repo" content="bcb420-2024/R_basics" />
+  <meta name="github-repo" content="bcb420-2025/R_basics" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 12 R Functions | BCB420 - Computational System Biology" />
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -127,6 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -161,9 +162,9 @@ div.csl-indent {
 <li><a href="./">Unit 2 - R Basics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+<li class="chapter" data-level="1.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r_install.html"><a href="r_install.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a>
 <ul>
@@ -608,59 +609,59 @@ div.csl-indent {
 <h2><span class="header-section-number">12.2</span> Functions<a href="r-functions.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>R</strong> is considered an (impure) functional programming language and thus the focus of <strong>R</strong> programs is on functions. The key advantage is that this encourages programming without side-effects and this makes it easier to write error free code and maintain it. Function parameters<a href="r-code-style.html#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> are instantiated for use inside a function as the function’s arguments, and a single result is returned[However a function may have side-effects, such as writing something to console, plotting graphics, saving data to a file, or changing the value of variables outside the function scope. But changing values outside the scope is poor practice, always to be avoided.]. The return values can either be assigned to a variable, or used directly as the argument of another function. This means functions can be nested, and intermediate assignment is not required.</p>
 <p>Functions are either built-in (i.e. available in the basic <strong>R</strong> installation), loaded via specific packages, or they can be easily defined by you (see below). In general a function is invoked through its name, followed by one or more arguments in parentheses, separated by commas. Whenever I refer to a function, I write the parentheses to identify it as such and not a constant or other keyword eg. log(). Here are some examples for you to try and play with:</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="r-functions.html#cb422-1" tabindex="-1"></a><span class="fu">cos</span>(pi) <span class="co">#&quot;pi&quot; is a predefined constant.</span></span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="r-functions.html#cb418-1" tabindex="-1"></a><span class="fu">cos</span>(pi) <span class="co">#&quot;pi&quot; is a predefined constant.</span></span></code></pre></div>
 <pre><code>## [1] -1</code></pre>
 <p>Note the rounding error. This number is not really different from zero.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="r-functions.html#cb424-1" tabindex="-1"></a><span class="fu">sin</span>(pi)</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="r-functions.html#cb420-1" tabindex="-1"></a><span class="fu">sin</span>(pi)</span></code></pre></div>
 <pre><code>## [1] 1.224647e-16</code></pre>
 <p>Trigonometric functions use radians as their argument - this conversion calculates sin(30 degrees).</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="r-functions.html#cb426-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">30</span> <span class="sc">*</span> pi<span class="sc">/</span><span class="dv">180</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="r-functions.html#cb422-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">30</span> <span class="sc">*</span> pi<span class="sc">/</span><span class="dv">180</span>) </span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 <p>“e” is not predefined, but easy to calculate.</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="r-functions.html#cb428-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="r-functions.html#cb424-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">1</span>)  </span></code></pre></div>
 <pre><code>## [1] 2.718282</code></pre>
 <p>functions can be arguments to functions - nested functions are evaluated from the inside out.</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="r-functions.html#cb430-1" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">exp</span>(<span class="dv">1</span>)) <span class="co">#</span></span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="r-functions.html#cb426-1" tabindex="-1"></a><span class="fu">log</span>(<span class="fu">exp</span>(<span class="dv">1</span>)) <span class="co">#</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>log() calculates natural logarithms; convert to any base by dividing by the log of the base. Here: log to base 10.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="r-functions.html#cb432-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10000</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">10</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="r-functions.html#cb428-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10000</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">10</span>) </span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>Euler’s identity</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="r-functions.html#cb434-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">complex</span>(<span class="at">r=</span><span class="dv">0</span>, <span class="at">i=</span>pi)) </span></code></pre></div>
-<pre><code>## [1] -1+0i</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="r-functions.html#cb430-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">complex</span>(<span class="at">r=</span><span class="dv">0</span>, <span class="at">i=</span>pi)) </span></code></pre></div>
+<pre><code>## [1] -1+1.224647e-16i</code></pre>
 <p>There are several ways to populate the argument list for a function and <strong>R</strong> makes a reasonable guess what you want to do. Arguments can either be used in their predefined order, or assigned via an argument name. Let’s look at the complex() function to illustrate this. Consider the specification of a complex number in Euler’s identity above. The function complex() can work with a number of arguments that are explained in the documentation (see: ?complex). Its signature includes length.out, real, imaginary, and some more.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="r-functions.html#cb436-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">length.out =</span> <span class="dv">0</span>, <span class="at">real =</span> <span class="fu">numeric</span>(), <span class="at">imaginary =</span> <span class="fu">numeric</span>(), <span class="at">modulus =</span> <span class="dv">1</span>, <span class="at">argument =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="r-functions.html#cb432-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">length.out =</span> <span class="dv">0</span>, <span class="at">real =</span> <span class="fu">numeric</span>(), <span class="at">imaginary =</span> <span class="fu">numeric</span>(), <span class="at">modulus =</span> <span class="dv">1</span>, <span class="at">argument =</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] 1+0i</code></pre>
 <p>The length.out argument creates a vector with one or more complex numbers. If nothing else is specified, this will be a vector of complex zero(s). If there are two, or three arguments, they will be placed in the respective slots. However, since the arguments are named, we can also define which slot of the argument list they should populate.</p>
 <p>Consider the following to illustrate this:</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="r-functions.html#cb438-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">1</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="r-functions.html#cb434-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">1</span>)  </span></code></pre></div>
 <pre><code>## [1] 0+0i</code></pre>
 <p>parameter is in the first slot -&gt; length.out</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="r-functions.html#cb440-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="r-functions.html#cb436-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 0+0i 0+0i 0+0i 0+0i</code></pre>
 <p>imaginary part missing</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="r-functions.html#cb442-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">1</span>, <span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="r-functions.html#cb438-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">1</span>, <span class="dv">2</span>) </span></code></pre></div>
 <pre><code>## [1] 2+0i</code></pre>
 <p>one complex number with real and imaginary parts defined</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="r-functions.html#cb444-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="r-functions.html#cb440-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  </span></code></pre></div>
 <pre><code>## [1] 2+3i</code></pre>
 <p>four complex numbers</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="r-functions.html#cb446-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="r-functions.html#cb442-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>) </span></code></pre></div>
 <pre><code>## [1] 2+3i 2+3i 2+3i 2+3i</code></pre>
 <p>defining values via named parameters</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="r-functions.html#cb448-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">real =</span> <span class="dv">0</span>, <span class="at">imaginary =</span> pi)  </span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="r-functions.html#cb444-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">real =</span> <span class="dv">0</span>, <span class="at">imaginary =</span> pi)  </span></code></pre></div>
 <pre><code>## [1] 0+3.141593i</code></pre>
 <p>same thing - if names are used, order is not important</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="r-functions.html#cb450-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">imaginary =</span> pi, <span class="at">real =</span> <span class="dv">0</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="r-functions.html#cb446-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">imaginary =</span> pi, <span class="at">real =</span> <span class="dv">0</span>)  </span></code></pre></div>
 <pre><code>## [1] 0+3.141593i</code></pre>
 <p>names can be abbreviated …</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="r-functions.html#cb452-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">re =</span> <span class="dv">0</span>, <span class="at">im =</span> pi) </span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="r-functions.html#cb448-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">re =</span> <span class="dv">0</span>, <span class="at">im =</span> pi) </span></code></pre></div>
 <pre><code>## [1] 0+3.141593i</code></pre>
 <p>… to the shortest string that is unique among the named parameters, but this is <em>poor</em> practice, strongly advises against.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="r-functions.html#cb454-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">r =</span> <span class="dv">0</span>, <span class="at">i =</span> pi)  </span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="r-functions.html#cb450-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">r =</span> <span class="dv">0</span>, <span class="at">i =</span> pi)  </span></code></pre></div>
 <pre><code>## [1] 0+3.141593i</code></pre>
 <p>Think: what have I done here? Why does this work?</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="r-functions.html#cb456-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">i =</span> pi, <span class="dv">1</span>, <span class="dv">0</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="r-functions.html#cb452-1" tabindex="-1"></a><span class="fu">complex</span>(<span class="at">i =</span> pi, <span class="dv">1</span>, <span class="dv">0</span>) </span></code></pre></div>
 <pre><code>## [1] 0+3.141593i</code></pre>
 </div>
 </div>
