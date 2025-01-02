@@ -162,9 +162,9 @@ div.csl-indent {
 <li><a href="./">Unit 2 - R Basics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r_install.html"><a href="r_install.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a>
 <ul>
@@ -835,7 +835,7 @@ return(invisible(NULL))</p>
 <span id="cb588-7"><a href="r-code-style.html#cb588-7" tabindex="-1"></a>   }</span>
 <span id="cb588-8"><a href="r-code-style.html#cb588-8" tabindex="-1"></a> })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  13.786   0.000  13.785</code></pre>
+##  14.299   0.000  14.299</code></pre>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="r-code-style.html#cb590-1" tabindex="-1"></a> <span class="co"># Even only writing directly to new elements is much, much better:</span></span>
 <span id="cb590-2"><a href="r-code-style.html#cb590-2" tabindex="-1"></a> <span class="fu">system.time</span>({</span>
 <span id="cb590-3"><a href="r-code-style.html#cb590-3" tabindex="-1"></a>   N <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
@@ -845,7 +845,7 @@ return(invisible(NULL))</p>
 <span id="cb590-7"><a href="r-code-style.html#cb590-7" tabindex="-1"></a>   }</span>
 <span id="cb590-8"><a href="r-code-style.html#cb590-8" tabindex="-1"></a> })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.027   0.000   0.027</code></pre>
+##   0.026   0.000   0.026</code></pre>
 <div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="r-code-style.html#cb592-1" tabindex="-1"></a><span class="co"># That&#39;s abaout as fast as doing the same thing with a vapply() function.</span></span>
 <span id="cb592-2"><a href="r-code-style.html#cb592-2" tabindex="-1"></a> </span>
 <span id="cb592-3"><a href="r-code-style.html#cb592-3" tabindex="-1"></a> <span class="co"># The fastest way is to preallocate memory, it actually comes close to the</span></span>

@@ -162,9 +162,9 @@ div.csl-indent {
 <li><a href="./">Unit 2 - R Basics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r_install.html"><a href="r_install.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a>
 <ul>
@@ -688,12 +688,12 @@ plasmidData$Ori != “ColE1” is a logical expression, it gives a vector of TRU
 <pre><code>## [1] &quot;ColE1&quot; &quot;p15A&quot;</code></pre>
 <p>Elements that can be extracted from an object also can be replaced. Simply assign the new value to the element.</p>
 <div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="r-subsetting.html#cb333-1" tabindex="-1"></a>( x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) )</span></code></pre></div>
-<pre><code>##  [1]  6  3  1  5  8  7  4  2  9 10</code></pre>
+<pre><code>##  [1]  1 10  6  4  9  3  2  8  7  5</code></pre>
 <div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="r-subsetting.html#cb335-1" tabindex="-1"></a>x[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="dv">99</span></span>
 <span id="cb335-2"><a href="r-subsetting.html#cb335-2" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>##  [1]  6  3  1 99  8  7  4  2  9 10</code></pre>
+<pre><code>##  [1]  1 10  6 99  9  3  2  8  7  5</code></pre>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="r-subsetting.html#cb337-1" tabindex="-1"></a>( x <span class="ot">&lt;-</span> x[<span class="fu">order</span>(x)] )</span></code></pre></div>
-<pre><code>##  [1]  1  2  3  4  6  7  8  9 10 99</code></pre>
+<pre><code>##  [1]  1  2  3  5  6  7  8  9 10 99</code></pre>
 <p>Try your own subsetting ideas. Play with this. I find that even seasoned investigators have problems with subsetting their data and if you become comfortable with the many ways of subsetting, you will be ahead of the game right away.</p>
 </div>
 <div id="task-21" class="section level2 hasAnchor" number="10.4">
