@@ -658,7 +658,7 @@ Pass the arguments in the following order: length.out, to, from.
 ##         return(x * phi)
 ##     }
 ## }
-## &lt;bytecode: 0x55c0dc9545c0&gt;</code></pre>
+## &lt;bytecode: 0x55ab672301c8&gt;</code></pre>
 <p>But that strictly only works for functions which have been written in basic R code.</p>
 </div>
 <div id="s3-methods" class="section level3 hasAnchor" number="13.3.2">
@@ -667,7 +667,7 @@ Pass the arguments in the following order: length.out, to, from.
 <div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb468-1" tabindex="-1"></a>seq</span></code></pre></div>
 <pre><code>## function (...) 
 ## UseMethod(&quot;seq&quot;)
-## &lt;bytecode: 0x55c0dce008d8&gt;
+## &lt;bytecode: 0x55ab676df0d8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb470-1" tabindex="-1"></a><span class="fu">methods</span>(seq)</span></code></pre></div>
 <pre><code>## [1] seq.Date    seq.default seq.POSIXt 
@@ -844,7 +844,7 @@ Pass the arguments in the following order: length.out, to, from.
 ##     }
 ##     else stop(&quot;too many arguments&quot;)
 ## }
-## &lt;bytecode: 0x55c0dce03860&gt;
+## &lt;bytecode: 0x55ab676de230&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -854,7 +854,7 @@ Pass the arguments in the following order: length.out, to, from.
 <div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb474-1" tabindex="-1"></a>runif</span></code></pre></div>
 <pre><code>## function (n, min = 0, max = 1) 
 ## .Call(C_runif, n, min, max)
-## &lt;bytecode: 0x55c0dea1d9f0&gt;
+## &lt;bytecode: 0x55ab692f85d8&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>To read the C source code, just do a Google search for the function name in the repository where the R sources are kept:</p>
 <p>This search finds runif.c (have a look).<a href="https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;rlz=1C5CHFA_enCA740CA742&amp;oq=site%3Ahttps%3A%2F%2Fsvn.r-project.org%2FR%2Ftrunk%2Fsrc+runif&amp;aqs=chrome..69i57j69i58.3647j0j4&amp;sourceid=chrome&amp;ie=UTF-8">site:https://svn.r-project.org/R/trunk/src runif</a></p>
@@ -929,7 +929,7 @@ Copy, explore and run the below code
 <span id="cb478-12"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb478-12" tabindex="-1"></a>}</span></code></pre></div>
 <p>Use the function (example)</p>
 <div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="the-complex-number-above-is-the-same-as-in-eulers-identity..html#cb479-1" tabindex="-1"></a>   <span class="fu">myLifeDays</span>(<span class="st">&quot;1932-09-25&quot;</span>)  <span class="co"># Glenn Gould&#39;s birthday</span></span></code></pre></div>
-<pre><code>## [1] &quot;This date was 33700 days ago.&quot;</code></pre>
+<pre><code>## [1] &quot;This date was 33702 days ago.&quot;</code></pre>
 <p>Here is a good opportunity to practice programming: modify this function to accept a second argument. When a second argument is present (e.g. 10000) the function should print the calendar date on which the input date will be the required number of days ago. Then you could use it to know when to celebrate your 10,000th life-day, or your 777th anniversary or whatever.</p>
 </div>
 <div id="self-evaluation-10" class="section level2 hasAnchor" number="13.8">

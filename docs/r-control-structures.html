@@ -669,7 +669,7 @@ div.csl-indent {
 <span id="cb343-7"><a href="r-control-structures.html#cb343-7" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb343-8"><a href="r-control-structures.html#cb343-8" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;seven&quot;</span>)</span>
 <span id="cb343-9"><a href="r-control-structures.html#cb343-9" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## [1] &quot;low&quot;</code></pre>
+<pre><code>## [1] &quot;high&quot;</code></pre>
 <p>We need to talk about conditional expressions that test for more than one condition for a moment, things like: “if this is true OR that is true OR my birthday is a Sunday this year …”. To join logical expressions, R has two distinct sets of operators:</p>
 <ul>
 <li><div class="line-block">and ||,</div></li>
@@ -701,7 +701,7 @@ div.csl-indent {
 <p>The ifelse() function deserves special mention: its arguments work like an if / else construct …</p>
 <p>ifelse(5 &gt; 7, TRUE, FALSE)</p>
 <div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="r-control-structures.html#cb354-1" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">&quot;pickles&quot;</span>, <span class="st">&quot;cucumbers&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;cucumbers&quot;</code></pre>
+<pre><code>## [1] &quot;pickles&quot;</code></pre>
 <p>i.e. ifelse(<condition is true>, <evaluate this>, <evaluate that> )</p>
 <p>But the cool thing about ifelse() is that it’s vectorized! You can apply it to a whole vector of conditions at once:</p>
 <div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="r-control-structures.html#cb356-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">27</span>);        <span class="fu">runif</span>(<span class="dv">10</span>)</span></code></pre></div>
@@ -754,14 +754,14 @@ div.csl-indent {
 <span id="cb365-13"><a href="r-control-structures.html#cb365-13" tabindex="-1"></a>    }</span>
 <span id="cb365-14"><a href="r-control-structures.html#cb365-14" tabindex="-1"></a>}</span>
 <span id="cb365-15"><a href="r-control-structures.html#cb365-15" tabindex="-1"></a><span class="fu">head</span>(outcomes, <span class="dv">36</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;  
-## [10] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;seven&quot;
-## [19] &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;high&quot;  &quot;high&quot;  &quot;high&quot; 
-## [28] &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;seven&quot; &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;</code></pre>
+<pre><code>##  [1] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;high&quot;  &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;seven&quot; &quot;seven&quot;
+## [10] &quot;high&quot;  &quot;high&quot;  &quot;low&quot;   &quot;seven&quot; &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;high&quot;  &quot;low&quot;  
+## [19] &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;seven&quot; &quot;high&quot;  &quot;high&quot;  &quot;low&quot;  
+## [28] &quot;high&quot;  &quot;high&quot;  &quot;high&quot;  &quot;seven&quot; &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;low&quot;   &quot;high&quot;</code></pre>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="r-control-structures.html#cb367-1" tabindex="-1"></a><span class="fu">table</span>(outcomes)  <span class="co"># the table() function tabulates the elements</span></span></code></pre></div>
 <pre><code>## outcomes
 ##  high   low seven 
-## 10313 10498  4189</code></pre>
+## 10376 10492  4132</code></pre>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="r-control-structures.html#cb369-1" tabindex="-1"></a>                 <span class="co"># of a vector</span></span></code></pre></div>
 <p>round((36 * table(outcomes))/N) # Can you explain this expression?</p>
 <p>Note that there is nothing special about the expression for (i in 1:N) { … . Any expression that generates a sequence of items will do; I write a lot of code like for (fileName in dir()) { … or for (gene in data$name) {… , or for (column in colnames(expressionTable)) {… etc.</p>
@@ -778,7 +778,7 @@ div.csl-indent {
 <span id="cb370-6"><a href="r-control-structures.html#cb370-6" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[i])         <span class="co"># calculate one square root, grow y to store it</span></span>
 <span id="cb370-7"><a href="r-control-structures.html#cb370-7" tabindex="-1"></a>}</span>
 <span id="cb370-8"><a href="r-control-structures.html#cb370-8" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
-<pre><code>## Time difference of 0.4207757 secs</code></pre>
+<pre><code>## Time difference of 0.643281 secs</code></pre>
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="r-control-structures.html#cb372-1" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
 <span id="cb372-2"><a href="r-control-structures.html#cb372-2" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
 <p>Version 2: Define result object to be large enough</p>
@@ -790,7 +790,7 @@ div.csl-indent {
 <span id="cb373-6"><a href="r-control-structures.html#cb373-6" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[i])         <span class="co"># calculate one square root, store in Y</span></span>
 <span id="cb373-7"><a href="r-control-structures.html#cb373-7" tabindex="-1"></a>}</span>
 <span id="cb373-8"><a href="r-control-structures.html#cb373-8" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
-<pre><code>## Time difference of 0.07872367 secs</code></pre>
+<pre><code>## Time difference of 0.07021832 secs</code></pre>
 <div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="r-control-structures.html#cb375-1" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
 <span id="cb375-2"><a href="r-control-structures.html#cb375-2" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
 <p>Version 3: vectorized</p>
@@ -799,7 +799,7 @@ div.csl-indent {
 <span id="cb376-3"><a href="r-control-structures.html#cb376-3" tabindex="-1"></a>startTime <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()      <span class="co"># save start time</span></span>
 <span id="cb376-4"><a href="r-control-structures.html#cb376-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x)                 <span class="co"># sqrt() is vectorized!</span></span>
 <span id="cb376-5"><a href="r-control-structures.html#cb376-5" tabindex="-1"></a><span class="fu">Sys.time</span>() <span class="sc">-</span> startTime       <span class="co"># time it took</span></span></code></pre></div>
-<pre><code>## Time difference of 0.005831003 secs</code></pre>
+<pre><code>## Time difference of 0.00537467 secs</code></pre>
 <div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="r-control-structures.html#cb378-1" tabindex="-1"></a><span class="fu">rm</span>(x)                        <span class="co"># clean up</span></span>
 <span id="cb378-2"><a href="r-control-structures.html#cb378-2" tabindex="-1"></a><span class="fu">rm</span>(y)</span></code></pre></div>
 <p><strong>The tiny change of pre-allocating memory for the result object y, rather than dynamically growing the vector has made a huge difference. But using the vectorized version of the sqrt() function directly is the fastest approach.</strong></p>

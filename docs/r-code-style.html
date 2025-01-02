@@ -835,7 +835,7 @@ return(invisible(NULL))</p>
 <span id="cb588-7"><a href="r-code-style.html#cb588-7" tabindex="-1"></a>   }</span>
 <span id="cb588-8"><a href="r-code-style.html#cb588-8" tabindex="-1"></a> })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  14.089   0.000  14.090</code></pre>
+##  13.786   0.000  13.785</code></pre>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="r-code-style.html#cb590-1" tabindex="-1"></a> <span class="co"># Even only writing directly to new elements is much, much better:</span></span>
 <span id="cb590-2"><a href="r-code-style.html#cb590-2" tabindex="-1"></a> <span class="fu">system.time</span>({</span>
 <span id="cb590-3"><a href="r-code-style.html#cb590-3" tabindex="-1"></a>   N <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
@@ -859,13 +859,13 @@ return(invisible(NULL))</p>
 <span id="cb592-11"><a href="r-code-style.html#cb592-11" tabindex="-1"></a>   }</span>
 <span id="cb592-12"><a href="r-code-style.html#cb592-12" tabindex="-1"></a> })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.006   0.000   0.007</code></pre>
+##   0.006   0.000   0.006</code></pre>
 <div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="r-code-style.html#cb594-1" tabindex="-1"></a><span class="co"># Using a vectorized operation is the fastest approach overall and the</span></span>
 <span id="cb594-2"><a href="r-code-style.html#cb594-2" tabindex="-1"></a><span class="co"># method of choice:</span></span>
 <span id="cb594-3"><a href="r-code-style.html#cb594-3" tabindex="-1"></a> </span>
 <span id="cb594-4"><a href="r-code-style.html#cb594-4" tabindex="-1"></a><span class="fu">system.time</span>({ v <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100000</span>) })</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##       0       0       0</code></pre>
+##   0.001   0.000   0.001</code></pre>
 <ul>
 <li>Don’t buy into the “apply good, for-loop bad” nonsense. Especially not if you need speed: a well-written for-loop will outperform an apply() statement, which internally uses a for-loop anyway. The reason we often use apply() is because we are following a functional programming idiom, not because there is something magical and exalted about the apply() function. It’s usually a bit subtle which idiom is “better” at any given time.</li>
 </ul>

@@ -110,6 +110,7 @@ Then do the following:
 
 ```
 
+
  
 ## Working directory
 
@@ -295,7 +296,7 @@ Version: 1.1.1<br>
 ### Updated Revision history
 ```{r echo=FALSE}
 source("./bcb420_books_helper_functions.R")
-knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input())))
+knitr::kable(githistory2table(git2r::commits(repo=".",path=knitr::current_input(),reverse = FALSE, n = 3)))
 
 ```
 
